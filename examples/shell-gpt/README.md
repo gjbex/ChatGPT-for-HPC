@@ -23,6 +23,9 @@ Examples of code generation using ChatGPT.
    docstring for a Python function in scipy-format.
 1. `translate_code.txt`: translate a documented Python class into a
    C++ class.
+1. `improve_code.txt`: ask ChatGPT for suggestion on how to improve
+   the code for a C++ class according to best practices and coding
+   guidelines.
 
 ### How to use?
 
