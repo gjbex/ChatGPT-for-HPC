@@ -2,8 +2,10 @@
 
 shell-gpt allows you to interact with ChatGPT from the command line.
 
-The `output` directory contains the responses to the queries generated
-by ChatGPT 3.5 turbo.
+  * The `src` directory contains source code used in these experiments.
+  * The `output` directory contains the responses to the queries generated
+    by ChatGPT 3.5 turbo.
+
 
 ## Code generation
 
