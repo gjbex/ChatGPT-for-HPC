@@ -2,6 +2,8 @@
 
 shell-gpt allows you to interact with ChatGPT from the command line.
 
+The `output` directory contains the responses to the queries generated
+by ChatGPT 3.5 turbo.
 
 ## Code generation
 
@@ -19,8 +21,8 @@ Examples of code generation using ChatGPT.
    for edge and corner cases for use with pytest.
 1. `generate_documentation_distance.txt`: ask ChatGPT to suggest a
    docstring for a Python function in scipy-format.
-1. `output`: directory containing the output of the queries.
-
+1. `translate_code.txt`: translate a documented Python class into a
+   C++ class.
 
 ### How to use?
 
