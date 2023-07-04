@@ -1,0 +1,37 @@
+import pytest
+from math import isclose
+
+def test_compute_stats_empty_data():
+    data = []
+    n, mean, stddev = compute_stats(data)
+    assert n == 0
+    assert mean == 0.0
+    assert stddev == 0.0
+
+def test_compute_stats_single_value():
+    data = [5]
+    n, mean, stddev = compute_stats(data)
+    assert n == 1
+    assert mean == 5.0
+    assert stddev == 0.0
+
+def test_compute_stats_multiple_values():
+    data = [1, 2, 3, 4, 5]
+    n, mean, stddev = compute_stats(data)
+    assert n == 5
+    assert mean == 3.0
+    assert isclose(stddev, 1.5811, rel_tol=1e-4)
+
+def test_compute_stats_negative_values():
+    data = [-1, -2, -3, -4, -5]
+    n, mean, stddev = compute_stats(data)
+    assert n == 5
+    assert mean == -3.0
+    assert isclose(stddev, 1.5811, rel_tol=1e-4)
+
+def test_compute_stats_mixed_values():
+    data = [-1, 2, -3, 4, -5]
+    n, mean, stddev = compute_stats(data)
+    assert n == 5
+    assert mean == -0.6
+    assert isclose(stddev, 3.2619, rel_tol=1e-4)

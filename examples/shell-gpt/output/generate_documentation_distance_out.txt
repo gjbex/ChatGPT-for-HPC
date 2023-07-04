@@ -1,0 +1,17 @@
+def distance(p1, p2):
+    """
+    Calculate the Euclidean distance between two points in 3D space.
+
+    Parameters
+    ----------
+    p1 : Point
+        The first point in 3D space.
+    p2 : Point
+        The second point in 3D space.
+
+    Returns
+    -------
+    float
+        The Euclidean distance between p1 and p2.
+    """
+    return math.sqrt((p1.x - p2.x)**2 + (p1.y - p2.y)**2 + (p1.z - p2.z)**2)

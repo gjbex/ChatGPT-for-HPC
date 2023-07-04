@@ -1,0 +1,11 @@
+Consider the following Python function:
+
+def distance(p1, p2):
+    return math.sqrt((p1.x - p2.x)**2 + (p1.y - p2.y)**2 + (p1.z - p2.z)**2)
+
+Suggest a docstring for the function distance that
+  * summarizes what the function does;
+  * what the expectation are of the function's parameters p1 and p2; and
+  * what the return type of the function is.
+
+The docstring should be in scipy format.

@@ -1,0 +1,29 @@
+def compute_stats(data):
+    """
+    Compute the number of elements, mean, and standard deviation of a given data set.
+
+    Parameters
+    ----------
+    data : list or array-like
+        The data set for which statistics are computed.
+
+    Returns
+    -------
+    n : int
+        The number of elements in the data set.
+    mean : float
+        The mean of the data set.
+    stddev : float
+        The standard deviation of the data set.
+    """
+    n = 0
+    sum = 0.0
+    sum2 = 0.0
+    for value in data:
+        n += 1
+        sum += value
+    mean = sum/n
+    for value in data:
+        sum2 += (value - mean)**2
+    stddev = sqrt(sum2/(n - 1))
+    return n, mean, stddev
