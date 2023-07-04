@@ -1,0 +1,12 @@
+name: chatgpt
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - openai
+  - ca-certificates
+  - openssl
+  - langchain
+  - certifi
+  - shell-gpt
+prefix: /home/gjb/mambaforge/envs/chatgpt
