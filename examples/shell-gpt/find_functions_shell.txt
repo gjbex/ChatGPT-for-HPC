@@ -1,0 +1,5 @@
+I want to find the names of all the functions defined in Python
+scripts located in the current working directory, as well as in subdirectories
+in the current working directory.  I only want the names of the functions and the
+file they occur in, not the entire line.
+Do not show editor backup files, only consider files with names that end in .py

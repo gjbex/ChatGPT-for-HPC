@@ -1,0 +1,2 @@
+grep -r -o -P "(?<=def )\w+" --include "*.py" .
+[E]xecute, [D]escribe, [A]bort: 
