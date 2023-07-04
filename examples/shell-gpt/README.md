@@ -28,6 +28,9 @@ Examples of code generation using ChatGPT.
 1. `improve_code_quality.txt`: ask ChatGPT for suggestion on how to improve
    the code for a C++ class according to best practices and coding
    guidelines.
+1. `improve_code_performance.txt`: ask ChatGPT to improve the performance
+   of a Python function.
+
 
 ### How to use?
 

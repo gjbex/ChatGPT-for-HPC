@@ -1,0 +1,9 @@
+import math
+
+def compute_stats(data):
+    n = len(data)
+    sum = sum(data)
+    mean = sum/n
+    sum2 = sum((value - mean)**2 for value in data)
+    stddev = math.sqrt(sum2/(n - 1))
+    return n, mean, stddev
