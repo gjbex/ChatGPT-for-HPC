@@ -1,0 +1,37 @@
+#ifndef PIXEL_HDR
+#define  PIXEL_HDR
+
+class Pixel {
+private:
+    std::string _color;
+    std::pair<int, int> _pos;
+
+public:
+    Pixel(std::string color, std::pair<int, int> pos) : _color(color), _pos(pos) {}
+
+    int red() {
+        return std::stoi(_color.substr(1, 2), nullptr, 16);
+    }
+
+    int green() {
+        return std::stoi(_color.substr(3, 2), nullptr, 16);
+    }
+
+    int blue() {
+        return std::stoi(_color.substr(5, 2), nullptr, 16);
+    }
+
+    int x() {
+        return _pos.first;
+    }
+
+    int y() {
+        return _pos.second;
+    }
+
+    std::string repr() {
+        return "(" + std::to_string(x()) + ", " + std::to_string(y()) + "): " + _color;
+    }
+};
+
+#endif
