@@ -11,3 +11,10 @@ of High-Performance Computing (HPC).
    development and software engineering.
 1. `LICENSE`: CC-BY 4 license for this material.
 1. `CONTRIBUTING.md`: how to contribute to this material.
+
+
+## Contributors
+
+  * Frederik De Ceuster (KU Leuvne)
+  * Frédéric Wautelet (CECI)
+  * [Geert Jan Bex](mailto:geertjan.bex@uhasselt.be) (Vlaams Supercomputer Centrum, Hasselt University)
