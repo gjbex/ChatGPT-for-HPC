@@ -30,6 +30,7 @@ Examples of code generation using ChatGPT.
    guidelines.
 1. `improve_code_performance.txt`: ask ChatGPT to improve the performance
    of a Python function.
+1. `refactor_code.txt`: ask ChatGPT to convert a Python AoS into a SoA.
 
 
 ### How to use?
