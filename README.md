@@ -15,6 +15,6 @@ of High-Performance Computing (HPC).
 
 ## Contributors
 
-  * Frederik De Ceuster (KU Leuvne)
+  * Frederik De Ceuster (KU Leuven)
   * Frédéric Wautelet (CECI)
   * [Geert Jan Bex](mailto:geertjan.bex@uhasselt.be) (Vlaams Supercomputer Centrum, Hasselt University)
