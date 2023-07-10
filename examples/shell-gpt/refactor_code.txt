@@ -1,0 +1,32 @@
+Consider the following code:
+
+class Particle:
+
+    def __init__(self, x, y, mass):
+        self.x = x
+        self.y = y
+        self.mass = mass
+
+class System:
+
+    def __init__(self):
+        self.system = []
+
+    def __len__(self):
+        return len(self.system)
+
+    def add(self, particle):
+        self.system.append(patricle)
+
+    def center_of_mass(self):
+        x, y, total_mass = 0.0, 0.0, 0.0
+        for particle in self.system:
+            x += particle.mass*particle.x
+            y += particle.mass*particle.y
+            total_mass += particle.mass
+        return x/total_mass, y/total_mass
+
+Can you describe what the center_of_mass method does?  The System class is essentially a list of particles,
+so an array of structures.  Can you transform it into a structure of arrays?y
+
+Please use a zip function rather than a range whenever possible.
