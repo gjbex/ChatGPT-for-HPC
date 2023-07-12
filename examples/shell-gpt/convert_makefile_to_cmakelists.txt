@@ -1,0 +1,25 @@
+Can you convert the following GNU make file to a CMake CMakeLists.txt file?
+  * The name of the project will be "gpu_openmp", the language is C++  and
+    the version of the project is 1.0.
+  * The command line options for the compiler should be set on each
+    individual target.
+  * The command line options for the linker should be set on each
+    individual target.
+  * The required C++ version is C++17.  Adherence to the C++ specification
+    should be enforced, and no C++ extensions are allowed.
+  * You can ignore the "clean" target.
+
+CXX = nvc++
+CXXFLAGS = -mp=gpu
+LDFLAGS = -mp=gpu
+
+all: devices.exe hello_world.exe
+
+%.exe: %.o
+	$(CXX) $(LDFLAGS) -o $@ $<
+
+%.o: %.c
+	$(CXX) -c $(CXXFLAGS) $<
+
+clean:
+	$(RM) $(wildcard *.o) $(wildcard *.exe)
