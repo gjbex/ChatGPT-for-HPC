@@ -1,0 +1,5 @@
+# configuration file
+*.conf
+
+# chromaDB directory
+chroma/

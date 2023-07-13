@@ -3,10 +3,13 @@ channels:
   - conda-forge
 dependencies:
   - python
-  - openai
+  - langchain
   - ca-certificates
   - openssl
-  - langchain
+  - openai
   - certifi
-  - shell-gpt
+  - jupyterlab
+  - chromadb
+  - tiktoken
+  - clickhouse-driver
 prefix: /home/gjb/mambaforge/envs/chatgpt
