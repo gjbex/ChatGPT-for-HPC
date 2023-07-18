@@ -9,3 +9,5 @@ Here you find links to conversations with ChatGPT.
    implementation of the factorial function in C/C++.
 1. [Lennard-Jones potential and force](https://chat.openai.com/share/5d9fb2f6-0d64-4a56-96b7-23db767c2bc1):
    ChatGPT gets the derivation of the force wrong, but corrects when prompted.
+1. [Documentation generation & refactoring](https://chat.openai.com/share/cbc7b6cf-fd57-451d-a3e8-20134827de59):
+   conversation about a particle simulation code.
