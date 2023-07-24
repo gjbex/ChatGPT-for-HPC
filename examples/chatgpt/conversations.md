@@ -11,3 +11,6 @@ Here you find links to conversations with ChatGPT.
    ChatGPT gets the derivation of the force wrong, but corrects when prompted.
 1. [Documentation generation & refactoring](https://chat.openai.com/share/cbc7b6cf-fd57-451d-a3e8-20134827de59):
    conversation about a particle simulation code.
+1. [Generalize from examples](https://chat.openai.com/share/76085ca1-5750-4d3a-bff5-045aaea0b43d): from an exaample
+   for a $2 \times 2$ and a $3 \times 3$ matrix rotation, generalize to a function for a $n \times n$ matrix using
+   GPT-4.
