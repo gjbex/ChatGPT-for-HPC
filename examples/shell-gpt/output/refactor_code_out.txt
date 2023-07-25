@@ -1,0 +1,27 @@
+The center_of_mass method calculates the center of mass of the particles in the system. It iterates through each particle in the system and calculates the weighted sum of their positions based on their masses. It then divides the sum of the weighted positions by the total mass of the system to obtain the coordinates of the center of mass.
+
+To transform the System class into a structure of arrays, you can use the zip function to group the x, y, and mass attributes of the particles into separate arrays. Here's an example of how you can modify the code:
+
+```python
+class System:
+    def __init__(self):
+        self.x = []
+        self.y = []
+        self.mass = []
+
+    def __len__(self):
+        return len(self.x)
+
+    def add(self, particle):
+        self.x.append(particle.x)
+        self.y.append(particle.y)
+        self.mass.append(particle.mass)
+
+    def center_of_mass(self):
+        total_mass = sum(self.mass)
+        x = sum(m * px for m, px in zip(self.mass, self.x))
+        y = sum(m * py for m, py in zip(self.mass, self.y))
+        return x / total_mass, y / total_mass
+```
+
+In this modified version, the System class maintains separate arrays for the x, y, and mass attributes of the particles. The add method appends the corresponding values to these arrays. The center_of_mass method then calculates the center of mass using the zip function to iterate over the arrays simultaneously.

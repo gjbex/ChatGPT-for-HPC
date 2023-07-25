@@ -30,7 +30,9 @@ Examples of code generation using ChatGPT.
    guidelines.
 1. `improve_code_performance.txt`: ask ChatGPT to improve the performance
    of a Python function.
-
+1. `refactor_code.txt`: ask ChatGPT to convert a Python AoS into a SoA.
+1. `convert_makefile_to_cmakelists.txt`: ask ChatGPT to convert a Makefile
+   into a CMakeLists.txt file.
 
 ### How to use?
 
@@ -61,3 +63,27 @@ $ sgpt  --shell  "$(<generate_documentation.txt)"
 ```
 Note that you are prompted what to do with the command, where executing
 it is an option.  Do so at your own peril.
+
+
+## Conversations
+
+You can also use shell-gpt to chat with ChatGPT.
+
+
+### What is it?
+
+1. `openmp_exercises_conversation.txt`: conversation with ChatGPT on
+   a set of exercises on OpenMP programming.
+
+
+### How to use it?
+
+Each conversation has an identifier so that you can refer to it later.  To
+start a conversation named "`openmp_exercises`" you can use the following.
+
+```bash
+$ sgpt --chat openmp_exercises "Can you suggest..."
+```
+
+Calling `sgpt` with the same identifier will continue the conversation for,
+e.g., followup questions.
