@@ -1,7 +1,8 @@
 # Sourcery
 
-sourcery.ai is a service for AI code reviews and automatic refactoring.  It
-can be run on a Github repository, or integrated in various IDEs.
+[sourcery](https://sourcery.ai/).ai is a service for AI code reviews and
+automatic refactoring.  It can be run on a Github repository, or integrated
+in various IDEs.
 
 If you run it on a Github repository, you can choose the branch and it will
 generate a pull request with the proposed refactorings against that branch.
