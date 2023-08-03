@@ -8,6 +8,8 @@ If you run it on a Github repository, you can choose the branch and it will
 generate a pull request with the proposed refactorings against that branch.
 After reviewing the proposed changes, you can merge the pull request.
 
+Note that this will only work for Python, not for C/C++/Fortran.
+
 
 ## Examples
 
