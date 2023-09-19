@@ -8,6 +8,7 @@
 ## Videos & podcasts
 
   * [State of ChatGPT](https://youtu.be/bZQun8Y4L2A)
+  * [How will AI impact High Performance Computing](https://youtu.be/o57kUFz4Ko0?si=Ck4ksmLbFDWKsGzb)
 
 ## Software
 
