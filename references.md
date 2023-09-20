@@ -4,6 +4,7 @@
 
   * [Using ChatGPT to create software tests](https://thenewstack.io/using-chatgpt-to-create-software-tests/?utm_source=pocket_saves)
   * [Using ChatGPT for efficient debugging](https://towardsdatascience.com/using-chatgpt-for-efficient-debugging-fc9e065b7856)
+  * [Telling AI model to “take a deep breath” causes math scores to soar in study](https://arstechnica.com/information-technology/2023/09/telling-ai-model-to-take-a-deep-breath-causes-math-scores-to-soar-in-study/?utm_source=pocket_saves)
 
 ## Videos & podcasts
 
