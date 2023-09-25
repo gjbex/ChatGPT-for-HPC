@@ -16,5 +16,5 @@ of High-Performance Computing (HPC) and software development.
 ## Contributors
 
   * Frederik De Ceuster (KU Leuven)
-  * Frédéric Wautelet (CECI)
+  * [Frédéric Wautelet](mailto:frederic.wautelet@unamur.be) (University of Namur)
   * [Geert Jan Bex](mailto:geertjan.bex@uhasselt.be) (Vlaams Supercomputer Centrum, Hasselt University)
