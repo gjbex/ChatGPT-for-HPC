@@ -10,4 +10,4 @@ corresponding Ansible code.
 
 ## What is it?
 
-1. `[playbooks.md](playbooks.md)`: Links to interesting examples.
+1. `[playbooks.yml](playbooks.yml)`: Links to interesting examples.
