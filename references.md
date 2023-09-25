@@ -10,6 +10,7 @@
 
   * [State of ChatGPT](https://youtu.be/bZQun8Y4L2A)
   * [How will AI impact High Performance Computing](https://youtu.be/o57kUFz4Ko0?si=Ck4ksmLbFDWKsGzb)
+  * [Prompt Engineering Overview](https://www.youtube.com/watch?v=dOxUroR57xs)
 
 ## Software
 
@@ -17,3 +18,5 @@
   * [shell-gpt](https://github.com/TheR1D/shell_gpt)
   * [LangChain](https://python.langchain.com/docs/get_started/introduction.html)
   * [Github Copilot](https://github.com/features/copilot)
+  * [codeium](https://codeium.com)
+  * [Ansible Lightspeed](https://www.redhat.com/en/engage/ansible-lightspeed)
