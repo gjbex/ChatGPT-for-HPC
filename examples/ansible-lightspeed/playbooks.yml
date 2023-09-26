@@ -1,0 +1,43 @@
+- name: Lightspeed_demo
+  hosts: rhel
+  become: true
+
+  tasks:
+    - name: Download and install MySQL
+      ansible.builtin.package:
+        name: "{{ item }}"
+        state: present
+        loop:
+            - mysql-server
+            - MySQL-python
+            - libselinux-python
+            - libsemanage-python
+    
+    - name: config | set innodb_buffer_pool_size to 64M.
+      community.mysql.mysql_variables:
+        variable: innodb_buffer_pool_size
+        value: 64M
+    
+    - name: config | create slurm database
+      community.mysql.mysql_db:
+        name: slurm
+        state: present
+      register: slurm__database_created
+    
+    - name: config | create slurm user in database
+      community.mysql.mysql_user:
+        login_unix_socket: "{{ slurm__mysql_socket }}"
+        name: "{{ _name_ }}"
+        password: "{{ _password_ }}"
+        priv: slurm.*:ALL
+        host: "{{ item }}"
+        state: present
+      loop:
+        - '%'
+        - localhost
+      when: slurm__database_created.changed
+ 
+    - name: config | set innodb_lock_wait_timeout to 120 seconds
+      community.mysql.mysql_variables:
+        variable: innodb_lock_wait_timeout
+        value: "{{ _value_ }}"
