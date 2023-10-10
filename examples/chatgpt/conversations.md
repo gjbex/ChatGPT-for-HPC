@@ -17,3 +17,6 @@ Here you find links to conversations with ChatGPT.
 1. [slurm job metrics](https://chat.openai.com/share/2a0efaf7-0cae-4b72-93c4-2ab92ceda864): 
    ask GPT-4 for the slurm command to gather information sufficient to estimate the parallel
    efficiency of a job.
+1. [GPI data analysis](https://chat.openai.com/share/671287f4-e152-4ba6-a3ad-11d3425857d0):
+   analyze the Global Peace Index (GPI) dataset using ChatGPT-4 with the Advanced Data
+   Analysis feature enabled.
