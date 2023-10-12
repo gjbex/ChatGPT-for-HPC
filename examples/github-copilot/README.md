@@ -18,6 +18,8 @@ screencast that show GitHub Copilot in action in the neovim editor.
 1. `command_line_arguments.cast`: [screencast](https://asciinema.org/a/613753) of writing
    a C++ function to handle command line arguments, as well as the corresponding header
    file.
+1. `documentation.cast`: [screencast](https://asciinema.org/a/613818https://asciinema.org/a/613818)
+   iluustrating the generation of Doxygen documentation from the implementation of a function.
 
 ## How to use?
 
