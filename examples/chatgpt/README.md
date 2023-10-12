@@ -7,7 +7,7 @@ questions.
 
 ## What is it?
 
-1. `[conversations.md](conversations.md)`: Links to interesting conversations
+1. [`conversations.md`](conversations.md): Links to interesting conversations
    on various topics related to software development and supercomputing.
 1. `conversations/`: directory containing these conversation in MarkDown
    format.

@@ -20,3 +20,5 @@ Here you find links to conversations with ChatGPT.
 1. [GPI data analysis](https://chat.openai.com/share/671287f4-e152-4ba6-a3ad-11d3425857d0):
    analyze the Global Peace Index (GPI) dataset using ChatGPT-4 with the Advanced Data
    Analysis feature enabled.
+1. [m4 macro for string substitution](https://chat.openai.com/share/edae3999-df97-4c0b-bc83-b2477c413585):
+   illustration of the perils of fringe subjects.
