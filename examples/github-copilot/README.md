@@ -1,10 +1,10 @@
-# Github Copilot
+# GitHub Copilot
 
-Github Copilot can be a huge help when writing code.
+GitHub Copilot can be a huge help when writing code.
 It will monitor what you do, and adapt to your coding style.
 
 Here you can find a number of [asciinema](https://asciinema.org/)
-screencast that show Github Copilot in action in the neovim editor.
+screencast that show GitHub Copilot in action in the neovim editor.
 
 
 ## What is it?
