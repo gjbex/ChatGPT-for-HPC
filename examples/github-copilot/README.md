@@ -15,7 +15,9 @@ screencast that show Github Copilot in action in the neovim editor.
 1. `counting_nucleotides.cast`: [screencast](https://asciinema.org/a/598907)
    of writing a C++ application to count nucleotides in a text file that contains a
    DNA sequence.
-
+1. `command_line_arguments.cast`: [screencast](https://asciinema.org/a/613753) of writing
+   a C++ function to handle command line arguments, as well as the corresponding header
+   file.
 
 ## How to use?
 
@@ -24,6 +26,11 @@ you can play asciinema casts on the command line as follows.
 
 ```bash
 $ asciinema play brownian_motion.cast
+```
+
+To limit the idle time, use `-i`, to speedup the playback, use `-s`, e.g.,
+```bash
+$ asciinema play -i 1 -s 1.5 brownian_motion
 ```
 
 Note that you may have to install asciinema on your system first.
