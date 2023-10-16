@@ -22,3 +22,11 @@ Here you find links to conversations with ChatGPT.
    Analysis feature enabled.
 1. [m4 macro for string substitution](https://chat.openai.com/share/edae3999-df97-4c0b-bc83-b2477c413585):
    illustration of the perils of fringe subjects.
+1. [Debugging a segmentation fault](https://chat.openai.com/share/bdde1463-84aa-49c5-b4a1-89e774dc25b6):
+   illustrates how ChatGPT-4 with Advance Data Analysis can be used to identify the cause of a
+   segmentation fault.
+1. [Data analysis of a plot](https://chat.openai.com/c/f7a7d7ee-3b87-48c8-9bd7-efe29a4fa7eb):
+   ChatGPT uses a PNG file that shows a noisy data plot and performs approximate
+   data analysis tasks such as linear and quadratic regression, also estimating
+   the R^2 value.  Note that due to the inclusion of images, this conversation
+   cannot be shared.

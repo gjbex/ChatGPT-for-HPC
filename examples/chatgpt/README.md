@@ -11,3 +11,4 @@ questions.
    on various topics related to software development and supercomputing.
 1. `conversations/`: directory containing these conversation in MarkDown
    format.
+1. `src/`: directory containing source code for examples.

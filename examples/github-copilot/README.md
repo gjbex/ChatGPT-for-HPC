@@ -1,10 +1,10 @@
-# Github Copilot
+# GitHub Copilot
 
-Github Copilot can be a huge help when writing code.
+GitHub Copilot can be a huge help when writing code.
 It will monitor what you do, and adapt to your coding style.
 
 Here you can find a number of [asciinema](https://asciinema.org/)
-screencast that show Github Copilot in action in the neovim editor.
+screencast that show GitHub Copilot in action in the neovim editor.
 
 
 ## What is it?
@@ -15,7 +15,11 @@ screencast that show Github Copilot in action in the neovim editor.
 1. `counting_nucleotides.cast`: [screencast](https://asciinema.org/a/598907)
    of writing a C++ application to count nucleotides in a text file that contains a
    DNA sequence.
-
+1. `command_line_arguments.cast`: [screencast](https://asciinema.org/a/613753) of writing
+   a C++ function to handle command line arguments, as well as the corresponding header
+   file.
+1. `documentation.cast`: [screencast](https://asciinema.org/a/613818https://asciinema.org/a/613818)
+   iluustrating the generation of Doxygen documentation from the implementation of a function.
 
 ## How to use?
 
@@ -24,6 +28,11 @@ you can play asciinema casts on the command line as follows.
 
 ```bash
 $ asciinema play brownian_motion.cast
+```
+
+To limit the idle time, use `-i`, to speedup the playback, use `-s`, e.g.,
+```bash
+$ asciinema play -i 1 -s 1.5 brownian_motion
 ```
 
 Note that you may have to install asciinema on your system first.
