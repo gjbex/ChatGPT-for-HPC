@@ -15,3 +15,4 @@ Examples of using various AI tools for software development/engineering.
    asciinema screen casts.
 1. `sourcery`: examples of using sourcery for code reviews/refactoring of
    Github repositories.
+1. `aichat`: examples of using the `aichat` tool.

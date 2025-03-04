@@ -1,0 +1,11 @@
+# aichat
+
+aichat is a command line front-end that can be used in several
+scenarios.
+
+
+## What is it?
+
+1. `grammar.md`: description of a role as a grammar and spelling corrector.
+1. `bad_text.txt`: an example of a badly written text with many grammar and
+   spelling errors.
