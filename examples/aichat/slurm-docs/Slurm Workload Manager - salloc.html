@@ -1,0 +1,2754 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://slurm.schedmd.com/salloc.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+	<meta name="viewport" content="width=device-width">
+
+	<title>Slurm Workload Manager - salloc</title>
+	<link rel="canonical" href="https://slurm.schedmd.com/salloc.html">
+
+	<link rel="shortcut icon" href="https://slurm.schedmd.com/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - salloc_files/fonts.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - salloc_files/reset.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - salloc_files/style.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - salloc_files/slurm.css">
+
+	<script async="" src="./Slurm Workload Manager - salloc_files/async-ads.js.download"></script><script src="./Slurm Workload Manager - salloc_files/jquery.min.js.download"></script>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+		jQuery('.menu-trigger').bind('click touchstart', function() {
+			jQuery(this).find('.menu-trigger__lines').toggleClass('menu-trigger__lines--closed');
+			jQuery(this).parents('.site-header').find('.site-nav').toggleClass('site-nav--active');
+
+			return false;
+		});
+	});
+	</script>
+	<script async="" src="./Slurm Workload Manager - salloc_files/f.txt"></script>
+<script src="./Slurm Workload Manager - salloc_files/cse_element__en.js.download" type="text/javascript"></script><link type="text/css" href="./Slurm Workload Manager - salloc_files/default+en.css" rel="stylesheet"><link type="text/css" href="./Slurm Workload Manager - salloc_files/default.css" rel="stylesheet"><style type="text/css">.gsc-control-cse{font-family:arial, sans-serif}.gsc-control-cse .gsc-table-result{font-family:arial, sans-serif}.gsc-refinementsGradient{background:linear-gradient(to left,rgba(255,255,255,1),rgba(255,255,255,0))}.gsc-control-cse{border-color:#FFFFFF;background-color:#FFFFFF}input.gsc-input,.gsc-input-box,.gsc-input-box-hover,.gsc-input-box-focus{border-color:#D9D9D9}.gsc-search-button-v2,.gsc-search-button-v2:hover,.gsc-search-button-v2:focus{border-color:#666666;background-color:#1BAEE9;background-image:none;filter:none}.gsc-search-button-v2 svg{fill:#FFFFFF}.gsc-tabHeader.gsc-tabhActive,.gsc-refinementHeader.gsc-refinementhActive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-tabHeader.gsc-tabhInactive,.gsc-refinementHeader.gsc-refinementhInactive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-webResult.gsc-result,.gsc-results .gsc-imageResult{border-color:#FFFFFF;background-color:#FFFFFF}.gsc-webResult.gsc-result:hover{border-color:#FFFFFF;background-color:#FFFFFF}.gs-webResult.gs-result a.gs-title:link,.gs-webResult.gs-result a.gs-title:link b,.gs-imageResult a.gs-title:link,.gs-imageResult a.gs-title:link b{color:#0000CC}.gs-webResult.gs-result a.gs-title:visited,.gs-webResult.gs-result a.gs-title:visited b,.gs-imageResult a.gs-title:visited,.gs-imageResult a.gs-title:visited b{color:#0000CC}.gs-webResult.gs-result a.gs-title:hover,.gs-webResult.gs-result a.gs-title:hover b,.gs-imageResult a.gs-title:hover,.gs-imageResult a.gs-title:hover b{color:#0000CC}.gs-webResult.gs-result a.gs-title:active,.gs-webResult.gs-result a.gs-title:active b,.gs-imageResult a.gs-title:active,.gs-imageResult a.gs-title:active b{color:#0000CC}.gsc-cursor-page{color:#0000CC}a.gsc-trailing-more-results:link{color:#0000CC}.gs-webResult:not(.gs-no-results-result):not(.gs-error-result) .gs-snippet,.gs-fileFormatType{color:#000000}.gs-webResult div.gs-visibleUrl{color:#008000}.gs-webResult div.gs-visibleUrl-short{color:#008000}.gsc-cursor-box{border-color:#FFFFFF}.gsc-results .gsc-cursor-box .gsc-cursor-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-results .gsc-cursor-box .gsc-cursor-current-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-webResult.gsc-result.gsc-promotion{border-color:#336699;background-color:#FFFFFF}.gsc-completion-title{color:#0000CC}.gsc-completion-snippet{color:#000000}.gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link{color:#0000CC}.gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited{color:#0000CC}.gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover{color:#0000CC}.gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active{color:#0000CC}.gs-promotion .gs-snippet,.gs-promotion .gs-title .gs-promotion-title-right,.gs-promotion .gs-title .gs-promotion-title-right *{color:#000000}.gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short{color:#008000}.gcsc-find-more-on-google{color:#0000CC}.gcsc-find-more-on-google-magnifier{fill:#0000CC}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{vertical-align:middle;opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gssb_a{padding:0 9px}.gsib_a{padding:5px 9px 4px 9px}.gscb_a{line-height:27px}.gssb_e{border:0}.gssb_l{margin:5px 0}input.gsc-input::-webkit-input-placeholder{font-size:14px}input.gsc-input:-moz-placeholder{font-size:14px}input.gsc-input::-moz-placeholder{font-size:14px}input.gsc-input:-ms-input-placeholder{font-size:14px}input.gsc-input:focus::-webkit-input-placeholder{color:transparent}input.gsc-input:focus:-moz-placeholder{color:transparent}input.gsc-input:focus::-moz-placeholder{color:transparent}input.gsc-input:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
+
+<body data-new-gr-c-s-check-loaded="14.1224.0" data-gr-ext-installed="">
+
+<div class="container container--main">
+
+	<header class="site-header" role="banner">
+
+		<div class="site-masthead">
+			<h1 class="site-masthead__title site-masthead__title--slurm">
+				<a href="https://slurm.schedmd.com/" rel="home">
+					<span class="slurm-logo">Slurm Workload Manager</span>
+				</a>
+			</h1>
+			<div class="site-masthead__title">
+				<a href="https://www.schedmd.com/" rel="home">
+					<span class="site-logo">SchedMD</span>
+				</a>
+			</div>
+
+			<button class="site-masthead__trigger menu-trigger" type="button" role="button" aria-label="Toggle Navigation"><span class="menu-trigger__lines"></span></button>
+		</div>
+
+
+		<nav class="site-nav" role="navigation">
+			<h2 class="site-nav__title">Navigation</h2>
+
+			<div class="slurm-title">
+				<div class="slurm-logo"><a href="https://slurm.schedmd.com/">Slurm Workload Manager</a></div>
+				<div class="slurm-title__version">Version 24.11</div>
+			</div>
+
+			<ul class="site-nav__menu site-menu menu">
+				<li class="site-menu__item">
+				        <div>About</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/overview.html">Overview</a></li>
+						<li><a href="https://slurm.schedmd.com/release_notes.html">Release Notes</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Using</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/documentation.html">Documentation</a></li>
+						<li><a href="https://slurm.schedmd.com/faq.html">FAQ</a></li>
+						<li><a href="https://www.schedmd.com/publications/">Publications</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Installing</div>
+					<ul>
+						<li><a href="https://www.schedmd.com/download-slurm/">Download</a></li>
+						<li><a href="https://slurm.schedmd.com/related_software.html">Related Software</a></li>
+						<li><a href="https://slurm.schedmd.com/quickstart_admin.html">Installation Guide</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Getting Help</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/mail.html">Mailing Lists</a></li>
+						<li><a href="https://www.schedmd.com/slurm-support/our-services/">Support and Training</a></li>
+						<li><a href="https://slurm.schedmd.com/troubleshoot.html">Troubleshooting</a></li>
+					</ul>
+				</li>
+			</ul>
+
+		</nav>
+
+	</header>
+
+	<div class="content" role="main">
+		<section class="slurm-search">
+			<div class="container" id="cse">
+				<div id="___gcse_0"><div class="gsc-control-cse gsc-control-cse-en"><div class="gsc-control-wrapper-cse" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" role="presentation" id="gs_id50" class="gstl_50 gsc-input" style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" aria-label="search" id="gsc-i-id1" dir="ltr" spellcheck="false" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; background: url(&quot;https://www.google.com/cse/static/images/1x/en/branding.png&quot;) left center no-repeat rgb(255, 255, 255); outline: none;"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" title="Clear search box" role="button" style="display: none;"><span class="gscb_a" id="gs_cb50" aria-hidden="true">×</span></a></div></td></tr></tbody></table></div></td><td class="gsc-search-button"><button class="gsc-search-button gsc-search-button-v2"><svg width="13" height="13" viewBox="0 0 13 13"><title>search</title><path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path></svg></button></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table></form><div class="gsc-results-wrapper-nooverlay"><div class="gsc-positioningWrapper"><div class="gsc-tabsAreaInvisible"><div aria-label="refinement" role="tab" class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Custom Search</div><span class="gs-spacer"> </span></div></div><div class="gsc-positioningWrapper"><div class="gsc-refinementsAreaInvisible"></div></div><div class="gsc-above-wrapper-area-invisible"><div class="gsc-above-wrapper-area-backfill-container"></div><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-above-wrapper-area-container"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td><td class="gsc-orderby-container"><div class="gsc-orderby-invisible"><div class="gsc-orderby-label gsc-inline-block">Sort by:</div><div class="gsc-option-menu-container gsc-inline-block"><div class="gsc-selected-option-container gsc-inline-block"><div class="gsc-selected-option">Relevance</div><div class="gsc-option-selector"></div></div><div class="gsc-option-menu-invisible"><div class="gsc-option-menu-item gsc-option-menu-item-highlighted"><div class="gsc-option">Relevance</div></div><div class="gsc-option-menu-item"><div class="gsc-option">Date</div></div></div></div></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><div><div class="gsc-expansionArea"></div></div></div></div></div></div></div></div></div>
+			</div>
+		</section>
+
+		<div class="section">
+			<div class="container">
+
+<h1>salloc</h1>
+Section: Slurm Commands (1)<br>Updated: Slurm Commands<br><a href="https://slurm.schedmd.com/salloc.html#index">Index</a>
+
+<p>
+<a name="lbAB">&nbsp;</a>
+</p><h2>NAME<a class="slurm_link" id="SECTION_NAME" href="https://slurm.schedmd.com/salloc.html#SECTION_NAME"></a></h2>
+salloc - Obtain a Slurm job allocation (a set of nodes), execute a command,
+and then release the allocation when the command is finished.
+<p>
+<a name="lbAC">&nbsp;</a>
+</p><h2>SYNOPSIS<a class="slurm_link" id="SECTION_SYNOPSIS" href="https://slurm.schedmd.com/salloc.html#SECTION_SYNOPSIS"></a></h2>
+<b>salloc</b> [<i>OPTIONS(0)</i>...] [ : [<i>OPTIONS(N)</i>...]] [<i>command(0)</i> [<i>args(0)</i>...]]
+<p>
+Option(s) define multiple jobs in a co-scheduled heterogeneous job.
+For more details about heterogeneous jobs see the document
+<br>
+
+<a href="https://slurm.schedmd.com/heterogeneous_jobs.html">https://slurm.schedmd.com/heterogeneous_jobs.html</a>
+</p><p>
+<a name="lbAD">&nbsp;</a>
+</p><h2>DESCRIPTION<a class="slurm_link" id="SECTION_DESCRIPTION" href="https://slurm.schedmd.com/salloc.html#SECTION_DESCRIPTION"></a></h2>
+salloc is used to allocate a Slurm job allocation, which is a set of resources
+(nodes), possibly with some set of constraints (e.g. number of processors per
+node). When salloc successfully obtains the requested allocation, it then runs
+the command specified by the user. Finally, when the user specified command is
+complete, salloc relinquishes the job allocation.
+<p>
+The command may be any program the user wishes. Some typical commands are
+xterm, a shell script containing srun commands, and srun (see the EXAMPLES
+section). If no command is specified, then <b>salloc</b> runs the user's default
+shell.
+</p><p>
+The following document describes the influence of various options on the
+allocation of cpus to jobs and tasks.
+<br>
+
+<a href="https://slurm.schedmd.com/cpu_management.html">https://slurm.schedmd.com/cpu_management.html</a>
+</p><p>
+<b>NOTE</b>: The salloc logic includes support to save and restore the terminal
+line settings and is designed to be executed in the foreground. If you need to
+execute salloc in the background, set its standard input to some file, for
+example: "salloc -n16 a.out &lt;/dev/null &amp;"
+</p><p>
+<a name="lbAE">&nbsp;</a>
+</p><h2>RETURN VALUE<a class="slurm_link" id="SECTION_RETURN-VALUE" href="https://slurm.schedmd.com/salloc.html#SECTION_RETURN-VALUE"></a></h2>
+If salloc is unable to execute the user command, it will
+return 1 and print errors to stderr. Else if success or if killed by signals
+HUP, INT, KILL, or QUIT: it will return 0.
+<p>
+<a name="lbAF">&nbsp;</a>
+</p><h2>COMMAND PATH RESOLUTION<a class="slurm_link" id="SECTION_COMMAND-PATH-RESOLUTION" href="https://slurm.schedmd.com/salloc.html#SECTION_COMMAND-PATH-RESOLUTION"></a></h2>
+<p>
+If provided, the command is resolved in the following order:
+<br>
+
+</p><p>
+1. If command starts with ".", then path is constructed as:
+current working directory / command
+<br>
+
+2. If command starts with a "/", then path is considered absolute.
+<br>
+
+3. If command can be resolved through PATH. See <b>path_resolution</b>(7).
+<br>
+
+4. If command is in current working directory.
+</p><p>
+
+Current working directory is the calling process working directory unless the
+<b>--chdir</b> argument is passed, which will override the current working
+directory.
+</p><p>
+<a name="lbAG">&nbsp;</a>
+</p><h2>OPTIONS<a class="slurm_link" id="SECTION_OPTIONS" href="https://slurm.schedmd.com/salloc.html#SECTION_OPTIONS"></a></h2>
+<p>
+
+</p><p>
+</p><dl compact="">
+<dt><b>-A</b>, <b>--account</b>=&lt;<i>account</i>&gt;<a class="slurm_link" id="OPT_account" href="https://slurm.schedmd.com/salloc.html#OPT_account"></a></dt><dd>Charge resources used by this job to specified account.
+The <i>account</i> is an arbitrary string. The account name may
+be changed after job submission using the <b>scontrol</b>
+command.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--acctg-freq</b>=&lt;<i>datatype</i>&gt;=&lt;<i>interval</i>&gt;[,&lt;<i>datatype</i>&gt;=&lt;<i>interval</i>&gt;...]<a class="slurm_link" id="OPT_acctg-freq" href="https://slurm.schedmd.com/salloc.html#OPT_acctg-freq"></a></dt><dd>Define the job accounting and profiling sampling intervals in seconds.
+This can be used to override the <i>JobAcctGatherFrequency</i> parameter in
+the slurm.conf file. &lt;<i>datatype</i>&gt;=&lt;<i>interval</i>&gt; specifies the task
+sampling interval for the jobacct_gather plugin or a
+sampling interval for a profiling type by the
+acct_gather_profile plugin. Multiple
+comma-separated &lt;<i>datatype</i>&gt;=&lt;<i>interval</i>&gt; pairs
+may be specified. Supported <i>datatype</i> values are:
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>task</b><a class="slurm_link" id="OPT_task" href="https://slurm.schedmd.com/salloc.html#OPT_task"></a></dt><dd>Sampling interval for the jobacct_gather plugins and for task
+profiling by the acct_gather_profile plugin.
+<br>
+
+<b>NOTE</b>: This frequency is used to monitor memory usage. If memory limits
+are enforced the highest frequency a user can request is what is configured in
+the slurm.conf file. It can not be disabled.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>energy</b><a class="slurm_link" id="OPT_energy" href="https://slurm.schedmd.com/salloc.html#OPT_energy"></a></dt><dd>Sampling interval for energy profiling using the
+acct_gather_energy plugin.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>network</b><a class="slurm_link" id="OPT_network" href="https://slurm.schedmd.com/salloc.html#OPT_network"></a></dt><dd>Sampling interval for infiniband profiling using the
+acct_gather_interconnect plugin.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>filesystem</b><a class="slurm_link" id="OPT_filesystem" href="https://slurm.schedmd.com/salloc.html#OPT_filesystem"></a></dt><dd>Sampling interval for filesystem profiling using the
+acct_gather_filesystem plugin.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<p>
+
+The default value for the task sampling interval is 30 seconds.
+The default value for all other intervals is 0.
+An interval of 0 disables sampling of the specified type.
+If the task sampling interval is 0, accounting
+information is collected only at job termination (reducing Slurm
+interference with the job).
+<br>
+
+Smaller (non-zero) values have a greater impact upon job performance,
+but a value of 30 seconds is not likely to be noticeable for
+applications having less than 10,000 tasks.
+</p></dd></dl>
+
+<p>
+</p></dd><dt><b>--bb</b>=&lt;<i>spec</i>&gt;<a class="slurm_link" id="OPT_bb" href="https://slurm.schedmd.com/salloc.html#OPT_bb"></a></dt><dd>Burst buffer specification. The form of the specification is system dependent.
+Note the burst buffer may not be accessible from a login node, but require
+that salloc spawn a shell on one of its allocated compute nodes.
+When the <b>--bb</b> option is used, Slurm parses this option and creates a
+temporary burst buffer script file that is used internally by the burst buffer
+plugins. See Slurm's burst buffer guide for more information and examples:
+<br>
+
+<a href="https://slurm.schedmd.com/burst_buffer.html">https://slurm.schedmd.com/burst_buffer.html</a>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--bbf</b>=&lt;<i>file_name</i>&gt;<a class="slurm_link" id="OPT_bbf" href="https://slurm.schedmd.com/salloc.html#OPT_bbf"></a></dt><dd>Path of file containing burst buffer specification.
+The form of the specification is system dependent.
+Also see <b>--bb</b>.
+Note the burst buffer may not be accessible from a login node, but require
+that salloc spawn a shell on one of its allocated compute nodes.
+See Slurm's burst buffer guide for more information and examples:
+<br>
+
+<a href="https://slurm.schedmd.com/burst_buffer.html">https://slurm.schedmd.com/burst_buffer.html</a>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--begin</b>=&lt;<i>time</i>&gt;<a class="slurm_link" id="OPT_begin" href="https://slurm.schedmd.com/salloc.html#OPT_begin"></a></dt><dd>Defer eligibility of this job allocation until the specified time.
+<p>
+Time may be of the form <i>HH:MM:SS</i> to run a job at
+a specific time of day (seconds are optional).
+(If that time is already past, the next day is assumed.)
+You may also specify <i>midnight</i>, <i>noon</i>, <i>elevenses</i> (11 AM),
+<i>fika</i> (3 PM) or <i>teatime</i> (4 PM) and you can have a time-of-day
+suffixed with <i>AM</i> or <i>PM</i> for running in the morning or the evening.
+You can also say what day the job will be run, by specifying
+a date of the form <i>MMDDYY</i> or <i>MM/DD/YY</i>
+<i>YYYY-MM-DD</i>. Combine date and time using the following
+format <i>YYYY-MM-DD[THH:MM[:SS]]</i>. You can also
+give times like <i>now + count time-units</i>, where the time-units
+can be <i>seconds</i> (default), <i>minutes</i>, <i>hours</i>,
+<i>days</i>, or <i>weeks</i> and you can tell Slurm to run
+the job today with the keyword <i>today</i> and to run the
+job tomorrow with the keyword <i>tomorrow</i>.
+The value may be changed after job submission using the
+<b>scontrol</b> command.
+For example:
+</p><pre>   --begin=16:00
+   --begin=now+1hour
+   --begin=now+60           (seconds by default)
+   --begin=2010-01-20T12:34:00
+</pre>
+
+<p>
+</p><dl compact=""><dt></dt><dd>
+<p>
+
+Notes on date/time specifications:
+<br>&nbsp;-&nbsp;Although&nbsp;the&nbsp;'seconds'&nbsp;field&nbsp;of&nbsp;the&nbsp;HH:MM:SS&nbsp;time&nbsp;specification&nbsp;is
+allowed by the code, note that the poll time of the Slurm scheduler
+is not precise enough to guarantee dispatch of the job on the exact
+second. The job will be eligible to start on the next poll
+following the specified time. The exact poll interval depends on the
+Slurm scheduler (e.g., 60 seconds with the default sched/builtin).
+<br>&nbsp;-&nbsp;If&nbsp;no&nbsp;time&nbsp;(HH:MM:SS)&nbsp;is&nbsp;specified,&nbsp;the&nbsp;default&nbsp;is&nbsp;(00:00:00).
+<br>&nbsp;-&nbsp;If&nbsp;a&nbsp;date&nbsp;is&nbsp;specified&nbsp;without&nbsp;a&nbsp;year&nbsp;(e.g.,&nbsp;MM/DD)&nbsp;then&nbsp;the&nbsp;current
+year is assumed, unless the combination of MM/DD and HH:MM:SS has
+already passed for that year, in which case the next year is used.
+</p></dd></dl>
+
+<p>
+</p></dd><dt><b>--bell</b><a class="slurm_link" id="OPT_bell" href="https://slurm.schedmd.com/salloc.html#OPT_bell"></a></dt><dd>Force salloc to ring the terminal bell when the job allocation is granted
+(and only if stdout is a tty). By default, salloc only rings the bell
+if the allocation is pending for more than ten seconds (and only if stdout
+is a tty). Also see the option <b>--no-bell</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-D</b>, <b>--chdir</b>=&lt;<i>path</i>&gt;<a class="slurm_link" id="OPT_chdir" href="https://slurm.schedmd.com/salloc.html#OPT_chdir"></a></dt><dd>Change directory to <i>path</i> before beginning execution. The path
+can be specified as full path or relative path to the directory where
+the command is executed.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--cluster-constraint</b>=&lt;<i>list</i>&gt;<a class="slurm_link" id="OPT_cluster-constraint" href="https://slurm.schedmd.com/salloc.html#OPT_cluster-constraint"></a></dt><dd>Specifies features that a federated cluster must have to have a sibling job
+submitted to it. Slurm will attempt to submit a sibling job to a cluster if it
+has at least one of the specified features.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-M</b>, <b>--clusters</b>=&lt;<i>string</i>&gt;<a class="slurm_link" id="OPT_clusters" href="https://slurm.schedmd.com/salloc.html#OPT_clusters"></a></dt><dd>Clusters to issue commands to. Multiple cluster names may be comma separated.
+The job will be submitted to the one cluster providing the earliest expected
+job initiation time. The default value is the current cluster. A value of
+'<i>all</i>' will query to run on all clusters.
+Note that the <b>slurmdbd</b> must be up for this option to work properly, unless
+running in a federation with <b>FederationParameters=fed_display</b> configured.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--comment</b>=&lt;<i>string</i>&gt;<a class="slurm_link" id="OPT_comment" href="https://slurm.schedmd.com/salloc.html#OPT_comment"></a></dt><dd>An arbitrary comment.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-C</b>, <b>--constraint</b>=&lt;<i>list</i>&gt;<a class="slurm_link" id="OPT_constraint" href="https://slurm.schedmd.com/salloc.html#OPT_constraint"></a></dt><dd>Nodes can have <b>features</b> assigned to them by the Slurm administrator.
+Users can specify which of these <b>features</b> are required by their job
+using the constraint option. If you are looking for 'soft' constraints please
+see <b>--prefer</b> for more information.
+Only nodes having features matching the job constraints will be used to
+satisfy the request.
+Multiple constraints may be specified with AND, OR, matching OR,
+resource counts, etc. (some operators are not supported on all system types).
+<p>
+<b>NOTE</b>: Changeable features are features defined by a NodeFeatures plugin.
+</p><p>
+Supported <b>--constraint</b> options include:
+</p></dd><dt></dt><dd>
+
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>Single Name</b><a class="slurm_link" id="OPT_Single-Name" href="https://slurm.schedmd.com/salloc.html#OPT_Single-Name"></a></dt><dd>Only nodes which have the specified feature will be used.
+For example, <b>--constraint="intel"</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Node Count</b><a class="slurm_link" id="OPT_Node-Count" href="https://slurm.schedmd.com/salloc.html#OPT_Node-Count"></a></dt><dd>A request can specify the number of nodes needed with some feature
+by appending an asterisk and count after the feature name.
+For example, <b>--nodes=16 --constraint="graphics*4"</b>
+indicates that the job requires 16 nodes and that at least four of those
+nodes must have the feature "graphics."
+If requesting more than one feature and using node counts, the request
+must have square brackets surrounding it.
+<p>
+<b>NOTE</b>: This option is not supported by the helpers NodeFeatures plugin.
+Heterogeneous jobs can be used instead.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>AND</b><a class="slurm_link" id="OPT_AND" href="https://slurm.schedmd.com/salloc.html#OPT_AND"></a></dt><dd>Only nodes with all of specified features will be used.
+The ampersand is used for an AND operator.
+For example, <b>--constraint="intel&amp;gpu"</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>OR</b><a class="slurm_link" id="OPT_OR" href="https://slurm.schedmd.com/salloc.html#OPT_OR"></a></dt><dd>Only nodes with at least one of specified features will be used.
+The vertical bar is used for an OR operator. If changeable features are not
+requested, nodes in the allocation can have different features. For example,
+<b>salloc -N2 --constraint="intel|amd"</b> can result in a job allocation
+where one node has the intel feature and the other node has the amd feature.
+However, if the expression contains a changeable feature, then all OR operators
+are automatically treated as Matching OR so that all nodes in the job
+allocation have the same set of features. For example,
+<b>salloc -N2 --constraint="foo|bar&amp;baz"</b>
+The job is allocated two nodes where both nodes have foo, or bar and baz (one
+or both nodes could have foo, bar, and baz). The helpers NodeFeatures plugin
+will find the first set of node features that matches all nodes in the job
+allocation; these features are set as active features on the node and passed to
+RebootProgram (see <b><a href="https://slurm.schedmd.com/slurm.conf.html">slurm.conf</a></b>(5)) and the helper script (see
+<b><a href="https://slurm.schedmd.com/helpers.conf.html">helpers.conf</a></b>(5)). In this case, the helpers plugin uses the first of
+"foo" or "bar,baz" that match the two nodes in the job allocation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Matching OR</b><a class="slurm_link" id="OPT_Matching-OR" href="https://slurm.schedmd.com/salloc.html#OPT_Matching-OR"></a></dt><dd>If only one of a set of possible options should be used for all allocated
+nodes, then use the OR operator and enclose the options within square brackets.
+For example, <b>--constraint="[rack1|rack2|rack3|rack4]"</b> might
+be used to specify that all nodes must be allocated on a single rack of
+the cluster, but any of those four racks can be used.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Multiple Counts</b><a class="slurm_link" id="OPT_Multiple-Counts" href="https://slurm.schedmd.com/salloc.html#OPT_Multiple-Counts"></a></dt><dd>Specific counts of multiple resources may be specified by using the AND
+operator and enclosing the options within square brackets.
+For example, <b>--constraint="[rack1*2&amp;rack2*4]"</b> might
+be used to specify that two nodes must be allocated from nodes with the feature
+of "rack1" and four nodes must be allocated from nodes with the feature
+"rack2".
+<p>
+<b>NOTE</b>: This construct does not support multiple Intel KNL NUMA or MCDRAM
+modes. For example, while <b>--constraint="[(knl&amp;quad)*2&amp;(knl&amp;hemi)*4]"</b> is
+not supported, <b>--constraint="[haswell*2&amp;(knl&amp;hemi)*4]"</b> is supported.
+Specification of multiple KNL modes requires the use of a heterogeneous job.
+</p><p>
+<b>NOTE</b>: This option is not supported by the helpers NodeFeatures plugin.
+</p><p>
+<b>NOTE</b>: Multiple Counts can cause jobs to be allocated with a non-optimal
+network layout.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Brackets</b><a class="slurm_link" id="OPT_Brackets" href="https://slurm.schedmd.com/salloc.html#OPT_Brackets"></a></dt><dd>Brackets can be used to indicate that you are looking for a set of nodes with
+the different requirements contained within the brackets. For example,
+<b>--constraint="[(rack1|rack2)*1&amp;(rack3)*2]"</b> will get you one node with
+either the "rack1" or "rack2" features and two nodes with the "rack3" feature.
+If requesting more than one feature and using node counts, the request
+must have square brackets surrounding it.
+<p>
+<b>NOTE</b>: Brackets are only reserved for <b>Multiple Counts</b> and
+<b>Matching OR</b> syntax.
+AND operators require a count for each feature inside square brackets
+(i.e. "[quad*2&amp;hemi*1]"). Slurm will only allow a single set of bracketed
+constraints per job.
+</p><p>
+<b>NOTE</b>: Square brackets are not supported by the helpers NodeFeatures
+plugin. Matching OR can be requested without square brackets by using the
+vertical bar character with at least one changeable feature.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Parentheses</b><a class="slurm_link" id="OPT_Parentheses" href="https://slurm.schedmd.com/salloc.html#OPT_Parentheses"></a></dt><dd>Parentheses can be used to group like node features together. For example,
+<b>--constraint="[(knl&amp;snc4&amp;flat)*4&amp;haswell*1]"</b> might be used to specify
+that four nodes with the features "knl", "snc4" and "flat" plus one node with
+the feature "haswell" are required.
+Parentheses can also be used to group operations. Without parentheses, node
+features are parsed strictly from left to right.
+For example,
+<b>--constraint="foo&amp;bar|baz"</b> requests nodes with foo and bar, or baz.
+<b>--constraint="foo|bar&amp;baz"</b> requests nodes with foo and baz, or bar and
+baz (note how baz was AND'd with everything).
+<b>--constraint="foo&amp;(bar|baz)"</b> requests nodes with foo and at least
+one of bar or baz.
+<b>NOTE</b>: OR within parentheses should not be used with a KNL
+NodeFeatures plugin but is supported by the helpers NodeFeatures plugin.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--container</b>=&lt;<i>path_to_container</i>&gt;<a class="slurm_link" id="OPT_container" href="https://slurm.schedmd.com/salloc.html#OPT_container"></a></dt><dd>Absolute path to OCI container bundle.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--container-id</b>=&lt;<i>container_id</i>&gt;<a class="slurm_link" id="OPT_container-id" href="https://slurm.schedmd.com/salloc.html#OPT_container-id"></a></dt><dd>Unique name for OCI container.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--contiguous</b><a class="slurm_link" id="OPT_contiguous" href="https://slurm.schedmd.com/salloc.html#OPT_contiguous"></a></dt><dd>If set, then the allocated nodes must form a contiguous set.
+<p>
+<b>NOTE</b>: If the SelectType is cons_tres this option won't be honored
+with the <b>topology/tree</b> or <b>topology/3d_torus</b>
+plugins, both of which can modify the node ordering.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-S</b>, <b>--core-spec</b>=&lt;<i>num</i>&gt;<a class="slurm_link" id="OPT_core-spec" href="https://slurm.schedmd.com/salloc.html#OPT_core-spec"></a></dt><dd>Count of Specialized Cores per node reserved by the job for system operations
+and not used by the application.
+If AllowSpecResourcesUsage is enabled a job can override the CoreSpecCount of
+all its allocated nodes with this option.
+The overridden Specialized Cores will still be reserved for system processes.
+The job will get an implicit <b>--exclusive</b> allocation for the rest of
+the Cores on the nodes, resulting in the job's processes being able to use (and
+being charged for) all the Cores on the nodes except for the overridden
+Specialized Cores.
+This option can not be used with the <b>--thread-spec</b> option.
+<p>
+<b>NOTE</b>: Explicitly setting a job's specialized core value implicitly sets
+the --exclusive option.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--cores-per-socket</b>=&lt;<i>cores</i>&gt;<a class="slurm_link" id="OPT_cores-per-socket" href="https://slurm.schedmd.com/salloc.html#OPT_cores-per-socket"></a></dt><dd>Restrict node selection to nodes with at least the specified number of
+cores per socket. See additional information under <b>-B</b> option
+above when task/affinity plugin is enabled.
+<br>
+
+<b>NOTE</b>: This option may implicitly set the number of tasks (if <b>-n</b>
+was not specified) as one task per requested thread.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--cpu-freq</b>=&lt;<i>p1</i>&gt;[-<i>p2</i>][:<i>p3</i>]<a class="slurm_link" id="OPT_cpu-freq" href="https://slurm.schedmd.com/salloc.html#OPT_cpu-freq"></a></dt><dd><p>
+Request that job steps initiated by srun commands inside this allocation
+be run at some requested frequency if possible, on the CPUs selected
+for the step on the compute node(s).
+</p><p>
+<b>p1</b> can be [#### | low | medium | high | highm1] which will set the
+frequency scaling_speed to the corresponding value, and set the frequency
+scaling_governor to UserSpace. See below for definition of the values.
+</p><p>
+<b>p1</b> can be [Conservative | OnDemand | Performance | PowerSave] which
+will set the scaling_governor to the corresponding value. The governor has to be
+in the list set by the slurm.conf option CpuFreqGovernors.
+</p><p>
+When <b>p2</b> is present, <b>p1</b> will be the minimum scaling frequency and
+<b>p2</b> will be the maximum scaling frequency. In that case the governor
+<b>p3</b> or CpuFreqDef cannot be UserSpace since it doesn't support a range.
+</p><p>
+<b>p2</b> can be [#### | medium | high | highm1]. p2 must be greater than p1 and
+is incompatible with UserSpace governor.
+</p><p>
+<b>p3</b> can be [Conservative | OnDemand | Performance | PowerSave | SchedUtil |
+UserSpace]
+which will set the governor to the corresponding value.
+</p><p>
+If <b>p3</b> is UserSpace, the frequency scaling_speed, scaling_max_freq and
+scaling_min_freq will be statically set to the value defined by <b>p1</b>.
+</p><p>
+Any requested frequency below the minimum available frequency will be rounded
+to the minimum available frequency. In the same way, any requested frequency
+above the maximum available frequency will be rounded to the maximum available
+frequency.
+</p><p>
+The <b>CpuFreqDef</b> parameter in slurm.conf will be used to set the governor
+in absence of <b>p3</b>. If there's no <b>CpuFreqDef</b>, the default governor
+will be to use the system current governor set in each cpu. Specifying a
+range without <b>CpuFreqDef</b> or a specific governor is therefore not allowed.
+</p><p>
+Acceptable values at present include:
+</p><dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>####</b><a class="slurm_link" id="OPT_####" href="https://slurm.schedmd.com/salloc.html#OPT_####"></a></dt><dd>frequency in kilohertz
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Low</b><a class="slurm_link" id="OPT_Low" href="https://slurm.schedmd.com/salloc.html#OPT_Low"></a></dt><dd>the lowest available frequency
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>High</b><a class="slurm_link" id="OPT_High" href="https://slurm.schedmd.com/salloc.html#OPT_High"></a></dt><dd>the highest available frequency
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>HighM1</b><a class="slurm_link" id="OPT_HighM1" href="https://slurm.schedmd.com/salloc.html#OPT_HighM1"></a></dt><dd>(high minus one) will select the next highest available frequency
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Medium</b><a class="slurm_link" id="OPT_Medium" href="https://slurm.schedmd.com/salloc.html#OPT_Medium"></a></dt><dd>attempts to set a frequency in the middle of the available range
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Conservative</b><a class="slurm_link" id="OPT_Conservative" href="https://slurm.schedmd.com/salloc.html#OPT_Conservative"></a></dt><dd>attempts to use the Conservative CPU governor
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>OnDemand</b><a class="slurm_link" id="OPT_OnDemand" href="https://slurm.schedmd.com/salloc.html#OPT_OnDemand"></a></dt><dd>attempts to use the OnDemand CPU governor (the default value)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Performance</b><a class="slurm_link" id="OPT_Performance" href="https://slurm.schedmd.com/salloc.html#OPT_Performance"></a></dt><dd>attempts to use the Performance CPU governor
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PowerSave</b><a class="slurm_link" id="OPT_PowerSave" href="https://slurm.schedmd.com/salloc.html#OPT_PowerSave"></a></dt><dd>attempts to use the PowerSave CPU governor
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>UserSpace</b><a class="slurm_link" id="OPT_UserSpace" href="https://slurm.schedmd.com/salloc.html#OPT_UserSpace"></a></dt><dd>attempts to use the UserSpace CPU governor
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt></dt></dl>
+</dd></dl>
+
+</dd><dd>
+<p>
+The following informational environment variable is set in the job
+step when <b>--cpu-freq</b> option is requested.
+</p><pre>        SLURM_CPU_FREQ_REQ
+</pre>
+
+<p>
+This environment variable can also be used to supply the value for the
+CPU frequency request if it is set when the 'srun' command is issued.
+The <b>--cpu-freq</b> on the command line will override the
+environment variable value. The form on the environment variable is
+the same as the command line.
+See the <b>ENVIRONMENT VARIABLES</b>
+section for a description of the SLURM_CPU_FREQ_REQ variable.
+</p><p>
+<b>NOTE</b>: This parameter is treated as a request, not a requirement.
+If the job step's node does not support setting the CPU frequency, or
+the requested value is outside the bounds of the legal frequencies, an
+error is logged, but the job step is allowed to continue.
+</p><p>
+<b>NOTE</b>: Setting the frequency for just the CPUs of the job step
+implies that the tasks are confined to those CPUs. If task
+confinement (i.e. the task/affinity TaskPlugin is enabled, or the task/cgroup
+TaskPlugin is enabled with "ConstrainCores=yes" set in cgroup.conf) is not
+configured, this parameter is ignored.
+</p><p>
+<b>NOTE</b>: When the step completes, the frequency and governor of each
+selected CPU is reset to the previous values.
+</p><p>
+<b>NOTE</b>: When submitting jobs with the <b>--cpu-freq</b> option
+with linuxproc as the ProctrackType can cause jobs to run too quickly before
+Accounting is able to poll for job information. As a result not all of
+accounting information will be present.
+
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--cpus-per-gpu</b>=&lt;<i>ncpus</i>&gt;<a class="slurm_link" id="OPT_cpus-per-gpu" href="https://slurm.schedmd.com/salloc.html#OPT_cpus-per-gpu"></a></dt><dd>Request that <i>ncpus</i> processors be allocated per allocated GPU.
+Steps inheriting this value will imply --exact.
+Not compatible with the <b>--cpus-per-task</b> option.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-c</b>, <b>--cpus-per-task</b>=&lt;<i>ncpus</i>&gt;<a class="slurm_link" id="OPT_cpus-per-task" href="https://slurm.schedmd.com/salloc.html#OPT_cpus-per-task"></a></dt><dd>Advise Slurm that ensuing job steps will require <i>ncpus</i> processors per
+task. By default Slurm will allocate one processor per task.
+<p>
+For instance,
+consider an application that has 4 tasks, each requiring 3 processors. If our
+cluster is comprised of quad-processors nodes and we simply ask for
+12 processors, the controller might give us only 3 nodes. However, by using
+the --cpus-per-task=3 options, the controller knows that each task requires
+3 processors on the same node, and the controller will grant an allocation
+of 4 nodes, one for each of the 4 tasks.
+</p><p>
+</p></dd><dt><b>--deadline</b>=&lt;<i>OPT</i>&gt;<a class="slurm_link" id="OPT_deadline" href="https://slurm.schedmd.com/salloc.html#OPT_deadline"></a></dt><dd>Remove the job if no ending is possible before
+this deadline (start &gt; (deadline - time[-min])).
+Default is no deadline. Note that if neither <b>DefaultTime</b> nor
+<b>MaxTime</b> are configured on the partition the job is in, the job will
+need to specify some form of time limit (--time[-min]) if a deadline
+is to be used.
+<p>
+Valid time formats are:
+<br>
+
+HH:MM[:SS] [AM|PM]
+<br>
+
+MMDD[YY] or MM/DD[/YY] or MM.DD[.YY]
+<br>
+
+MM/DD[/YY]-HH:MM[:SS]
+<br>
+
+YYYY-MM-DD[THH:MM[:SS]]]
+<br>
+
+now[+<i>count</i>[seconds(default)|minutes|hours|days|weeks]]
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--delay-boot</b>=&lt;<i>minutes</i>&gt;<a class="slurm_link" id="OPT_delay-boot" href="https://slurm.schedmd.com/salloc.html#OPT_delay-boot"></a></dt><dd>Do not reboot nodes in order to satisfied this job's feature specification if
+the job has been eligible to run for less than this time period.
+If the job has waited for less than the specified period, it will use only
+nodes which already have the specified features.
+The argument is in units of minutes.
+A default value may be set by a system administrator using the <b>delay_boot</b>
+option of the <b>SchedulerParameters</b> configuration parameter in the
+slurm.conf file, otherwise the default value is zero (no delay).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-d</b>, <b>--dependency</b>=&lt;<i>dependency_list</i>&gt;<a class="slurm_link" id="OPT_dependency" href="https://slurm.schedmd.com/salloc.html#OPT_dependency"></a></dt><dd>Defer the start of this job until the specified dependencies have been
+satisfied. Once a dependency is satisfied, it is removed from the job.
+&lt;<i>dependency_list</i>&gt; is of the form
+&lt;<i>type:job_id[:job_id][,type:job_id[:job_id]]</i>&gt; or
+&lt;<i>type:job_id[:job_id][?type:job_id[:job_id]]</i>&gt;.
+All dependencies must be satisfied if the "," separator is used.
+Any dependency may be satisfied if the "?" separator is used.
+Only one separator may be used. For instance:
+<pre>-d afterok:20:21,afterany:23
+</pre>
+
+means that the job can run only after a 0 return code of jobs 20 and 21
+AND completion of job 23. However:
+<pre>-d afterok:20:21?afterany:23
+</pre>
+
+means that any of the conditions (afterok:20 OR afterok:21 OR afterany:23)
+will be enough to release the job.
+Many jobs can share the same dependency and these jobs may even belong to
+different users. The value may be changed after job submission using the
+scontrol command.
+Dependencies on remote jobs are allowed in a federation.
+Once a job dependency fails due to the termination state of a preceding job,
+the dependent job will never be run, even if the preceding job is requeued and
+has a different termination state in a subsequent execution.
+</dd><dt></dt><dd>
+
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>after:job_id[[+time][:jobid[+time]...]]</b><a class="slurm_link" id="OPT_after:job_id[[+time][:jobid[+time]...]]" href="https://slurm.schedmd.com/salloc.html#OPT_after:job_id[[+time][:jobid[+time]...]]"></a></dt><dd>After the specified jobs start or are cancelled and 'time' in minutes from job
+start or cancellation happens, this
+job can begin execution. If no 'time' is given then there is no delay after
+start or cancellation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>afterany:job_id[:jobid...]</b><a class="slurm_link" id="OPT_afterany:job_id[:jobid...]" href="https://slurm.schedmd.com/salloc.html#OPT_afterany:job_id[:jobid...]"></a></dt><dd>This job can begin execution after the specified jobs have terminated.
+This is the default dependency type.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>afterburstbuffer:job_id[:jobid...]</b><a class="slurm_link" id="OPT_afterburstbuffer:job_id[:jobid...]" href="https://slurm.schedmd.com/salloc.html#OPT_afterburstbuffer:job_id[:jobid...]"></a></dt><dd>This job can begin execution after the specified jobs have terminated and
+any associated burst buffer stage out operations have completed.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>aftercorr:job_id[:jobid...]</b><a class="slurm_link" id="OPT_aftercorr:job_id[:jobid...]" href="https://slurm.schedmd.com/salloc.html#OPT_aftercorr:job_id[:jobid...]"></a></dt><dd>A task of this job array can begin execution after the corresponding task ID
+in the specified job has completed successfully (ran to completion with an
+exit code of zero).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>afternotok:job_id[:jobid...]</b><a class="slurm_link" id="OPT_afternotok:job_id[:jobid...]" href="https://slurm.schedmd.com/salloc.html#OPT_afternotok:job_id[:jobid...]"></a></dt><dd>This job can begin execution after the specified jobs have terminated
+in some failed state (non-zero exit code, node failure, timed out, etc).
+This job must be submitted while the specified job is still active or within
+<b>MinJobAge</b> seconds after the specified job has ended.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>afterok:job_id[:jobid...]</b><a class="slurm_link" id="OPT_afterok:job_id[:jobid...]" href="https://slurm.schedmd.com/salloc.html#OPT_afterok:job_id[:jobid...]"></a></dt><dd>This job can begin execution after the specified jobs have successfully
+executed (ran to completion with an exit code of zero).
+This job must be submitted while the specified job is still active or within
+<b>MinJobAge</b> seconds after the specified job has ended.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>singleton</b><a class="slurm_link" id="OPT_singleton" href="https://slurm.schedmd.com/salloc.html#OPT_singleton"></a></dt><dd>This job can begin execution after any previously launched jobs
+sharing the same job name and user have terminated.
+In other words, only one job by that name and owned by that user can be running
+or suspended at any point in time.
+In a federation, a singleton dependency must be fulfilled on all clusters
+unless DependencyParameters=disable_remote_singleton is used in slurm.conf.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-m</b>, <b>--distribution</b>={*|block|cyclic|arbitrary|plane=&lt;<i>size</i>&gt;}[:{*|block|cyclic|fcyclic}[:{*|block|cyclic|fcyclic}]][,{Pack|NoPack}]<a class="slurm_link" id="OPT_distribution" href="https://slurm.schedmd.com/salloc.html#OPT_distribution"></a></dt><dd><p>
+Specify alternate distribution methods for remote processes.
+For job allocation, this sets environment variables that will be used by
+subsequent srun requests and also affects which cores will be selected for
+job allocation.
+</p><p>
+This option controls the distribution of tasks to the nodes on which
+resources have been allocated, and the distribution of those resources
+to tasks for binding (task affinity). The first distribution
+method (before the first ":") controls the distribution of tasks to nodes.
+The second distribution method (after the first ":")
+controls the distribution of allocated CPUs across sockets for binding
+to tasks. The third distribution method (after the second ":") controls
+the distribution of allocated CPUs across cores for binding to tasks.
+The second and third distributions apply only if task affinity is enabled.
+The third distribution is supported only if the task/cgroup plugin is
+configured. The default value for each distribution type is specified by *.
+</p><p>
+Note that with select/cons_tres, the number of CPUs
+allocated to each socket and node may be different. Refer to
+the <a href="https://slurm.schedmd.com/mc_support.html">mc_support</a> document
+for more information on resource allocation, distribution of tasks to
+nodes, and binding of tasks to CPUs.
+</p><dl compact=""><dt></dt><dd>
+First distribution method (distribution of tasks across nodes):
+<p>
+</p><dl compact="">
+<dt><b>*</b><a class="slurm_link" id="OPT_*" href="https://slurm.schedmd.com/salloc.html#OPT_*"></a></dt><dd>
+</dd><dd>
+Use the default method for distributing tasks to nodes (block).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>block</b><a class="slurm_link" id="OPT_block" href="https://slurm.schedmd.com/salloc.html#OPT_block"></a></dt><dd>
+</dd><dd>
+The block distribution method will distribute tasks to a node such
+that consecutive tasks share a node. For example, consider an
+allocation of three nodes each with two cpus. A four-task block
+distribution request will distribute those tasks to the nodes with
+tasks one and two on the first node, task three on the second node,
+and task four on the third node. Block distribution is the default
+behavior if the number of tasks exceeds the number of allocated nodes.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>cyclic</b><a class="slurm_link" id="OPT_cyclic" href="https://slurm.schedmd.com/salloc.html#OPT_cyclic"></a></dt><dd>
+</dd><dd>
+The cyclic distribution method will distribute tasks to a node such
+that consecutive tasks are distributed over consecutive nodes (in a
+round-robin fashion). For example, consider an allocation of three
+nodes each with two cpus. A four-task cyclic distribution request
+will distribute those tasks to the nodes with tasks one and four on
+the first node, task two on the second node, and task three on the
+third node.
+Note that when SelectType is select/cons_tres, the same number of CPUs
+may not be allocated on each node. Task distribution will be
+round-robin among all the nodes with CPUs yet to be assigned to tasks.
+Cyclic distribution is the default behavior if the number
+of tasks is no larger than the number of allocated nodes.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>plane</b><a class="slurm_link" id="OPT_plane" href="https://slurm.schedmd.com/salloc.html#OPT_plane"></a></dt><dd>
+</dd><dd>
+The tasks are distributed in blocks of size &lt;<i>size</i>&gt;. The size must be given
+or SLURM_DIST_PLANESIZE must be set. The number of tasks
+distributed to each node is the same as for cyclic distribution, but the
+taskids assigned to each node depend on the plane size. Additional distribution
+specifications cannot be combined with this option.
+For more details (including examples and diagrams), please see
+the <a href="https://slurm.schedmd.com/mc_support.html">mc_support</a> document and
+<a href="https://slurm.schedmd.com/dist_plane.html">https://slurm.schedmd.com/dist_plane.html</a>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>arbitrary</b><a class="slurm_link" id="OPT_arbitrary" href="https://slurm.schedmd.com/salloc.html#OPT_arbitrary"></a></dt><dd>
+</dd><dd>
+The arbitrary method of distribution will allocate processes in-order
+as listed in file designated by the environment variable
+SLURM_HOSTFILE. If this variable is listed it will override any
+other method specified. If not set the method will default to block.
+Inside the hostfile must contain at minimum the number of hosts
+requested and be one per line or comma separated. If specifying a
+task count (<b>-n</b>, <b>--ntasks</b>=&lt;<i>number</i>&gt;), your tasks
+will be laid out on the nodes in the order of the file.
+<br>
+
+<b>NOTE</b>: The arbitrary distribution option on a job allocation only
+controls the nodes to be allocated to the job and not the allocation of
+CPUs on those nodes. This option is meant primarily to control a job step's
+task layout in an existing job allocation for the srun command.
+<br>
+
+<b>NOTE</b>: If the number of tasks is given and a list of requested nodes is
+also given, the number of nodes used from that list will be reduced to match
+that of the number of tasks if the number of nodes in the list is greater than
+the number of tasks.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<p>
+
+Second distribution method (distribution of CPUs across sockets for binding):
+</p><p>
+</p><dl compact="">
+<dt><b>*</b><a class="slurm_link" id="OPT_*_1" href="https://slurm.schedmd.com/salloc.html#OPT_*_1"></a></dt><dd>
+</dd><dd>
+Use the default method for distributing CPUs across sockets (cyclic).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>block</b><a class="slurm_link" id="OPT_block_1" href="https://slurm.schedmd.com/salloc.html#OPT_block_1"></a></dt><dd>
+</dd><dd>
+The block distribution method will distribute allocated CPUs
+consecutively from the same socket for binding to tasks, before using
+the next consecutive socket.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>cyclic</b><a class="slurm_link" id="OPT_cyclic_1" href="https://slurm.schedmd.com/salloc.html#OPT_cyclic_1"></a></dt><dd>
+</dd><dd>
+The cyclic distribution method will distribute allocated CPUs for
+binding to a given task consecutively from the same socket, and
+from the next consecutive socket for the next task, in a
+round-robin fashion across sockets.
+Tasks requiring more than one CPU will have all of those CPUs allocated on a
+single socket if possible.
+<br>
+
+<b>NOTE</b>: In nodes with hyper-threading enabled, a task not requesting full
+cores may be distributed across sockets. This can be avoided by specifying
+<b>--ntasks-per-core=1</b>, which forces tasks to allocate full cores.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>fcyclic</b><a class="slurm_link" id="OPT_fcyclic" href="https://slurm.schedmd.com/salloc.html#OPT_fcyclic"></a></dt><dd>
+</dd><dd>
+The fcyclic distribution method will distribute allocated CPUs
+for binding to tasks from consecutive sockets in a
+round-robin fashion across the sockets.
+Tasks requiring more than one CPU will have each CPUs allocated in a cyclic
+fashion across sockets.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<p>
+
+Third distribution method (distribution of CPUs across cores for binding):
+</p><p>
+</p><dl compact="">
+<dt><b>*</b><a class="slurm_link" id="OPT_*_2" href="https://slurm.schedmd.com/salloc.html#OPT_*_2"></a></dt><dd>
+</dd><dd>
+Use the default method for distributing CPUs across cores
+(inherited from second distribution method).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>block</b><a class="slurm_link" id="OPT_block_2" href="https://slurm.schedmd.com/salloc.html#OPT_block_2"></a></dt><dd>
+</dd><dd>
+The block distribution method will distribute allocated CPUs
+consecutively from the same core for binding to tasks, before using
+the next consecutive core.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>cyclic</b><a class="slurm_link" id="OPT_cyclic_2" href="https://slurm.schedmd.com/salloc.html#OPT_cyclic_2"></a></dt><dd>
+</dd><dd>
+The cyclic distribution method will distribute allocated CPUs for
+binding to a given task consecutively from the same core, and
+from the next consecutive core for the next task, in a
+round-robin fashion across cores.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>fcyclic</b><a class="slurm_link" id="OPT_fcyclic_1" href="https://slurm.schedmd.com/salloc.html#OPT_fcyclic_1"></a></dt><dd>
+</dd><dd>
+The fcyclic distribution method will distribute allocated CPUs
+for binding to tasks from consecutive cores in a
+round-robin fashion across the cores.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<p>
+
+Optional control for task distribution over nodes:
+</p><p>
+</p><dl compact="">
+<dt><b>Pack</b><a class="slurm_link" id="OPT_Pack" href="https://slurm.schedmd.com/salloc.html#OPT_Pack"></a></dt><dd>
+</dd><dd>
+Rather than evenly distributing a job step's tasks evenly across its allocated
+nodes, pack them as tightly as possible on the nodes.
+This only applies when the "block" task distribution method is used.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NoPack</b><a class="slurm_link" id="OPT_NoPack" href="https://slurm.schedmd.com/salloc.html#OPT_NoPack"></a></dt><dd>
+</dd><dd>
+Rather than packing a job step's tasks as tightly as possible on the nodes,
+distribute them evenly.
+This user option will supersede the SelectTypeParameters CR_Pack_Nodes
+configuration parameter.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-x</b>, <b>--exclude</b>=&lt;<i>node_name_list</i>&gt;<a class="slurm_link" id="OPT_exclude" href="https://slurm.schedmd.com/salloc.html#OPT_exclude"></a></dt><dd>Explicitly exclude certain nodes from the resources granted to the job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--exclusive</b>[={user|mcs|topo}]<a class="slurm_link" id="OPT_exclusive" href="https://slurm.schedmd.com/salloc.html#OPT_exclusive"></a></dt><dd>The job allocation can not share nodes (or topology segment  with the "=topo")
+with other running jobs (or just other users with the "=user" option or
+with the "=mcs" option).
+If user/mcsi/topo are not specified (i.e. the job allocation can not share nodes with
+other running jobs), the job is allocated all CPUs and GRES on all nodes in the
+allocation, but is only allocated as much memory as it requested. This is by
+design to support gang scheduling, because suspended jobs still reside in
+memory. To request all the memory on a node, use <b>--mem=0</b>.
+The default shared/exclusive behavior depends on system configuration and the
+partition's <b>OverSubscribe</b> option takes precedence over the job's option.
+<b>NOTE</b>: Since shared GRES (MPS) cannot be allocated at the same time as a
+sharing GRES (GPU) this option only allocates all sharing GRES and no underlying
+shared GRES.
+<p>
+<b>NOTE</b>: This option is mutually exclusive with <b>--oversubscribe</b>.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--extra</b>=&lt;<i>string</i>&gt;<a class="slurm_link" id="OPT_extra" href="https://slurm.schedmd.com/salloc.html#OPT_extra"></a></dt><dd>An arbitrary string enclosed in single or double quotes if using spaces or some
+special characters.
+<p>
+If <b>SchedulerParameters=extra_constraints</b> is enabled, this string is used
+for node filtering based on the <i>Extra</i> field in each node.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-B</b>, <b>--extra-node-info</b>=&lt;<i>sockets</i>&gt;[:<i>cores</i>[:<i>threads</i>]]<a class="slurm_link" id="OPT_extra-node-info" href="https://slurm.schedmd.com/salloc.html#OPT_extra-node-info"></a></dt><dd>Restrict node selection to nodes with at least the specified number of
+sockets, cores per socket and/or threads per core.
+<br>
+
+<b>NOTE</b>: These options do not specify the resource allocation size.
+Each value specified is considered a minimum.
+An asterisk (*) can be used as a placeholder indicating that all available
+resources of that type are to be utilized. Values can also be specified as
+min-max. The individual levels can also be specified in separate options if
+desired:
+<pre>    <b>--sockets-per-node</b>=&lt;<i>sockets</i>&gt;
+    <b>--cores-per-socket</b>=&lt;<i>cores</i>&gt;
+    <b>--threads-per-core</b>=&lt;<i>threads</i>&gt;
+</pre>
+
+If task/affinity plugin is enabled, then specifying an allocation in this
+manner also results in subsequently launched tasks being bound to threads
+if the <b>-B</b> option specifies a thread count, otherwise an option of
+<i>cores</i> if a core count is specified, otherwise an option of <i>sockets</i>.
+If SelectType is configured to select/cons_tres, it must have a parameter of
+CR_Core, CR_Core_Memory, CR_Socket, or CR_Socket_Memory for this option
+to be honored.
+If not specified, the scontrol show job will display 'ReqS:C:T=*:*:*'. This
+option applies to job allocations.
+<br>
+
+<b>NOTE</b>: This option is mutually exclusive with <b>--hint</b>,
+<b>--threads-per-core</b> and <b>--ntasks-per-core</b>.
+<br>
+
+<b>NOTE</b>: This option may implicitly set the number of tasks (if <b>-n</b>
+was not specified) as one task per requested thread.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--gpu-bind</b>=[verbose,]&lt;<i>type</i>&gt;<a class="slurm_link" id="OPT_gpu-bind" href="https://slurm.schedmd.com/salloc.html#OPT_gpu-bind"></a></dt><dd>Equivalent to --tres-bind=gres/gpu:[verbose,]&lt;<i>type</i>&gt;
+See <b>--tres-bind</b> for all options and documentation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--gpu-freq</b>=[&lt;<i>type</i>]=<i>value</i>&gt;[,&lt;<i>type</i>=<i>value</i>&gt;][,verbose]<a class="slurm_link" id="OPT_gpu-freq" href="https://slurm.schedmd.com/salloc.html#OPT_gpu-freq"></a></dt><dd>Request that GPUs allocated to the job are configured with specific frequency
+values.
+This option can be used to independently configure the GPU and its memory
+frequencies.
+After the job is completed, the frequencies of all affected GPUs will be reset
+to the highest possible values.
+In some cases, system power caps may override the requested values.
+The field <i>type</i> can be "memory".
+If <i>type</i> is not specified, the GPU frequency is implied.
+The <i>value</i> field can either be "low", "medium", "high", "highm1" or
+a numeric value in megahertz (MHz).
+If the specified numeric value is not possible, a value as close as
+possible will be used. See below for definition of the values.
+The <i>verbose</i> option causes current GPU frequency information to be logged.
+Examples of use include "--gpu-freq=medium,memory=high" and
+"--gpu-freq=450".
+<p>
+Supported <i>value</i> definitions:
+</p></dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>low</b><a class="slurm_link" id="OPT_low" href="https://slurm.schedmd.com/salloc.html#OPT_low"></a></dt><dd>the lowest available frequency.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>medium</b><a class="slurm_link" id="OPT_medium" href="https://slurm.schedmd.com/salloc.html#OPT_medium"></a></dt><dd>attempts to set a frequency in the middle of the available range.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>high</b><a class="slurm_link" id="OPT_high" href="https://slurm.schedmd.com/salloc.html#OPT_high"></a></dt><dd>the highest available frequency.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>highm1</b><a class="slurm_link" id="OPT_highm1" href="https://slurm.schedmd.com/salloc.html#OPT_highm1"></a></dt><dd>(high minus one) will select the next highest available frequency.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-G</b>, <b>--gpus</b>=[<i>type</i>:]&lt;<i>number</i>&gt;<a class="slurm_link" id="OPT_gpus" href="https://slurm.schedmd.com/salloc.html#OPT_gpus"></a></dt><dd>Specify the total number of GPUs required for the job.
+An optional GPU type specification can be supplied.
+For example "--gpus=volta:3".
+See also the <b>--gpus-per-node</b>, <b>--gpus-per-socket</b> and
+<b>--gpus-per-task</b> options.
+<br>
+
+<b>NOTE</b>: The allocation has to contain at least one GPU per node, or one of
+each GPU type per node if types are used. Use heterogeneous jobs if different
+nodes need different GPU types.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--gpus-per-node</b>=[<i>type</i>:]&lt;<i>number</i>&gt;<a class="slurm_link" id="OPT_gpus-per-node" href="https://slurm.schedmd.com/salloc.html#OPT_gpus-per-node"></a></dt><dd>Specify the number of GPUs required for the job on each node included in
+the job's resource allocation.
+An optional GPU type specification can be supplied.
+For example "--gpus-per-node=volta:3".
+Multiple options can be requested in a comma separated list, for example:
+"--gpus-per-node=volta:3,kepler:1".
+See also the <b>--gpus</b>, <b>--gpus-per-socket</b> and
+<b>--gpus-per-task</b> options.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--gpus-per-socket</b>=[<i>type</i>:]&lt;<i>number</i>&gt;<a class="slurm_link" id="OPT_gpus-per-socket" href="https://slurm.schedmd.com/salloc.html#OPT_gpus-per-socket"></a></dt><dd>Specify the number of GPUs required for the job on each socket included in
+the job's resource allocation.
+An optional GPU type specification can be supplied.
+For example "--gpus-per-socket=volta:3".
+Multiple options can be requested in a comma separated list, for example:
+"--gpus-per-socket=volta:3,kepler:1".
+Requires job to specify a sockets per node count ( --sockets-per-node).
+See also the <b>--gpus</b>, <b>--gpus-per-node</b> and
+<b>--gpus-per-task</b> options.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--gpus-per-task</b>=[<i>type</i>:]&lt;<i>number</i>&gt;<a class="slurm_link" id="OPT_gpus-per-task" href="https://slurm.schedmd.com/salloc.html#OPT_gpus-per-task"></a></dt><dd>Specify the number of GPUs required for the job on each task to be spawned
+in the job's resource allocation.
+An optional GPU type specification can be supplied.
+For example "--gpus-per-task=volta:1". Multiple options can be
+requested in a comma separated list, for example:
+"--gpus-per-task=volta:3,kepler:1". See also the <b>--gpus</b>,
+<b>--gpus-per-socket</b> and <b>--gpus-per-node</b> options.
+This option requires an explicit task count, e.g. -n, --ntasks or "--gpus=X
+--gpus-per-task=Y" rather than an ambiguous range of nodes with -N, --nodes.
+This option will implicitly set --tres-bind=gres/gpu:per_task:&lt;gpus_per_task&gt;,
+but that can be overridden with an explicit --tres-bind=gres/gpu
+specification.
+<br>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--gres</b>=&lt;<i>list</i>&gt;<a class="slurm_link" id="OPT_gres" href="https://slurm.schedmd.com/salloc.html#OPT_gres"></a></dt><dd>Specifies a comma-delimited list of generic consumable resources.
+The format for each entry in the list is "name[[:type]:count]".
+The <i>name</i> is the type of consumable resource (e.g. gpu).
+The <i>type</i> is an optional classification for the resource (e.g. a100).
+The <i>count</i> is the number of those resources with a default value of 1.
+The count can have a suffix of
+"k" or "K" (multiple of 1024),
+"m" or "M" (multiple of 1024 x 1024),
+"g" or "G" (multiple of 1024 x 1024 x 1024),
+"t" or "T" (multiple of 1024 x 1024 x 1024 x 1024),
+"p" or "P" (multiple of 1024 x 1024 x 1024 x 1024 x 1024).
+The specified resources will be allocated to the job on each node.
+The available generic consumable resources is configurable by the system
+administrator.
+A list of available generic consumable resources will be printed and the
+command will exit if the option argument is "help".
+Examples of use include "--gres=gpu:2", "--gres=gpu:kepler:2", and
+"--gres=help".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--gres-flags</b>=&lt;<i>type</i>&gt;<a class="slurm_link" id="OPT_gres-flags" href="https://slurm.schedmd.com/salloc.html#OPT_gres-flags"></a></dt><dd>Specify generic resource task binding options.
+</dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<p>
+</p><dl compact="">
+<dt><b>multiple-tasks-per-sharing</b><a class="slurm_link" id="OPT_multiple-tasks-per-sharing" href="https://slurm.schedmd.com/salloc.html#OPT_multiple-tasks-per-sharing"></a></dt><dd>
+</dd><dd>
+Negate <b>one-task-per-sharing</b>. This is useful if it is set by default in
+<b>SelectTypeParameters</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>disable-binding</b><a class="slurm_link" id="OPT_disable-binding" href="https://slurm.schedmd.com/salloc.html#OPT_disable-binding"></a></dt><dd>
+</dd><dd>
+Negate <b>enforce-binding</b>. This is useful if it is set by default in
+<b>SelectTypeParameters</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>enforce-binding</b><a class="slurm_link" id="OPT_enforce-binding" href="https://slurm.schedmd.com/salloc.html#OPT_enforce-binding"></a></dt><dd>
+</dd><dd>
+The only CPUs available to the job will be those bound to the selected
+GRES (i.e. the CPUs identified in the gres.conf file will be strictly
+enforced). This option may result in delayed initiation of a job.
+For example a job requiring two GPUs and one CPU will be delayed until both
+GPUs on a single socket are available rather than using GPUs bound to separate
+sockets, however, the application performance may be improved due to improved
+communication speed.
+Requires the node to be configured with more than one socket and resource
+filtering will be performed on a per-socket basis.
+<br>
+
+<b>NOTE</b>: This option can be set by default in <b>SelectTypeParameters</b>.
+<br>
+
+<b>NOTE</b>: This option is specific to <b>SelectType=cons_tres</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>one-task-per-sharing</b><a class="slurm_link" id="OPT_one-task-per-sharing" href="https://slurm.schedmd.com/salloc.html#OPT_one-task-per-sharing"></a></dt><dd>
+</dd><dd>
+Do not allow different tasks in to be allocated shared gres from the same
+sharing gres.
+<br>
+
+<b>NOTE</b>: This flag is only enforced if shared gres are requested with
+--tres-per-task.
+<br>
+
+<b>NOTE</b>: This option can be set by default with
+<b>SelectTypeParameters=ONE_TASK_PER_SHARING_GRES</b>.
+<br>
+
+<b>NOTE</b>: This option is specific to
+<b>SelectTypeParameters=MULTIPLE_SHARING_GRES_PJ</b>
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-h</b>, <b>--help</b><a class="slurm_link" id="OPT_help" href="https://slurm.schedmd.com/salloc.html#OPT_help"></a></dt><dd>Display help information and exit.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--hint</b>=&lt;<i>type</i>&gt;<a class="slurm_link" id="OPT_hint" href="https://slurm.schedmd.com/salloc.html#OPT_hint"></a></dt><dd>Bind tasks according to application hints.
+<br>
+
+<b>NOTE</b>: This option implies specific values for certain related options,
+which prevents its use with any user-specified values for
+<b>--ntasks-per-core</b>, <b>--threads-per-core</b> or <b>-B</b>.
+These conflicting options will override <b>--hint</b> when specified as
+command line arguments. If a conflicting option is specified as an environment
+variable, --hint as a command line argument will take precedence.
+</dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>compute_bound</b><a class="slurm_link" id="OPT_compute_bound" href="https://slurm.schedmd.com/salloc.html#OPT_compute_bound"></a></dt><dd>
+</dd><dd>
+Select settings for compute bound applications:
+use all cores in each socket, one thread per core.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>memory_bound</b><a class="slurm_link" id="OPT_memory_bound" href="https://slurm.schedmd.com/salloc.html#OPT_memory_bound"></a></dt><dd>
+</dd><dd>
+Select settings for memory bound applications:
+use only one core in each socket, one thread per core.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>multithread</b><a class="slurm_link" id="OPT_multithread" href="https://slurm.schedmd.com/salloc.html#OPT_multithread"></a></dt><dd>
+</dd><dd>
+Use extra threads with in-core multi-threading
+which can benefit communication intensive applications.
+Only supported with the task/affinity plugin.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>nomultithread</b><a class="slurm_link" id="OPT_nomultithread" href="https://slurm.schedmd.com/salloc.html#OPT_nomultithread"></a></dt><dd>
+</dd><dd>
+Don't use extra threads with in-core multi-threading;
+restricts tasks to one thread per core.
+Only supported with the task/affinity plugin.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>help</b><a class="slurm_link" id="OPT_help_1" href="https://slurm.schedmd.com/salloc.html#OPT_help_1"></a></dt><dd>
+</dd><dd>
+show this help message
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-H, --hold</b><a class="slurm_link" id="OPT_hold" href="https://slurm.schedmd.com/salloc.html#OPT_hold"></a></dt><dd>Specify the job is to be submitted in a held state (priority of zero).
+A held job can now be released using scontrol to reset its priority
+(e.g. "<i>scontrol release &lt;job_id&gt;</i>").
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-I</b>, <b>--immediate</b>[=&lt;<i>seconds</i>&gt;]<a class="slurm_link" id="OPT_immediate" href="https://slurm.schedmd.com/salloc.html#OPT_immediate"></a></dt><dd>exit if resources are not available within the
+time period specified.
+If no argument is given (seconds defaults to 1), resources must be available
+immediately for the request to succeed. If <b>defer</b> is configured in
+<b>SchedulerParameters</b> and seconds=1 the allocation request will fail
+immediately; <b>defer</b> conflicts and takes precedence over this option.
+By default, <b>--immediate</b> is off, and the command
+will block until resources become available. Since this option's
+argument is optional, for proper parsing the single letter option must
+be followed immediately with the value and not include a space between
+them. For example "-I60" and not "-I 60".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-J</b>, <b>--job-name</b>=&lt;<i>jobname</i>&gt;<a class="slurm_link" id="OPT_job-name" href="https://slurm.schedmd.com/salloc.html#OPT_job-name"></a></dt><dd>Specify a name for the job allocation. The specified name will appear along with
+the job id number when querying running jobs on the system. The default job
+name is the name of the "command" specified on the command line.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-K</b>, <b>--kill-command</b>[=<i>signal</i>]<a class="slurm_link" id="OPT_kill-command" href="https://slurm.schedmd.com/salloc.html#OPT_kill-command"></a></dt><dd>salloc always runs a user-specified command once the allocation is
+granted. salloc will wait indefinitely for that command to exit.
+If you specify the <b>--kill-command</b> option salloc will send a signal to
+your command any time that the Slurm controller tells salloc that its job
+allocation has been revoked. The job allocation can be revoked for a
+couple of reasons: someone used <b>scancel</b> to revoke the allocation,
+or the allocation reached its time limit. If you do not specify a signal
+name or number and Slurm is configured to signal the spawned command at job
+termination, the default signal is SIGHUP for interactive and SIGTERM for
+non-interactive sessions. Since this option's argument is optional,
+for proper parsing the single letter option must be followed
+immediately with the value and not include a space between them. For
+example "-K1" and not "-K 1".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-L</b>, <b>--licenses</b>=&lt;<i>license</i>&gt;[@<i>db</i>][:<i>count</i>][,<i>license</i>[@<i>db</i>][:<i>count</i>]...]<a class="slurm_link" id="OPT_licenses" href="https://slurm.schedmd.com/salloc.html#OPT_licenses"></a></dt><dd>Specification of licenses (or other resources available on all
+nodes of the cluster) which must be allocated to this job.
+License names can be followed by a colon and count
+(the default count is one).
+Multiple license names should be comma separated (e.g.
+"--licenses=foo:4,bar").
+<p>
+<b>NOTE</b>: When submitting heterogeneous jobs, license requests
+may only be made on the first component job.
+For example "salloc -L ansys:2 :".
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--mail-type</b>=&lt;<i>type</i>&gt;<a class="slurm_link" id="OPT_mail-type" href="https://slurm.schedmd.com/salloc.html#OPT_mail-type"></a></dt><dd>Notify user by email when certain event types occur.
+Valid <i>type</i> values are NONE, BEGIN, END, FAIL, REQUEUE, ALL (equivalent to
+BEGIN, END, FAIL, INVALID_DEPEND, REQUEUE, and STAGE_OUT), INVALID_DEPEND
+(dependency never satisfied), STAGE_OUT (burst buffer stage out and teardown
+completed), TIME_LIMIT, TIME_LIMIT_90 (reached 90 percent of time limit),
+TIME_LIMIT_80 (reached 80 percent of time limit), and TIME_LIMIT_50 (reached 50
+percent of time limit).
+Multiple <i>type</i> values may be specified in a comma separated list.
+NONE will suppress all event notifications, ignoring any other values specified.
+By default no email notifications are sent.
+The user to be notified is indicated with <b>--mail-user</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--mail-user</b>=&lt;<i>user</i>&gt;<a class="slurm_link" id="OPT_mail-user" href="https://slurm.schedmd.com/salloc.html#OPT_mail-user"></a></dt><dd>User to receive email notification of state changes as defined by
+<b>--mail-type</b>. This may be a full email address or a username. If a
+username is specified, the value from <b>MailDomain</b> in slurm.conf will be
+appended to create an email address.
+The default value is the submitting user.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--mcs-label</b>=&lt;<i>mcs</i>&gt;<a class="slurm_link" id="OPT_mcs-label" href="https://slurm.schedmd.com/salloc.html#OPT_mcs-label"></a></dt><dd>Used only when the mcs/group plugin is enabled.
+This parameter is a group among the groups of the user.
+Default value is calculated by the Plugin mcs if it's enabled.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--mem</b>=&lt;<i>size</i>&gt;[<i>units</i>]<a class="slurm_link" id="OPT_mem" href="https://slurm.schedmd.com/salloc.html#OPT_mem"></a></dt><dd>Specify the real memory required per node.
+Default units are megabytes.
+Different units can be specified using the suffix [K|M|G|T].
+Default value is <b>DefMemPerNode</b> and the maximum value is
+<b>MaxMemPerNode</b>. If configured, both of parameters can be
+seen using the <b>scontrol show config</b> command.
+This parameter would generally be used if whole nodes
+are allocated to jobs (<b>SelectType=select/linear</b>).
+Also see <b>--mem-per-cpu</b> and <b>--mem-per-gpu</b>.
+The <b>--mem</b>, <b>--mem-per-cpu</b> and <b>--mem-per-gpu</b>
+options are mutually exclusive. If <b>--mem</b>, <b>--mem-per-cpu</b> or
+<b>--mem-per-gpu</b> are specified as command line arguments, then they will
+take precedence over the environment.
+<p>
+<b>NOTE</b>: A memory size specification of zero is treated as a special case and
+grants the job access to all of the memory on each node.
+</p><p>
+<b>NOTE</b>: Memory requests will not be strictly enforced unless Slurm is
+configured to use an enforcement mechanism. See <b>ConstrainRAMSpace</b> in
+the <b><a href="https://slurm.schedmd.com/cgroup.conf.html">cgroup.conf</a></b>(5) man page and <b>OverMemoryKill</b> in the
+<b><a href="https://slurm.schedmd.com/slurm.conf.html">slurm.conf</a></b>(5) man page for more details.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--mem-bind</b>=[{quiet|verbose},]&lt;<i>type</i>&gt;<a class="slurm_link" id="OPT_mem-bind" href="https://slurm.schedmd.com/salloc.html#OPT_mem-bind"></a></dt><dd>Bind tasks to memory. Used only when the task/affinity plugin is enabled
+and the NUMA memory functions are available.
+<b>Note that the resolution of CPU and memory binding
+may differ on some architectures.</b> For example, CPU binding may be performed
+at the level of the cores within a processor while memory binding will
+be performed at the level of nodes, where the definition of "nodes"
+may differ from system to system.
+By default no memory binding is performed; any task using any CPU can use
+any memory. This option is typically used to ensure that each task is bound to
+the memory closest to its assigned CPU. <b>The use of any type other than
+"none" or "local" is not recommended.</b>
+<p>
+<b>NOTE</b>: To have Slurm always report on the selected memory binding for
+all commands executed in a shell, you can enable verbose mode by
+setting the SLURM_MEM_BIND environment variable value to "verbose".
+</p><p>
+The following informational environment variables are set when
+<b>--mem-bind</b> is in use:
+</p><p>
+</p><pre>        SLURM_MEM_BIND_LIST
+        SLURM_MEM_BIND_PREFER
+        SLURM_MEM_BIND_SORT
+        SLURM_MEM_BIND_TYPE
+        SLURM_MEM_BIND_VERBOSE
+</pre>
+
+<p>
+See the <b>ENVIRONMENT VARIABLES</b> section for a more detailed description
+of the individual SLURM_MEM_BIND* variables.
+</p><p>
+Supported options include:
+</p></dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>help</b><a class="slurm_link" id="OPT_help_2" href="https://slurm.schedmd.com/salloc.html#OPT_help_2"></a></dt><dd>
+</dd><dd>
+show this help message
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>local</b><a class="slurm_link" id="OPT_local" href="https://slurm.schedmd.com/salloc.html#OPT_local"></a></dt><dd>
+</dd><dd>
+Use memory local to the processor in use
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>map_mem:&lt;list&gt;</b><a class="slurm_link" id="OPT_map_mem:&lt;list&gt;" href="https://slurm.schedmd.com/salloc.html#OPT_map_mem:%3Clist%3E"></a></dt><dd>
+</dd><dd>
+Bind by setting memory masks on tasks (or ranks) as specified where &lt;list&gt; is
+&lt;numa_id_for_task_0&gt;,&lt;numa_id_for_task_1&gt;,...
+The mapping is specified for a node and identical mapping is applied to the
+tasks on every node (i.e. the lowest task ID on each node is mapped to the
+first ID specified in the list, etc.).
+NUMA IDs are interpreted as decimal values unless they are preceded
+with '0x' in which case they interpreted as hexadecimal values.
+If the number of tasks (or ranks) exceeds the number of elements in this list,
+elements in the list will be reused as needed starting from the beginning of
+the list.
+To simplify support for large task counts, the lists may follow a map with an
+asterisk and repetition count.
+For example "map_mem:0x0f*4,0xf0*4".
+For predictable binding results, all CPUs for each node in the job should be
+allocated to the job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>mask_mem:&lt;list&gt;</b><a class="slurm_link" id="OPT_mask_mem:&lt;list&gt;" href="https://slurm.schedmd.com/salloc.html#OPT_mask_mem:%3Clist%3E"></a></dt><dd>
+</dd><dd>
+Bind by setting memory masks on tasks (or ranks) as specified where &lt;list&gt; is
+&lt;numa_mask_for_task_0&gt;,&lt;numa_mask_for_task_1&gt;,...
+The mapping is specified for a node and identical mapping is applied to the
+tasks on every node (i.e. the lowest task ID on each node is mapped to the
+first mask specified in the list, etc.).
+NUMA masks are <b>always</b> interpreted as hexadecimal values.
+Note that masks must be preceded with a '0x' if they don't begin
+with [0-9] so they are seen as numerical values.
+If the number of tasks (or ranks) exceeds the number of elements in this list,
+elements in the list will be reused as needed starting from the beginning of
+the list.
+To simplify support for large task counts, the lists may follow a mask with an
+asterisk and repetition count.
+For example "mask_mem:0*4,1*4".
+For predictable binding results, all CPUs for each node in the job should be
+allocated to the job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>no[ne]</b><a class="slurm_link" id="OPT_no[ne]" href="https://slurm.schedmd.com/salloc.html#OPT_no[ne]"></a></dt><dd>
+</dd><dd>
+don't bind tasks to memory (default)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>p[refer]</b><a class="slurm_link" id="OPT_p[refer]" href="https://slurm.schedmd.com/salloc.html#OPT_p[refer]"></a></dt><dd>
+</dd><dd>
+Prefer use of first specified NUMA node, but permit
+<br>&nbsp;use&nbsp;of&nbsp;other&nbsp;available&nbsp;NUMA&nbsp;nodes.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>q[uiet]</b><a class="slurm_link" id="OPT_q[uiet]" href="https://slurm.schedmd.com/salloc.html#OPT_q[uiet]"></a></dt><dd>
+</dd><dd>
+quietly bind before task runs (default)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>rank</b><a class="slurm_link" id="OPT_rank" href="https://slurm.schedmd.com/salloc.html#OPT_rank"></a></dt><dd>
+</dd><dd>
+bind by task rank (not recommended)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>sort</b><a class="slurm_link" id="OPT_sort" href="https://slurm.schedmd.com/salloc.html#OPT_sort"></a></dt><dd>
+</dd><dd>
+sort free cache pages (run zonesort on Intel KNL nodes)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>v[erbose]</b><a class="slurm_link" id="OPT_v[erbose]" href="https://slurm.schedmd.com/salloc.html#OPT_v[erbose]"></a></dt><dd>
+</dd><dd>
+verbosely report binding before task runs
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--mem-per-cpu</b>=&lt;<i>size</i>&gt;[<i>units</i>]<a class="slurm_link" id="OPT_mem-per-cpu" href="https://slurm.schedmd.com/salloc.html#OPT_mem-per-cpu"></a></dt><dd>Minimum memory required per usable allocated CPU.
+Default units are megabytes.
+Different units can be specified using the suffix [K|M|G|T].
+The default value is <b>DefMemPerCPU</b> and the maximum value is
+<b>MaxMemPerCPU</b> (see exception below). If configured, both parameters can be
+seen using the <b>scontrol show config</b> command.
+Note that if the job's <b>--mem-per-cpu</b> value exceeds the configured
+<b>MaxMemPerCPU</b>, then the user's limit will be treated as a memory limit
+per task; <b>--mem-per-cpu</b> will be reduced to a value no larger than
+<b>MaxMemPerCPU</b>; <b>--cpus-per-task</b> will be set and the value of
+<b>--cpus-per-task</b> multiplied by the new <b>--mem-per-cpu</b>
+value will equal the original <b>--mem-per-cpu</b> value specified by
+the user.
+This parameter would generally be used if individual processors
+are allocated to jobs (<b>SelectType=select/cons_tres</b>).
+If resources are allocated by core, socket, or whole nodes, then the number
+of CPUs allocated to a job may be higher than the task count and the value
+of <b>--mem-per-cpu</b> should be adjusted accordingly.
+Also see <b>--mem</b> and <b>--mem-per-gpu</b>.
+The <b>--mem</b>, <b>--mem-per-cpu</b> and <b>--mem-per-gpu</b>
+options are mutually exclusive.
+<p>
+<b>NOTE</b>: If the final amount of memory requested by a job
+can't be satisfied by any of the nodes configured in the
+partition, the job will be rejected.
+This could happen if <b>--mem-per-cpu</b> is used with the
+<b>--exclusive</b> option for a job allocation and <b>--mem-per-cpu</b>
+times the number of CPUs on a node is greater than the total memory of that
+node.
+</p><p>
+<b>NOTE</b>: This applies to <b>usable</b> allocated CPUs in a job allocation.
+This is important when more than one thread per core is configured.
+If a job requests --threads-per-core with fewer threads on a core than
+exist on the core (or --hint=nomultithread which implies
+--threads-per-core=1), the job will be unable to use those extra threads on
+the core and those threads will not be included in the memory per CPU
+calculation. But if the job has access to all threads on the core, those threads
+will be included in the memory per CPU calculation even if the job did not
+explicitly request those threads.
+</p><p>
+In the following examples, each core has two threads.
+</p><p>
+In this first example, two tasks can run on separate hyperthreads
+in the same core because --threads-per-core is not used. The
+third task uses both threads of the second core. The allocated
+memory per cpu includes all threads:
+</p><p>
+</p><pre><b>$ salloc -n3 --mem-per-cpu=100
+salloc: Granted job allocation 17199
+$ sacct -j $SLURM_JOB_ID -X -o jobid%7,reqtres%35,alloctres%35
+  JobID                             ReqTRES                           AllocTRES
+------- ----------------------------------- -----------------------------------
+  17199     billing=3,cpu=3,mem=300M,node=1     billing=4,cpu=4,mem=400M,node=1
+</b></pre>
+
+<p>
+In this second example, because of --threads-per-core=1, each
+task is allocated an entire core but is only able to use one
+thread per core. Allocated CPUs includes all threads on each
+core. However, allocated memory per cpu includes only the
+usable thread in each core.
+</p><p>
+</p><pre><b>$ salloc -n3 --mem-per-cpu=100 --threads-per-core=1
+salloc: Granted job allocation 17200
+$ sacct -j $SLURM_JOB_ID -X -o jobid%7,reqtres%35,alloctres%35
+  JobID                             ReqTRES                           AllocTRES
+------- ----------------------------------- -----------------------------------
+  17200     billing=3,cpu=3,mem=300M,node=1     billing=6,cpu=6,mem=300M,node=1
+</b></pre>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--mem-per-gpu</b>=&lt;<i>size</i>&gt;[<i>units</i>]<a class="slurm_link" id="OPT_mem-per-gpu" href="https://slurm.schedmd.com/salloc.html#OPT_mem-per-gpu"></a></dt><dd>Minimum memory required per allocated GPU.
+Default units are megabytes.
+Different units can be specified using the suffix [K|M|G|T].
+Default value is <b>DefMemPerGPU</b> and is available on both a global and
+per partition basis.
+If configured, the parameters can be seen using the <b>scontrol show config</b>
+and <b>scontrol show partition</b> commands.
+Also see <b>--mem</b>.
+The <b>--mem</b>, <b>--mem-per-cpu</b> and <b>--mem-per-gpu</b>
+options are mutually exclusive.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--mincpus</b>=&lt;<i>n</i>&gt;<a class="slurm_link" id="OPT_mincpus" href="https://slurm.schedmd.com/salloc.html#OPT_mincpus"></a></dt><dd>Specify a minimum number of logical cpus/processors per node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--network</b>=&lt;<i>type</i>&gt;<a class="slurm_link" id="OPT_network_1" href="https://slurm.schedmd.com/salloc.html#OPT_network_1"></a></dt><dd>Specify information pertaining to the switch or network.
+The interpretation of <i>type</i> is system dependent.
+This option is supported when running Slurm on a Cray natively. It is
+used to request using Network Performance Counters.
+Only one value per request is valid.
+All options are case in-sensitive.
+In this configuration supported values include:
+</dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>system</b><a class="slurm_link" id="OPT_system" href="https://slurm.schedmd.com/salloc.html#OPT_system"></a></dt><dd>Use the system-wide network performance counters. Only nodes requested
+will be marked in use for the job allocation. If the job does not
+fill up the entire system the rest of the nodes are not
+able to be used by other jobs using NPC, if idle their state will appear as
+PerfCnts. These nodes are still available for other jobs not using NPC.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>blade</b><a class="slurm_link" id="OPT_blade" href="https://slurm.schedmd.com/salloc.html#OPT_blade"></a></dt><dd>Use the blade network performance counters. Only nodes requested
+will be marked in use for the job allocation. If the job does not
+fill up the entire blade(s) allocated to the job those blade(s) are not
+able to be used by other jobs using NPC, if idle their state will appear as
+PerfCnts. These nodes are still available for other jobs not using NPC.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+In all cases the job allocation request <b>must specify the
+--exclusive option</b>. Otherwise the request will be denied.
+</p><p>
+Also with any of these options steps are not allowed to share blades,
+so resources would remain idle inside an allocation if the step
+running on a blade does not take up all the nodes on the blade.
+</p><p>
+The <b>network</b> option is also available on systems with HPE Slingshot
+networks. It can be used to request a job VNI (to be used for communication
+between job steps in a job). It also can be used to override the default
+network resources allocated for the job step. Multiple values may be specified
+in a comma-separated list.
+</p></dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>tcs</b>=&lt;<i>class1</i>&gt;[:&lt;<i>class2</i>&gt;]...<a class="slurm_link" id="OPT_tcs" href="https://slurm.schedmd.com/salloc.html#OPT_tcs"></a></dt><dd>Set of traffic classes to configure for applications.
+Supported traffic classes are DEDICATED_ACCESS, LOW_LATENCY, BULK_DATA, and
+BEST_EFFORT. The traffic classes may also be specified as TC_DEDICATED_ACCESS,
+TC_LOW_LATENCY, TC_BULK_DATA, and TC_BEST_EFFORT.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>no_vni</b><a class="slurm_link" id="OPT_no_vni" href="https://slurm.schedmd.com/salloc.html#OPT_no_vni"></a></dt><dd>Don't allocate any VNIs for this job (even if multi-node).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>job_vni</b><a class="slurm_link" id="OPT_job_vni" href="https://slurm.schedmd.com/salloc.html#OPT_job_vni"></a></dt><dd>Allocate a job VNI for this job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>single_node_vni</b><a class="slurm_link" id="OPT_single_node_vni" href="https://slurm.schedmd.com/salloc.html#OPT_single_node_vni"></a></dt><dd>Allocate a job VNI for this job, even if it is a single-node job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>adjust_limits</b><a class="slurm_link" id="OPT_adjust_limits" href="https://slurm.schedmd.com/salloc.html#OPT_adjust_limits"></a></dt><dd>If set, slurmd will set an upper bound on network resource reservations
+by taking the per-NIC maximum resource quantity and subtracting the
+reserved or used values (whichever is higher) for any system network services;
+this is the default.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>no_adjust_limits</b><a class="slurm_link" id="OPT_no_adjust_limits" href="https://slurm.schedmd.com/salloc.html#OPT_no_adjust_limits"></a></dt><dd>If set, slurmd will calculate network resource reservations
+based only upon the per-resource configuration default and number of tasks
+in the application; it will not set an upper bound on those reservation
+requests based on resource usage of already-existing system network services.
+Setting this will mean more application launches could fail based
+on network resource exhaustion, but if the application
+absolutely needs a certain amount of resources to function, this option
+will ensure that.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>disable_rdzv_get</b><a class="slurm_link" id="OPT_disable_rdzv_get" href="https://slurm.schedmd.com/salloc.html#OPT_disable_rdzv_get"></a></dt><dd>Disable rendezvous gets in Slingshot NICs, which can improve performance for
+certain applications.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>def_&lt;rsrc&gt;</b>=&lt;<i>val</i>&gt;<a class="slurm_link" id="OPT_def_&lt;rsrc&gt;" href="https://slurm.schedmd.com/salloc.html#OPT_def_%3Crsrc%3E"></a></dt><dd>Per-CPU reserved allocation for this resource.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>res_&lt;rsrc&gt;</b>=&lt;<i>val</i>&gt;<a class="slurm_link" id="OPT_res_&lt;rsrc&gt;" href="https://slurm.schedmd.com/salloc.html#OPT_res_%3Crsrc%3E"></a></dt><dd>Per-node reserved allocation for this resource.
+If set, overrides the per-CPU allocation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>max_&lt;rsrc&gt;</b>=&lt;<i>val</i>&gt;<a class="slurm_link" id="OPT_max_&lt;rsrc&gt;" href="https://slurm.schedmd.com/salloc.html#OPT_max_%3Crsrc%3E"></a></dt><dd>Maximum per-node limit for this resource.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>depth</b>=&lt;<i>depth</i>&gt;<a class="slurm_link" id="OPT_depth" href="https://slurm.schedmd.com/salloc.html#OPT_depth"></a></dt><dd>Multiplier for per-CPU resource allocation.
+Default is the number of reserved CPUs on the node.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+The resources that may be requested are:
+</p></dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>txqs</b><a class="slurm_link" id="OPT_txqs" href="https://slurm.schedmd.com/salloc.html#OPT_txqs"></a></dt><dd>Transmit command queues. The default is 2 per-CPU, maximum 1024 per-node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>tgqs</b><a class="slurm_link" id="OPT_tgqs" href="https://slurm.schedmd.com/salloc.html#OPT_tgqs"></a></dt><dd>Target command queues. The default is 1 per-CPU, maximum 512 per-node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>eqs</b><a class="slurm_link" id="OPT_eqs" href="https://slurm.schedmd.com/salloc.html#OPT_eqs"></a></dt><dd>Event queues. The default is 2 per-CPU, maximum 2047 per-node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>cts</b><a class="slurm_link" id="OPT_cts" href="https://slurm.schedmd.com/salloc.html#OPT_cts"></a></dt><dd>Counters. The default is 1 per-CPU, maximum 2047 per-node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>tles</b><a class="slurm_link" id="OPT_tles" href="https://slurm.schedmd.com/salloc.html#OPT_tles"></a></dt><dd>Trigger list entries. The default is 1 per-CPU, maximum 2048 per-node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ptes</b><a class="slurm_link" id="OPT_ptes" href="https://slurm.schedmd.com/salloc.html#OPT_ptes"></a></dt><dd>Portable table entries. The default is 6 per-CPU, maximum 2048 per-node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>les</b><a class="slurm_link" id="OPT_les" href="https://slurm.schedmd.com/salloc.html#OPT_les"></a></dt><dd>List entries. The default is 16 per-CPU, maximum 16384 per-node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>acs</b><a class="slurm_link" id="OPT_acs" href="https://slurm.schedmd.com/salloc.html#OPT_acs"></a></dt><dd>Addressing contexts. The default is 4 per-CPU, maximum 1022 per-node.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--nice</b>[=<i>adjustment</i>]<a class="slurm_link" id="OPT_nice" href="https://slurm.schedmd.com/salloc.html#OPT_nice"></a></dt><dd>Run the job with an adjusted scheduling priority within Slurm. With no
+adjustment value the scheduling priority is decreased by 100. A negative nice
+value increases the priority, otherwise decreases it. The adjustment range is
++/- 2147483645. Only privileged users can specify a negative adjustment.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--no-bell</b><a class="slurm_link" id="OPT_no-bell" href="https://slurm.schedmd.com/salloc.html#OPT_no-bell"></a></dt><dd>Silence salloc's use of the terminal bell. Also see the option <b>--bell</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-k</b>, <b>--no-kill</b>[=off]<a class="slurm_link" id="OPT_no-kill" href="https://slurm.schedmd.com/salloc.html#OPT_no-kill"></a></dt><dd>Do not automatically terminate a job if one of the nodes it has been
+allocated fails. The user will assume the responsibilities for fault-tolerance
+should a node fail.
+The job allocation will not be revoked so the user may launch new
+job steps on the remaining nodes in their allocation.
+This option does not set the <b>SLURM_NO_KILL</b> environment variable.
+Therefore, when a node fails, steps running on that node will be killed unless
+the <b>SLURM_NO_KILL</b> environment variable was explicitly set or srun calls
+within the job allocation explicitly requested --no-kill.
+<p>
+Specify an optional argument of "off" to disable the effect of the
+<b>SALLOC_NO_KILL</b> environment variable.
+</p><p>
+By default Slurm terminates the entire job allocation if any node fails in its
+range of allocated nodes.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--no-shell</b><a class="slurm_link" id="OPT_no-shell" href="https://slurm.schedmd.com/salloc.html#OPT_no-shell"></a></dt><dd>immediately exit after allocating resources, without running a
+command. However, the Slurm job will still be created and will remain
+active and will own the allocated resources as long as it is active.
+You will have a Slurm job id with no associated processes or
+tasks. You can submit <b>srun</b> commands against this resource allocation,
+if you specify the <b>--jobid=</b> option with the job id of this Slurm job.
+Or, this can be used to temporarily reserve a set of resources so that
+other jobs cannot use them for some period of time. (Note that the
+Slurm job is subject to the normal constraints on jobs, including time
+limits, so that eventually the job will terminate and the resources
+will be freed, or you can terminate the job manually using the
+<b>scancel</b> command.)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-F</b>, <b>--nodefile</b>=&lt;<i>node_file</i>&gt;<a class="slurm_link" id="OPT_nodefile" href="https://slurm.schedmd.com/salloc.html#OPT_nodefile"></a></dt><dd>Much like <b>--nodelist</b>, but the list is contained in a file of name
+<i>node file</i>. The node names of the list may also span multiple lines
+in the file. Duplicate node names in the file will be ignored.
+The order of the node names in the list is not important; the node names
+will be sorted by Slurm.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-w</b>, <b>--nodelist</b>=&lt;<i>node_name_list</i>&gt;<a class="slurm_link" id="OPT_nodelist" href="https://slurm.schedmd.com/salloc.html#OPT_nodelist"></a></dt><dd>Request a specific list of hosts.
+The job will contain <i>all</i> of these hosts and possibly additional hosts
+as needed to satisfy resource requirements.
+The list may be specified as a comma-separated list of hosts, a range of hosts
+(host[1-5,7,...] for example), or a filename.
+The host list will be assumed to be a filename if it contains a "/" character.
+If you specify a minimum node or processor count larger than can be satisfied
+by the supplied host list, additional resources will be allocated on other
+nodes as needed.
+Duplicate node names in the list will be ignored.
+The order of the node names in the list is not important; the node names
+will be sorted by Slurm.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-N</b>, <b>--nodes</b>=&lt;<i>minnodes</i>&gt;[-<i>maxnodes</i>]|&lt;<i>size_string</i>&gt;<a class="slurm_link" id="OPT_nodes" href="https://slurm.schedmd.com/salloc.html#OPT_nodes"></a></dt><dd>Request that a minimum of <i>minnodes</i> nodes be allocated to this job.
+A maximum node count may also be specified with <i>maxnodes</i>.
+If only one number is specified, this is used as both the minimum and
+maximum node count. Node count can be also specified as size_string.
+The size_string specification identifies what nodes values should be used.
+Multiple values may be specified using a comma separated list or
+with a step function by suffix containing a colon and
+number values with a "-" separator.
+For example, "--nodes=1-15:4" is equivalent to "--nodes=1,5,9,13".
+The partition's node limits supersede those of the job.
+If a job's node limits are outside of the range permitted for its
+associated partition, the job will be left in a PENDING state.
+This permits possible execution at a later time, when the partition
+limit is changed.
+If a job node limit exceeds the number of nodes configured in the
+partition, the job will be rejected.
+Note that the environment
+variable <b>SLURM_JOB_NUM_NODES</b> will be set to the count of nodes actually
+allocated to the job. See the <b>ENVIRONMENT VARIABLES </b> section
+for more information. If <b>-N</b> is not specified, the default
+behavior is to allocate enough nodes to satisfy the requested resources as
+expressed by per-job specification options, e.g. <b>-n</b>, <b>-c</b> and
+<b>--gpus</b>.
+The job will be allocated as many nodes as possible within the range specified
+and without delaying the initiation of the job.
+The node count specification may include a numeric value followed by a suffix
+of "k" (multiplies numeric value by 1,024) or "m" (multiplies numeric value by
+1,048,576).
+<p>
+<b>NOTE</b>: This option cannot be used in with arbitrary distribution.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-n</b>, <b>--ntasks</b>=&lt;<i>number</i>&gt;<a class="slurm_link" id="OPT_ntasks" href="https://slurm.schedmd.com/salloc.html#OPT_ntasks"></a></dt><dd>salloc does not launch tasks, it requests an allocation of resources and
+executed some command. This option advises the Slurm controller that job
+steps run within this allocation will launch a maximum of <i>number</i>
+tasks and sufficient resources are allocated to accomplish this.
+The default is one task per node, but note
+that the <b>--cpus-per-task</b> option will change this default.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--ntasks-per-core</b>=&lt;<i>ntasks</i>&gt;<a class="slurm_link" id="OPT_ntasks-per-core" href="https://slurm.schedmd.com/salloc.html#OPT_ntasks-per-core"></a></dt><dd>Request the maximum <i>ntasks</i> be invoked on each core.
+Meant to be used with the <b>--ntasks</b> option.
+Related to <b>--ntasks-per-node</b> except at the core level
+instead of the node level. This option will be inhertited by srun.
+Slurm may allocate more cpus than what was requested in order to respect this
+option.
+<br>
+
+<b>NOTE</b>: This option is not supported when using
+<i>SelectType=select/linear</i>. This value can not be greater than
+<b>--threads-per-core</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--ntasks-per-gpu</b>=&lt;<i>ntasks</i>&gt;<a class="slurm_link" id="OPT_ntasks-per-gpu" href="https://slurm.schedmd.com/salloc.html#OPT_ntasks-per-gpu"></a></dt><dd>Request that there are <i>ntasks</i> tasks invoked for every GPU.
+This option can work in two ways: 1) either specify <b>--ntasks</b> in
+addition, in which case a type-less GPU specification will be automatically
+determined to satisfy <b>--ntasks-per-gpu</b>, or 2) specify the GPUs wanted
+(e.g. via <b>--gpus</b> or <b>--gres</b>) without specifying <b>--ntasks</b>,
+and the total task count will be automatically determined.
+The number of CPUs needed will be automatically increased if necessary to allow
+for any calculated task count.
+This option will implicitly set <b>--tres-bind=gres/gpu:single:&lt;ntasks&gt;</b>,
+but that can be overridden with an explicit <b>--tres-bind=gres/gpu</b>
+specification.
+This option is not compatible with a node range
+(i.e. -N&lt;<i>minnodes</i>-<i>maxnodes</i>&gt;).
+This option is not compatible with <b>--gpus-per-task</b>,
+<b>--gpus-per-socket</b>, or <b>--ntasks-per-node</b>.
+This option is not supported unless <i>SelectType=cons_tres</i> is
+configured (either directly or indirectly on Cray systems).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--ntasks-per-node</b>=&lt;<i>ntasks</i>&gt;<a class="slurm_link" id="OPT_ntasks-per-node" href="https://slurm.schedmd.com/salloc.html#OPT_ntasks-per-node"></a></dt><dd>Request that <i>ntasks</i> be invoked on each node.
+If used with the <b>--ntasks</b> option, the <b>--ntasks</b> option will take
+precedence and the <b>--ntasks-per-node</b> will be treated as a
+<i>maximum</i> count of tasks per node.
+Meant to be used with the <b>--nodes</b> option.
+This is related to <b>--cpus-per-task</b>=<i>ncpus</i>,
+but does not require knowledge of the actual number of cpus on
+each node. In some cases, it is more convenient to be able to
+request that no more than a specific number of tasks be invoked
+on each node. Examples of this include submitting
+a hybrid MPI/OpenMP app where only one MPI "task/rank" should be
+assigned to each node while allowing the OpenMP portion to utilize
+all of the parallelism present in the node, or submitting a single
+setup/cleanup/monitoring job to each node of a pre-existing
+allocation as one step in a larger job script.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--ntasks-per-socket</b>=&lt;<i>ntasks</i>&gt;<a class="slurm_link" id="OPT_ntasks-per-socket" href="https://slurm.schedmd.com/salloc.html#OPT_ntasks-per-socket"></a></dt><dd>Request the maximum <i>ntasks</i> be invoked on each socket.
+Meant to be used with the <b>--ntasks</b> option.
+Related to <b>--ntasks-per-node</b> except at the socket level
+instead of the node level.
+<b>NOTE</b>: This option is not supported when using
+<i>SelectType=select/linear</i>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--oom-kill-step</b>[={0|1}]<a class="slurm_link" id="OPT_oom-kill-step" href="https://slurm.schedmd.com/salloc.html#OPT_oom-kill-step"></a></dt><dd>Whether to kill the entire step if an OOM event is detected in any task of a
+step. This overwrites the "OOMKillStep" setting in TaskPluginParam from
+slurm.conf. When unset it will use the setting in slurm.conf. When set, a value
+of "0" will disable killing the entire step, while a value of "1" will enable
+it. This applies to the entire allocation except for the external step.
+Default is "1" (enabled) when the option is found with no value.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-O</b>, <b>--overcommit</b><a class="slurm_link" id="OPT_overcommit" href="https://slurm.schedmd.com/salloc.html#OPT_overcommit"></a></dt><dd>Overcommit resources.
+<p>
+When applied to a job allocation (not including jobs requesting exclusive
+access to the nodes) the resources are allocated as if only one task per
+node is requested. This means that the requested number of cpus per task
+(<b>-c</b>, <b>--cpus-per-task</b>) are allocated per node rather than
+being multiplied by the number of tasks. Options used to specify the number
+of tasks per node, socket, core, etc. are ignored.
+</p><p>
+When applied to job step allocations (the <b>srun</b> command when executed
+within an existing job allocation), this option can be used to launch more than
+one task per CPU.
+Normally, <b>srun</b> will not allocate more than one process per CPU.
+By specifying <b>--overcommit</b> you are explicitly allowing more than one
+process per CPU. However no more than <b>MAX_TASKS_PER_NODE</b> tasks are
+permitted to execute per node. <b>NOTE</b>: <b>MAX_TASKS_PER_NODE</b> is
+defined in the file <i>slurm.h</i> and is not a variable, it is set at
+Slurm build time.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-s</b>, <b>--oversubscribe</b><a class="slurm_link" id="OPT_oversubscribe" href="https://slurm.schedmd.com/salloc.html#OPT_oversubscribe"></a></dt><dd>The job allocation can over-subscribe resources with other running jobs.
+The resources to be over-subscribed can be nodes, sockets, cores, and/or
+hyperthreads depending upon configuration.
+The default over-subscribe behavior depends on system configuration and the
+partition's <b>OverSubscribe</b> option takes precedence over the job's option.
+This option may result in the allocation being granted sooner than if the
+<b>--oversubscribe</b> option was not set and allow higher system utilization,
+but application performance will likely suffer due to competition for resources.
+Also see the <b>--exclusive</b> option.
+<p>
+<b>NOTE</b>: This option is mutually exclusive with <b>--exclusive</b>.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-p</b>, <b>--partition</b>=&lt;<i>partition_names</i>&gt;<a class="slurm_link" id="OPT_partition" href="https://slurm.schedmd.com/salloc.html#OPT_partition"></a></dt><dd>Request a specific partition for the resource allocation. If not specified,
+the default behavior is to allow the slurm controller to select the default
+partition as designated by the system administrator. If the job can use more
+than one partition, specify their names in a comma separate list and the one
+offering earliest initiation will be used with no regard given to the partition
+name ordering (although higher priority partitions will be considered first).
+When the job is initiated, the name of the partition used will be placed first
+in the job record partition string.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--prefer</b>=&lt;<i>list</i>&gt;<a class="slurm_link" id="OPT_prefer" href="https://slurm.schedmd.com/salloc.html#OPT_prefer"></a></dt><dd>Nodes can have <b>features</b> assigned to them by the Slurm administrator.
+Users can specify which of these <b>features</b> are desired but not required by
+their job using the prefer option.
+This option operates independently from <b>--constraint</b> and will override
+whatever is set there if possible.
+When scheduling, the features in <b>--prefer</b> are tried first. If a node set
+isn't available with those features then <b>--constraint</b> is attempted.
+See <b>--constraint</b> for more information, this option behaves the same
+way.
+<p>
+</p></dd><dt><b>--priority</b>=&lt;<i>value</i>&gt;<a class="slurm_link" id="OPT_priority" href="https://slurm.schedmd.com/salloc.html#OPT_priority"></a></dt><dd>Request a specific job priority.
+May be subject to configuration specific constraints.
+<i>value</i> should either be a numeric value or "TOP" (for highest possible value).
+Only Slurm operators and administrators can set the priority of a job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--profile</b>={all|none|&lt;<i>type</i>&gt;[,&lt;<i>type</i>&gt;...]}<a class="slurm_link" id="OPT_profile" href="https://slurm.schedmd.com/salloc.html#OPT_profile"></a></dt><dd>Enables detailed data collection by the acct_gather_profile plugin.
+Detailed data are typically time-series that are stored in an HDF5 file for
+the job or an InfluxDB database depending on the configured plugin.
+</dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>All</b><a class="slurm_link" id="OPT_All" href="https://slurm.schedmd.com/salloc.html#OPT_All"></a></dt><dd>All data types are collected. (Cannot be combined with other values.)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>None</b><a class="slurm_link" id="OPT_None" href="https://slurm.schedmd.com/salloc.html#OPT_None"></a></dt><dd>No data types are collected. This is the default.
+<br>&nbsp;(Cannot&nbsp;be&nbsp;combined&nbsp;with&nbsp;other&nbsp;values.)
+</dd><dt></dt><dd>
+</dd></dl>
+</dd></dl>
+
+<p>
+Valid <i>type</i> values are:
+</p></dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>Energy</b><a class="slurm_link" id="OPT_Energy" href="https://slurm.schedmd.com/salloc.html#OPT_Energy"></a></dt><dd>Energy data is collected.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Task</b><a class="slurm_link" id="OPT_Task" href="https://slurm.schedmd.com/salloc.html#OPT_Task"></a></dt><dd>Task (I/O, Memory, ...) data is collected.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Lustre</b><a class="slurm_link" id="OPT_Lustre" href="https://slurm.schedmd.com/salloc.html#OPT_Lustre"></a></dt><dd>Lustre data is collected.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Network</b><a class="slurm_link" id="OPT_Network" href="https://slurm.schedmd.com/salloc.html#OPT_Network"></a></dt><dd>Network (InfiniBand) data is collected.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-q</b>, <b>--qos</b>=&lt;<i>qos</i>&gt;<a class="slurm_link" id="OPT_qos" href="https://slurm.schedmd.com/salloc.html#OPT_qos"></a></dt><dd>Request a quality of service for the job, or comma separated list of QOS.
+If requesting a list it will be ordered based on the priority of the QOS given
+with the first being the highest priority.
+QOS values can be defined
+for each user/cluster/account association in the Slurm database.
+Users will be limited to their association's defined set of qos's when
+the Slurm configuration parameter, AccountingStorageEnforce, includes
+"qos" in its definition.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-Q</b>, <b>--quiet</b><a class="slurm_link" id="OPT_quiet" href="https://slurm.schedmd.com/salloc.html#OPT_quiet"></a></dt><dd>Suppress informational messages from salloc. Errors will still be displayed.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--reboot</b><a class="slurm_link" id="OPT_reboot" href="https://slurm.schedmd.com/salloc.html#OPT_reboot"></a></dt><dd>Force the allocated nodes to reboot before starting the job.
+This is only supported with some system configurations and will otherwise be
+silently ignored. Only root, <i>SlurmUser</i> or admins can reboot nodes.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--reservation</b>=&lt;<i>reservation_names</i>&gt;<a class="slurm_link" id="OPT_reservation" href="https://slurm.schedmd.com/salloc.html#OPT_reservation"></a></dt><dd>Allocate resources for the job from the named reservation. If the job can use
+more than one reservation, specify their names in a comma separate list and the
+one offering earliest initiation. Each reservation will be considered in the
+order it was requested.
+All reservations will be listed in scontrol/squeue through the life of the job.
+In accounting the first reservation will be seen and after the job starts the
+reservation used will replace it.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--resv-ports</b>[=<i>count</i>]<a class="slurm_link" id="OPT_resv-ports" href="https://slurm.schedmd.com/salloc.html#OPT_resv-ports"></a></dt><dd>Reserve communication ports for this job. Users can specify the number
+of port they want to reserve. The parameter MpiParams=ports=12000-12999
+must be specified in <i>slurm.conf</i>. If the number of reserved ports is zero
+then no ports are reserved. Used for native Cray's PMI only.
+This option can only be used if the slurmstepd step management is enabled.
+This option applies to job allocations. See <b>--stepmgr</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--segment</b>=&lt;<i>segment_size</i>&gt;<a class="slurm_link" id="OPT_segment" href="https://slurm.schedmd.com/salloc.html#OPT_segment"></a></dt><dd>When a block topology is used, this defines the size of the segments that
+will be used to create the job allocation.
+No requirement would be placed on all segments for a job needing to
+be placed within the same higher-level block.
+<p>
+<b>NOTE</b>: The segment size must always be evenly divisible by
+the requested node count.
+</p><p>
+<b>NOTE</b>: The segment size must be less than or equal to
+the planning base block size. E.g., for a system with 30 nodes as the
+planning base block size, "--segment 40" would be invalid
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--signal</b>=[R:]&lt;<i>sig_num</i>&gt;[@<i>sig_time</i>]<a class="slurm_link" id="OPT_signal" href="https://slurm.schedmd.com/salloc.html#OPT_signal"></a></dt><dd>When a job is within <i>sig_time</i> seconds of its end time,
+send it the signal <i>sig_num</i>.
+Due to the resolution of event handling by Slurm, the signal may
+be sent up to 60 seconds earlier than specified.
+<i>sig_num</i> may either be a signal number or name (e.g. "10" or "USR1").
+<i>sig_time</i> must have an integer value between 0 and 65535.
+By default, no signal is sent before the job's end time.
+If a <i>sig_num</i> is specified without any <i>sig_time</i>,
+the default time will be 60 seconds.
+Use the "R:" option to allow this job to overlap with a reservation with
+MaxStartDelay set. If the "R:" option is used, preemption must be enabled on the
+system, and if the job is preempted it will be requeued if allowed otherwise the
+job will be canceled.
+To have the signal sent at preemption time see the <b>send_user_signal</b>
+<b>PreemptParameter</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--sockets-per-node</b>=&lt;<i>sockets</i>&gt;<a class="slurm_link" id="OPT_sockets-per-node" href="https://slurm.schedmd.com/salloc.html#OPT_sockets-per-node"></a></dt><dd>Restrict node selection to nodes with at least the specified number of
+sockets. See additional information under <b>-B</b> option above when
+task/affinity plugin is enabled.
+<br>
+
+<b>NOTE</b>: This option may implicitly set the number of tasks (if <b>-n</b>
+was not specified) as one task per requested thread.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--spread-job</b><a class="slurm_link" id="OPT_spread-job" href="https://slurm.schedmd.com/salloc.html#OPT_spread-job"></a></dt><dd>Spread the job allocation over as many nodes as possible and attempt to
+evenly distribute tasks across the allocated nodes.
+This option disables the topology/tree plugin.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--stepmgr</b><a class="slurm_link" id="OPT_stepmgr" href="https://slurm.schedmd.com/salloc.html#OPT_stepmgr"></a></dt><dd>Enable slurmstepd step management per-job if it isn't enabled system wide.
+This enables job steps to be managed by a single extern slurmstepd associated
+with the job to manage steps. This is beneficial for jobs that submit many
+steps inside their allocations. <b>PrologFlags=contain</b> must be set.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--switches</b>=&lt;<i>count</i>&gt;[@<i>max-time</i>]<a class="slurm_link" id="OPT_switches" href="https://slurm.schedmd.com/salloc.html#OPT_switches"></a></dt><dd>When a tree topology is used, this defines the maximum count of leaf switches
+desired for the job allocation and optionally the maximum time to wait
+for that number of switches. If Slurm finds an allocation containing more
+switches than the count specified, the job remains pending until it either finds
+an allocation with desired switch count or the time limit expires.
+It there is no switch count limit, there is no delay in starting the job.
+Acceptable time formats include "minutes", "minutes:seconds",
+"hours:minutes:seconds", "days-hours", "days-hours:minutes" and
+"days-hours:minutes:seconds".
+The job's maximum time delay may be limited by the system administrator using
+the <b>SchedulerParameters</b> configuration parameter with the
+<b>max_switch_wait</b> parameter option.
+On a dragonfly network the only switch count supported is 1 since communication
+performance will be highest when a job is allocate resources on one leaf switch
+or more than 2 leaf switches.
+The default max-time is the max_switch_wait SchedulerParameters.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--thread-spec</b>=&lt;<i>num</i>&gt;<a class="slurm_link" id="OPT_thread-spec" href="https://slurm.schedmd.com/salloc.html#OPT_thread-spec"></a></dt><dd>Count of specialized threads per node reserved by the job for system operations
+and not used by the application. The application will not use these threads,
+but will be charged for their allocation.
+This option can not be used with the <b>--core-spec</b> option.
+<p>
+<b>NOTE</b>: Explicitly setting a job's specialized thread value implicitly sets
+its --exclusive option, reserving entire nodes for the job.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--threads-per-core</b>=&lt;<i>threads</i>&gt;<a class="slurm_link" id="OPT_threads-per-core" href="https://slurm.schedmd.com/salloc.html#OPT_threads-per-core"></a></dt><dd>Restrict node selection to nodes with at least the specified number of
+threads per core. In task layout, use the specified maximum number of threads
+per core. <b>NOTE</b>: "Threads" refers to the number of processing units on
+each core rather than the number of application tasks to be launched per core.
+See additional information under <b>-B</b> option above when task/affinity
+plugin is enabled.
+<br>
+
+<b>NOTE</b>: This option may implicitly set the number of tasks (if <b>-n</b>
+was not specified) as one task per requested thread.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-t</b>, <b>--time</b>=&lt;<i>time</i>&gt;<a class="slurm_link" id="OPT_time" href="https://slurm.schedmd.com/salloc.html#OPT_time"></a></dt><dd>Set a limit on the total run time of the job allocation. If the
+requested time limit exceeds the partition's time limit, the job will
+be left in a PENDING state (possibly indefinitely). The default time
+limit is the partition's default time limit. When the time limit is reached,
+each task in each job step is sent SIGTERM followed by SIGKILL. The
+interval between signals is specified by the Slurm configuration
+parameter <b>KillWait</b>. The <b>OverTimeLimit</b> configuration parameter may
+permit the job to run longer than scheduled. Time resolution is one minute
+and second values are rounded up to the next minute.
+<p>
+A time limit of zero requests that no time limit be imposed. Acceptable time
+formats include "minutes", "minutes:seconds", "hours:minutes:seconds",
+"days-hours", "days-hours:minutes" and "days-hours:minutes:seconds".
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--time-min</b>=&lt;<i>time</i>&gt;<a class="slurm_link" id="OPT_time-min" href="https://slurm.schedmd.com/salloc.html#OPT_time-min"></a></dt><dd>Set a minimum time limit on the job allocation.
+If specified, the job may have its <b>--time</b> limit lowered to a value
+no lower than <b>--time-min</b> if doing so permits the job to begin
+execution earlier than otherwise possible.
+The job's time limit will not be changed after the job is allocated resources.
+This is performed by a backfill scheduling algorithm to allocate resources
+otherwise reserved for higher priority jobs.
+Acceptable time formats include "minutes", "minutes:seconds",
+"hours:minutes:seconds", "days-hours", "days-hours:minutes" and
+"days-hours:minutes:seconds".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--tmp</b>=&lt;<i>size</i>&gt;[<i>units</i>]<a class="slurm_link" id="OPT_tmp" href="https://slurm.schedmd.com/salloc.html#OPT_tmp"></a></dt><dd>Specify a minimum amount of temporary disk space per node.
+Default units are megabytes.
+Different units can be specified using the suffix [K|M|G|T].
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--tres-bind</b>=&lt;<i>tres</i>&gt;:[verbose,]&lt;<i>type</i>&gt;[+&lt;<i>tres</i>&gt;:<a class="slurm_link" id="OPT_tres-bind" href="https://slurm.schedmd.com/salloc.html#OPT_tres-bind"></a></dt><dd>[verbose,]&lt;<i>type</i>&gt;...]
+Specify a list of tres with their task binding options. Currently gres are the
+only supported tres for this options. Specify gres as "gres/&lt;gres_name&gt;"
+(e.g. gres/gpu)
+<p>
+Example: --tres-bind=gres/gpu:verbose,map:0,1,2,3+gres/nic:closest
+</p><p>
+By default, most tres are not bound to individual tasks
+</p><p>
+Supported binding <i>type</i> options for <b>gres</b>:
+</p></dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>closest</b><a class="slurm_link" id="OPT_closest" href="https://slurm.schedmd.com/salloc.html#OPT_closest"></a></dt><dd>Bind each task to the gres(s) which are closest.
+In a NUMA environment, each task may be bound to more than one gres (i.e.
+all gres in that NUMA environment).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>map:&lt;list&gt;</b><a class="slurm_link" id="OPT_map:&lt;list&gt;" href="https://slurm.schedmd.com/salloc.html#OPT_map:%3Clist%3E"></a></dt><dd>Bind by setting gres masks on tasks (or ranks) as specified where &lt;list&gt; is
+&lt;gres_id_for_task_0&gt;,&lt;gres_id_for_task_1&gt;,... gres IDs are interpreted as decimal
+values. If the number of tasks (or ranks) exceeds the number of elements in this
+list, elements in the list will be reused as needed starting from the beginning
+of the list. To simplify support for large task counts, the lists may follow a
+map with an asterisk and repetition count. For example "map:0*4,1*4".
+If the task/cgroup plugin is used and ConstrainDevices is set in cgroup.conf,
+then the gres IDs are zero-based indexes relative to the gress allocated to the
+job (e.g. the first gres is 0, even if the global ID is 3). Otherwise, the gres
+IDs are global IDs, and all gres on each node in the job should be allocated for
+predictable binding results.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>mask:&lt;list&gt;</b><a class="slurm_link" id="OPT_mask:&lt;list&gt;" href="https://slurm.schedmd.com/salloc.html#OPT_mask:%3Clist%3E"></a></dt><dd>Bind by setting gres masks on tasks (or ranks) as specified where &lt;list&gt; is
+&lt;gres_mask_for_task_0&gt;,&lt;gres_mask_for_task_1&gt;,... The mapping is specified for
+a node and identical mapping is applied to the tasks on every node (i.e. the
+lowest task ID on each node is mapped to the first mask specified in the list,
+etc.). gres masks are always interpreted as hexadecimal values but can be
+preceded with an optional '0x'. To simplify support for large task counts, the
+lists may follow a map with an asterisk and repetition count.
+For example "mask:0x0f*4,0xf0*4".
+If the task/cgroup plugin is used and ConstrainDevices is set in cgroup.conf,
+then the gres IDs are zero-based indexes relative to the gres allocated to the
+job (e.g. the first gres is 0, even if the global ID is 3). Otherwise, the gres
+IDs are global IDs, and all gres on each node in the job should be allocated for
+predictable binding results.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>none</b><a class="slurm_link" id="OPT_none" href="https://slurm.schedmd.com/salloc.html#OPT_none"></a></dt><dd>Do not bind tasks to this gres (turns off implicit binding from
+--tres-per-task and --gpus-per-task).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>per_task:&lt;gres_per_task&gt;</b><a class="slurm_link" id="OPT_per_task:&lt;gres_per_task&gt;" href="https://slurm.schedmd.com/salloc.html#OPT_per_task:%3Cgres_per_task%3E"></a></dt><dd>Each task will be bound to the number of gres specified in
+<i>&lt;gres_per_task&gt;</i>. Tasks are preferentially assigned gres with affinity to
+cores in their allocation like in <i>closest</i>, though they will
+take any gres if they are unavailable. If no affinity exists, the first task
+will be assigned the first x number of gres on the node etc.
+Shared gres will prefer to bind one sharing device per task if possible.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>single:&lt;tasks_per_gres&gt;</b><a class="slurm_link" id="OPT_single:&lt;tasks_per_gres&gt;" href="https://slurm.schedmd.com/salloc.html#OPT_single:%3Ctasks_per_gres%3E"></a></dt><dd>Like <i>closest</i>, except that each task can only be bound to a
+single gres, even when it can be bound to multiple gres that are equally close.
+The gres to bind to is determined by <i>&lt;tasks_per_gres&gt;</i>, where the
+first <i>&lt;tasks_per_gres&gt;</i> tasks are bound to the first gres available, the
+second <i>&lt;tasks_per_gres&gt;</i> tasks are bound to the second gres available, etc.
+This is basically a block distribution of tasks onto available gres, where the
+available gres are determined by the socket affinity of the task and the socket
+affinity of the gres as specified in gres.conf's <i>Cores</i> parameter.
+</dd><dt></dt><dd>
+<p>
+<b>NOTE</b>: Shared gres binding is currently limited to per_task or none
+</p></dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--tres-per-task</b>=&lt;<i>list</i>&gt;<a class="slurm_link" id="OPT_tres-per-task" href="https://slurm.schedmd.com/salloc.html#OPT_tres-per-task"></a></dt><dd>Specifies a comma-delimited list of trackable resources required for the job on
+each task to be spawned in the job's resource allocation.
+The format for each entry in the list is "trestype[/tresname]=count".
+The <i>trestype</i> is the type of trackable resource requested (e.g. cpu, gres,
+license, etc).
+The <i>tresname</i> is the name of the trackable resource, as can be seen with
+<i>sacctmgr show tres</i>. This is required when it exists for tres types such
+as gres, license, etc. (e.g. gpu, gpu:a100).
+In order to request a license with this option, the license(s) must be defined
+in the <b>AccountingStorageTRES</b> parameter of slurm.conf.
+The <i>count</i> is the number of those resources.
+<br>
+
+The count can have a suffix of
+<br>
+
+"k" or "K" (multiple of 1024),
+<br>
+
+"m" or "M" (multiple of 1024 x 1024),
+<br>
+
+"g" or "G" (multiple of 1024 x 1024 x 1024),
+<br>
+
+"t" or "T" (multiple of 1024 x 1024 x 1024 x 1024),
+<br>
+
+"p" or "P" (multiple of 1024 x 1024 x 1024 x 1024 x 1024).
+<br>
+
+Examples:
+<pre>--tres-per-task=cpu=4
+--tres-per-task=cpu=8,license/ansys=1
+--tres-per-task=gres/gpu=1
+--tres-per-task=gres/gpu:a100=2
+</pre>
+
+The specified resources will be allocated to the job on each node.
+The available trackable resources are configurable by the system
+administrator.
+<br>
+
+<b>NOTE</b>: This option with gres/gpu or gres/shard will implicitly set
+--tres-bind=per_task:(gpu or shard)&lt;tres_per_task&gt;; this can be overridden
+with an explicit --tres-bind specification.
+<br>
+
+<b>NOTE</b>: Invalid TRES for --tres-per-task include
+bb,billing,energy,fs,mem,node,pages,vmem.
+<br>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--usage</b><a class="slurm_link" id="OPT_usage" href="https://slurm.schedmd.com/salloc.html#OPT_usage"></a></dt><dd>Display brief help message and exit.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--use-min-nodes</b><a class="slurm_link" id="OPT_use-min-nodes" href="https://slurm.schedmd.com/salloc.html#OPT_use-min-nodes"></a></dt><dd>If a range of node counts is given, prefer the smaller count.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-v</b>, <b>--verbose</b><a class="slurm_link" id="OPT_verbose" href="https://slurm.schedmd.com/salloc.html#OPT_verbose"></a></dt><dd>Increase the verbosity of salloc's informational messages. Multiple
+<b>
+-v</b>'s will further increase salloc's verbosity. By default only
+errors will be displayed.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-V</b>, <b>--version</b><a class="slurm_link" id="OPT_version" href="https://slurm.schedmd.com/salloc.html#OPT_version"></a></dt><dd>Display version information and exit.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--wait-all-nodes</b>=&lt;<i>value</i>&gt;<a class="slurm_link" id="OPT_wait-all-nodes" href="https://slurm.schedmd.com/salloc.html#OPT_wait-all-nodes"></a></dt><dd>Controls when the execution of the command begins with respect to when nodes
+are ready for use (i.e. booted).
+By default, the salloc command will return as soon as the allocation is made.
+This default can be altered using the <b>salloc_wait_nodes</b> option to the
+<b>SchedulerParameters</b> parameter in the slurm.conf file.
+</dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt>0</dt><dd>
+Begin execution as soon as allocation can be made.
+Do not wait for all nodes to be ready for use (i.e. booted).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt>1</dt><dd>
+Do not begin execution until all nodes are ready for use.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--wckey</b>=&lt;<i>wckey</i>&gt;<a class="slurm_link" id="OPT_wckey" href="https://slurm.schedmd.com/salloc.html#OPT_wckey"></a></dt><dd>Specify wckey to be used with job. If TrackWCKey=no (default) in the
+slurm.conf this value is ignored.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--x11</b>[={all|first|last}]<a class="slurm_link" id="OPT_x11" href="https://slurm.schedmd.com/salloc.html#OPT_x11"></a></dt><dd>Sets up X11 forwarding on "all", "first" or "last" node(s) of the allocation.
+This option is only enabled if Slurm was compiled with X11 support and
+PrologFlags=x11 is defined in the slurm.conf. Default is "all".
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAH">&nbsp;</a>
+<h2>PERFORMANCE<a class="slurm_link" id="SECTION_PERFORMANCE" href="https://slurm.schedmd.com/salloc.html#SECTION_PERFORMANCE"></a></h2>
+<p>
+
+Executing <b>salloc</b> sends a remote procedure call to <b>slurmctld</b>. If
+enough calls from <b>salloc</b> or other Slurm client commands that send remote
+procedure calls to the <b>slurmctld</b> daemon come in at once, it can result in
+a degradation of performance of the <b>slurmctld</b> daemon, possibly resulting
+in a denial of service.
+</p><p>
+
+Do not run <b>salloc</b> or other Slurm client commands that send remote
+procedure calls to <b>slurmctld</b> from loops in shell scripts or other
+programs. Ensure that programs limit calls to <b>salloc</b> to the minimum
+necessary for the information you are trying to gather.
+</p><p>
+<a name="lbAI">&nbsp;</a>
+</p><h2>INPUT ENVIRONMENT VARIABLES<a class="slurm_link" id="SECTION_INPUT-ENVIRONMENT-VARIABLES" href="https://slurm.schedmd.com/salloc.html#SECTION_INPUT-ENVIRONMENT-VARIABLES"></a></h2>
+<p>
+
+Upon startup, salloc will read and handle the options set in the following
+environment variables. The majority of these variables are set the same way
+the options are set, as defined above. For flag options that are defined to
+expect no argument, the option can be enabled by setting the environment
+variable without a value (empty or NULL string), the string 'yes', or a
+non-zero number. Any other value for the environment variable will result in
+the option not being set.
+There are a couple exceptions to these rules that are noted below.
+<br>
+
+<b>NOTE</b>: Command line options always override environment variables settings.
+</p><p>
+</p><dl compact="">
+<dt><b>SALLOC_ACCOUNT</b><a class="slurm_link" id="OPT_SALLOC_ACCOUNT" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_ACCOUNT"></a></dt><dd>Same as <b>-A, --account</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_ACCTG_FREQ</b><a class="slurm_link" id="OPT_SALLOC_ACCTG_FREQ" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_ACCTG_FREQ"></a></dt><dd>Same as <b>--acctg-freq</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_BELL</b><a class="slurm_link" id="OPT_SALLOC_BELL" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_BELL"></a></dt><dd>Same as <b>--bell</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_BURST_BUFFER</b><a class="slurm_link" id="OPT_SALLOC_BURST_BUFFER" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_BURST_BUFFER"></a></dt><dd>Same as <b>--bb</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_CLUSTERS</b> or <b>SLURM_CLUSTERS</b><a class="slurm_link" id="OPT_SALLOC_CLUSTERS" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_CLUSTERS"></a></dt><dd>Same as <b>--clusters</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_CONSTRAINT</b><a class="slurm_link" id="OPT_SALLOC_CONSTRAINT" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_CONSTRAINT"></a></dt><dd>Same as <b>-C</b>, <b>--constraint</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_CONTAINER</b><a class="slurm_link" id="OPT_SALLOC_CONTAINER" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_CONTAINER"></a></dt><dd>Same as --container.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_CONTAINER_ID</b><a class="slurm_link" id="OPT_SALLOC_CONTAINER_ID" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_CONTAINER_ID"></a></dt><dd>Same as --container-id.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_CORE_SPEC</b><a class="slurm_link" id="OPT_SALLOC_CORE_SPEC" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_CORE_SPEC"></a></dt><dd>Same as <b>--core-spec</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_CPUS_PER_GPU</b><a class="slurm_link" id="OPT_SALLOC_CPUS_PER_GPU" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_CPUS_PER_GPU"></a></dt><dd>Same as <b>--cpus-per-gpu</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_DEBUG</b><a class="slurm_link" id="OPT_SALLOC_DEBUG" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_DEBUG"></a></dt><dd>Same as <b>-v, --verbose</b>, when set to 1, when set to 2 gives -vv, etc.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_DELAY_BOOT</b><a class="slurm_link" id="OPT_SALLOC_DELAY_BOOT" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_DELAY_BOOT"></a></dt><dd>Same as <b>--delay-boot</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_EXCLUSIVE</b><a class="slurm_link" id="OPT_SALLOC_EXCLUSIVE" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_EXCLUSIVE"></a></dt><dd>Same as <b>--exclusive</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_GPU_BIND</b><a class="slurm_link" id="OPT_SALLOC_GPU_BIND" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_GPU_BIND"></a></dt><dd>Same as <b>--gpu-bind</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_GPU_FREQ</b><a class="slurm_link" id="OPT_SALLOC_GPU_FREQ" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_GPU_FREQ"></a></dt><dd>Same as <b>--gpu-freq</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_GPUS</b><a class="slurm_link" id="OPT_SALLOC_GPUS" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_GPUS"></a></dt><dd>Same as <b>-G, --gpus</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_GPUS_PER_NODE</b><a class="slurm_link" id="OPT_SALLOC_GPUS_PER_NODE" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_GPUS_PER_NODE"></a></dt><dd>Same as <b>--gpus-per-node</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_GPUS_PER_TASK</b><a class="slurm_link" id="OPT_SALLOC_GPUS_PER_TASK" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_GPUS_PER_TASK"></a></dt><dd>Same as <b>--gpus-per-task</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_GRES</b><a class="slurm_link" id="OPT_SALLOC_GRES" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_GRES"></a></dt><dd>Same as <b>--gres</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_GRES_FLAGS</b><a class="slurm_link" id="OPT_SALLOC_GRES_FLAGS" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_GRES_FLAGS"></a></dt><dd>Same as <b>--gres-flags</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_HINT</b> or <b>SLURM_HINT</b><a class="slurm_link" id="OPT_SALLOC_HINT" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_HINT"></a></dt><dd>Same as <b>--hint</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_IMMEDIATE</b><a class="slurm_link" id="OPT_SALLOC_IMMEDIATE" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_IMMEDIATE"></a></dt><dd>Same as <b>-I, --immediate</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_KILL_CMD</b><a class="slurm_link" id="OPT_SALLOC_KILL_CMD" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_KILL_CMD"></a></dt><dd>Same as <b>-K</b>, <b>--kill-command</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_MEM_BIND</b><a class="slurm_link" id="OPT_SALLOC_MEM_BIND" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_MEM_BIND"></a></dt><dd>Same as <b>--mem-bind</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_MEM_PER_CPU</b><a class="slurm_link" id="OPT_SALLOC_MEM_PER_CPU" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_MEM_PER_CPU"></a></dt><dd>Same as <b>--mem-per-cpu</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_MEM_PER_GPU</b><a class="slurm_link" id="OPT_SALLOC_MEM_PER_GPU" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_MEM_PER_GPU"></a></dt><dd>Same as <b>--mem-per-gpu</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_MEM_PER_NODE</b><a class="slurm_link" id="OPT_SALLOC_MEM_PER_NODE" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_MEM_PER_NODE"></a></dt><dd>Same as <b>--mem</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_NETWORK</b><a class="slurm_link" id="OPT_SALLOC_NETWORK" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_NETWORK"></a></dt><dd>Same as <b>--network</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_NO_BELL</b><a class="slurm_link" id="OPT_SALLOC_NO_BELL" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_NO_BELL"></a></dt><dd>Same as <b>--no-bell</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_NO_KILL</b><a class="slurm_link" id="OPT_SALLOC_NO_KILL" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_NO_KILL"></a></dt><dd>Same as <b>-k</b>, <b>--no-kill</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_OVERCOMMIT</b><a class="slurm_link" id="OPT_SALLOC_OVERCOMMIT" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_OVERCOMMIT"></a></dt><dd>Same as <b>-O, --overcommit</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_PARTITION</b><a class="slurm_link" id="OPT_SALLOC_PARTITION" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_PARTITION"></a></dt><dd>Same as <b>-p, --partition</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_POWER</b><a class="slurm_link" id="OPT_SALLOC_POWER" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_POWER"></a></dt><dd>Same as <b>--power</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_PROFILE</b><a class="slurm_link" id="OPT_SALLOC_PROFILE" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_PROFILE"></a></dt><dd>Same as <b>--profile</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_QOS</b><a class="slurm_link" id="OPT_SALLOC_QOS" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_QOS"></a></dt><dd>Same as <b>--qos</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_REQ_SWITCH</b><a class="slurm_link" id="OPT_SALLOC_REQ_SWITCH" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_REQ_SWITCH"></a></dt><dd>When a tree topology is used, this defines the maximum count of switches
+desired for the job allocation and optionally the maximum time to wait
+for that number of switches. See <b>--switches</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_RESERVATION</b><a class="slurm_link" id="OPT_SALLOC_RESERVATION" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_RESERVATION"></a></dt><dd>Same as <b>--reservation</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_SIGNAL</b><a class="slurm_link" id="OPT_SALLOC_SIGNAL" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_SIGNAL"></a></dt><dd>Same as <b>--signal</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_SPREAD_JOB</b><a class="slurm_link" id="OPT_SALLOC_SPREAD_JOB" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_SPREAD_JOB"></a></dt><dd>Same as <b>--spread-job</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_THREAD_SPEC</b><a class="slurm_link" id="OPT_SALLOC_THREAD_SPEC" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_THREAD_SPEC"></a></dt><dd>Same as <b>--thread-spec</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_THREADS_PER_CORE</b><a class="slurm_link" id="OPT_SALLOC_THREADS_PER_CORE" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_THREADS_PER_CORE"></a></dt><dd>Same as <b>--threads-per-core</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_TIMELIMIT</b><a class="slurm_link" id="OPT_SALLOC_TIMELIMIT" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_TIMELIMIT"></a></dt><dd>Same as <b>-t, --time</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_TRES_BIND</b><a class="slurm_link" id="OPT_SALLOC_TRES_BIND" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_TRES_BIND"></a></dt><dd>Same as <b>--tres-bind</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_TRES_PER_TASK</b><a class="slurm_link" id="OPT_SALLOC_TRES_PER_TASK" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_TRES_PER_TASK"></a></dt><dd>Same as <b>--tres-per-task</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_USE_MIN_NODES</b><a class="slurm_link" id="OPT_SALLOC_USE_MIN_NODES" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_USE_MIN_NODES"></a></dt><dd>Same as <b>--use-min-nodes</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_WAIT_ALL_NODES</b><a class="slurm_link" id="OPT_SALLOC_WAIT_ALL_NODES" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_WAIT_ALL_NODES"></a></dt><dd>Same as <b>--wait-all-nodes</b>. Must be set to 0 or 1 to disable or enable
+the option.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_WAIT4SWITCH</b><a class="slurm_link" id="OPT_SALLOC_WAIT4SWITCH" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_WAIT4SWITCH"></a></dt><dd>Max time waiting for requested switches. See <b>--switches</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SALLOC_WCKEY</b><a class="slurm_link" id="OPT_SALLOC_WCKEY" href="https://slurm.schedmd.com/salloc.html#OPT_SALLOC_WCKEY"></a></dt><dd>Same as <b>--wckey</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CONF</b><a class="slurm_link" id="OPT_SLURM_CONF" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_CONF"></a></dt><dd>The location of the Slurm configuration file.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_DEBUG_FLAGS</b><a class="slurm_link" id="OPT_SLURM_DEBUG_FLAGS" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_DEBUG_FLAGS"></a></dt><dd>Specify debug flags for salloc to use. See DebugFlags in the
+<b><a href="https://slurm.schedmd.com/slurm.conf.html">slurm.conf</a></b>(5) man page for a full list of flags. The environment
+variable takes precedence over the setting in the slurm.conf.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_EXIT_ERROR</b><a class="slurm_link" id="OPT_SLURM_EXIT_ERROR" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_EXIT_ERROR"></a></dt><dd>Specifies the exit code generated when a Slurm error occurs
+(e.g. invalid options).
+This can be used by a script to distinguish application exit codes from
+various Slurm error conditions.
+Also see <b>SLURM_EXIT_IMMEDIATE</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_EXIT_IMMEDIATE</b><a class="slurm_link" id="OPT_SLURM_EXIT_IMMEDIATE" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_EXIT_IMMEDIATE"></a></dt><dd>Specifies the exit code generated when the <b>--immediate</b> option
+is used and resources are not currently available.
+This can be used by a script to distinguish application exit codes from
+various Slurm error conditions.
+Also see <b>SLURM_EXIT_ERROR</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAJ">&nbsp;</a>
+<h2>OUTPUT ENVIRONMENT VARIABLES<a class="slurm_link" id="SECTION_OUTPUT-ENVIRONMENT-VARIABLES" href="https://slurm.schedmd.com/salloc.html#SECTION_OUTPUT-ENVIRONMENT-VARIABLES"></a></h2>
+<p>
+
+salloc will set the following environment variables in the environment of
+the executed program:
+</p><dl compact="">
+<dt><b>SLURM_*_HET_GROUP_#</b><a class="slurm_link" id="OPT_SLURM_*_HET_GROUP_#" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_*_HET_GROUP_#"></a></dt><dd>For a heterogeneous job allocation, the environment variables are set separately
+for each component.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CLUSTER_NAME</b><a class="slurm_link" id="OPT_SLURM_CLUSTER_NAME" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_CLUSTER_NAME"></a></dt><dd>Name of the cluster on which the job is executing.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CONTAINER</b><a class="slurm_link" id="OPT_SLURM_CONTAINER" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_CONTAINER"></a></dt><dd>OCI Bundle for job.
+Only set if <b>--container</b> is specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CONTAINER_ID</b><a class="slurm_link" id="OPT_SLURM_CONTAINER_ID" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_CONTAINER_ID"></a></dt><dd>OCI id for job.
+Only set if <b>--container-id</b> is specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CPUS_PER_GPU</b><a class="slurm_link" id="OPT_SLURM_CPUS_PER_GPU" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_CPUS_PER_GPU"></a></dt><dd>Number of CPUs requested per allocated GPU.
+Only set if the <b>--cpus-per-gpu</b> option is specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CPUS_PER_TASK</b><a class="slurm_link" id="OPT_SLURM_CPUS_PER_TASK" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_CPUS_PER_TASK"></a></dt><dd>Number of CPUs requested per task.
+Only set if either the <b>--cpus-per-task</b> option or the
+<b>--tres-per-task=cpu=#</b> option is specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_DIST_PLANESIZE</b><a class="slurm_link" id="OPT_SLURM_DIST_PLANESIZE" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_DIST_PLANESIZE"></a></dt><dd>Plane distribution size. Only set for plane distributions.
+See <b>-m, --distribution</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_DISTRIBUTION</b><a class="slurm_link" id="OPT_SLURM_DISTRIBUTION" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_DISTRIBUTION"></a></dt><dd>Only set if the <b>-m, --distribution</b> option is specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_GPU_BIND</b><a class="slurm_link" id="OPT_SLURM_GPU_BIND" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_GPU_BIND"></a></dt><dd>Requested binding of tasks to GPU.
+Only set if the <b>--gpu-bind</b> option is specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_GPU_FREQ</b><a class="slurm_link" id="OPT_SLURM_GPU_FREQ" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_GPU_FREQ"></a></dt><dd>Requested GPU frequency.
+Only set if the <b>--gpu-freq</b> option is specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_GPUS</b><a class="slurm_link" id="OPT_SLURM_GPUS" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_GPUS"></a></dt><dd>Number of GPUs requested.
+Only set if the <b>-G, --gpus</b> option is specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_GPUS_PER_NODE</b><a class="slurm_link" id="OPT_SLURM_GPUS_PER_NODE" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_GPUS_PER_NODE"></a></dt><dd>Requested GPU count per allocated node.
+Only set if the <b>--gpus-per-node</b> option is specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_GPUS_PER_SOCKET</b><a class="slurm_link" id="OPT_SLURM_GPUS_PER_SOCKET" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_GPUS_PER_SOCKET"></a></dt><dd>Requested GPU count per allocated socket.
+Only set if the <b>--gpus-per-socket</b> option is specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_HET_SIZE</b><a class="slurm_link" id="OPT_SLURM_HET_SIZE" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_HET_SIZE"></a></dt><dd>Set to count of components in heterogeneous job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_ACCOUNT</b><a class="slurm_link" id="OPT_SLURM_JOB_ACCOUNT" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_JOB_ACCOUNT"></a></dt><dd>Account name associated of the job allocation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_CPUS_PER_NODE</b><a class="slurm_link" id="OPT_SLURM_JOB_CPUS_PER_NODE" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_JOB_CPUS_PER_NODE"></a></dt><dd>Count of CPUs available to the job on the nodes in the allocation, using the
+format <i>CPU_count</i>[(x<i>number_of_nodes</i>)][,<i>CPU_count</i>
+[(x<i>number_of_nodes</i>)] ...].
+For example: SLURM_JOB_CPUS_PER_NODE='72(x2),36' indicates that on the
+first and second nodes (as listed by SLURM_JOB_NODELIST) the allocation
+has 72 CPUs, while the third node has 36 CPUs.
+<b>NOTE</b>: The <b>select/linear</b> plugin allocates entire nodes to jobs, so
+the value indicates the total count of CPUs on allocated nodes. The
+<b>select/cons_tres</b> plugin allocates individual
+CPUs to jobs, so this number indicates the number of CPUs allocated to the job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_END_TIME</b><a class="slurm_link" id="OPT_SLURM_JOB_END_TIME" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_JOB_END_TIME"></a></dt><dd>The UNIX timestamp for a job's projected end time.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_GPUS</b><a class="slurm_link" id="OPT_SLURM_JOB_GPUS" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_JOB_GPUS"></a></dt><dd>The global GPU IDs of the GPUs allocated to this job. The GPU IDs are not
+relative to any device cgroup, even if devices are constrained with task/cgroup.
+Only set in batch and interactive jobs.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_ID</b><a class="slurm_link" id="OPT_SLURM_JOB_ID" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_JOB_ID"></a></dt><dd>The ID of the job allocation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_LICENSES</b><a class="slurm_link" id="OPT_SLURM_JOB_LICENSES" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_JOB_LICENSES"></a></dt><dd>Name and count of any license(s) requested.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_NODELIST</b><a class="slurm_link" id="OPT_SLURM_JOB_NODELIST" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_JOB_NODELIST"></a></dt><dd>List of nodes allocated to the job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_NUM_NODES</b><a class="slurm_link" id="OPT_SLURM_JOB_NUM_NODES" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_JOB_NUM_NODES"></a></dt><dd>Total number of nodes in the job allocation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_PARTITION</b><a class="slurm_link" id="OPT_SLURM_JOB_PARTITION" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_JOB_PARTITION"></a></dt><dd>Name of the partition in which the job is running.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_QOS</b><a class="slurm_link" id="OPT_SLURM_JOB_QOS" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_JOB_QOS"></a></dt><dd>Quality Of Service (QOS) of the job allocation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_RESERVATION</b><a class="slurm_link" id="OPT_SLURM_JOB_RESERVATION" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_JOB_RESERVATION"></a></dt><dd>Advanced reservation containing the job allocation, if any.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_START_TIME</b><a class="slurm_link" id="OPT_SLURM_JOB_START_TIME" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_JOB_START_TIME"></a></dt><dd>UNIX timestamp for a job's start time.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOBID</b><a class="slurm_link" id="OPT_SLURM_JOBID" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_JOBID"></a></dt><dd>The ID of the job allocation. See <b>SLURM_JOB_ID</b>. Included for backwards
+compatibility.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_BIND</b><a class="slurm_link" id="OPT_SLURM_MEM_BIND" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_MEM_BIND"></a></dt><dd>Set to value of the <b>--mem-bind</b> option.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_BIND_LIST</b><a class="slurm_link" id="OPT_SLURM_MEM_BIND_LIST" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_MEM_BIND_LIST"></a></dt><dd>Set to bit mask used for memory binding.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_BIND_PREFER</b><a class="slurm_link" id="OPT_SLURM_MEM_BIND_PREFER" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_MEM_BIND_PREFER"></a></dt><dd>Set to "prefer" if the <b>--mem-bind</b> option includes the prefer option.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_BIND_SORT</b><a class="slurm_link" id="OPT_SLURM_MEM_BIND_SORT" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_MEM_BIND_SORT"></a></dt><dd>Sort free cache pages (run zonesort on Intel KNL nodes)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_BIND_TYPE</b><a class="slurm_link" id="OPT_SLURM_MEM_BIND_TYPE" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_MEM_BIND_TYPE"></a></dt><dd>Set to the memory binding type specified with the <b>--mem-bind</b> option.
+Possible values are "none", "rank", "map_map", "mask_mem" and "local".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_BIND_VERBOSE</b><a class="slurm_link" id="OPT_SLURM_MEM_BIND_VERBOSE" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_MEM_BIND_VERBOSE"></a></dt><dd>Set to "verbose" if the <b>--mem-bind</b> option includes the verbose option.
+Set to "quiet" otherwise.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_PER_CPU</b><a class="slurm_link" id="OPT_SLURM_MEM_PER_CPU" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_MEM_PER_CPU"></a></dt><dd>Same as <b>--mem-per-cpu</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_PER_GPU</b><a class="slurm_link" id="OPT_SLURM_MEM_PER_GPU" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_MEM_PER_GPU"></a></dt><dd>Requested memory per allocated GPU.
+Only set if the <b>--mem-per-gpu</b> option is specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_PER_NODE</b><a class="slurm_link" id="OPT_SLURM_MEM_PER_NODE" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_MEM_PER_NODE"></a></dt><dd>Same as <b>--mem</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_NNODES</b><a class="slurm_link" id="OPT_SLURM_NNODES" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_NNODES"></a></dt><dd>Total number of nodes in the job allocation. See <b>SLURM_JOB_NUM_NODES</b>.
+Included for backwards compatibility.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_NODELIST</b><a class="slurm_link" id="OPT_SLURM_NODELIST" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_NODELIST"></a></dt><dd>List of nodes allocated to the job. See <b>SLURM_JOB_NODELIST</b>. Included
+for backwards compatibility.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_NPROCS</b><a class="slurm_link" id="OPT_SLURM_NPROCS" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_NPROCS"></a></dt><dd>Set to value of the <b>--ntasks</b> option, if specified. Or, if either of
+the <b>--ntasks-per-node</b> or <b>--ntasks-per-gpu</b> options are
+specified, set to the number of tasks in the job.
+See <b>SLURM_NTASKS</b>. Included for backwards compatibility.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_NTASKS</b><a class="slurm_link" id="OPT_SLURM_NTASKS" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_NTASKS"></a></dt><dd>Set to value of the <b>--ntasks</b> option, if specified. Or, if either of
+the <b>--ntasks-per-node</b> or <b>--ntasks-per-gpu</b> options are
+specified, set to the number of tasks in the job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_NTASKS_PER_CORE</b><a class="slurm_link" id="OPT_SLURM_NTASKS_PER_CORE" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_NTASKS_PER_CORE"></a></dt><dd>Set to value of the <b>--ntasks-per-core</b> option, if specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_NTASKS_PER_GPU</b><a class="slurm_link" id="OPT_SLURM_NTASKS_PER_GPU" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_NTASKS_PER_GPU"></a></dt><dd>Set to value of the <b>--ntasks-per-gpu</b> option, if specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_NTASKS_PER_NODE</b><a class="slurm_link" id="OPT_SLURM_NTASKS_PER_NODE" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_NTASKS_PER_NODE"></a></dt><dd>Set to value of the <b>--ntasks-per-node</b> option, if specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_NTASKS_PER_SOCKET</b><a class="slurm_link" id="OPT_SLURM_NTASKS_PER_SOCKET" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_NTASKS_PER_SOCKET"></a></dt><dd>Set to value of the <b>--ntasks-per-socket</b> option, if specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_OOMKILLSTEP</b><a class="slurm_link" id="OPT_SLURM_OOMKILLSTEP" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_OOMKILLSTEP"></a></dt><dd>Same as <b>--oom-kill-step</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_OVERCOMMIT</b><a class="slurm_link" id="OPT_SLURM_OVERCOMMIT" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_OVERCOMMIT"></a></dt><dd>Set to <b>1</b> if <b>--overcommit</b> was specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_PROFILE</b><a class="slurm_link" id="OPT_SLURM_PROFILE" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_PROFILE"></a></dt><dd>Same as <b>--profile</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_SHARDS_ON_NODE</b><a class="slurm_link" id="OPT_SLURM_SHARDS_ON_NODE" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_SHARDS_ON_NODE"></a></dt><dd>Number of GPU Shards available to the step on this node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_SUBMIT_DIR</b><a class="slurm_link" id="OPT_SLURM_SUBMIT_DIR" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_SUBMIT_DIR"></a></dt><dd>The directory from which <b>salloc</b> was invoked or, if applicable, the
+directory specified by the <b>-D, --chdir</b> option.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_SUBMIT_HOST</b><a class="slurm_link" id="OPT_SLURM_SUBMIT_HOST" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_SUBMIT_HOST"></a></dt><dd>The hostname of the computer from which <b>salloc</b> was invoked.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_TASKS_PER_NODE</b><a class="slurm_link" id="OPT_SLURM_TASKS_PER_NODE" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_TASKS_PER_NODE"></a></dt><dd>Number of tasks to be initiated on each node. Values are
+comma separated and in the same order as SLURM_JOB_NODELIST.
+If two or more consecutive nodes are to have the same task
+count, that count is followed by "(x#)" where "#" is the
+repetition count. For example, "SLURM_TASKS_PER_NODE=2(x3),1"
+indicates that the first three nodes will each execute two
+tasks and the fourth node will execute one task.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_THREADS_PER_CORE</b><a class="slurm_link" id="OPT_SLURM_THREADS_PER_CORE" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_THREADS_PER_CORE"></a></dt><dd>This is only set if <b>--threads-per-core</b> or
+<b>SALLOC_THREADS_PER_CORE</b> were specified. The value will be set to the
+value specified by <b>--threads-per-core</b> or
+<b>SALLOC_THREADS_PER_CORE</b>. This is used by subsequent srun calls within the
+job allocation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_TRES_PER_TASK</b><a class="slurm_link" id="OPT_SLURM_TRES_PER_TASK" href="https://slurm.schedmd.com/salloc.html#OPT_SLURM_TRES_PER_TASK"></a></dt><dd>Set to the value of <b>--tres-per-task</b>. If <b>--cpus-per-task</b> or
+<b>--gpus-per-task</b> is specified, it is also set in
+<b>SLURM_TRES_PER_TASK</b> as if it were specified in <b>--tres-per-task</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAK">&nbsp;</a>
+<h2>SIGNALS<a class="slurm_link" id="SECTION_SIGNALS" href="https://slurm.schedmd.com/salloc.html#SECTION_SIGNALS"></a></h2>
+<p>
+
+While salloc is waiting for a PENDING job allocation, most signals will cause
+salloc to revoke the allocation request and exit.
+</p><p>
+However if the allocation has been granted and salloc has already started the
+specified command, then salloc will ignore most signals.
+salloc will not exit or release the allocation until the command exits.
+One notable exception is SIGHUP. A SIGHUP signal will cause salloc to
+release the allocation and exit without waiting for the command to finish.
+Another exception is SIGTERM, which will be forwarded to the spawned process.
+</p><p>
+<a name="lbAL">&nbsp;</a>
+</p><h2>EXAMPLES<a class="slurm_link" id="SECTION_EXAMPLES" href="https://slurm.schedmd.com/salloc.html#SECTION_EXAMPLES"></a></h2>
+<dl compact="">
+<dt>To get an allocation, and open a new xterm in which srun commands may be typed interactively:</dt><dd>
+</dd><dt></dt><dd>
+<p>
+</p><pre>$ salloc -N16 xterm
+salloc: Granted job allocation 65537
+# (at this point the xterm appears, and salloc waits for xterm to exit)
+salloc: Relinquishing job allocation 65537
+</pre>
+
+<p>
+</p></dd><dt>To grab an allocation of nodes and launch a parallel application on one command line:</dt><dd>
+</dd><dt></dt><dd>
+<p>
+</p><pre>$ salloc -N5 srun -n10 myprogram
+</pre>
+
+<p>
+</p></dd><dt>To create a heterogeneous job with 3 components, each allocating a unique set of nodes:</dt><dd>
+</dd><dt></dt><dd>
+<pre>$ salloc -w node[2-3] : -w node4 : -w node[5-7] bash
+salloc: job 32294 queued and waiting for resources
+salloc: job 32294 has been allocated resources
+salloc: Granted job allocation 32294
+</pre>
+
+<p>
+</p></dd></dl>
+<a name="lbAM">&nbsp;</a>
+<h2>COPYING<a class="slurm_link" id="SECTION_COPYING" href="https://slurm.schedmd.com/salloc.html#SECTION_COPYING"></a></h2>
+Copyright (C) 2006-2007 The Regents of the University of California.
+Produced at Lawrence Livermore National Laboratory (cf, DISCLAIMER).
+<br>
+
+Copyright (C) 2008-2010 Lawrence Livermore National Security.
+<br>
+
+Copyright (C) 2010-2022 SchedMD LLC.
+<p>
+
+This file is part of Slurm, a resource management program.
+For details, see &lt;<a href="https://slurm.schedmd.com/">https://slurm.schedmd.com/</a>&gt;.
+</p><p>
+
+Slurm is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free
+Software Foundation; either version 2 of the License, or (at your option)
+any later version.
+</p><p>
+
+Slurm is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+details.
+</p><p>
+<a name="lbAN">&nbsp;</a>
+</p><h2>SEE ALSO<a class="slurm_link" id="SECTION_SEE-ALSO" href="https://slurm.schedmd.com/salloc.html#SECTION_SEE-ALSO"></a></h2>
+<p>
+
+<b><a href="https://slurm.schedmd.com/sinfo.html">sinfo</a></b>(1), <b><a href="https://slurm.schedmd.com/sattach.html">sattach</a></b>(1), <b><a href="https://slurm.schedmd.com/sbatch.html">sbatch</a></b>(1), <b><a href="https://slurm.schedmd.com/squeue.html">squeue</a></b>(1), <b><a href="https://slurm.schedmd.com/scancel.html">scancel</a></b>(1), <b><a href="https://slurm.schedmd.com/scontrol.html">scontrol</a></b>(1),
+<b><a href="https://slurm.schedmd.com/slurm.conf.html">slurm.conf</a></b>(5), <b>sched_setaffinity</b> (2), <b>numa</b> (3)
+</p><p>
+
+</p><hr>
+<a name="index">&nbsp;</a><h2>Index</h2>
+<dl>
+<dt><a href="https://slurm.schedmd.com/salloc.html#lbAB">NAME</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/salloc.html#lbAC">SYNOPSIS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/salloc.html#lbAD">DESCRIPTION</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/salloc.html#lbAE">RETURN VALUE</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/salloc.html#lbAF">COMMAND PATH RESOLUTION</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/salloc.html#lbAG">OPTIONS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/salloc.html#lbAH">PERFORMANCE</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/salloc.html#lbAI">INPUT ENVIRONMENT VARIABLES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/salloc.html#lbAJ">OUTPUT ENVIRONMENT VARIABLES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/salloc.html#lbAK">SIGNALS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/salloc.html#lbAL">EXAMPLES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/salloc.html#lbAM">COPYING</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/salloc.html#lbAN">SEE ALSO</a></dt><dd>
+</dd></dl>
+<hr>
+This document was created by
+<i>man2html</i> using the manual pages.<br>
+Time: 20:54:38 GMT, February 25, 2025
+			</div> <!-- END .container -->
+		</div> <!-- END .section -->
+	</div> <!-- END .content -->
+</div> <!-- END .main -->
+
+
+
+<table cellspacing="0" cellpadding="0" role="presentation" class="gstl_50 gssb_c" style="width: 172px; display: none; top: 65px; left: 523px; position: absolute;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

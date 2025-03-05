@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://slurm.schedmd.com/sreport.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+	<meta name="viewport" content="width=device-width">
+
+	<title>Slurm Workload Manager - sreport</title>
+	<link rel="canonical" href="https://slurm.schedmd.com/sreport.html">
+
+	<link rel="shortcut icon" href="https://slurm.schedmd.com/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - sreport_files/fonts.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - sreport_files/reset.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - sreport_files/style.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - sreport_files/slurm.css">
+
+	<script async="" src="./Slurm Workload Manager - sreport_files/async-ads.js.download"></script><script src="./Slurm Workload Manager - sreport_files/jquery.min.js.download"></script>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+		jQuery('.menu-trigger').bind('click touchstart', function() {
+			jQuery(this).find('.menu-trigger__lines').toggleClass('menu-trigger__lines--closed');
+			jQuery(this).parents('.site-header').find('.site-nav').toggleClass('site-nav--active');
+
+			return false;
+		});
+	});
+	</script>
+	<script async="" src="./Slurm Workload Manager - sreport_files/f.txt"></script>
+<script src="./Slurm Workload Manager - sreport_files/cse_element__en.js.download" type="text/javascript"></script><link type="text/css" href="./Slurm Workload Manager - sreport_files/default+en.css" rel="stylesheet"><link type="text/css" href="./Slurm Workload Manager - sreport_files/default.css" rel="stylesheet"><style type="text/css">.gsc-control-cse{font-family:arial, sans-serif}.gsc-control-cse .gsc-table-result{font-family:arial, sans-serif}.gsc-refinementsGradient{background:linear-gradient(to left,rgba(255,255,255,1),rgba(255,255,255,0))}.gsc-control-cse{border-color:#FFFFFF;background-color:#FFFFFF}input.gsc-input,.gsc-input-box,.gsc-input-box-hover,.gsc-input-box-focus{border-color:#D9D9D9}.gsc-search-button-v2,.gsc-search-button-v2:hover,.gsc-search-button-v2:focus{border-color:#666666;background-color:#1BAEE9;background-image:none;filter:none}.gsc-search-button-v2 svg{fill:#FFFFFF}.gsc-tabHeader.gsc-tabhActive,.gsc-refinementHeader.gsc-refinementhActive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-tabHeader.gsc-tabhInactive,.gsc-refinementHeader.gsc-refinementhInactive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-webResult.gsc-result,.gsc-results .gsc-imageResult{border-color:#FFFFFF;background-color:#FFFFFF}.gsc-webResult.gsc-result:hover{border-color:#FFFFFF;background-color:#FFFFFF}.gs-webResult.gs-result a.gs-title:link,.gs-webResult.gs-result a.gs-title:link b,.gs-imageResult a.gs-title:link,.gs-imageResult a.gs-title:link b{color:#0000CC}.gs-webResult.gs-result a.gs-title:visited,.gs-webResult.gs-result a.gs-title:visited b,.gs-imageResult a.gs-title:visited,.gs-imageResult a.gs-title:visited b{color:#0000CC}.gs-webResult.gs-result a.gs-title:hover,.gs-webResult.gs-result a.gs-title:hover b,.gs-imageResult a.gs-title:hover,.gs-imageResult a.gs-title:hover b{color:#0000CC}.gs-webResult.gs-result a.gs-title:active,.gs-webResult.gs-result a.gs-title:active b,.gs-imageResult a.gs-title:active,.gs-imageResult a.gs-title:active b{color:#0000CC}.gsc-cursor-page{color:#0000CC}a.gsc-trailing-more-results:link{color:#0000CC}.gs-webResult:not(.gs-no-results-result):not(.gs-error-result) .gs-snippet,.gs-fileFormatType{color:#000000}.gs-webResult div.gs-visibleUrl{color:#008000}.gs-webResult div.gs-visibleUrl-short{color:#008000}.gsc-cursor-box{border-color:#FFFFFF}.gsc-results .gsc-cursor-box .gsc-cursor-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-results .gsc-cursor-box .gsc-cursor-current-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-webResult.gsc-result.gsc-promotion{border-color:#336699;background-color:#FFFFFF}.gsc-completion-title{color:#0000CC}.gsc-completion-snippet{color:#000000}.gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link{color:#0000CC}.gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited{color:#0000CC}.gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover{color:#0000CC}.gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active{color:#0000CC}.gs-promotion .gs-snippet,.gs-promotion .gs-title .gs-promotion-title-right,.gs-promotion .gs-title .gs-promotion-title-right *{color:#000000}.gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short{color:#008000}.gcsc-find-more-on-google{color:#0000CC}.gcsc-find-more-on-google-magnifier{fill:#0000CC}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{vertical-align:middle;opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gssb_a{padding:0 9px}.gsib_a{padding:5px 9px 4px 9px}.gscb_a{line-height:27px}.gssb_e{border:0}.gssb_l{margin:5px 0}input.gsc-input::-webkit-input-placeholder{font-size:14px}input.gsc-input:-moz-placeholder{font-size:14px}input.gsc-input::-moz-placeholder{font-size:14px}input.gsc-input:-ms-input-placeholder{font-size:14px}input.gsc-input:focus::-webkit-input-placeholder{color:transparent}input.gsc-input:focus:-moz-placeholder{color:transparent}input.gsc-input:focus::-moz-placeholder{color:transparent}input.gsc-input:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
+
+<body data-new-gr-c-s-check-loaded="14.1224.0" data-gr-ext-installed="">
+
+<div class="container container--main">
+
+	<header class="site-header" role="banner">
+
+		<div class="site-masthead">
+			<h1 class="site-masthead__title site-masthead__title--slurm">
+				<a href="https://slurm.schedmd.com/" rel="home">
+					<span class="slurm-logo">Slurm Workload Manager</span>
+				</a>
+			</h1>
+			<div class="site-masthead__title">
+				<a href="https://www.schedmd.com/" rel="home">
+					<span class="site-logo">SchedMD</span>
+				</a>
+			</div>
+
+			<button class="site-masthead__trigger menu-trigger" type="button" role="button" aria-label="Toggle Navigation"><span class="menu-trigger__lines"></span></button>
+		</div>
+
+
+		<nav class="site-nav" role="navigation">
+			<h2 class="site-nav__title">Navigation</h2>
+
+			<div class="slurm-title">
+				<div class="slurm-logo"><a href="https://slurm.schedmd.com/">Slurm Workload Manager</a></div>
+				<div class="slurm-title__version">Version 24.11</div>
+			</div>
+
+			<ul class="site-nav__menu site-menu menu">
+				<li class="site-menu__item">
+				        <div>About</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/overview.html">Overview</a></li>
+						<li><a href="https://slurm.schedmd.com/release_notes.html">Release Notes</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Using</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/documentation.html">Documentation</a></li>
+						<li><a href="https://slurm.schedmd.com/faq.html">FAQ</a></li>
+						<li><a href="https://www.schedmd.com/publications/">Publications</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Installing</div>
+					<ul>
+						<li><a href="https://www.schedmd.com/download-slurm/">Download</a></li>
+						<li><a href="https://slurm.schedmd.com/related_software.html">Related Software</a></li>
+						<li><a href="https://slurm.schedmd.com/quickstart_admin.html">Installation Guide</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Getting Help</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/mail.html">Mailing Lists</a></li>
+						<li><a href="https://www.schedmd.com/slurm-support/our-services/">Support and Training</a></li>
+						<li><a href="https://slurm.schedmd.com/troubleshoot.html">Troubleshooting</a></li>
+					</ul>
+				</li>
+			</ul>
+
+		</nav>
+
+	</header>
+
+	<div class="content" role="main">
+		<section class="slurm-search">
+			<div class="container" id="cse">
+				<div id="___gcse_0"><div class="gsc-control-cse gsc-control-cse-en"><div class="gsc-control-wrapper-cse" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" role="presentation" id="gs_id50" class="gstl_50 gsc-input" style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" aria-label="search" id="gsc-i-id1" dir="ltr" spellcheck="false" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; background: url(&quot;https://www.google.com/cse/static/images/1x/en/branding.png&quot;) left center no-repeat rgb(255, 255, 255); outline: none;"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" title="Clear search box" role="button" style="display: none;"><span class="gscb_a" id="gs_cb50" aria-hidden="true">×</span></a></div></td></tr></tbody></table></div></td><td class="gsc-search-button"><button class="gsc-search-button gsc-search-button-v2"><svg width="13" height="13" viewBox="0 0 13 13"><title>search</title><path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path></svg></button></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table></form><div class="gsc-results-wrapper-nooverlay"><div class="gsc-positioningWrapper"><div class="gsc-tabsAreaInvisible"><div aria-label="refinement" role="tab" class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Custom Search</div><span class="gs-spacer"> </span></div></div><div class="gsc-positioningWrapper"><div class="gsc-refinementsAreaInvisible"></div></div><div class="gsc-above-wrapper-area-invisible"><div class="gsc-above-wrapper-area-backfill-container"></div><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-above-wrapper-area-container"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td><td class="gsc-orderby-container"><div class="gsc-orderby-invisible"><div class="gsc-orderby-label gsc-inline-block">Sort by:</div><div class="gsc-option-menu-container gsc-inline-block"><div class="gsc-selected-option-container gsc-inline-block"><div class="gsc-selected-option">Relevance</div><div class="gsc-option-selector"></div></div><div class="gsc-option-menu-invisible"><div class="gsc-option-menu-item gsc-option-menu-item-highlighted"><div class="gsc-option">Relevance</div></div><div class="gsc-option-menu-item"><div class="gsc-option">Date</div></div></div></div></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><div><div class="gsc-expansionArea"></div></div></div></div></div></div></div></div></div>
+			</div>
+		</section>
+
+		<div class="section">
+			<div class="container">
+
+<h1>sreport</h1>
+Section: Slurm Commands (1)<br>Updated: Slurm Commands<br><a href="https://slurm.schedmd.com/sreport.html#index">Index</a>
+
+<p>
+<a name="lbAB">&nbsp;</a>
+</p><h2>NAME<a class="slurm_link" id="SECTION_NAME" href="https://slurm.schedmd.com/sreport.html#SECTION_NAME"></a></h2>
+sreport - Generate reports from the slurm accounting data.
+<p>
+<a name="lbAC">&nbsp;</a>
+</p><h2>SYNOPSIS<a class="slurm_link" id="SECTION_SYNOPSIS" href="https://slurm.schedmd.com/sreport.html#SECTION_SYNOPSIS"></a></h2>
+<b>sreport</b> [<i>OPTIONS</i>...] [<i>COMMAND</i>...]
+<p>
+<a name="lbAD">&nbsp;</a>
+</p><h2>DESCRIPTION<a class="slurm_link" id="SECTION_DESCRIPTION" href="https://slurm.schedmd.com/sreport.html#SECTION_DESCRIPTION"></a></h2>
+<b>sreport</b> is used to generate reports of job usage and cluster
+utilization for Slurm jobs saved to the Slurm Database,
+<b>slurmdbd</b>. Report data comes from hourly, daily, and monthly rollups of
+accounting data that occur automatically in the background. Data will be pulled
+from the rollup table with the longest interval that can satisfy the requested
+report period. For example, a report on the time range "Start=01/01 End=03/01"
+will be able to pull from the monthly rollup table, while a report with
+"Start=01/01-03:00 End=03/01" will need to use the hourly rollup table.
+<p>
+<a name="lbAE">&nbsp;</a>
+</p><h2>OPTIONS<a class="slurm_link" id="SECTION_OPTIONS" href="https://slurm.schedmd.com/sreport.html#SECTION_OPTIONS"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>-a</b>, <b>--all_clusters</b><a class="slurm_link" id="OPT_all_clusters" href="https://slurm.schedmd.com/sreport.html#OPT_all_clusters"></a></dt><dd>Use all clusters instead of only the cluster from which the command was
+executed.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-M</b>, <b>--cluster</b><a class="slurm_link" id="OPT_cluster" href="https://slurm.schedmd.com/sreport.html#OPT_cluster"></a></dt><dd>The cluster(s) to generate reports for. Default is local cluster, unless the
+local cluster is currently part of a federation and in that case generate a
+report for all clusters in the current federation. If the clusters included
+in a federation vary through time, use this option to identify the clusters
+to be included in report. Implies --local.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--federation</b><a class="slurm_link" id="OPT_federation" href="https://slurm.schedmd.com/sreport.html#OPT_federation"></a></dt><dd>Generate a report for the federation if a member of one.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-h</b>, <b>--help</b><a class="slurm_link" id="OPT_help" href="https://slurm.schedmd.com/sreport.html#OPT_help"></a></dt><dd>Print a help message describing the usage of <b>sreport</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--local</b><a class="slurm_link" id="OPT_local" href="https://slurm.schedmd.com/sreport.html#OPT_local"></a></dt><dd>Generate a report for the local cluster, even if part of a federation.
+Overrides <b>--federation</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-n</b>, <b>--noheader</b><a class="slurm_link" id="OPT_noheader" href="https://slurm.schedmd.com/sreport.html#OPT_noheader"></a></dt><dd>Don't display header when listing results.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-p</b>, <b>--parsable</b><a class="slurm_link" id="OPT_parsable" href="https://slurm.schedmd.com/sreport.html#OPT_parsable"></a></dt><dd>Output will be '|' delimited with a '|' at the end.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-P</b>, <b>--parsable2</b><a class="slurm_link" id="OPT_parsable2" href="https://slurm.schedmd.com/sreport.html#OPT_parsable2"></a></dt><dd>Output will be '|' delimited without a '|' at the end.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-Q</b>, <b>--quiet</b><a class="slurm_link" id="OPT_quiet" href="https://slurm.schedmd.com/sreport.html#OPT_quiet"></a></dt><dd>Print no warning or informational messages, only error messages.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-t</b> &lt;<i>time_format</i>&gt;<a class="slurm_link" id="OPT_-t" href="https://slurm.schedmd.com/sreport.html#OPT_-t"></a></dt><dd>Specify the output time format. Time format options are case
+insensitive and may be abbreviated. The default format is Minutes.
+Supported time format options are listed in the <b>time</b> command
+section below.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-T</b>, <b>--tres</b>=&lt;<i>tres_names</i>&gt;<a class="slurm_link" id="OPT_tres" href="https://slurm.schedmd.com/sreport.html#OPT_tres"></a></dt><dd>Trackable resource (TRES) to report values for.
+By default CPU resource use is reported (except for reservation reports. All
+TRES types reserved by a reservation will be shown by default unless overridden
+with this option).
+Multiple TRES names may be separated using a comma separated list for all
+reports except the job reports, which can only support a single TRES name, or
+"ALL" for all TRES.
+<p>
+The "Reported" Billing TRES is calculated from the largest Billing TRES of each
+node multiplied by the time frame. For example, if a node is part of multiple
+partitions and each has a different TRESBillingWeights defined the Billing TRES
+for the node will be the highest of the partitions. If TRESBillingWeights is
+not defined on any partition for a node then the Billing TRES will be equal to
+the number of CPUs on the node.
+</p><p>
+TRES node usage is no longer reported in percent format or in Cluster
+Utilization. Please use TRES CPU instead.
+The main issue with using node is in most configurations multiple jobs are able
+to run on the same node. This makes TRES node accounting count the same node
+multiple times in the same period. In exclusive node configurations, CPU
+accounting returns the same usage node accounting would.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-v</b>, <b>--verbose</b><a class="slurm_link" id="OPT_verbose" href="https://slurm.schedmd.com/sreport.html#OPT_verbose"></a></dt><dd>Print detailed event logging.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-V</b> , <b>--version</b><a class="slurm_link" id="OPT_version" href="https://slurm.schedmd.com/sreport.html#OPT_version"></a></dt><dd>Print version information and exit.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAF">&nbsp;</a>
+<h2>COMMANDS<a class="slurm_link" id="SECTION_COMMANDS" href="https://slurm.schedmd.com/sreport.html#SECTION_COMMANDS"></a></h2>
+<p>
+</p><p>
+
+&lt;keyword&gt; may be omitted from the execute line and sreport will
+execute in interactive mode. sreport will process commands as entered until
+explicitly terminated.
+</p><p>
+</p><dl compact="">
+<dt><b>exit</b><a class="slurm_link" id="OPT_exit" href="https://slurm.schedmd.com/sreport.html#OPT_exit"></a></dt><dd>Terminate the execution of sreport.
+Identical to the <b>quit</b> command.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>help</b><a class="slurm_link" id="OPT_help_1" href="https://slurm.schedmd.com/sreport.html#OPT_help_1"></a></dt><dd>Display a description of sreport options and commands.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>nonparsable</b><a class="slurm_link" id="OPT_nonparsable" href="https://slurm.schedmd.com/sreport.html#OPT_nonparsable"></a></dt><dd>Return output to normal after parsable or parsable2 has been set.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>parsable</b><a class="slurm_link" id="OPT_parsable_1" href="https://slurm.schedmd.com/sreport.html#OPT_parsable_1"></a></dt><dd>Output will be | delimited with an ending '|'.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>parsable2</b><a class="slurm_link" id="OPT_parsable2_1" href="https://slurm.schedmd.com/sreport.html#OPT_parsable2_1"></a></dt><dd>Output will be | delimited without an ending '|'.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>quiet</b><a class="slurm_link" id="OPT_quiet_1" href="https://slurm.schedmd.com/sreport.html#OPT_quiet_1"></a></dt><dd>Print no warning or informational messages, only fatal error messages.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>quit</b><a class="slurm_link" id="OPT_quit" href="https://slurm.schedmd.com/sreport.html#OPT_quit"></a></dt><dd>Terminate the execution of sreport.
+Identical to the <b>exit</b> command.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>time &lt;time_format&gt;</b><a class="slurm_link" id="OPT_time-&lt;time_format&gt;" href="https://slurm.schedmd.com/sreport.html#OPT_time-%3Ctime_format%3E"></a></dt><dd>Specify the output time format. Time format options are case
+insensitive and may be abbreviated. The default format is Minutes.
+Supported time format options include:
+</dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>SecPer</b><a class="slurm_link" id="OPT_SecPer" href="https://slurm.schedmd.com/sreport.html#OPT_SecPer"></a></dt><dd>Seconds/Percentage of Total
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MinPer</b><a class="slurm_link" id="OPT_MinPer" href="https://slurm.schedmd.com/sreport.html#OPT_MinPer"></a></dt><dd>Minutes/Percentage of Total
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>HourPer</b><a class="slurm_link" id="OPT_HourPer" href="https://slurm.schedmd.com/sreport.html#OPT_HourPer"></a></dt><dd>Hours/Percentage of Total
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Seconds</b><a class="slurm_link" id="OPT_Seconds" href="https://slurm.schedmd.com/sreport.html#OPT_Seconds"></a></dt><dd>Seconds
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Minutes</b><a class="slurm_link" id="OPT_Minutes" href="https://slurm.schedmd.com/sreport.html#OPT_Minutes"></a></dt><dd>Minutes
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Hours</b><a class="slurm_link" id="OPT_Hours" href="https://slurm.schedmd.com/sreport.html#OPT_Hours"></a></dt><dd>Hours
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Percent</b><a class="slurm_link" id="OPT_Percent" href="https://slurm.schedmd.com/sreport.html#OPT_Percent"></a></dt><dd>Percentage of Total
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>verbose</b><a class="slurm_link" id="OPT_verbose_1" href="https://slurm.schedmd.com/sreport.html#OPT_verbose_1"></a></dt><dd>Enable detailed event logging.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>version</b><a class="slurm_link" id="OPT_version_1" href="https://slurm.schedmd.com/sreport.html#OPT_version_1"></a></dt><dd>Display the sreport version number.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>!!</b><a class="slurm_link" id="OPT_!!" href="https://slurm.schedmd.com/sreport.html#OPT_!!"></a></dt><dd>Repeat the last command executed.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAG">&nbsp;</a>
+<h2>REPORT TYPES<a class="slurm_link" id="SECTION_REPORT-TYPES" href="https://slurm.schedmd.com/sreport.html#SECTION_REPORT-TYPES"></a></h2>
+<p>
+Valid report types are:
+</p><dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>cluster</b> &lt;REPORT&gt; &lt;OPTIONS&gt;<a class="slurm_link" id="OPT_cluster_1" href="https://slurm.schedmd.com/sreport.html#OPT_cluster_1"></a></dt><dd></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>job</b> &lt;REPORT&gt; &lt;OPTIONS&gt;<a class="slurm_link" id="OPT_job" href="https://slurm.schedmd.com/sreport.html#OPT_job"></a></dt><dd></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>reservation</b> &lt;REPORT&gt; &lt;OPTIONS&gt;<a class="slurm_link" id="OPT_reservation" href="https://slurm.schedmd.com/sreport.html#OPT_reservation"></a></dt><dd></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>user</b> &lt;REPORT&gt; &lt;OPTIONS&gt;<a class="slurm_link" id="OPT_user" href="https://slurm.schedmd.com/sreport.html#OPT_user"></a></dt><dd></dd><dt></dt><dd>
+</dd></dl>
+</dd></dl>
+
+<p>
+&lt;REPORT&gt; options for each type include:
+</p><dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>cluster</b><a class="slurm_link" id="OPT_cluster_2" href="https://slurm.schedmd.com/sreport.html#OPT_cluster_2"></a></dt><dd>AccountUtilizationByUser, AccountUtilizationByQOS, UserUtilizationByAccount,
+UserUtilizationByWckey, Utilization, WCKeyUtilizationByUser
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>job</b><a class="slurm_link" id="OPT_job_1" href="https://slurm.schedmd.com/sreport.html#OPT_job_1"></a></dt><dd>SizesByAccount, SizesByAccountAndWcKey, SizesByWckey
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>reservation</b><a class="slurm_link" id="OPT_reservation_1" href="https://slurm.schedmd.com/sreport.html#OPT_reservation_1"></a></dt><dd>Utilization
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>user</b><a class="slurm_link" id="OPT_user_1" href="https://slurm.schedmd.com/sreport.html#OPT_user_1"></a></dt><dd>TopUsage
+</dd><dt></dt><dd>
+</dd></dl>
+</dd></dl>
+
+<p>
+</p><p>
+
+<b>NOTE</b>: If <b>OverSubscribe</b> is configured to <b>FORCE</b> or <b>YES</b>
+in your slurm.conf and the system is not configured to use preemption
+(<b>PreemptMode=OFF</b>) accounting can easily grow to values greater than
+the actual utilization. It may be common on such systems to get error messages
+in the slurmdbd log stating: "We have more allocated time than is possible."
+</p><p>
+<a name="lbAH">&nbsp;</a>
+</p><h2>REPORT DESCRIPTION<a class="slurm_link" id="SECTION_REPORT-DESCRIPTION" href="https://slurm.schedmd.com/sreport.html#SECTION_REPORT-DESCRIPTION"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>cluster AccountUtilizationByUser</b><a class="slurm_link" id="OPT_cluster-AccountUtilizationByUser" href="https://slurm.schedmd.com/sreport.html#OPT_cluster-AccountUtilizationByUser"></a></dt><dd>
+</dd><dd>
+This report will display account utilization as it appears on the
+hierarchical tree. Starting with the specified account or the
+root account by default this report will list the underlying
+usage with a sum on each level. Use the 'tree' option to span
+the tree for better visibility.
+<p>
+<b>NOTE</b>: Idle reservation time will be split evenly among accounts/users
+given access to it. When a reservation is assigned to whole accounts, the
+time will be counted in the association for the accounts, not the user
+associations in the accounts. In this case, the usage of a parent account can
+be larger than the sum of its children.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>cluster AccountUtilizationByQOS</b><a class="slurm_link" id="OPT_cluster-AccountUtilizationByQOS" href="https://slurm.schedmd.com/sreport.html#OPT_cluster-AccountUtilizationByQOS"></a></dt><dd>
+</dd><dd>
+This report will display account utilization as it appears on the
+hierarchical tree. Starting with the root account by default, or with the
+specified account, this report will list the underlying usage in each
+account, with a sum on each level. Use the 'tree' option to expand
+the tree for better visibility. Users are not displayed here, only parent
+accounts.
+<p>
+<b>NOTE</b>: Idle reservation time will be split evenly among accounts that have
+access to it. Since no QOS is directly connected with the idle time, the
+time is counted against the default QOS of the account, or 'normal' when
+there is no default.
+</p><p>
+<b>NOTE</b>: If you reroll data in the database and have changed the default
+QOS on an association to something other than what was there at the time
+of the original rollup, you can get different data.
+</p><p>
+</p></dd><dt><b>cluster UserUtilizationByAccount</b><a class="slurm_link" id="OPT_cluster-UserUtilizationByAccount" href="https://slurm.schedmd.com/sreport.html#OPT_cluster-UserUtilizationByAccount"></a></dt><dd>
+</dd><dd>
+This report will display users by account in order of utilization without
+grouping multiple accounts by user into one, but displaying them
+on separate lines.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>cluster UserUtilizationByWCKey</b><a class="slurm_link" id="OPT_cluster-UserUtilizationByWCKey" href="https://slurm.schedmd.com/sreport.html#OPT_cluster-UserUtilizationByWCKey"></a></dt><dd>
+</dd><dd>
+This report will display users by wckey in order of utilization without
+grouping multiple wckey by user into one, but displaying them
+on separate lines.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>cluster Utilization</b><a class="slurm_link" id="OPT_cluster-Utilization" href="https://slurm.schedmd.com/sreport.html#OPT_cluster-Utilization"></a></dt><dd>
+</dd><dd>
+This report will display total usage divided amongst Allocated, Down,
+Planned Down, Idle, and Planned time for selected clusters.
+<p>
+Refer to the later section for descriptions of these fields.
+</p><p>
+Note: Reservations created with the IGNORE_JOBS flag are not tracked
+in the Cluster Utilization report due to the fact that allowing any
+current/active jobs to continue to run in the reservation introduces the
+possibility for them to be accounted for incorrectly.
+The jobs in these reservations will be tracked as normal rather than
+being bundled in the reservation time, as they are with reservations that
+do not have the IGNORE_JOBS flag.
+</p><p>
+Note: The default view for the "Cluster Utilization" report includes the
+following fields: Cluster, Allocated, Down, PlannedDown, Idle, Planned,
+Reported. You can include additional fields like OverCommitted and TresCount
+fields with the <b>Format</b> option. The TresName will also be included if
+using the <b>-T, --tres &lt;tres_names&gt;</b> option.
+
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>cluster WCKeyUtilizationByUser</b><a class="slurm_link" id="OPT_cluster-WCKeyUtilizationByUser" href="https://slurm.schedmd.com/sreport.html#OPT_cluster-WCKeyUtilizationByUser"></a></dt><dd>
+</dd><dd>
+This report will display wckey utilization sorted by WCKey name for
+each user on each cluster.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>job SizesByAccount</b><a class="slurm_link" id="OPT_job-SizesByAccount" href="https://slurm.schedmd.com/sreport.html#OPT_job-SizesByAccount"></a></dt><dd>
+</dd><dd>
+This report will display the amount of time used for job ranges
+specified by the 'grouping=' option. Only a single level in the tree
+is displayed defaulting to the root dir. If you specify other
+accounts with the 'account=' option sreport will use those accounts as
+the root account and you will receive the aggregated totals of each listed
+account plus their sub accounts.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>job SizesByAccountAndWckey</b><a class="slurm_link" id="OPT_job-SizesByAccountAndWckey" href="https://slurm.schedmd.com/sreport.html#OPT_job-SizesByAccountAndWckey"></a></dt><dd>
+</dd><dd>
+This report is very similar to SizesByAccount with the difference being
+each account is pair with wckeys so the identifier is account:wckey
+instead of just account so there will most likely be multiple accounts
+listed depending on the number of wckeys used.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>job SizesByWckey</b><a class="slurm_link" id="OPT_job-SizesByWckey" href="https://slurm.schedmd.com/sreport.html#OPT_job-SizesByWckey"></a></dt><dd>
+</dd><dd>
+This report will display the amount of time for each wckey for job ranges
+specified by the 'grouping=' option.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>reservation Utilization</b><a class="slurm_link" id="OPT_reservation-Utilization" href="https://slurm.schedmd.com/sreport.html#OPT_reservation-Utilization"></a></dt><dd>
+</dd><dd>
+This report will display total usage for reservations on the systems.
+Note: Time requests on this report will not truncate the time the reservation
+used, only the reservations that ran at any time during the period requested.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>user TopUsage</b><a class="slurm_link" id="OPT_user-TopUsage" href="https://slurm.schedmd.com/sreport.html#OPT_user-TopUsage"></a></dt><dd>
+</dd><dd>
+Displays the top users on a cluster, i.e. users with the highest usage.
+By default users are sorted by CPUTime, but the -T, --tres option will
+sort users by the first TRES specified.
+<p>
+Use the group option to group accounts together.
+The default is to have a different line for each user account combination.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<p>
+
+Each report type has various options...
+</p><p>
+</p><p>
+
+<b>OPTIONS FOR ALL REPORT TYPES</b>
+
+</p><p>
+</p><dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>All_Clusters</b><a class="slurm_link" id="OPT_All_Clusters" href="https://slurm.schedmd.com/sreport.html#OPT_All_Clusters"></a></dt><dd>
+</dd><dd>
+Use all monitored clusters. Default is local cluster.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Clusters=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_Clusters=&lt;OPT&gt;" href="https://slurm.schedmd.com/sreport.html#OPT_Clusters=%3COPT%3E"></a></dt><dd>
+</dd><dd>
+List of clusters to include in report. Default is local cluster.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>End=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_End=&lt;OPT&gt;" href="https://slurm.schedmd.com/sreport.html#OPT_End=%3COPT%3E"></a></dt><dd>
+</dd><dd>
+Period ending for report. Default is 23:59:59 of previous day. Note that while
+minutes and seconds are recognized, they will be rounded to the nearest hour as
+reports cannot be generated for a more specific time range.
+Valid time formats are...
+<p>
+HH:MM[:SS] [AM|PM]
+<br>
+
+MMDD[YY] or MM/DD[/YY] or MM.DD[.YY]
+<br>
+
+MM/DD[/YY]-HH:MM[:SS]
+<br>
+
+YYYY-MM-DD[THH:MM[:SS]]
+<br>
+
+now[{+|-}<i>count</i>[seconds(default)|minutes|hours|days|weeks]]
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Format=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_Format=&lt;OPT&gt;" href="https://slurm.schedmd.com/sreport.html#OPT_Format=%3COPT%3E"></a></dt><dd>
+</dd><dd>
+Comma separated list of fields to display in report.
+<p>
+When using the format option for listing various fields you can put a
+%NUMBER afterwards to specify how many characters should be printed.
+</p><p>
+e.g. format=name%30 will print 30 characters of field name right
+justified. A -30 will print 30 characters left justified.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Start=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_Start=&lt;OPT&gt;" href="https://slurm.schedmd.com/sreport.html#OPT_Start=%3COPT%3E"></a></dt><dd>
+</dd><dd>
+Period start for report. Default is 00:00:00 of previous day. Note that while
+minutes and seconds are recognized, they will be rounded to the nearest hour as
+reports cannot be generated for a more specific time range.
+Valid time formats are...
+<p>
+HH:MM[:SS] [AM|PM]
+<br>
+
+MMDD[YY] or MM/DD[/YY] or MM.DD[.YY]
+<br>
+
+MM/DD[/YY]-HH:MM[:SS]
+<br>
+
+YYYY-MM-DD[THH:MM[:SS]]
+<br>
+
+now[{+|-}<i>count</i>[seconds(default)|minutes|hours|days|weeks]]
+
+</p></dd></dl>
+</dd></dl>
+
+<dl compact="">
+<dt></dt><dd>
+<p>
+</p></dd></dl>
+<p>
+
+<b>OPTIONS SPECIFICALLY FOR CLUSTER REPORTS</b>
+
+</p><p>
+</p><dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>Accounts=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_Accounts=&lt;OPT&gt;" href="https://slurm.schedmd.com/sreport.html#OPT_Accounts=%3COPT%3E"></a></dt><dd>
+</dd><dd>
+When used with the UserUtilizationByAccount, or
+AccountUtilizationBy[User|QOS], List of accounts to include in report.
+Default is all.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Tree</b><a class="slurm_link" id="OPT_Tree" href="https://slurm.schedmd.com/sreport.html#OPT_Tree"></a></dt><dd>
+</dd><dd>
+When used with the AccountUtilizationBy[User|QOS] report will span the
+accounts as they are in the hierarchy.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Users=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_Users=&lt;OPT&gt;" href="https://slurm.schedmd.com/sreport.html#OPT_Users=%3COPT%3E"></a></dt><dd>
+</dd><dd>
+When used with any report other than Utilization, List of users to
+include in report. Default is all.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Wckeys=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_Wckeys=&lt;OPT&gt;" href="https://slurm.schedmd.com/sreport.html#OPT_Wckeys=%3COPT%3E"></a></dt><dd>
+</dd><dd>
+When used with the UserUtilizationByWckey or WCKeyUtilizationByUser,
+List of wckeys to include in report. Default is all.
+</dd></dl>
+</dd></dl>
+
+<dl compact="">
+<dt></dt><dd>
+<p>
+</p></dd></dl>
+<p>
+
+<b>OPTIONS SPECIFICALLY FOR JOB REPORTS</b>
+
+</p><p>
+</p><dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>Accounts=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_Accounts=&lt;OPT&gt;_1" href="https://slurm.schedmd.com/sreport.html#OPT_Accounts=%3COPT%3E_1"></a></dt><dd>
+</dd><dd>
+List of accounts to use for the report. Default is all which will show only
+one line corresponding to the totals of all accounts in the hierarchy.
+This explanation does not apply when ran with the FlatView or AcctAsParent
+options.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>AcctAsParent</b><a class="slurm_link" id="OPT_AcctAsParent" href="https://slurm.schedmd.com/sreport.html#OPT_AcctAsParent"></a></dt><dd>
+</dd><dd>
+When used with the SizesbyAccount(*) will take specified accounts
+as parents and the next layer of accounts under those specified
+will be displayed. Default is root if no specific Accounts are requested.
+When FlatView is used, this option is ignored.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>FlatView</b><a class="slurm_link" id="OPT_FlatView" href="https://slurm.schedmd.com/sreport.html#OPT_FlatView"></a></dt><dd>
+</dd><dd>
+When used with the SizesbyAccount(*) will not group accounts in a
+hierarchical level, but print each account where jobs ran on a
+separate line without any hierarchy.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>GID=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_GID=&lt;OPT&gt;" href="https://slurm.schedmd.com/sreport.html#OPT_GID=%3COPT%3E"></a></dt><dd>
+</dd><dd>
+List of group ids to include in report. Default is all.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Grouping=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_Grouping=&lt;OPT&gt;" href="https://slurm.schedmd.com/sreport.html#OPT_Grouping=%3COPT%3E"></a></dt><dd>
+</dd><dd>
+Comma separated list of size groupings. (e.g. 50,100,150 would group
+job cpu count 1-49, 50-99, 100-149, &gt; 150). grouping=individual will
+result in a single column for each job size found.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Jobs=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_Jobs=&lt;OPT&gt;" href="https://slurm.schedmd.com/sreport.html#OPT_Jobs=%3COPT%3E"></a></dt><dd>
+</dd><dd>
+List of jobs/steps to include in report. Default is all.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Nodes=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_Nodes=&lt;OPT&gt;" href="https://slurm.schedmd.com/sreport.html#OPT_Nodes=%3COPT%3E"></a></dt><dd>
+</dd><dd>
+Only show jobs that ran on these nodes. Default is all.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Partitions=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_Partitions=&lt;OPT&gt;" href="https://slurm.schedmd.com/sreport.html#OPT_Partitions=%3COPT%3E"></a></dt><dd>
+</dd><dd>
+List of partitions jobs ran on to include in report. Default is all.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PrintJobCount</b><a class="slurm_link" id="OPT_PrintJobCount" href="https://slurm.schedmd.com/sreport.html#OPT_PrintJobCount"></a></dt><dd>
+</dd><dd>
+When used with the Sizes report will print number of jobs ran instead
+of time used.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Users=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_Users=&lt;OPT&gt;_1" href="https://slurm.schedmd.com/sreport.html#OPT_Users=%3COPT%3E_1"></a></dt><dd>
+</dd><dd>
+List of users jobs to include in report. Default is all.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Wckeys=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_Wckeys=&lt;OPT&gt;_1" href="https://slurm.schedmd.com/sreport.html#OPT_Wckeys=%3COPT%3E_1"></a></dt><dd>
+</dd><dd>
+List of wckeys to use for the report. Default is all. The
+SizesbyWckey report all users summed together. If you want only
+certain users specify them with the Users= option.
+</dd></dl>
+</dd></dl>
+
+<dl compact="">
+<dt></dt><dd>
+<p>
+</p></dd></dl>
+<p>
+
+<b>OPTIONS SPECIFICALLY FOR RESERVATION REPORTS</b>
+
+</p><p>
+</p><dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>Names=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_Names=&lt;OPT&gt;" href="https://slurm.schedmd.com/sreport.html#OPT_Names=%3COPT%3E"></a></dt><dd>
+</dd><dd>
+List of reservations to use for the report. Default is all.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Nodes=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_Nodes=&lt;OPT&gt;_1" href="https://slurm.schedmd.com/sreport.html#OPT_Nodes=%3COPT%3E_1"></a></dt><dd>
+</dd><dd>
+Only show reservations that used these nodes. Default is all.
+</dd></dl>
+</dd></dl>
+
+<dl compact="">
+<dt></dt><dd>
+<p>
+</p></dd></dl>
+<p>
+
+<b>OPTIONS SPECIFICALLY FOR USER REPORTS</b>
+
+</p><p>
+</p><dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>Accounts=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_Accounts=&lt;OPT&gt;_2" href="https://slurm.schedmd.com/sreport.html#OPT_Accounts=%3COPT%3E_2"></a></dt><dd>
+</dd><dd>
+List of accounts to use for the report. Default is all.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Group</b><a class="slurm_link" id="OPT_Group" href="https://slurm.schedmd.com/sreport.html#OPT_Group"></a></dt><dd>
+</dd><dd>
+Group all accounts together for each user. Default is a separate
+entry for each user and account reference.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>TopCount=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_TopCount=&lt;OPT&gt;" href="https://slurm.schedmd.com/sreport.html#OPT_TopCount=%3COPT%3E"></a></dt><dd>
+</dd><dd>
+Used in the TopUsage report. Change the number of users displayed.
+Default is 10.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Users=&lt;OPT&gt;</b><a class="slurm_link" id="OPT_Users=&lt;OPT&gt;_2" href="https://slurm.schedmd.com/sreport.html#OPT_Users=%3COPT%3E_2"></a></dt><dd>
+</dd><dd>
+List of users jobs to include in report. Default is all.
+</dd></dl>
+</dd></dl>
+
+<dl compact="">
+<dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAI">&nbsp;</a>
+<h2>FORMAT OPTIONS FOR EACH REPORT<a class="slurm_link" id="SECTION_FORMAT-OPTIONS-FOR-EACH-REPORT" href="https://slurm.schedmd.com/sreport.html#SECTION_FORMAT-OPTIONS-FOR-EACH-REPORT"></a></h2>
+<p>
+</p><p>
+
+<b>FORMAT OPTIONS FOR CLUSTER REPORTS</b>
+</p><dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>AccountUtilizationByUser</b><a class="slurm_link" id="OPT_AccountUtilizationByUser" href="https://slurm.schedmd.com/sreport.html#OPT_AccountUtilizationByUser"></a></dt><dd>Accounts, Cluster, Login, QOS, Proper, TresCount, Used
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>AccountUtilizationByQOS</b><a class="slurm_link" id="OPT_AccountUtilizationByQOS" href="https://slurm.schedmd.com/sreport.html#OPT_AccountUtilizationByQOS"></a></dt><dd>Accounts, Cluster, QOS, TresCount, Used
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>UserUtilizationByAccount</b><a class="slurm_link" id="OPT_UserUtilizationByAccount" href="https://slurm.schedmd.com/sreport.html#OPT_UserUtilizationByAccount"></a></dt><dd>Accounts, Cluster, Login, Proper, TresCount, Used
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>UserUtilizationByWckey</b><a class="slurm_link" id="OPT_UserUtilizationByWckey" href="https://slurm.schedmd.com/sreport.html#OPT_UserUtilizationByWckey"></a></dt><dd>Cluster, Login, Proper, TresCount, Used, Wckey
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Utilization</b><a class="slurm_link" id="OPT_Utilization" href="https://slurm.schedmd.com/sreport.html#OPT_Utilization"></a></dt><dd>Allocated, Cluster, Down, Idle, OverCommitted, PlannedDown, Reported, Planned,
+TresCount, TresName
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>WCKeyUtilizationByUser</b><a class="slurm_link" id="OPT_WCKeyUtilizationByUser" href="https://slurm.schedmd.com/sreport.html#OPT_WCKeyUtilizationByUser"></a></dt><dd>Cluster, Login, Proper, TresCount, Used, Wckey
+</dd><dt></dt><dd>
+</dd></dl>
+</dd></dl>
+
+<p>
+</p><p>
+
+<b>FORMAT OPTIONS FOR JOB REPORTS</b>
+</p><p>
+</p><dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>SizesByAccount</b><a class="slurm_link" id="OPT_SizesByAccount" href="https://slurm.schedmd.com/sreport.html#OPT_SizesByAccount"></a></dt><dd>Account, Cluster
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SizesByAccountAndWckey</b><a class="slurm_link" id="OPT_SizesByAccountAndWckey" href="https://slurm.schedmd.com/sreport.html#OPT_SizesByAccountAndWckey"></a></dt><dd>Account, Cluster
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SizesByWckey</b><a class="slurm_link" id="OPT_SizesByWckey" href="https://slurm.schedmd.com/sreport.html#OPT_SizesByWckey"></a></dt><dd>Wckey, Cluster
+</dd><dt></dt><dd>
+</dd></dl>
+</dd></dl>
+
+<p>
+</p><p>
+
+<b>FORMAT OPTIONS FOR RESERVATION REPORTS</b>
+</p><p>
+</p><dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>Utilization</b><a class="slurm_link" id="OPT_Utilization_1" href="https://slurm.schedmd.com/sreport.html#OPT_Utilization_1"></a></dt><dd>Allocated, Associations, Cluster, End, Flags, Idle, Name, Nodes, ReservationId, Start, TotalTime, TresCount, TresName, TresTime
+</dd><dt></dt><dd>
+</dd></dl>
+</dd></dl>
+
+<p>
+</p><p>
+
+<b>FORMAT OPTIONS FOR USER REPORTS</b>
+</p><p>
+</p><dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>TopUsage</b><a class="slurm_link" id="OPT_TopUsage" href="https://slurm.schedmd.com/sreport.html#OPT_TopUsage"></a></dt><dd>Account, Cluster, Login, Proper, Used
+</dd><dt></dt><dd>
+</dd></dl>
+</dd></dl>
+
+<p>
+</p><p>
+
+All commands and options are case-insensitive.
+</p><p>
+<a name="lbAJ">&nbsp;</a>
+</p><h2>EXPLANATION OF REPORT FIELDS<a class="slurm_link" id="SECTION_EXPLANATION-OF-REPORT-FIELDS" href="https://slurm.schedmd.com/sreport.html#SECTION_EXPLANATION-OF-REPORT-FIELDS"></a></h2>
+<p>
+
+</p><dl compact="">
+<dt><b>Account</b><a class="slurm_link" id="OPT_Account" href="https://slurm.schedmd.com/sreport.html#OPT_Account"></a></dt><dd>Account name
+</dd><dt></dt><dd>
+</dd><dt><b>Allocated</b><a class="slurm_link" id="OPT_Allocated" href="https://slurm.schedmd.com/sreport.html#OPT_Allocated"></a></dt><dd><b>Cluster utilization report:</b> Time that nodes were in use with active jobs or an
+active reservation. This does not include reservations created with the MAINT or
+IGNORE_JOBS flags.
+<p>
+<b>Reservation reports:</b> Time that nodes were in use with active jobs in this
+reservation
+</p></dd><dt></dt><dd>
+</dd><dt><b>Associations</b><a class="slurm_link" id="OPT_Associations" href="https://slurm.schedmd.com/sreport.html#OPT_Associations"></a></dt><dd>Associations allowed in the reservation
+</dd><dt></dt><dd>
+</dd><dt><b>Cluster</b><a class="slurm_link" id="OPT_Cluster" href="https://slurm.schedmd.com/sreport.html#OPT_Cluster"></a></dt><dd>Cluster name
+</dd><dt></dt><dd>
+</dd><dt><b>Down</b><a class="slurm_link" id="OPT_Down" href="https://slurm.schedmd.com/sreport.html#OPT_Down"></a></dt><dd><b>Cluster utilization report only:</b> Time that nodes were marked as Down or fully
+Drained, or time that slurmctld was not responding (if TrackSlurmctldDown is set
+in slurmdbd.conf)
+</dd><dt></dt><dd>
+</dd><dt><b>End</b><a class="slurm_link" id="OPT_End" href="https://slurm.schedmd.com/sreport.html#OPT_End"></a></dt><dd><b>Reservation reports only:</b> End time
+</dd><dt></dt><dd>
+</dd><dt><b>Energy</b><a class="slurm_link" id="OPT_Energy" href="https://slurm.schedmd.com/sreport.html#OPT_Energy"></a></dt><dd>Energy use (if tracking energy consumption)
+</dd><dt></dt><dd>
+</dd><dt><b>Flags</b><a class="slurm_link" id="OPT_Flags" href="https://slurm.schedmd.com/sreport.html#OPT_Flags"></a></dt><dd><b>Reservation reports only:</b> Flags applied to the reservation
+</dd><dt></dt><dd>
+</dd><dt><b>Idle</b><a class="slurm_link" id="OPT_Idle" href="https://slurm.schedmd.com/sreport.html#OPT_Idle"></a></dt><dd><b>Cluster utilization report:</b> Time that nodes were not Allocated, Down,
+PlannedDown, or Planned
+<p>
+<b>Reservation reports:</b> Time that nodes were not Allocated
+</p></dd><dt></dt><dd>
+</dd><dt><b>Login</b><a class="slurm_link" id="OPT_Login" href="https://slurm.schedmd.com/sreport.html#OPT_Login"></a></dt><dd>User's login name
+</dd><dt></dt><dd>
+</dd><dt><b>Name</b><a class="slurm_link" id="OPT_Name" href="https://slurm.schedmd.com/sreport.html#OPT_Name"></a></dt><dd><b>Reservation reports only:</b> Reservation name
+</dd><dt></dt><dd>
+</dd><dt><b>OverCommitted</b><a class="slurm_link" id="OPT_OverCommitted" href="https://slurm.schedmd.com/sreport.html#OPT_OverCommitted"></a></dt><dd><b>Cluster utilization report only:</b> Time of eligible jobs waiting in the
+queue over the Planned time. This contains any overflow of Planned time that
+would otherwise exceed the Reported time. It is typically useful to
+determine whether your system is overloaded and by how much.
+</dd><dt></dt><dd>
+</dd><dt><b>Planned</b><a class="slurm_link" id="OPT_Planned" href="https://slurm.schedmd.com/sreport.html#OPT_Planned"></a></dt><dd><b>Cluster utilization report only:</b> Time that nodes were not Allocated, Down or
+PlannedDown with eligible jobs in the queue that were unable to start due to
+time or size constraints. If Allocated plus Planned time exceeds the Reported
+time, the excess will be reported as OverCommitted. If this value is not of
+importance for you then the number can be grouped with idle time.
+</dd><dt></dt><dd>
+</dd><dt><b>PlannedDown</b><a class="slurm_link" id="OPT_PlannedDown" href="https://slurm.schedmd.com/sreport.html#OPT_PlannedDown"></a></dt><dd><b>Cluster utilization report only:</b> Time that nodes were in use by a reservation
+created with the MAINT flag but not the IGNORE_JOBS flag. Also, time that nodes
+were in the FUTURE or POWERED_DOWN state.
+</dd><dt></dt><dd>
+</dd><dt><b>Proper Name</b><a class="slurm_link" id="OPT_Proper-Name" href="https://slurm.schedmd.com/sreport.html#OPT_Proper-Name"></a></dt><dd>User's proper/real name
+</dd><dt></dt><dd>
+</dd><dt><b>Reported</b><a class="slurm_link" id="OPT_Reported" href="https://slurm.schedmd.com/sreport.html#OPT_Reported"></a></dt><dd><b>Cluster utilization report only:</b> Total time that records are available for.
+Nodes that were added to or removed from the cluster during the report period
+will only contribute usage data for the time they were present in the cluster
+and cause percentage calculations to deviate from 100%.
+</dd><dt></dt><dd>
+</dd><dt><b>ReservationId</b><a class="slurm_link" id="OPT_ReservationId" href="https://slurm.schedmd.com/sreport.html#OPT_ReservationId"></a></dt><dd><b>Reservation reports only:</b> Reservation ID
+</dd><dt></dt><dd>
+</dd><dt><b>Start</b><a class="slurm_link" id="OPT_Start" href="https://slurm.schedmd.com/sreport.html#OPT_Start"></a></dt><dd><b>Reservation reports only:</b> Start time
+</dd><dt></dt><dd>
+</dd><dt><b>TotalTime</b><a class="slurm_link" id="OPT_TotalTime" href="https://slurm.schedmd.com/sreport.html#OPT_TotalTime"></a></dt><dd><b>Reservation reports only:</b> Amount of time the reservation was valid
+</dd><dt></dt><dd>
+</dd><dt><b>TresCount</b><a class="slurm_link" id="OPT_TresCount" href="https://slurm.schedmd.com/sreport.html#OPT_TresCount"></a></dt><dd>Number of TRES present
+</dd><dt></dt><dd>
+</dd><dt><b>TresName</b><a class="slurm_link" id="OPT_TresName" href="https://slurm.schedmd.com/sreport.html#OPT_TresName"></a></dt><dd>Name of TRES reported
+</dd><dt></dt><dd>
+</dd><dt><b>TresTime</b><a class="slurm_link" id="OPT_TresTime" href="https://slurm.schedmd.com/sreport.html#OPT_TresTime"></a></dt><dd><b>Reservation reports only:</b> Total TRES-time in the reservation
+</dd><dt></dt><dd>
+</dd><dt><b>Used</b><a class="slurm_link" id="OPT_Used" href="https://slurm.schedmd.com/sreport.html#OPT_Used"></a></dt><dd>Used TRES-minutes
+</dd><dt></dt><dd>
+</dd><dt><b>Wckey</b><a class="slurm_link" id="OPT_Wckey" href="https://slurm.schedmd.com/sreport.html#OPT_Wckey"></a></dt><dd>Workload Characterization Key
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAK">&nbsp;</a>
+<h2>PERFORMANCE<a class="slurm_link" id="SECTION_PERFORMANCE" href="https://slurm.schedmd.com/sreport.html#SECTION_PERFORMANCE"></a></h2>
+<p>
+
+Executing <b>sreport</b> sends a remote procedure call to <b>slurmdbd</b>. If
+enough calls from <b>sreport</b> or other Slurm client commands that send remote
+procedure calls to the <b>slurmdbd</b> daemon come in at once, it can result in a
+degradation of performance of the <b>slurmdbd</b> daemon, possibly resulting in a
+denial of service.
+</p><p>
+
+Do not run <b>sreport</b> or other Slurm client commands that send remote
+procedure calls to <b>slurmdbd</b> from loops in shell scripts or other programs.
+Ensure that programs limit calls to <b>sreport</b> to the minimum necessary for
+the information you are trying to gather.
+</p><p>
+<a name="lbAL">&nbsp;</a>
+</p><h2>ENVIRONMENT VARIABLES<a class="slurm_link" id="SECTION_ENVIRONMENT-VARIABLES" href="https://slurm.schedmd.com/sreport.html#SECTION_ENVIRONMENT-VARIABLES"></a></h2>
+<p>
+
+Some <b>sreport</b> options may be set via environment variables. These
+environment variables, along with their corresponding options, are listed below.
+(Note: Command line options will always override these settings.)
+</p><dl compact="">
+<dt></dt><dd>
+<p>
+</p></dd><dt><b>SREPORT_CLUSTER</b><a class="slurm_link" id="OPT_SREPORT_CLUSTER" href="https://slurm.schedmd.com/sreport.html#OPT_SREPORT_CLUSTER"></a></dt><dd>Same as <b>-M</b>, <b>--cluster</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SREPORT_FEDERATION</b><a class="slurm_link" id="OPT_SREPORT_FEDERATION" href="https://slurm.schedmd.com/sreport.html#OPT_SREPORT_FEDERATION"></a></dt><dd>Same as --federation
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SREPORT_LOCAL</b><a class="slurm_link" id="OPT_SREPORT_LOCAL" href="https://slurm.schedmd.com/sreport.html#OPT_SREPORT_LOCAL"></a></dt><dd>Same as --local
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SREPORT_TRES</b><a class="slurm_link" id="OPT_SREPORT_TRES" href="https://slurm.schedmd.com/sreport.html#OPT_SREPORT_TRES"></a></dt><dd>Same as <b>-t, --tres</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CONF</b><a class="slurm_link" id="OPT_SLURM_CONF" href="https://slurm.schedmd.com/sreport.html#OPT_SLURM_CONF"></a></dt><dd>The location of the Slurm configuration file.
+<p>
+
+</p></dd></dl>
+<a name="lbAM">&nbsp;</a>
+<h2>EXAMPLES<a class="slurm_link" id="SECTION_EXAMPLES" href="https://slurm.schedmd.com/sreport.html#SECTION_EXAMPLES"></a></h2>
+<p>
+</p><dl compact="">
+<dt>Report number of jobs per account according to different job size bins:</dt><dd>
+</dd><dt></dt><dd>
+<pre>$ sreport job sizesbyaccount Start=11:00
+--------------------------------------------------------------------------------
+Job Sizes 2024-08-19T11:00:00 - 2024-08-19T11:59:59 (3600 secs)
+Time reported in Minutes
+--------------------------------------------------------------------------------
+  Cluster   Account     0-49 CPUs   50-249 CPUs  250-499 CPUs  500-999 CPUs  &gt;= 1000 CPUs % of cluster
+--------- --------- ------------- ------------- ------------- ------------- ------------- ------------
+minesofm+      root           770             0             0             0             0      100.00%
+</pre>
+
+<p>
+</p></dd><dt>Report cluster utilization:</dt><dd>
+</dd><dt></dt><dd>
+<pre>$ sreport cluster utilization Start=11:00
+--------------------------------------------------------------------------------
+Cluster Utilization 2024-08-19T11:00:00 - 2024-08-19T11:59:59
+Usage reported in CPU Minutes
+--------------------------------------------------------------------------------
+  Cluster Allocate     Down  Planned     Idle  Planned Reported
+--------- -------- -------- -------- -------- -------- --------
+minesofm+      770      120      239     3791      239     4920
+</pre>
+
+<p>
+</p></dd><dt>Report top usage:</dt><dd>
+</dd><dt></dt><dd>
+<pre>$ sreport user top Start=11:00
+--------------------------------------------------------------------------------
+Top 10 Users 2024-08-19T11:00:00 - 2024-08-19T11:59:59 (3600 secs)
+Usage reported in CPU Minutes
+--------------------------------------------------------------------------------
+  Cluster     Login     Proper Name         Account     Used   Energy
+--------- --------- --------------- --------------- -------- --------
+minesofm+   stephen             ,,,            main      538        0
+minesofm+   phteven             ,,,            main      145        0
+minesofm+   phteven             ,,,       rivendell       45        0
+minesofm+   stephen             ,,,       rivendell       41        0
+</pre>
+
+<p>
+</p></dd><dt>Report jobs by size from specific user and account:</dt><dd>
+</dd><dt></dt><dd>
+<pre>$ sreport job sizesbyaccount All_Clusters users=stephen account=main PrintJobCount Start=11:00
+--------------------------------------------------------------------------------
+Job Sizes 2024-08-19T11:00:00 - 2024-08-19T11:59:59 (3600 secs)
+Units are in number of jobs ran
+--------------------------------------------------------------------------------
+  Cluster   Account     0-49 CPUs   50-249 CPUs  250-499 CPUs  500-999 CPUs  &gt;= 1000 CPUs % of cluster
+--------- --------- ------------- ------------- ------------- ------------- ------------- ------------
+minesofm+      main            12             0             0             0             0      100.00%
+</pre>
+
+<p>
+</p></dd><dt>Report cluster account utilization with the specified fields during the</dt><dd>
+specified day and by the specified user:
+</dd><dt></dt><dd>
+<pre>$ sreport cluster AccountUtilizationByUser start=7/10 end=7/11 cluster=minesofmoria user=stephen format=Account,Cluster,TresCount,Login,Proper,Used
+--------------------------------------------------------------------------------
+Cluster/Account/User Utilization 2024-07-10T00:00:00 - 2024-07-10T23:59:59 (86400 secs)
+Usage reported in CPU Minutes
+--------------------------------------------------------------------------------
+        Account   Cluster TRES Count     Login     Proper Name     Used
+--------------- --------- ---------- --------- --------------- --------
+           main minesofm+              stephen             ,,,       38
+      rivendell minesofm+              stephen             ,,,        1
+          arwen minesofm+              stephen             ,,,        1
+         elrond minesofm+              stephen             ,,,        1
+</pre>
+
+<p>
+</p></dd><dt>Report cluster account utilization by user for a specific account during a</dt><dd>
+1-week period:
+</dd><dt></dt><dd>
+<pre>$ sreport cluster AccountUtilizationByUser start=7/23 end=7/24 cluster=minesofmoria account=main
+--------------------------------------------------------------------------------
+Cluster/Account/User Utilization 2024-07-23T00:00:00 - 2024-07-23T23:59:59 (86400 secs)
+Usage reported in CPU Minutes
+--------------------------------------------------------------------------------
+  Cluster         Account     Login     Proper Name     Used   Energy
+--------- --------------- --------- --------------- -------- --------
+minesofm+            main                                148        0
+minesofm+            main   phteven             ,,,        2        0
+minesofm+            main   stephen             ,,,      146        0
+</pre>
+
+<p>
+</p></dd><dt>Report top usage in percent for a specific account:</dt><dd>
+</dd><dt></dt><dd>
+<pre>$ sreport user topusage start=11:00 -t percent account=main
+--------------------------------------------------------------------------------
+Top 10 Users 2024-08-19T11:00:00 - 2024-08-19T11:59:59 (3600 secs)
+Usage reported in Percentage of Total
+--------------------------------------------------------------------------------
+  Cluster     Login     Proper Name         Account     Used   Energy
+--------- --------- --------------- --------------- -------- --------
+minesofm+   stephen             ,,,            main   10.94%    0.00%
+minesofm+   phteven             ,,,            main    2.95%    0.00%
+</pre>
+
+<p>
+</p></dd></dl>
+<a name="lbAN">&nbsp;</a>
+<h2>COPYING<a class="slurm_link" id="SECTION_COPYING" href="https://slurm.schedmd.com/sreport.html#SECTION_COPYING"></a></h2>
+Copyright (C) 2009-2010 Lawrence Livermore National Security.
+Produced at Lawrence Livermore National Laboratory (cf, DISCLAIMER).
+<br>
+
+Copyright (C) 2010-2022 SchedMD LLC.
+<p>
+
+This file is part of Slurm, a resource management program.
+For details, see &lt;<a href="https://slurm.schedmd.com/">https://slurm.schedmd.com/</a>&gt;.
+</p><p>
+
+Slurm is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free
+Software Foundation; either version 2 of the License, or (at your option)
+any later version.
+</p><p>
+
+Slurm is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+details.
+</p><p>
+<a name="lbAO">&nbsp;</a>
+</p><h2>SEE ALSO<a class="slurm_link" id="SECTION_SEE-ALSO" href="https://slurm.schedmd.com/sreport.html#SECTION_SEE-ALSO"></a></h2>
+<b><a href="https://slurm.schedmd.com/sacct.html">sacct</a></b>(1), <b><a href="https://slurm.schedmd.com/slurmdbd.html">slurmdbd</a></b>(8)
+<p>
+
+</p><hr>
+<a name="index">&nbsp;</a><h2>Index</h2>
+<dl>
+<dt><a href="https://slurm.schedmd.com/sreport.html#lbAB">NAME</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/sreport.html#lbAC">SYNOPSIS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/sreport.html#lbAD">DESCRIPTION</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/sreport.html#lbAE">OPTIONS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/sreport.html#lbAF">COMMANDS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/sreport.html#lbAG">REPORT TYPES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/sreport.html#lbAH">REPORT DESCRIPTION</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/sreport.html#lbAI">FORMAT OPTIONS FOR EACH REPORT</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/sreport.html#lbAJ">EXPLANATION OF REPORT FIELDS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/sreport.html#lbAK">PERFORMANCE</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/sreport.html#lbAL">ENVIRONMENT VARIABLES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/sreport.html#lbAM">EXAMPLES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/sreport.html#lbAN">COPYING</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/sreport.html#lbAO">SEE ALSO</a></dt><dd>
+</dd></dl>
+<hr>
+This document was created by
+<i>man2html</i> using the manual pages.<br>
+Time: 20:54:38 GMT, February 25, 2025
+			</div> <!-- END .container -->
+		</div> <!-- END .section -->
+	</div> <!-- END .content -->
+</div> <!-- END .main -->
+
+
+
+<table cellspacing="0" cellpadding="0" role="presentation" class="gstl_50 gssb_c" style="width: 172px; display: none; top: 65px; left: 523px; position: absolute;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table><div data-lastpass-root="" style="position: absolute !important; top: 0px !important; left: 0px !important; height: 0px !important; width: 0px !important;"><template shadowrootmode="closed"><div style="position: absolute; height: 100vh; width: 100vw; z-index: 2147483647; border-radius: 4px; top: 0px; left: 0px; max-height: 0px; max-width: 280px; min-width: auto;"><iframe data-lastpass-infield="true" allow="clipboard-write" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/webclient-infield.html" style="border: none; height: 100%; width: 100%;"></iframe></div></template></div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

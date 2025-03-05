@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://slurm.schedmd.com/quickstart.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+	<meta name="viewport" content="width=device-width">
+
+	<title>Slurm Workload Manager - Quick Start User Guide</title>
+	<link rel="canonical" href="https://slurm.schedmd.com/quickstart.html">
+
+	<link rel="shortcut icon" href="https://slurm.schedmd.com/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - Quick Start User Guide_files/fonts.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - Quick Start User Guide_files/reset.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - Quick Start User Guide_files/style.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - Quick Start User Guide_files/slurm.css">
+
+	<script async="" src="./Slurm Workload Manager - Quick Start User Guide_files/async-ads.js.download"></script><script src="./Slurm Workload Manager - Quick Start User Guide_files/jquery.min.js.download"></script>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+		jQuery('.menu-trigger').bind('click touchstart', function() {
+			jQuery(this).find('.menu-trigger__lines').toggleClass('menu-trigger__lines--closed');
+			jQuery(this).parents('.site-header').find('.site-nav').toggleClass('site-nav--active');
+
+			return false;
+		});
+	});
+	</script>
+	<script async="" src="./Slurm Workload Manager - Quick Start User Guide_files/f.txt"></script>
+<script src="./Slurm Workload Manager - Quick Start User Guide_files/cse_element__en.js.download" type="text/javascript"></script><link type="text/css" href="./Slurm Workload Manager - Quick Start User Guide_files/default+en.css" rel="stylesheet"><link type="text/css" href="./Slurm Workload Manager - Quick Start User Guide_files/default.css" rel="stylesheet"><style type="text/css">.gsc-control-cse{font-family:arial, sans-serif}.gsc-control-cse .gsc-table-result{font-family:arial, sans-serif}.gsc-refinementsGradient{background:linear-gradient(to left,rgba(255,255,255,1),rgba(255,255,255,0))}.gsc-control-cse{border-color:#FFFFFF;background-color:#FFFFFF}input.gsc-input,.gsc-input-box,.gsc-input-box-hover,.gsc-input-box-focus{border-color:#D9D9D9}.gsc-search-button-v2,.gsc-search-button-v2:hover,.gsc-search-button-v2:focus{border-color:#666666;background-color:#1BAEE9;background-image:none;filter:none}.gsc-search-button-v2 svg{fill:#FFFFFF}.gsc-tabHeader.gsc-tabhActive,.gsc-refinementHeader.gsc-refinementhActive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-tabHeader.gsc-tabhInactive,.gsc-refinementHeader.gsc-refinementhInactive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-webResult.gsc-result,.gsc-results .gsc-imageResult{border-color:#FFFFFF;background-color:#FFFFFF}.gsc-webResult.gsc-result:hover{border-color:#FFFFFF;background-color:#FFFFFF}.gs-webResult.gs-result a.gs-title:link,.gs-webResult.gs-result a.gs-title:link b,.gs-imageResult a.gs-title:link,.gs-imageResult a.gs-title:link b{color:#0000CC}.gs-webResult.gs-result a.gs-title:visited,.gs-webResult.gs-result a.gs-title:visited b,.gs-imageResult a.gs-title:visited,.gs-imageResult a.gs-title:visited b{color:#0000CC}.gs-webResult.gs-result a.gs-title:hover,.gs-webResult.gs-result a.gs-title:hover b,.gs-imageResult a.gs-title:hover,.gs-imageResult a.gs-title:hover b{color:#0000CC}.gs-webResult.gs-result a.gs-title:active,.gs-webResult.gs-result a.gs-title:active b,.gs-imageResult a.gs-title:active,.gs-imageResult a.gs-title:active b{color:#0000CC}.gsc-cursor-page{color:#0000CC}a.gsc-trailing-more-results:link{color:#0000CC}.gs-webResult:not(.gs-no-results-result):not(.gs-error-result) .gs-snippet,.gs-fileFormatType{color:#000000}.gs-webResult div.gs-visibleUrl{color:#008000}.gs-webResult div.gs-visibleUrl-short{color:#008000}.gsc-cursor-box{border-color:#FFFFFF}.gsc-results .gsc-cursor-box .gsc-cursor-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-results .gsc-cursor-box .gsc-cursor-current-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-webResult.gsc-result.gsc-promotion{border-color:#336699;background-color:#FFFFFF}.gsc-completion-title{color:#0000CC}.gsc-completion-snippet{color:#000000}.gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link{color:#0000CC}.gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited{color:#0000CC}.gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover{color:#0000CC}.gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active{color:#0000CC}.gs-promotion .gs-snippet,.gs-promotion .gs-title .gs-promotion-title-right,.gs-promotion .gs-title .gs-promotion-title-right *{color:#000000}.gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short{color:#008000}.gcsc-find-more-on-google{color:#0000CC}.gcsc-find-more-on-google-magnifier{fill:#0000CC}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{vertical-align:middle;opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gssb_a{padding:0 9px}.gsib_a{padding:5px 9px 4px 9px}.gscb_a{line-height:27px}.gssb_e{border:0}.gssb_l{margin:5px 0}input.gsc-input::-webkit-input-placeholder{font-size:14px}input.gsc-input:-moz-placeholder{font-size:14px}input.gsc-input::-moz-placeholder{font-size:14px}input.gsc-input:-ms-input-placeholder{font-size:14px}input.gsc-input:focus::-webkit-input-placeholder{color:transparent}input.gsc-input:focus:-moz-placeholder{color:transparent}input.gsc-input:focus::-moz-placeholder{color:transparent}input.gsc-input:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
+
+<body data-new-gr-c-s-check-loaded="14.1224.0" data-gr-ext-installed="">
+
+<div class="container container--main">
+
+	<header class="site-header" role="banner">
+
+		<div class="site-masthead">
+			<h1 class="site-masthead__title site-masthead__title--slurm">
+				<a href="https://slurm.schedmd.com/" rel="home">
+					<span class="slurm-logo">Slurm Workload Manager</span>
+				</a>
+			</h1>
+			<div class="site-masthead__title">
+				<a href="https://www.schedmd.com/" rel="home">
+					<span class="site-logo">SchedMD</span>
+				</a>
+			</div>
+
+			<button class="site-masthead__trigger menu-trigger" type="button" role="button" aria-label="Toggle Navigation"><span class="menu-trigger__lines"></span></button>
+		</div>
+
+
+		<nav class="site-nav" role="navigation">
+			<h2 class="site-nav__title">Navigation</h2>
+
+			<div class="slurm-title">
+				<div class="slurm-logo"><a href="https://slurm.schedmd.com/">Slurm Workload Manager</a></div>
+				<div class="slurm-title__version">Version 24.11</div>
+			</div>
+
+			<ul class="site-nav__menu site-menu menu">
+				<li class="site-menu__item">
+				        <div>About</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/overview.html">Overview</a></li>
+						<li><a href="https://slurm.schedmd.com/release_notes.html">Release Notes</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Using</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/documentation.html">Documentation</a></li>
+						<li><a href="https://slurm.schedmd.com/faq.html">FAQ</a></li>
+						<li><a href="https://www.schedmd.com/publications/">Publications</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Installing</div>
+					<ul>
+						<li><a href="https://www.schedmd.com/download-slurm/">Download</a></li>
+						<li><a href="https://slurm.schedmd.com/related_software.html">Related Software</a></li>
+						<li><a href="https://slurm.schedmd.com/quickstart_admin.html">Installation Guide</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Getting Help</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/mail.html">Mailing Lists</a></li>
+						<li><a href="https://www.schedmd.com/slurm-support/our-services/">Support and Training</a></li>
+						<li><a href="https://slurm.schedmd.com/troubleshoot.html">Troubleshooting</a></li>
+					</ul>
+				</li>
+			</ul>
+
+		</nav>
+
+	</header>
+
+	<div class="content" role="main">
+		<section class="slurm-search">
+			<div class="container" id="cse">
+				<div id="___gcse_0"><div class="gsc-control-cse gsc-control-cse-en"><div class="gsc-control-wrapper-cse" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" role="presentation" id="gs_id50" class="gstl_50 gsc-input" style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" aria-label="search" id="gsc-i-id1" dir="ltr" spellcheck="false" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; background: url(&quot;https://www.google.com/cse/static/images/1x/en/branding.png&quot;) left center no-repeat rgb(255, 255, 255); outline: none;"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" title="Clear search box" role="button" style="display: none;"><span class="gscb_a" id="gs_cb50" aria-hidden="true">×</span></a></div></td></tr></tbody></table></div></td><td class="gsc-search-button"><button class="gsc-search-button gsc-search-button-v2"><svg width="13" height="13" viewBox="0 0 13 13"><title>search</title><path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path></svg></button></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table></form><div class="gsc-results-wrapper-nooverlay"><div class="gsc-positioningWrapper"><div class="gsc-tabsAreaInvisible"><div aria-label="refinement" role="tab" class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Custom Search</div><span class="gs-spacer"> </span></div></div><div class="gsc-positioningWrapper"><div class="gsc-refinementsAreaInvisible"></div></div><div class="gsc-above-wrapper-area-invisible"><div class="gsc-above-wrapper-area-backfill-container"></div><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-above-wrapper-area-container"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td><td class="gsc-orderby-container"><div class="gsc-orderby-invisible"><div class="gsc-orderby-label gsc-inline-block">Sort by:</div><div class="gsc-option-menu-container gsc-inline-block"><div class="gsc-selected-option-container gsc-inline-block"><div class="gsc-selected-option">Relevance</div><div class="gsc-option-selector"></div></div><div class="gsc-option-menu-invisible"><div class="gsc-option-menu-item gsc-option-menu-item-highlighted"><div class="gsc-option">Relevance</div></div><div class="gsc-option-menu-item"><div class="gsc-option">Date</div></div></div></div></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><div><div class="gsc-expansionArea"></div></div></div></div></div></div></div></div></div>
+			</div>
+		</section>
+
+		<div class="section">
+			<div class="container">
+
+
+<h1>Quick Start User Guide</h1>
+
+<h2 id="overview">Overview<a class="slurm_link" href="https://slurm.schedmd.com/quickstart.html#overview"></a></h2>
+<p>Slurm is an open source,
+fault-tolerant, and highly scalable cluster management and job scheduling system
+for large and small Linux clusters. Slurm requires no kernel modifications for
+its operation and is relatively self-contained. As a cluster workload manager,
+Slurm has three key functions. First, it allocates exclusive and/or non-exclusive
+access to resources (compute nodes) to users for some duration of time so they
+can perform work. Second, it provides a framework for starting, executing, and
+monitoring work (normally a parallel job) on the set of allocated nodes. Finally,
+it arbitrates contention for resources by managing a queue of pending work.</p>
+
+<h2 id="arch">Architecture<a class="slurm_link" href="https://slurm.schedmd.com/quickstart.html#arch"></a></h2>
+<p>As depicted in Figure 1, Slurm consists of a <b>slurmd</b> daemon running on
+each compute node and a central <b>slurmctld</b> daemon running on a management node
+(with optional fail-over twin).
+The <b>slurmd</b> daemons provide fault-tolerant hierarchical communications.
+The user commands include: <b>sacct</b>, <b>sacctmgr</b>, <b>salloc</b>,
+<b>sattach</b>, <b>sbatch</b>, <b>sbcast</b>, <b>scancel</b>, <b>scontrol</b>,
+<b>scrontab</b>, <b>sdiag</b>, <b>sh5util</b>, <b>sinfo</b>, <b>sprio</b>,
+<b>squeue</b>, <b>sreport</b>, <b>srun</b>, <b>sshare</b>, <b>sstat</b>,
+<b>strigger</b> and <b>sview</b>.
+All of the commands can run anywhere in the cluster.</p>
+
+<div class="figure">
+  <img src="./Slurm Workload Manager - Quick Start User Guide_files/arch.gif" width="550"><br>
+  Figure 1. Slurm components
+</div>
+
+<p>The entities managed by these Slurm daemons, shown in Figure 2, include
+<b>nodes</b>, the compute resource in Slurm,
+<b>partitions</b>, which group nodes into logical (possibly overlapping) sets,
+<b>jobs</b>, or allocations of resources assigned to a user for
+a specified amount of time, and
+<b>job steps</b>, which are sets of (possibly parallel) tasks within a job.
+The partitions can be considered job queues, each of which has an assortment of
+constraints such as job size limit, job time limit, users permitted to use it, etc.
+Priority-ordered jobs are allocated nodes within a partition until the resources
+(nodes, processors, memory, etc.) within that partition are exhausted. Once
+a job is assigned a set of nodes, the user is able to initiate parallel work in
+the form of job steps in any configuration within the allocation. For instance,
+a single job step may be started that utilizes all nodes allocated to the job,
+or several job steps may independently use a portion of the allocation.</p>
+
+<div class="figure">
+  <img src="./Slurm Workload Manager - Quick Start User Guide_files/entities.gif" width="550"><br>
+  Figure 2. Slurm entities
+</div>
+
+
+<h2 id="commands">Commands<a class="slurm_link" href="https://slurm.schedmd.com/quickstart.html#commands"></a></h2>
+<p>Man pages exist for all Slurm daemons, commands, and API functions. The command
+option <span class="commandline">--help</span> also provides a brief summary of
+options. Note that the command options are all case sensitive.</p>
+
+<p><span class="commandline"><b>sacct</b></span> is used to report job or job
+step accounting information about active or completed jobs.</p>
+
+<p><span class="commandline"><b>salloc</b></span> is used to allocate resources
+for a job in real time. Typically this is used to allocate resources and spawn a shell.
+The shell is then used to execute srun commands to launch parallel tasks.</p>
+
+<p><span class="commandline"><b>sattach</b></span> is used to attach standard
+input, output, and error plus signal capabilities to a currently running
+job or job step. One can attach to and detach from jobs multiple times.</p>
+
+<p><span class="commandline"><b>sbatch</b></span> is used to submit a job script
+for later execution. The script will typically contain one or more srun commands
+to launch parallel tasks.</p>
+
+<p><span class="commandline"><b>sbcast</b></span> is used to transfer a file
+from local disk to local disk on the nodes allocated to a job. This can be
+used to effectively use diskless compute nodes or provide improved performance
+relative to a shared file system.</p>
+
+<p><span class="commandline"><b>scancel</b></span> is used to cancel a pending
+or running job or job step. It can also be used to send an arbitrary signal to
+all processes associated with a running job or job step.</p>
+
+<p><span class="commandline"><b>scontrol</b></span> is the administrative tool
+used to view and/or modify Slurm state. Note that many <span class="commandline">scontrol</span>
+commands can only be executed as user root.</p>
+
+<p><span class="commandline"><b>sinfo</b></span> reports the state of partitions
+and nodes managed by Slurm. It has a wide variety of filtering, sorting, and formatting
+options.</p>
+
+<p><span class="commandline"><b>sprio</b></span> is used to display a detailed
+view of the components affecting a job's priority.</p>
+
+<p><span class="commandline"><b>squeue</b></span> reports the state of jobs or
+job steps. It has a wide variety of filtering, sorting, and formatting options.
+By default, it reports the running jobs in priority order and then the pending
+jobs in priority order.</p>
+
+<p><span class="commandline"><b>srun</b></span> is used to submit a job for
+execution or initiate job steps in real time.
+<span class="commandline">srun</span>
+has a wide variety of options to specify resource requirements, including: minimum
+and maximum node count, processor count, specific nodes to use or not use, and
+specific node characteristics (so much memory, disk space, certain required
+features, etc.).
+A job can contain multiple job steps executing sequentially or in parallel on
+independent or shared resources within the job's node allocation.</p>
+
+<p><span class="commandline"><b>sshare</b></span> displays detailed information
+about fairshare usage on the cluster. Note that this is only viable when using
+the priority/multifactor plugin.</p>
+
+<p><span class="commandline"><b>sstat</b></span> is used to get information
+about the resources utilized by a running job or job step.</p>
+
+<p><span class="commandline"><b>strigger</b></span> is used to set, get or
+view event triggers. Event triggers include things such as nodes going down
+or jobs approaching their time limit.</p>
+
+<p><span class="commandline"><b>sview</b></span> is a graphical user interface to
+get and update state information for jobs, partitions, and nodes managed by Slurm.</p>
+
+
+<h2 id="examples">Examples<a class="slurm_link" href="https://slurm.schedmd.com/quickstart.html#examples"></a></h2>
+<p>First we determine what partitions exist on the system, what nodes
+they include, and general system state. This information is provided
+by the <span class="commandline">sinfo</span> command.
+In the example below we find there are two partitions: <i>debug</i>
+and <i>batch</i>.
+The <i>*</i> following the name <i>debug</i> indicates this is the
+default partition for submitted jobs.
+We see that both partitions are in an <i>UP</i> state.
+Some configurations may include partitions for larger jobs
+that are <i>DOWN</i> except on weekends or at night. The information
+about each partition may be split over more than one line so that
+nodes in different states can be identified.
+In this case, the two nodes <i>adev[1-2]</i> are <i>down</i>.
+The <i>*</i> following the state <i>down</i> indicate the nodes are
+not responding. Note the use of a concise expression for node
+name specification with a common prefix <i>adev</i> and numeric
+ranges or specific numbers identified. This format allows for
+very large clusters to be easily managed.
+The <span class="commandline">sinfo</span> command
+has many options to easily let you view the information of interest
+to you in whatever format you prefer.
+See the man page for more information.</p>
+<pre>adev0: sinfo
+PARTITION AVAIL  TIMELIMIT NODES  STATE NODELIST
+debug*       up      30:00     2  down* adev[1-2]
+debug*       up      30:00     3   idle adev[3-5]
+batch        up      30:00     3  down* adev[6,13,15]
+batch        up      30:00     3  alloc adev[7-8,14]
+batch        up      30:00     4   idle adev[9-12]
+</pre>
+
+<p>Next we determine what jobs exist on the system using the
+<span class="commandline">squeue</span> command. The
+<i>ST</i> field is job state.
+Two jobs are in a running state (<i>R</i> is an abbreviation
+for <i>Running</i>) while one job is in a pending state
+(<i>PD</i> is an abbreviation for <i>Pending</i>).
+The <i>TIME</i> field shows how long the jobs have run
+for using the format <i>days-hours:minutes:seconds</i>.
+The <i>NODELIST(REASON)</i> field indicates where the
+job is running or the reason it is still pending. Typical
+reasons for pending jobs are <i>Resources</i> (waiting
+for resources to become available) and <i>Priority</i>
+(queued behind a higher priority job).
+The <span class="commandline">squeue</span> command
+has many options to easily let you view the information of interest
+to you in whatever format you prefer.
+See the man page for more information.</p>
+<pre>adev0: squeue
+JOBID PARTITION  NAME  USER ST  TIME NODES NODELIST(REASON)
+65646     batch  chem  mike  R 24:19     2 adev[7-8]
+65647     batch   bio  joan  R  0:09     1 adev14
+65648     batch  math  phil PD  0:00     6 (Resources)
+</pre>
+
+<p>The <span class="commandline">scontrol</span> command
+can be used to report more detailed information about
+nodes, partitions, jobs, job steps, and configuration.
+It can also be used by system administrators to make
+configuration changes. A couple of examples are shown
+below. See the man page for more information.</p>
+<pre>adev0: scontrol show partition
+PartitionName=debug TotalNodes=5 TotalCPUs=40 RootOnly=NO
+   Default=YES OverSubscribe=FORCE:4 PriorityTier=1 State=UP
+   MaxTime=00:30:00 Hidden=NO
+   MinNodes=1 MaxNodes=26 DisableRootJobs=NO AllowGroups=ALL
+   Nodes=adev[1-5] NodeIndices=0-4
+
+PartitionName=batch TotalNodes=10 TotalCPUs=80 RootOnly=NO
+   Default=NO OverSubscribe=FORCE:4 PriorityTier=1 State=UP
+   MaxTime=16:00:00 Hidden=NO
+   MinNodes=1 MaxNodes=26 DisableRootJobs=NO AllowGroups=ALL
+   Nodes=adev[6-15] NodeIndices=5-14
+
+
+adev0: scontrol show node adev1
+NodeName=adev1 State=DOWN* CPUs=8 AllocCPUs=0
+   RealMemory=4000 TmpDisk=0
+   Sockets=2 Cores=4 Threads=1 Weight=1 Features=intel
+   Reason=Not responding [slurm@06/02-14:01:24]
+
+65648     batch  math  phil PD  0:00     6 (Resources)
+adev0: scontrol show job
+JobId=65672 UserId=phil(5136) GroupId=phil(5136)
+   Name=math
+   Priority=4294901603 Partition=batch BatchFlag=1
+   AllocNode:Sid=adev0:16726 TimeLimit=00:10:00 ExitCode=0:0
+   StartTime=06/02-15:27:11 EndTime=06/02-15:37:11
+   JobState=PENDING NodeList=(null) NodeListIndices=
+   NumCPUs=24 ReqNodes=1 ReqS:C:T=1-65535:1-65535:1-65535
+   OverSubscribe=1 Contiguous=0 CPUs/task=0 Licenses=(null)
+   MinCPUs=1 MinSockets=1 MinCores=1 MinThreads=1
+   MinMemory=0 MinTmpDisk=0 Features=(null)
+   Dependency=(null) Account=(null) Requeue=1
+   Reason=None Network=(null)
+   ReqNodeList=(null) ReqNodeListIndices=
+   ExcNodeList=(null) ExcNodeListIndices=
+   SubmitTime=06/02-15:27:11 SuspendTime=None PreSusTime=0
+   Command=/home/phil/math
+   WorkDir=/home/phil
+</pre>
+
+<p>It is possible to create a resource allocation and launch
+the tasks for a job step in a single command line using the
+<span class="commandline">srun</span> command. Depending
+upon the MPI implementation used, MPI jobs may also be
+launched in this manner.
+See the <a href="https://slurm.schedmd.com/quickstart.html#mpi">MPI</a> section for more MPI-specific information.
+In this example we execute <span class="commandline">/bin/hostname</span>
+on three nodes (<i>-N3</i>) and include task numbers on the output (<i>-l</i>).
+The default partition will be used.
+One task per node will be used by default.
+Note that the <span class="commandline">srun</span> command has
+many options available to control what resource are allocated
+and how tasks are distributed across those resources.</p>
+<pre>adev0: srun -N3 -l /bin/hostname
+0: adev3
+1: adev4
+2: adev5
+</pre>
+
+<p>This variation on the previous example executes
+<span class="commandline">/bin/hostname</span> in four tasks (<i>-n4</i>).
+One processor per task will be used by default (note that we don't specify
+a node count).</p>
+<pre>adev0: srun -n4 -l /bin/hostname
+0: adev3
+1: adev3
+2: adev3
+3: adev3
+</pre>
+
+<p>One common mode of operation is to submit a script for later execution.
+In this example the script name is <i>my.script</i> and we explicitly use
+the nodes adev9 and adev10 (<i>-w "adev[9-10]"</i>, note the use of a
+node range expression).
+We also explicitly state that the subsequent job steps will spawn four tasks
+each, which will ensure that our allocation contains at least four processors
+(one processor per task to be launched).
+The output will appear in the file my.stdout ("-o my.stdout").
+This script contains a timelimit for the job embedded within itself.
+Other options can be supplied as desired by using a prefix of "#SBATCH" followed
+by the option at the beginning of the script (before any commands to be executed
+in the script).
+Options supplied on the command line would override any options specified within
+the script.
+Note that my.script contains the command <span class="commandline">/bin/hostname</span>
+that executed on the first node in the allocation (where the script runs) plus
+two job steps initiated using the <span class="commandline">srun</span> command
+and executed sequentially.</p>
+<pre>adev0: cat my.script
+#!/bin/sh
+#SBATCH --time=1
+/bin/hostname
+srun -l /bin/hostname
+srun -l /bin/pwd
+
+adev0: sbatch -n4 -w "adev[9-10]" -o my.stdout my.script
+sbatch: Submitted batch job 469
+
+adev0: cat my.stdout
+adev9
+0: adev9
+1: adev9
+2: adev10
+3: adev10
+0: /home/jette
+1: /home/jette
+2: /home/jette
+3: /home/jette
+</pre>
+
+<p>The final mode of operation is to create a resource allocation
+and spawn job steps within that allocation.
+The <span class="commandline">salloc</span> command is used
+to create a resource allocation and typically start a shell within
+that allocation.
+One or more job steps would typically be executed within that allocation
+using the <span class="commandline">srun</span> command to launch the tasks
+(depending upon the type of MPI being used, the launch mechanism may
+differ, see <a href="https://slurm.schedmd.com/quickstart.html#mpi">MPI</a> details below).
+Finally the shell created by <span class="commandline">salloc</span> would
+be terminated using the <i>exit</i> command.
+Slurm does not automatically migrate executable or data files
+to the nodes allocated to a job.
+Either the files must exists on local disk or in some global file system
+(e.g. NFS or Lustre).
+We provide the tool <span class="commandline">sbcast</span> to transfer
+files to local storage on allocated nodes using Slurm's hierarchical
+communications.
+In this example we use <span class="commandline">sbcast</span> to transfer
+the executable program <i>a.out</i> to <i>/tmp/joe.a.out</i> on local storage
+of the allocated nodes.
+After executing the program, we delete it from local storage</p>
+<pre>tux0: salloc -N1024 bash
+$ sbcast a.out /tmp/joe.a.out
+Granted job allocation 471
+$ srun /tmp/joe.a.out
+Result is 3.14159
+$ srun rm /tmp/joe.a.out
+$ exit
+salloc: Relinquishing job allocation 471
+</pre>
+
+<p>In this example, we submit a batch job, get its status, and cancel it. </p>
+<pre>adev0: sbatch test
+srun: jobid 473 submitted
+
+adev0: squeue
+JOBID PARTITION NAME USER ST TIME  NODES NODELIST(REASON)
+  473 batch     test jill R  00:00 1     adev9
+
+adev0: scancel 473
+
+adev0: squeue
+JOBID PARTITION NAME USER ST TIME  NODES NODELIST(REASON)
+</pre>
+
+
+<h2 id="best">Best Practices, Large Job Counts
+<a class="slurm_link" href="https://slurm.schedmd.com/quickstart.html#best"></a>
+</h2>
+
+<p>Consider putting related work into a single Slurm job with multiple job
+steps both for performance reasons and ease of management.
+Each Slurm job can contain a multitude of job steps and the overhead in
+Slurm for managing job steps is much lower than that of individual jobs.</p>
+
+<p><a href="https://slurm.schedmd.com/job_array.html">Job arrays</a> are an efficient mechanism of
+managing a collection of batch jobs with identical resource requirements.
+Most Slurm commands can manage job arrays either as individual elements (tasks)
+or as a single entity (e.g. delete an entire job array in a single command).</p>
+
+
+<h2 id="mpi">MPI<a class="slurm_link" href="https://slurm.schedmd.com/quickstart.html#mpi"></a></h2>
+
+<p>MPI use depends upon the type of MPI being used.
+There are three fundamentally different modes of operation used
+by these various MPI implementations.
+</p><ol>
+<li>Slurm directly launches the tasks and performs initialization of
+communications through the PMI2 or PMIx APIs. (Supported by most
+modern MPI implementations.)</li>
+<li>Slurm creates a resource allocation for the job and then
+mpirun launches tasks using Slurm's infrastructure (older versions of
+OpenMPI).</li>
+<li>Slurm creates a resource allocation for the job and then
+mpirun launches tasks using some mechanism other than Slurm,
+such as SSH or RSH.
+These tasks are initiated outside of Slurm's monitoring
+or control. Slurm's epilog should be configured to purge
+these tasks when the job's allocation is relinquished. The
+use of pam_slurm_adopt is also strongly recommended.</li>
+</ol>
+<p>Links to instructions for using several varieties of MPI
+with Slurm are provided below.
+</p><ul>
+<li><a href="https://slurm.schedmd.com/mpi_guide.html#intel_mpi">Intel MPI</a></li>
+<li><a href="https://slurm.schedmd.com/mpi_guide.html#mpich2">MPICH2</a></li>
+<li><a href="https://slurm.schedmd.com/mpi_guide.html#mvapich2">MVAPICH2</a></li>
+<li><a href="https://slurm.schedmd.com/mpi_guide.html#open_mpi">Open MPI</a></li>
+</ul><p></p>
+
+<p style="text-align:center;">Last modified 29 June 2021</p>
+
+			</div> <!-- END .container -->
+		</div> <!-- END .section -->
+	</div> <!-- END .content -->
+</div> <!-- END .main -->
+
+
+
+
+<table cellspacing="0" cellpadding="0" role="presentation" class="gstl_50 gssb_c" style="width: 209px; display: none; top: 64px; left: 522px; position: absolute;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

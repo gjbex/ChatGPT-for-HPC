@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)https://slurm.schedmd.com/scrontab.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+	<meta name="viewport" content="width=device-width">
+
+	<title>Slurm Workload Manager - scrontab</title>
+	<link rel="canonical" href="https://slurm.schedmd.com/scrontab.html">
+
+	<link rel="shortcut icon" href="https://slurm.schedmd.com/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - scrontab_files/fonts.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - scrontab_files/reset.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - scrontab_files/style.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - scrontab_files/slurm.css">
+
+	<script async="" src="./Slurm Workload Manager - scrontab_files/async-ads.js.download"></script><script src="./Slurm Workload Manager - scrontab_files/jquery.min.js.download"></script>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+		jQuery('.menu-trigger').bind('click touchstart', function() {
+			jQuery(this).find('.menu-trigger__lines').toggleClass('menu-trigger__lines--closed');
+			jQuery(this).parents('.site-header').find('.site-nav').toggleClass('site-nav--active');
+
+			return false;
+		});
+	});
+	</script>
+	<script async="" src="./Slurm Workload Manager - scrontab_files/f.txt"></script>
+<script src="./Slurm Workload Manager - scrontab_files/cse_element__en.js.download" type="text/javascript"></script><link type="text/css" href="./Slurm Workload Manager - scrontab_files/default+en.css" rel="stylesheet"><link type="text/css" href="./Slurm Workload Manager - scrontab_files/default.css" rel="stylesheet"><style type="text/css">.gsc-control-cse{font-family:arial, sans-serif}.gsc-control-cse .gsc-table-result{font-family:arial, sans-serif}.gsc-refinementsGradient{background:linear-gradient(to left,rgba(255,255,255,1),rgba(255,255,255,0))}.gsc-control-cse{border-color:#FFFFFF;background-color:#FFFFFF}input.gsc-input,.gsc-input-box,.gsc-input-box-hover,.gsc-input-box-focus{border-color:#D9D9D9}.gsc-search-button-v2,.gsc-search-button-v2:hover,.gsc-search-button-v2:focus{border-color:#666666;background-color:#1BAEE9;background-image:none;filter:none}.gsc-search-button-v2 svg{fill:#FFFFFF}.gsc-tabHeader.gsc-tabhActive,.gsc-refinementHeader.gsc-refinementhActive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-tabHeader.gsc-tabhInactive,.gsc-refinementHeader.gsc-refinementhInactive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-webResult.gsc-result,.gsc-results .gsc-imageResult{border-color:#FFFFFF;background-color:#FFFFFF}.gsc-webResult.gsc-result:hover{border-color:#FFFFFF;background-color:#FFFFFF}.gs-webResult.gs-result a.gs-title:link,.gs-webResult.gs-result a.gs-title:link b,.gs-imageResult a.gs-title:link,.gs-imageResult a.gs-title:link b{color:#0000CC}.gs-webResult.gs-result a.gs-title:visited,.gs-webResult.gs-result a.gs-title:visited b,.gs-imageResult a.gs-title:visited,.gs-imageResult a.gs-title:visited b{color:#0000CC}.gs-webResult.gs-result a.gs-title:hover,.gs-webResult.gs-result a.gs-title:hover b,.gs-imageResult a.gs-title:hover,.gs-imageResult a.gs-title:hover b{color:#0000CC}.gs-webResult.gs-result a.gs-title:active,.gs-webResult.gs-result a.gs-title:active b,.gs-imageResult a.gs-title:active,.gs-imageResult a.gs-title:active b{color:#0000CC}.gsc-cursor-page{color:#0000CC}a.gsc-trailing-more-results:link{color:#0000CC}.gs-webResult:not(.gs-no-results-result):not(.gs-error-result) .gs-snippet,.gs-fileFormatType{color:#000000}.gs-webResult div.gs-visibleUrl{color:#008000}.gs-webResult div.gs-visibleUrl-short{color:#008000}.gsc-cursor-box{border-color:#FFFFFF}.gsc-results .gsc-cursor-box .gsc-cursor-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-results .gsc-cursor-box .gsc-cursor-current-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-webResult.gsc-result.gsc-promotion{border-color:#336699;background-color:#FFFFFF}.gsc-completion-title{color:#0000CC}.gsc-completion-snippet{color:#000000}.gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link{color:#0000CC}.gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited{color:#0000CC}.gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover{color:#0000CC}.gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active{color:#0000CC}.gs-promotion .gs-snippet,.gs-promotion .gs-title .gs-promotion-title-right,.gs-promotion .gs-title .gs-promotion-title-right *{color:#000000}.gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short{color:#008000}.gcsc-find-more-on-google{color:#0000CC}.gcsc-find-more-on-google-magnifier{fill:#0000CC}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{vertical-align:middle;opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gssb_a{padding:0 9px}.gsib_a{padding:5px 9px 4px 9px}.gscb_a{line-height:27px}.gssb_e{border:0}.gssb_l{margin:5px 0}input.gsc-input::-webkit-input-placeholder{font-size:14px}input.gsc-input:-moz-placeholder{font-size:14px}input.gsc-input::-moz-placeholder{font-size:14px}input.gsc-input:-ms-input-placeholder{font-size:14px}input.gsc-input:focus::-webkit-input-placeholder{color:transparent}input.gsc-input:focus:-moz-placeholder{color:transparent}input.gsc-input:focus::-moz-placeholder{color:transparent}input.gsc-input:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
+
+<body data-new-gr-c-s-check-loaded="14.1224.0" data-gr-ext-installed="">
+
+<div class="container container--main">
+
+	<header class="site-header" role="banner">
+
+		<div class="site-masthead">
+			<h1 class="site-masthead__title site-masthead__title--slurm">
+				<a href="https://slurm.schedmd.com/" rel="home">
+					<span class="slurm-logo">Slurm Workload Manager</span>
+				</a>
+			</h1>
+			<div class="site-masthead__title">
+				<a href="https://www.schedmd.com/" rel="home">
+					<span class="site-logo">SchedMD</span>
+				</a>
+			</div>
+
+			<button class="site-masthead__trigger menu-trigger" type="button" role="button" aria-label="Toggle Navigation"><span class="menu-trigger__lines"></span></button>
+		</div>
+
+
+		<nav class="site-nav" role="navigation">
+			<h2 class="site-nav__title">Navigation</h2>
+
+			<div class="slurm-title">
+				<div class="slurm-logo"><a href="https://slurm.schedmd.com/">Slurm Workload Manager</a></div>
+				<div class="slurm-title__version">Version 24.11</div>
+			</div>
+
+			<ul class="site-nav__menu site-menu menu">
+				<li class="site-menu__item">
+				        <div>About</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/overview.html">Overview</a></li>
+						<li><a href="https://slurm.schedmd.com/release_notes.html">Release Notes</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Using</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/documentation.html">Documentation</a></li>
+						<li><a href="https://slurm.schedmd.com/faq.html">FAQ</a></li>
+						<li><a href="https://www.schedmd.com/publications/">Publications</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Installing</div>
+					<ul>
+						<li><a href="https://www.schedmd.com/download-slurm/">Download</a></li>
+						<li><a href="https://slurm.schedmd.com/related_software.html">Related Software</a></li>
+						<li><a href="https://slurm.schedmd.com/quickstart_admin.html">Installation Guide</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Getting Help</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/mail.html">Mailing Lists</a></li>
+						<li><a href="https://www.schedmd.com/slurm-support/our-services/">Support and Training</a></li>
+						<li><a href="https://slurm.schedmd.com/troubleshoot.html">Troubleshooting</a></li>
+					</ul>
+				</li>
+			</ul>
+
+		</nav>
+
+	</header>
+
+	<div class="content" role="main">
+		<section class="slurm-search">
+			<div class="container" id="cse">
+				<div id="___gcse_0"><div class="gsc-control-cse gsc-control-cse-en"><div class="gsc-control-wrapper-cse" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" role="presentation" id="gs_id50" class="gstl_50 gsc-input" style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" aria-label="search" id="gsc-i-id1" dir="ltr" spellcheck="false" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; background: url(&quot;https://www.google.com/cse/static/images/1x/en/branding.png&quot;) left center no-repeat rgb(255, 255, 255); outline: none;"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" title="Clear search box" role="button" style="display: none;"><span class="gscb_a" id="gs_cb50" aria-hidden="true">×</span></a></div></td></tr></tbody></table></div></td><td class="gsc-search-button"><button class="gsc-search-button gsc-search-button-v2"><svg width="13" height="13" viewBox="0 0 13 13"><title>search</title><path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path></svg></button></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table></form><div class="gsc-results-wrapper-nooverlay"><div class="gsc-positioningWrapper"><div class="gsc-tabsAreaInvisible"><div aria-label="refinement" role="tab" class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Custom Search</div><span class="gs-spacer"> </span></div></div><div class="gsc-positioningWrapper"><div class="gsc-refinementsAreaInvisible"></div></div><div class="gsc-above-wrapper-area-invisible"><div class="gsc-above-wrapper-area-backfill-container"></div><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-above-wrapper-area-container"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td><td class="gsc-orderby-container"><div class="gsc-orderby-invisible"><div class="gsc-orderby-label gsc-inline-block">Sort by:</div><div class="gsc-option-menu-container gsc-inline-block"><div class="gsc-selected-option-container gsc-inline-block"><div class="gsc-selected-option">Relevance</div><div class="gsc-option-selector"></div></div><div class="gsc-option-menu-invisible"><div class="gsc-option-menu-item gsc-option-menu-item-highlighted"><div class="gsc-option">Relevance</div></div><div class="gsc-option-menu-item"><div class="gsc-option">Date</div></div></div></div></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><div><div class="gsc-expansionArea"></div></div></div></div></div></div></div></div></div>
+			</div>
+		</section>
+
+		<div class="section">
+			<div class="container">
+
+<h1>scrontab</h1>
+Section: Slurm Commands (1)<br>Updated: Slurm Commands<br><a href="https://slurm.schedmd.com/scrontab.html#index">Index</a>
+
+<p>
+<a name="lbAB">&nbsp;</a>
+</p><h2>NAME<a class="slurm_link" id="SECTION_NAME" href="https://slurm.schedmd.com/scrontab.html#SECTION_NAME"></a></h2>
+scrontab - manage Slurm crontab files
+<p>
+<a name="lbAC">&nbsp;</a>
+</p><h2>SYNOPSIS<a class="slurm_link" id="SECTION_SYNOPSIS" href="https://slurm.schedmd.com/scrontab.html#SECTION_SYNOPSIS"></a></h2>
+scrontab [-u user] file
+<br>
+
+scrontab [-u user] [ -e | -l | -r ]
+<p>
+<a name="lbAD">&nbsp;</a>
+</p><h2>DESCRIPTION<a class="slurm_link" id="SECTION_DESCRIPTION" href="https://slurm.schedmd.com/scrontab.html#SECTION_DESCRIPTION"></a></h2>
+<p>
+
+<b>scrontab</b> is used to set, edit, and remove a user's Slurm-managed crontab.
+This file can define a number of recurring batch jobs to run on a scheduled
+interval.
+</p><p>
+
+Lines must be either comments starting with '#', whitespace, valid crontab
+entries or custom variable settings.
+</p><p>
+
+Lines starting with <b>#SCRON</b> allow options to be defined for the single
+following crontab entry. Options are always reset in between each crontab
+entry. Options include most of those available to the <b>sbatch</b> command;
+details are available in the <b><a href="https://slurm.schedmd.com/sbatch.html">sbatch</a></b>(1) man page.
+</p><p>
+
+Note that jobs are not guaranteed to execute at the preferred time. Jobs will
+run no more frequently than requested, but are managed by setting the
+BeginTime field to the next valid iteration, and are then subject to queuing
+delays. The exact behavior will depend on the local site configuration.
+Because of this method of implementation, the next job in the series won't be
+submitted until after the previous job has completed. For example, if you
+have a monitoring job that is scheduled to run every minute on a busy
+system, if the job scheduled to start at 08:20:00 isn't able to start until
+08:20:30 and it runs for 35 seconds then the job at 08:21:00 will be skipped
+and the next job will be scheduled for 08:22:00.
+</p><p>
+
+<b>scrontab</b> uses the same syntax for date and time specifiers as <b>cron</b>.
+Each line has five fields that have the following meanings:
+</p><dl compact=""><dt></dt><dd>
+field           allowed values
+<br>
+
+-----           --------------
+<br>
+
+minute          0-59
+<br>
+
+hour            0-23
+<br>
+
+day of month    1-31
+<br>
+
+month           1-12 (or name)
+<br>
+
+day of week     0-7 (0 and 7 are Sunday, or use name)
+</dd></dl>
+
+<p>
+</p><p>
+
+A field can contain an asterisk (*) which means that it's valid for each of
+the allowed values for the given time period. Ranges are allowed where a range
+is two numbers with a hyphen between them. The second number must be greater
+than the first. Lists are allowed, with commas separating the numbers or
+ranges being separated. Step values can be specified by entering a slash
+(/), followed by the step value, causing the job to run at the specified
+interval appropriate for that field.
+</p><p>
+</p><p>
+
+Custom variables can be defined as within a regular shell script. The `$'
+character introduces variable expansion. Simple parameter expansion is the only
+currently accepted expansion variant (i.e. ${parameter} or ${parameter:-word}
+are not supported). The variable expansion will only occur within <b>scrontab</b>
+job commands. It is not possible to expand variables in other type of lines
+(other variable definitions, comments or crontab entries). The expansion will
+happen before submitting the job, but the variable definitions will remain in
+the <b>scrontab</b> script. Unlike crontab, the user environment variables are
+ignored.
+</p><p>
+<a name="lbAE">&nbsp;</a>
+</p><h2>OPTIONS<a class="slurm_link" id="SECTION_OPTIONS" href="https://slurm.schedmd.com/scrontab.html#SECTION_OPTIONS"></a></h2>
+The first form of this command is used to install a new crontab from some named
+file or standard input if the pseudo-filename ``-'' is given.
+<p>
+</p><dl compact="">
+<dt><b>-e</b><a class="slurm_link" id="OPT_-e" href="https://slurm.schedmd.com/scrontab.html#OPT_-e"></a></dt><dd>Edit the crontab. If a crontab does not exist already, a default example
+(without any defined entries) will be provided in the editor.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-l</b><a class="slurm_link" id="OPT_-l" href="https://slurm.schedmd.com/scrontab.html#OPT_-l"></a></dt><dd>List the crontab. (Prints directly to stdout.)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-r</b><a class="slurm_link" id="OPT_-r" href="https://slurm.schedmd.com/scrontab.html#OPT_-r"></a></dt><dd>Remove the crontab. Any currently running crontab-defined jobs will continue
+to run but will no longer recur. All other crontab-defined jobs will be
+cancelled.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-u</b> &lt;<i>user</i>&gt;<a class="slurm_link" id="OPT_-u" href="https://slurm.schedmd.com/scrontab.html#OPT_-u"></a></dt><dd>Edit or view a different user's crontab. Listing is permitted for Operators and
+Admins. Editing/removal is only permitted for root and the <i>SlurmUser</i>
+account.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAF">&nbsp;</a>
+<h2>SCRONTAB OPTIONS<a class="slurm_link" id="SECTION_SCRONTAB-OPTIONS" href="https://slurm.schedmd.com/scrontab.html#SECTION_SCRONTAB-OPTIONS"></a></h2>
+<b>scrontab</b> allows you to use shortcuts to specify some common time
+intervals for the specified script to run. These include the following:
+<p>
+</p><dl compact="">
+<dt><b>@yearly</b> | <b>@annually</b><a class="slurm_link" id="OPT_@yearly" href="https://slurm.schedmd.com/scrontab.html#OPT_@yearly"></a></dt><dd>Job will become eligible at <i>00:00 Jan 01</i> each year.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>@monthly</b><a class="slurm_link" id="OPT_@monthly" href="https://slurm.schedmd.com/scrontab.html#OPT_@monthly"></a></dt><dd>Job will become eligible at <i>00:00</i> on the first day of each month.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>@weekly</b><a class="slurm_link" id="OPT_@weekly" href="https://slurm.schedmd.com/scrontab.html#OPT_@weekly"></a></dt><dd>Job will become eligible at <i>00:00 Sunday</i> of each week.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>@daily</b> | <b>@midnight</b><a class="slurm_link" id="OPT_@daily" href="https://slurm.schedmd.com/scrontab.html#OPT_@daily"></a></dt><dd>Job will become eligible at <i>00:00</i> each day.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>@hourly</b><a class="slurm_link" id="OPT_@hourly" href="https://slurm.schedmd.com/scrontab.html#OPT_@hourly"></a></dt><dd>Job will become eligible at the first minute of each hour.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>@elevenses</b><a class="slurm_link" id="OPT_@elevenses" href="https://slurm.schedmd.com/scrontab.html#OPT_@elevenses"></a></dt><dd>Job will become eligible at <i>11:00</i> each day.
+(This is a non-standard extension.)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>@fika</b><a class="slurm_link" id="OPT_@fika" href="https://slurm.schedmd.com/scrontab.html#OPT_@fika"></a></dt><dd>Job will become eligible at <i>15:00</i> each day.
+(This is a non-standard extension.)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>@teatime</b><a class="slurm_link" id="OPT_@teatime" href="https://slurm.schedmd.com/scrontab.html#OPT_@teatime"></a></dt><dd>Job will become eligible at <i>16:00</i> each day.
+(This is a non-standard extension.)
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAG">&nbsp;</a>
+<h2>ENVIRONMENT VARIABLES<a class="slurm_link" id="SECTION_ENVIRONMENT-VARIABLES" href="https://slurm.schedmd.com/scrontab.html#SECTION_ENVIRONMENT-VARIABLES"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>VISUAL</b><a class="slurm_link" id="OPT_VISUAL" href="https://slurm.schedmd.com/scrontab.html#OPT_VISUAL"></a></dt><dd>Used as the interactive editor if set.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>EDITOR</b><a class="slurm_link" id="OPT_EDITOR" href="https://slurm.schedmd.com/scrontab.html#OPT_EDITOR"></a></dt><dd>Used as the interactive editor if set and <b>VISUAL</b> is not defined.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CONF</b><a class="slurm_link" id="OPT_SLURM_CONF" href="https://slurm.schedmd.com/scrontab.html#OPT_SLURM_CONF"></a></dt><dd>The location of the Slurm configuration file.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_DEBUG_FLAGS</b><a class="slurm_link" id="OPT_SLURM_DEBUG_FLAGS" href="https://slurm.schedmd.com/scrontab.html#OPT_SLURM_DEBUG_FLAGS"></a></dt><dd>Specify debug flags for scrontab to use. See DebugFlags in the
+<b><a href="https://slurm.schedmd.com/slurm.conf.html">slurm.conf</a></b>(5) man page for a full list of flags. The environment
+variable takes precedence over the setting in the slurm.conf.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAH">&nbsp;</a>
+<h2>NOTES<a class="slurm_link" id="SECTION_NOTES" href="https://slurm.schedmd.com/scrontab.html#SECTION_NOTES"></a></h2>
+<p>
+
+<b>scrontab</b> is only available if the <b>ScronParameters=enable</b> option has
+been enabled in the <b>slurm.conf</b>.
+</p><p>
+
+<b>scrontab</b> will create a temporary file in the directory set by <b>TMPDIR</b>
+environment variable. If the variable is not set /tmp is used.
+</p><p>
+
+Jobs created with <b>scrontab</b> are assigned a single job id. When cancelled
+all future runs of the job will also be cancelled. The job definition will be
+commented out in the users <b>scrontab</b> file.
+</p><p>
+
+Using "<b>scontrol requeue</b> &lt;<i>job_id</i>&gt;" will skip the next run of the
+cron job and reschedule it for the next available time based on the cron
+expression.
+</p><p>
+<a name="lbAI">&nbsp;</a>
+</p><h2>EXAMPLES<a class="slurm_link" id="SECTION_EXAMPLES" href="https://slurm.schedmd.com/scrontab.html#SECTION_EXAMPLES"></a></h2>
+To create a job that would run at the beginning of each hour, using the 'high'
+partition, 'sub1' account and have a walltime of 1 minute, you would add the
+following to <b>scrontab</b>:
+<p>
+</p><dl compact=""><dt></dt><dd>
+<pre>DIR=/home/user1
+#SCRON -p high
+#SCRON -A sub1
+#SCRON -t 1:00
+@hourly $DIR/date.printer.job
+</pre>
+
+</dd></dl>
+
+<p>
+</p><p>
+
+To have a job run every Wednesday, every other hour during the work day, each
+of the first five minutes of the hour and again at the thirty minute mark,
+you would add the following to <b>scrontab</b>.
+</p><p>
+</p><dl compact=""><dt></dt><dd>
+<pre>1-5,30 8-17/2 * * wed $DIR/example.job
+</pre>
+
+</dd></dl>
+
+<p>
+<a name="lbAJ">&nbsp;</a>
+</p><h2>LIMITATIONS<a class="slurm_link" id="SECTION_LIMITATIONS" href="https://slurm.schedmd.com/scrontab.html#SECTION_LIMITATIONS"></a></h2>
+The Slurm controller's timezone is what will be used to evaluate each crontab's
+repetition intervals. User-specific timezones are not supported.
+<p>
+<a name="lbAK">&nbsp;</a>
+</p><h2>COPYING<a class="slurm_link" id="SECTION_COPYING" href="https://slurm.schedmd.com/scrontab.html#SECTION_COPYING"></a></h2>
+Copyright (C) 2020-2022 SchedMD LLC.
+<p>
+
+This file is part of Slurm, a resource management program.
+For details, see &lt;<a href="https://slurm.schedmd.com/">https://slurm.schedmd.com/</a>&gt;.
+</p><p>
+
+Slurm is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free
+Software Foundation; either version 2 of the License, or (at your option)
+any later version.
+</p><p>
+
+Slurm is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+details.
+</p><p>
+<a name="lbAL">&nbsp;</a>
+</p><h2>SEE ALSO<a class="slurm_link" id="SECTION_SEE-ALSO" href="https://slurm.schedmd.com/scrontab.html#SECTION_SEE-ALSO"></a></h2>
+<p>
+
+<b><a href="https://slurm.schedmd.com/sbatch.html">sbatch</a></b>(1), <b><a href="https://slurm.schedmd.com/squeue.html">squeue</a></b>(1), <b><a href="https://slurm.schedmd.com/slurm.conf.html">slurm.conf</a></b>(5)
+</p><p>
+
+</p><hr>
+<a name="index">&nbsp;</a><h2>Index</h2>
+<dl>
+<dt><a href="https://slurm.schedmd.com/scrontab.html#lbAB">NAME</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrontab.html#lbAC">SYNOPSIS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrontab.html#lbAD">DESCRIPTION</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrontab.html#lbAE">OPTIONS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrontab.html#lbAF">SCRONTAB OPTIONS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrontab.html#lbAG">ENVIRONMENT VARIABLES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrontab.html#lbAH">NOTES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrontab.html#lbAI">EXAMPLES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrontab.html#lbAJ">LIMITATIONS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrontab.html#lbAK">COPYING</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrontab.html#lbAL">SEE ALSO</a></dt><dd>
+</dd></dl>
+<hr>
+This document was created by
+<i>man2html</i> using the manual pages.<br>
+Time: 20:54:38 GMT, February 25, 2025
+			</div> <!-- END .container -->
+		</div> <!-- END .section -->
+	</div> <!-- END .content -->
+</div> <!-- END .main -->
+
+
+
+<table cellspacing="0" cellpadding="0" role="presentation" class="gstl_50 gssb_c" style="width: 172px; display: none; top: 65px; left: 523px; position: absolute;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table><div data-lastpass-root="" style="position: absolute !important; top: 0px !important; left: 0px !important; height: 0px !important; width: 0px !important;"><template shadowrootmode="closed"><div style="position: absolute; height: 100vh; width: 100vw; z-index: 2147483647; border-radius: 4px; top: 0px; left: 0px; max-height: 0px; max-width: 280px; min-width: auto;"><iframe data-lastpass-infield="true" allow="clipboard-write" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/webclient-infield.html" style="border: none; height: 100%; width: 100%;"></iframe></div></template></div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

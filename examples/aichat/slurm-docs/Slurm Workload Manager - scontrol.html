@@ -1,0 +1,2706 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)https://slurm.schedmd.com/scontrol.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+	<meta name="viewport" content="width=device-width">
+
+	<title>Slurm Workload Manager - scontrol</title>
+	<link rel="canonical" href="https://slurm.schedmd.com/scontrol.html">
+
+	<link rel="shortcut icon" href="https://slurm.schedmd.com/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - scontrol_files/fonts.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - scontrol_files/reset.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - scontrol_files/style.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - scontrol_files/slurm.css">
+
+	<script async="" src="./Slurm Workload Manager - scontrol_files/async-ads.js.download"></script><script src="./Slurm Workload Manager - scontrol_files/jquery.min.js.download"></script>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+		jQuery('.menu-trigger').bind('click touchstart', function() {
+			jQuery(this).find('.menu-trigger__lines').toggleClass('menu-trigger__lines--closed');
+			jQuery(this).parents('.site-header').find('.site-nav').toggleClass('site-nav--active');
+
+			return false;
+		});
+	});
+	</script>
+	<script async="" src="./Slurm Workload Manager - scontrol_files/f.txt"></script>
+<script src="./Slurm Workload Manager - scontrol_files/cse_element__en.js.download" type="text/javascript"></script><link type="text/css" href="./Slurm Workload Manager - scontrol_files/default+en.css" rel="stylesheet"><link type="text/css" href="./Slurm Workload Manager - scontrol_files/default.css" rel="stylesheet"><style type="text/css">.gsc-control-cse{font-family:arial, sans-serif}.gsc-control-cse .gsc-table-result{font-family:arial, sans-serif}.gsc-refinementsGradient{background:linear-gradient(to left,rgba(255,255,255,1),rgba(255,255,255,0))}.gsc-control-cse{border-color:#FFFFFF;background-color:#FFFFFF}input.gsc-input,.gsc-input-box,.gsc-input-box-hover,.gsc-input-box-focus{border-color:#D9D9D9}.gsc-search-button-v2,.gsc-search-button-v2:hover,.gsc-search-button-v2:focus{border-color:#666666;background-color:#1BAEE9;background-image:none;filter:none}.gsc-search-button-v2 svg{fill:#FFFFFF}.gsc-tabHeader.gsc-tabhActive,.gsc-refinementHeader.gsc-refinementhActive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-tabHeader.gsc-tabhInactive,.gsc-refinementHeader.gsc-refinementhInactive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-webResult.gsc-result,.gsc-results .gsc-imageResult{border-color:#FFFFFF;background-color:#FFFFFF}.gsc-webResult.gsc-result:hover{border-color:#FFFFFF;background-color:#FFFFFF}.gs-webResult.gs-result a.gs-title:link,.gs-webResult.gs-result a.gs-title:link b,.gs-imageResult a.gs-title:link,.gs-imageResult a.gs-title:link b{color:#0000CC}.gs-webResult.gs-result a.gs-title:visited,.gs-webResult.gs-result a.gs-title:visited b,.gs-imageResult a.gs-title:visited,.gs-imageResult a.gs-title:visited b{color:#0000CC}.gs-webResult.gs-result a.gs-title:hover,.gs-webResult.gs-result a.gs-title:hover b,.gs-imageResult a.gs-title:hover,.gs-imageResult a.gs-title:hover b{color:#0000CC}.gs-webResult.gs-result a.gs-title:active,.gs-webResult.gs-result a.gs-title:active b,.gs-imageResult a.gs-title:active,.gs-imageResult a.gs-title:active b{color:#0000CC}.gsc-cursor-page{color:#0000CC}a.gsc-trailing-more-results:link{color:#0000CC}.gs-webResult:not(.gs-no-results-result):not(.gs-error-result) .gs-snippet,.gs-fileFormatType{color:#000000}.gs-webResult div.gs-visibleUrl{color:#008000}.gs-webResult div.gs-visibleUrl-short{color:#008000}.gsc-cursor-box{border-color:#FFFFFF}.gsc-results .gsc-cursor-box .gsc-cursor-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-results .gsc-cursor-box .gsc-cursor-current-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-webResult.gsc-result.gsc-promotion{border-color:#336699;background-color:#FFFFFF}.gsc-completion-title{color:#0000CC}.gsc-completion-snippet{color:#000000}.gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link{color:#0000CC}.gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited{color:#0000CC}.gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover{color:#0000CC}.gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active{color:#0000CC}.gs-promotion .gs-snippet,.gs-promotion .gs-title .gs-promotion-title-right,.gs-promotion .gs-title .gs-promotion-title-right *{color:#000000}.gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short{color:#008000}.gcsc-find-more-on-google{color:#0000CC}.gcsc-find-more-on-google-magnifier{fill:#0000CC}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{vertical-align:middle;opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gssb_a{padding:0 9px}.gsib_a{padding:5px 9px 4px 9px}.gscb_a{line-height:27px}.gssb_e{border:0}.gssb_l{margin:5px 0}input.gsc-input::-webkit-input-placeholder{font-size:14px}input.gsc-input:-moz-placeholder{font-size:14px}input.gsc-input::-moz-placeholder{font-size:14px}input.gsc-input:-ms-input-placeholder{font-size:14px}input.gsc-input:focus::-webkit-input-placeholder{color:transparent}input.gsc-input:focus:-moz-placeholder{color:transparent}input.gsc-input:focus::-moz-placeholder{color:transparent}input.gsc-input:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
+
+<body data-new-gr-c-s-check-loaded="14.1224.0" data-gr-ext-installed="">
+
+<div class="container container--main">
+
+	<header class="site-header" role="banner">
+
+		<div class="site-masthead">
+			<h1 class="site-masthead__title site-masthead__title--slurm">
+				<a href="https://slurm.schedmd.com/" rel="home">
+					<span class="slurm-logo">Slurm Workload Manager</span>
+				</a>
+			</h1>
+			<div class="site-masthead__title">
+				<a href="https://www.schedmd.com/" rel="home">
+					<span class="site-logo">SchedMD</span>
+				</a>
+			</div>
+
+			<button class="site-masthead__trigger menu-trigger" type="button" role="button" aria-label="Toggle Navigation"><span class="menu-trigger__lines"></span></button>
+		</div>
+
+
+		<nav class="site-nav" role="navigation">
+			<h2 class="site-nav__title">Navigation</h2>
+
+			<div class="slurm-title">
+				<div class="slurm-logo"><a href="https://slurm.schedmd.com/">Slurm Workload Manager</a></div>
+				<div class="slurm-title__version">Version 24.11</div>
+			</div>
+
+			<ul class="site-nav__menu site-menu menu">
+				<li class="site-menu__item">
+				        <div>About</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/overview.html">Overview</a></li>
+						<li><a href="https://slurm.schedmd.com/release_notes.html">Release Notes</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Using</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/documentation.html">Documentation</a></li>
+						<li><a href="https://slurm.schedmd.com/faq.html">FAQ</a></li>
+						<li><a href="https://www.schedmd.com/publications/">Publications</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Installing</div>
+					<ul>
+						<li><a href="https://www.schedmd.com/download-slurm/">Download</a></li>
+						<li><a href="https://slurm.schedmd.com/related_software.html">Related Software</a></li>
+						<li><a href="https://slurm.schedmd.com/quickstart_admin.html">Installation Guide</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Getting Help</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/mail.html">Mailing Lists</a></li>
+						<li><a href="https://www.schedmd.com/slurm-support/our-services/">Support and Training</a></li>
+						<li><a href="https://slurm.schedmd.com/troubleshoot.html">Troubleshooting</a></li>
+					</ul>
+				</li>
+			</ul>
+
+		</nav>
+
+	</header>
+
+	<div class="content" role="main">
+		<section class="slurm-search">
+			<div class="container" id="cse">
+				<div id="___gcse_0"><div class="gsc-control-cse gsc-control-cse-en"><div class="gsc-control-wrapper-cse" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" role="presentation" id="gs_id50" class="gstl_50 gsc-input" style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" aria-label="search" id="gsc-i-id1" dir="ltr" spellcheck="false" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; background: url(&quot;https://www.google.com/cse/static/images/1x/en/branding.png&quot;) left center no-repeat rgb(255, 255, 255); outline: none;"><div data-lastpass-icon-root="" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"><template shadowrootmode="closed"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-lastpass-icon="true" style="position: absolute; cursor: pointer; height: 14.6667px; max-height: 14.6667px; width: 22px; max-width: 22px; top: 8px; left: 465.292px; z-index: auto; color: rgb(215, 64, 58);"><rect x="0.680176" y="0.763062" width="22.6392" height="22.4737" rx="4" fill="currentColor"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M19.7935 7.9516C19.7935 7.64414 20.0427 7.3949 20.3502 7.3949C20.6576 7.3949 20.9069 7.64414 20.9069 7.9516V16.0487C20.9069 16.3562 20.6576 16.6054 20.3502 16.6054C20.0427 16.6054 19.7935 16.3562 19.7935 16.0487V7.9516Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.76288 13.6577C5.68525 13.6577 6.43298 12.9154 6.43298 11.9998C6.43298 11.0842 5.68525 10.3419 4.76288 10.3419C3.8405 10.3419 3.09277 11.0842 3.09277 11.9998C3.09277 12.9154 3.8405 13.6577 4.76288 13.6577Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M10.3298 13.6577C11.2521 13.6577 11.9999 12.9154 11.9999 11.9998C11.9999 11.0842 11.2521 10.3419 10.3298 10.3419C9.4074 10.3419 8.65967 11.0842 8.65967 11.9998C8.65967 12.9154 9.4074 13.6577 10.3298 13.6577Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M15.8964 13.6577C16.8188 13.6577 17.5665 12.9154 17.5665 11.9998C17.5665 11.0842 16.8188 10.3419 15.8964 10.3419C14.974 10.3419 14.2263 11.0842 14.2263 11.9998C14.2263 12.9154 14.974 13.6577 15.8964 13.6577Z" fill="white"></path></svg></template></div></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" title="Clear search box" role="button" style="display: none;"><span class="gscb_a" id="gs_cb50" aria-hidden="true">×</span></a></div></td></tr></tbody></table></div></td><td class="gsc-search-button"><button class="gsc-search-button gsc-search-button-v2"><svg width="13" height="13" viewBox="0 0 13 13"><title>search</title><path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path></svg></button></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table></form><div class="gsc-results-wrapper-nooverlay"><div class="gsc-positioningWrapper"><div class="gsc-tabsAreaInvisible"><div aria-label="refinement" role="tab" class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Custom Search</div><span class="gs-spacer"> </span></div></div><div class="gsc-positioningWrapper"><div class="gsc-refinementsAreaInvisible"></div></div><div class="gsc-above-wrapper-area-invisible"><div class="gsc-above-wrapper-area-backfill-container"></div><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-above-wrapper-area-container"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td><td class="gsc-orderby-container"><div class="gsc-orderby-invisible"><div class="gsc-orderby-label gsc-inline-block">Sort by:</div><div class="gsc-option-menu-container gsc-inline-block"><div class="gsc-selected-option-container gsc-inline-block"><div class="gsc-selected-option">Relevance</div><div class="gsc-option-selector"></div></div><div class="gsc-option-menu-invisible"><div class="gsc-option-menu-item gsc-option-menu-item-highlighted"><div class="gsc-option">Relevance</div></div><div class="gsc-option-menu-item"><div class="gsc-option">Date</div></div></div></div></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><div><div class="gsc-expansionArea"></div></div></div></div></div></div></div></div></div>
+			</div>
+		</section>
+
+		<div class="section">
+			<div class="container">
+
+<h1>scontrol</h1>
+Section: Slurm Commands (1)<br>Updated: Slurm Commands<br><a href="https://slurm.schedmd.com/scontrol.html#index">Index</a>
+
+<p>
+<a name="lbAB">&nbsp;</a>
+</p><h2>NAME<a class="slurm_link" id="SECTION_NAME" href="https://slurm.schedmd.com/scontrol.html#SECTION_NAME"></a></h2>
+scontrol - view or modify Slurm configuration and state.
+<p>
+<a name="lbAC">&nbsp;</a>
+</p><h2>SYNOPSIS<a class="slurm_link" id="SECTION_SYNOPSIS" href="https://slurm.schedmd.com/scontrol.html#SECTION_SYNOPSIS"></a></h2>
+<b>scontrol</b> [<i>OPTIONS</i>...] [<i>COMMAND</i>...]
+<p>
+<a name="lbAD">&nbsp;</a>
+</p><h2>DESCRIPTION<a class="slurm_link" id="SECTION_DESCRIPTION" href="https://slurm.schedmd.com/scontrol.html#SECTION_DESCRIPTION"></a></h2>
+<b>scontrol</b> is used to view or modify Slurm configuration including: job,
+job step, node, partition, reservation, and overall system configuration. Most
+of the commands can only be executed by user root or an Administrator. If an
+attempt to view or modify configuration information is made by an unauthorized
+user, an error message will be printed and the requested action will not occur.
+If no command is entered on the execute line, <b>scontrol</b> will operate in an
+interactive mode and prompt for input. It will continue prompting for input and
+executing commands until explicitly terminated. If a command is entered on the
+execute line, <b>scontrol</b> will execute that command and terminate. All
+commands and options are case-insensitive, although node names, partition
+names, and reservation names are case-sensitive (node names "LX" and "lx" are
+distinct). All commands and options can be abbreviated to the extent that the
+specification is unique. A modified Slurm configuration can be written to
+a file using the <i>scontrol write config</i> command. The resulting file
+will be named using the convention "slurm.conf.&lt;datetime&gt;" and located in the
+same directory as the original "slurm.conf" file. The directory containing
+the original slurm.conf must be writable for this to occur.
+<p>
+<a name="lbAE">&nbsp;</a>
+</p><h2>OPTIONS<a class="slurm_link" id="SECTION_OPTIONS" href="https://slurm.schedmd.com/scontrol.html#SECTION_OPTIONS"></a></h2>
+<dl compact="">
+<dt><b>-a</b>, <b>--all</b><a class="slurm_link" id="OPT_all" href="https://slurm.schedmd.com/scontrol.html#OPT_all"></a></dt><dd>When the <i>show</i> command is used, then display all partitions, their jobs
+and jobs steps. This causes information to be displayed about partitions
+that are configured as hidden and partitions that are unavailable to user's
+group.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-M</b>, <b>--clusters</b>=&lt;<i>string</i>&gt;<a class="slurm_link" id="OPT_clusters" href="https://slurm.schedmd.com/scontrol.html#OPT_clusters"></a></dt><dd>The cluster to issue commands to. Only one cluster name may be specified.
+Note that the <b>slurmdbd</b> must be up for this option to work properly, unless
+running in a federation with either <b>FederationParameters=fed_display</b>
+configured or the <b>--federation</b> option set.
+This option implicitly sets the <b>--local</b> option.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-d</b>, <b>--details</b><a class="slurm_link" id="OPT_details" href="https://slurm.schedmd.com/scontrol.html#OPT_details"></a></dt><dd>Causes the <i>show</i> command to provide additional details where available.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--federation</b><a class="slurm_link" id="OPT_federation" href="https://slurm.schedmd.com/scontrol.html#OPT_federation"></a></dt><dd>Report jobs from federation if a member of one.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-F</b>, <b>--future</b><a class="slurm_link" id="OPT_future" href="https://slurm.schedmd.com/scontrol.html#OPT_future"></a></dt><dd>Report nodes in FUTURE state.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-h</b>, <b>--help</b><a class="slurm_link" id="OPT_help" href="https://slurm.schedmd.com/scontrol.html#OPT_help"></a></dt><dd>Print a help message describing the usage of scontrol.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--hide</b><a class="slurm_link" id="OPT_hide" href="https://slurm.schedmd.com/scontrol.html#OPT_hide"></a></dt><dd>Do not display information about hidden partitions, their jobs and job steps.
+By default, neither partitions that are configured as hidden nor those partitions
+unavailable to user's group will be displayed (i.e. this is the default behavior).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--json</b>, <b>--json</b>=<i>list</i>, <b>--json</b>=&lt;<i>data_parser</i>&gt;<a class="slurm_link" id="OPT_json" href="https://slurm.schedmd.com/scontrol.html#OPT_json"></a></dt><dd>Dump information as JSON using the default data_parser plugin or explicit
+data_parser with parameters. All information is dumped, even if it would
+normally not be. Sorting and formatting arguments passed to other options are
+ignored; however, most filtering arguments are still used. This option is not
+available for every command.
+This option implicitly sets the <b>--details</b> option.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--local</b><a class="slurm_link" id="OPT_local" href="https://slurm.schedmd.com/scontrol.html#OPT_local"></a></dt><dd>Show only information local to this cluster. Ignore other clusters in the
+federated if a member of one. Overrides --federation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-o</b>, <b>--oneliner</b><a class="slurm_link" id="OPT_oneliner" href="https://slurm.schedmd.com/scontrol.html#OPT_oneliner"></a></dt><dd>Print information one line per record.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-Q</b>, <b>--quiet</b><a class="slurm_link" id="OPT_quiet" href="https://slurm.schedmd.com/scontrol.html#OPT_quiet"></a></dt><dd>Print no warning or informational messages, only fatal error messages.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--sibling</b><a class="slurm_link" id="OPT_sibling" href="https://slurm.schedmd.com/scontrol.html#OPT_sibling"></a></dt><dd>Show all sibling jobs on a federated cluster. Implies --federation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-u</b>, <b>--uid</b>=&lt;<i>uid</i>&gt;<a class="slurm_link" id="OPT_uid" href="https://slurm.schedmd.com/scontrol.html#OPT_uid"></a></dt><dd>Attempt to update a job as user &lt;uid&gt; instead of the invoking user id.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-v</b>, <b>--verbose</b><a class="slurm_link" id="OPT_verbose" href="https://slurm.schedmd.com/scontrol.html#OPT_verbose"></a></dt><dd>Print detailed event logging. Multiple '<b>-v</b>'s will further increase
+the verbosity of logging. By default only errors will be displayed.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-V</b> , <b>--version</b><a class="slurm_link" id="OPT_version" href="https://slurm.schedmd.com/scontrol.html#OPT_version"></a></dt><dd>Print version information and exit.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--yaml</b>, <b>--yaml</b>=<i>list</i>, <b>--yaml</b>=&lt;<i>data_parser</i>&gt;<a class="slurm_link" id="OPT_yaml" href="https://slurm.schedmd.com/scontrol.html#OPT_yaml"></a></dt><dd>Dump information as YAML using the default data_parser plugin or explicit
+data_parser with parameters. All information is dumped, even if it would
+normally not be. Sorting and formatting arguments passed to other options are
+ignored; however, most filtering arguments are still used. This option is not
+available for every command.
+This option implicitly sets the <b>--details</b> option.
+<p>
+</p></dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAF">&nbsp;</a>
+<h2>COMMANDS<a class="slurm_link" id="SECTION_COMMANDS" href="https://slurm.schedmd.com/scontrol.html#SECTION_COMMANDS"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>cancel_reboot</b> &lt;<i>NodeList</i>&gt;<a class="slurm_link" id="OPT_cancel_reboot" href="https://slurm.schedmd.com/scontrol.html#OPT_cancel_reboot"></a></dt><dd>Cancel pending reboots on nodes. The node will be undrain'ed and the reason
+cleared if the node was drained by an ASAP reboot.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>create</b> &lt;<i>SPECIFICATION</i>&gt;<a class="slurm_link" id="OPT_create" href="https://slurm.schedmd.com/scontrol.html#OPT_create"></a></dt><dd>Create a new node, partition, or reservation. See the full list of parameters
+below.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>completing</b><a class="slurm_link" id="OPT_completing" href="https://slurm.schedmd.com/scontrol.html#OPT_completing"></a></dt><dd>Display all jobs in a COMPLETING state along with associated nodes in either a
+COMPLETING or DOWN state.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>delete</b> &lt;<i>SPECIFICATION</i>&gt;<a class="slurm_link" id="OPT_delete" href="https://slurm.schedmd.com/scontrol.html#OPT_delete"></a></dt><dd>Delete the entry with the specified <i>SPECIFICATION</i>.
+The three <i>SPECIFICATION</i> choices are <i>NodeName=&lt;nodelist&gt;</i>,
+<i>PartitionName=&lt;name&gt;</i> and <i>ReservationName=&lt;name&gt;</i>. Only dynamic nodes
+that have no running jobs and that are not part of a reservation can be
+deleted. Reservations and partitions should have no associated jobs at the time
+of their deletion (modify the jobs first). If the specified partition is in
+use, the request is denied.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>errnumstr</b> &lt;<i>ERRNO</i>&gt;<a class="slurm_link" id="OPT_errnumstr" href="https://slurm.schedmd.com/scontrol.html#OPT_errnumstr"></a></dt><dd>Given a Slurm error number, return a descriptive string.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>fsdampeningfactor</b> &lt;<i>FACTOR</i>&gt;<a class="slurm_link" id="OPT_fsdampeningfactor" href="https://slurm.schedmd.com/scontrol.html#OPT_fsdampeningfactor"></a></dt><dd>Set the FairShareDampeningFactor in slurmctld.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>getaddrs</b> &lt;<i>NODES</i>&gt;<a class="slurm_link" id="OPT_getaddrs" href="https://slurm.schedmd.com/scontrol.html#OPT_getaddrs"></a></dt><dd>Get IP addresses of &lt;<i>NODES</i>&gt; from slurmctld.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>help</b><a class="slurm_link" id="OPT_help_1" href="https://slurm.schedmd.com/scontrol.html#OPT_help_1"></a></dt><dd>Display a description of scontrol options and commands.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>hold</b> &lt;<i>job_list</i>&gt;<a class="slurm_link" id="OPT_hold" href="https://slurm.schedmd.com/scontrol.html#OPT_hold"></a></dt><dd>Prevent a pending job from being started (sets its priority to 0).
+Use the <i>release</i> command to permit the job to be scheduled.
+The job_list argument is a comma separated list of job IDs OR
+"jobname=" with the job's name, which will attempt to hold all jobs having
+that name.
+Note that when a job is held by a system administrator using the <b>hold</b>
+command, only a system administrator may release the job for execution (also
+see the <b>uhold</b> command). When the job is held by its owner, it may also
+be released by the job's owner.
+Additionally, attempting to hold a running job will have not suspend or cancel
+it. But, it will set the job priority to 0 and update the job reason field,
+which would hold the job if it was requeued at a later time.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>notify</b> &lt;<i>job_id</i>&gt; &lt;<i>message</i>&gt;<a class="slurm_link" id="OPT_notify" href="https://slurm.schedmd.com/scontrol.html#OPT_notify"></a></dt><dd>Send a message to standard error of the salloc or srun command or batch job
+associated with the specified <i>job_id</i>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>pidinfo</b> &lt;<i>proc_id</i>&gt;<a class="slurm_link" id="OPT_pidinfo" href="https://slurm.schedmd.com/scontrol.html#OPT_pidinfo"></a></dt><dd>Print the Slurm job id and scheduled termination time corresponding to the
+supplied process id, <i>proc_id</i>, on the current node. This will work only
+with processes on node on which scontrol is run, and only for those processes
+spawned by Slurm and their descendants.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>listjobs</b> [&lt;<i>NodeName</i>&gt;]<a class="slurm_link" id="OPT_listjobs" href="https://slurm.schedmd.com/scontrol.html#OPT_listjobs"></a></dt><dd>Print jobs running on the host that runs this. This contacts any slurmstepd's
+running locally, and does not contact slurmctld
+<p>
+Use &lt;<i>NodeName</i>&gt; if using --enable-multiple-slurmd.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>listpids</b> [&lt;<i>job_id</i>&gt;[.&lt;<i>step_id</i>&gt;]] [&lt;<i>NodeName</i>&gt;]<a class="slurm_link" id="OPT_listpids" href="https://slurm.schedmd.com/scontrol.html#OPT_listpids"></a></dt><dd>Print a listing of the process IDs in a job step (if JOBID.STEPID is provided),
+or all of the job steps in a job (if <i>job_id</i> is provided), or all of the job
+steps in all of the jobs on the local node (if <i>job_id</i> is not provided
+or <i>job_id</i> is "*"). This will work only with processes on the node on
+which scontrol is run, and only for those processes spawned by Slurm and
+their descendants. Note that some Slurm configurations
+(<i>ProctrackType</i> value of <i>pgid</i>)
+are unable to identify all processes associated with a job or job step.
+<p>
+Note that the NodeName option is only really useful when you have multiple
+slurmd daemons running on the same host machine. Multiple slurmd daemons on
+one host are, in general, only used by Slurm developers.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>liststeps</b> [&lt;<i>NodeName</i>&gt;]<a class="slurm_link" id="OPT_liststeps" href="https://slurm.schedmd.com/scontrol.html#OPT_liststeps"></a></dt><dd>Print steps running on the host that runs this. This contacts any slurmstepd's
+running locally, and does not contact slurmctld
+<p>
+Use &lt;<i>NodeName</i>&gt; if using --enable-multiple-slurmd.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ping</b><a class="slurm_link" id="OPT_ping" href="https://slurm.schedmd.com/scontrol.html#OPT_ping"></a></dt><dd>Ping the primary and secondary slurmctld daemon and report if
+they are responding.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>power</b>  {up|down} [asap|force] {ALL|&lt;<i>NodeList</i>&gt;|&lt;<i>NodeSet</i>&gt;}<a class="slurm_link" id="OPT_power" href="https://slurm.schedmd.com/scontrol.html#OPT_power"></a></dt><dd>Control power state of the provided node list/set. For 'power down', the
+optional ASAP/FORCE flag will be added to the power down request, but will
+otherwise be rejected for power up requests. All arguments will be processed
+insensitive of case except for the node list/set. This subcommand obsoletes the
+prior usage of scontrol's update command:
+<p>
+scontrol update NodeName=&lt;<i>nodes</i>&gt;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;State={POWER_UP|POWER_DOWN|POWER_DOWN_ASAP|POWER_DOWN_FORCE}
+</p><p>
+</p><dl compact=""><dt></dt><dd>
+Commands:
+<dl compact="">
+<dt><b>down</b><a class="slurm_link" id="OPT_down" href="https://slurm.schedmd.com/scontrol.html#OPT_down"></a></dt><dd>Will use the configured <i>SuspendProgram</i> program to explicitly place
+node(s) into power saving mode. If a node is already in the process of being
+powered down, the command will only change the state of the node but won't have
+any effect until the configured <i>SuspendTimeout</i> is reached. Use of this
+command can be useful in situations where a <i>ResumeProgram</i>, like
+<i>capmc</i> in Cray machines, is stalled and one wants to restore the node to
+"IDLE" manually. In this case rebooting the node and setting the state to
+"power down" will cancel the previous "power up" state and the node will become
+"IDLE".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>down asap</b><a class="slurm_link" id="OPT_down-asap" href="https://slurm.schedmd.com/scontrol.html#OPT_down-asap"></a></dt><dd>Will drain the node(s) and mark them for power down. Currently running jobs
+will complete first and no additional jobs will be allocated to the node(s).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>down force</b><a class="slurm_link" id="OPT_down-force" href="https://slurm.schedmd.com/scontrol.html#OPT_down-force"></a></dt><dd>Will cancel all jobs on the node(s), power them down, and reset their state to
+"IDLE".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>up</b><a class="slurm_link" id="OPT_up" href="https://slurm.schedmd.com/scontrol.html#OPT_up"></a></dt><dd>Will use the configured <i>ResumeProgram</i> program to explicitly move node(s)
+out of power saving mode. If a node is already in the process of being powered
+up, the command will only change the state of the node but won't have any
+effect until the configured <i>ResumeTimeout</i> is reached.
+</dd><dt></dt><dd>
+</dd></dl>
+</dd></dl>
+
+<p>
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>reboot</b> [ASAP] [nextstate={RESUME|DOWN}] [reason=&lt;<i>reason</i>&gt;] {ALL|&lt;<i>NodeList</i>&gt;|&lt;<i>NodeSet</i>&gt;}<a class="slurm_link" id="OPT_reboot" href="https://slurm.schedmd.com/scontrol.html#OPT_reboot"></a></dt><dd>Reboot the nodes in the system when they become idle using the
+<b>RebootProgram</b> as configured in Slurm's slurm.conf file.
+Each node will have the "REBOOT" flag added to its node state.
+After a node reboots and the slurmd daemon starts up again, the
+HealthCheckProgram will run once. Then, the slurmd daemon will register
+itself with the slurmctld daemon and the "REBOOT" flag will be cleared.
+The "ASAP" option adds the "DRAIN" flag to each node's state, preventing
+additional jobs from running on the node so it can be
+rebooted and returned to service "As Soon As Possible" (i.e. ASAP).
+"ASAP" will also set the node reason to "Reboot ASAP" if the "reason" option
+isn't specified and will set nextstate=UNDRAIN if nextstate isn't specified.
+If the "nextstate" option is specified
+as "DOWN", then the node will remain in a down state after rebooting. If
+"nextstate" is specified as "RESUME", then the nodes will resume as normal
+and the node's reason and "DRAIN" state will be cleared.
+Resuming nodes will be considered as available in
+backfill future scheduling and won't be replaced by idle nodes in a reservation.
+The "reason" option sets each node's reason to a user-defined message.
+A default reason of "reboot requested" is set if no other reason is set on the
+node.
+The reason will be appended with: "reboot issued" when the reboot is issued;
+"reboot complete" when the node registers and has a "nextstate" of "DOWN"; or
+"reboot timed out" when the node fails to register within <b>ResumeTimeout</b>.
+You must specify either a list of nodes or that ALL nodes are to be rebooted.
+<p>
+<b>NOTE</b>: The reboot request will be ignored for hosts in the following
+states: FUTURE, POWER_DOWN, POWERED_DOWN, POWERING_DOWN, REBOOT_ISSUED,
+REBOOT_REQUESTED
+</p><p>
+<b>NOTE</b>: By default, this command does not prevent additional jobs from being
+scheduled on any nodes before reboot.
+To do this, you can either use the "ASAP" option or explicitly drain the nodes
+beforehand.
+You can alternately create an advanced reservation to
+prevent additional jobs from being initiated on nodes to be rebooted.
+Pending reboots can be cancelled by using "scontrol cancel_reboot &lt;node&gt;" or
+setting the node state to "CANCEL_REBOOT".
+A node will be marked "DOWN" if it doesn't reboot within <b>ResumeTimeout</b>.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>reconfigure</b><a class="slurm_link" id="OPT_reconfigure" href="https://slurm.schedmd.com/scontrol.html#OPT_reconfigure"></a></dt><dd>Instruct all slurmctld and slurmd daemons to re-read the configuration file.
+This mechanism can be used to modify configuration parameters set in
+<b><a href="https://slurm.schedmd.com/slurm.conf.html">slurm.conf</a></b>(5) without interrupting running jobs.
+Starting in 23.11, this command operates by creating new processes for the
+daemons, then passing control to the new processes when or if they
+start up successfully. This allows it to gracefully catch configuration
+problems and keep running with the previous configuration if there is a problem.
+This will <b>not</b> be able to change the daemons' listening TCP port settings
+or authentication mechanism.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>release</b> &lt;<i>job_list</i>&gt;<a class="slurm_link" id="OPT_release" href="https://slurm.schedmd.com/scontrol.html#OPT_release"></a></dt><dd>Release a previously held job to begin execution.
+The job_list argument is a comma separated list of job IDs OR
+"jobname=" with the job's name, which will attempt to release all jobs having
+that name.
+Also see <b>hold</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>requeue</b>  [&lt;<i>option</i>&gt;] &lt;<i>job_list</i>&gt;<a class="slurm_link" id="OPT_requeue" href="https://slurm.schedmd.com/scontrol.html#OPT_requeue"></a></dt><dd>Requeue a running, suspended or finished Slurm batch job into pending state.
+The job_list argument is a comma separated list of job IDs.
+The command accepts the following option:
+</dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>Incomplete</b><a class="slurm_link" id="OPT_Incomplete" href="https://slurm.schedmd.com/scontrol.html#OPT_Incomplete"></a></dt><dd>Operate only on jobs (or tasks of a job array) which have not completed.
+Specifically only jobs in the following states will be requeued:
+CONFIGURING, RUNNING, STOPPED or SUSPENDED.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>requeuehold</b> [&lt;<i>option</i>&gt;] &lt;<i>job_list</i>&gt;<a class="slurm_link" id="OPT_requeuehold" href="https://slurm.schedmd.com/scontrol.html#OPT_requeuehold"></a></dt><dd>Requeue a running, suspended or finished Slurm batch job into pending state,
+moreover the job is put in held state (priority zero).
+The job_list argument is a comma separated list of job IDs.
+A held job can be released using scontrol to reset its priority (e.g.
+"scontrol release &lt;job_id&gt;"). The command accepts the following options:
+</dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>Incomplete</b><a class="slurm_link" id="OPT_Incomplete_1" href="https://slurm.schedmd.com/scontrol.html#OPT_Incomplete_1"></a></dt><dd>Operate only on jobs (or tasks of a job array) which have not completed.
+Specifically only jobs in the following states will be requeued:
+CONFIGURING, RUNNING, STOPPED or SUSPENDED.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>State</b>=SpecialExit<a class="slurm_link" id="OPT_State" href="https://slurm.schedmd.com/scontrol.html#OPT_State"></a></dt><dd>The "SpecialExit" keyword specifies that the job
+has to be put in a special state <b>JOB_SPECIAL_EXIT</b>.
+The "scontrol show job" command will display the JobState as
+<b>SPECIAL_EXIT</b>, while the "squeue" command as <b>SE</b>.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>resume</b> &lt;<i>job_list</i>&gt;<a class="slurm_link" id="OPT_resume" href="https://slurm.schedmd.com/scontrol.html#OPT_resume"></a></dt><dd>Resume a previously suspended job.
+The job_list argument is a comma separated list of job IDs.
+Also see <b>suspend</b>.
+<p>
+<b>NOTE</b>: A suspended job releases its CPUs for allocation to other jobs.
+Resuming a previously suspended job may result in multiple jobs being
+allocated the same CPUs, which could trigger gang scheduling with some
+configurations or severe degradation in performance with other configurations.
+Use of the scancel command to send SIGSTOP and SIGCONT signals would stop a
+job without releasing its CPUs for allocation to other jobs and would be a
+preferable mechanism in many cases.
+If performing system maintenance you may want to use suspend/resume in the
+following way. Before suspending set all nodes to draining or set all
+partitions to down so that no new jobs can be scheduled. Then suspend
+jobs. Once maintenance is done resume jobs then resume nodes and/or set all
+partitions back to up.
+Use with caution.
+Only an account coordinator, operator, administrator, SlurmUser, or root can
+resume jobs.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>schedloglevel</b> &lt;<i>LEVEL</i>&gt;<a class="slurm_link" id="OPT_schedloglevel" href="https://slurm.schedmd.com/scontrol.html#OPT_schedloglevel"></a></dt><dd>Enable or disable scheduler logging.
+<i>LEVEL</i> may be "0", "1", "disable" or "enable". "0" has the same
+effect as "disable". "1" has the same effect as "enable".
+This value is temporary and will be overwritten when the slurmctld
+daemon reads the slurm.conf configuration file (e.g. when the daemon
+is restarted or <b>scontrol reconfigure</b> is executed) if the
+SlurmSchedLogLevel parameter is present.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>setdebug</b> &lt;<i>LEVEL</i>&gt; [nodes=&lt;<i>NODES</i>&gt;]<a class="slurm_link" id="OPT_setdebug" href="https://slurm.schedmd.com/scontrol.html#OPT_setdebug"></a></dt><dd>Change the debug level of the slurmctld daemon for all active logging channels
+not originally configured off (quiet).
+<i>LEVEL</i> may be an integer value between zero and nine (using the
+same values as <i>SlurmctldDebug</i> in the <i>slurm.conf</i> file) or
+the name of the most detailed message type to be printed:
+"quiet", "fatal", "error", "info", "verbose", "debug", "debug2", "debug3",
+"debug4", or "debug5".
+This value is temporary, and will be overwritten whenever the daemon reads the
+slurm.conf configuration file. (Such as when the daemon is restarted or
+<b>scontrol reconfigure</b> is executed).
+</dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>nodes</b>=&lt;<i>NodeName</i>&gt;<a class="slurm_link" id="OPT_nodes" href="https://slurm.schedmd.com/scontrol.html#OPT_nodes"></a></dt><dd>If set, the request to change debug level is sent to the slurmd processes on
+the nodes instead of to the slurmctld. A node range expression may be used for
+NodeName.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>setdebugflags</b> {+|-}&lt;<i>FLAG</i>&gt; [{+|-}&lt;<i>FLAG</i>&gt;] [nodes=&lt;<i>NODES</i>&gt;]<a class="slurm_link" id="OPT_setdebugflags" href="https://slurm.schedmd.com/scontrol.html#OPT_setdebugflags"></a></dt><dd>Add or remove DebugFlags of the slurmctld daemon.
+See "man slurm.conf" for a list of supported DebugFlags.
+<p>
+<b>NOTE</b>: Changing the value of some DebugFlags will have no effect without
+restarting the slurmctld daemon, which would set DebugFlags based upon the
+contents of the slurm.conf configuration file or the <b>SLURM_DEBUG_FLAGS</b>
+environment variable. The environment variable takes precedence over the
+setting in the slurm.conf.
+</p></dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>nodes</b>=&lt;<i>NodeName</i>&gt;<a class="slurm_link" id="OPT_nodes_1" href="https://slurm.schedmd.com/scontrol.html#OPT_nodes_1"></a></dt><dd>The argument is optional and if used the request to change debug level
+is sent to slurmd instead of slurmctld. A node range expression may be
+used for NodeName.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>show</b> &lt;<i>ENTITY</i>&gt;[=&lt;<i>ID</i>&gt;] or &lt;<i>ENTITY</i>&gt; [&lt;<i>ID</i>&gt;]<a class="slurm_link" id="OPT_show" href="https://slurm.schedmd.com/scontrol.html#OPT_show"></a></dt><dd>Display the state of the specified entity with the specified identification.
+</dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>aliases</b><a class="slurm_link" id="OPT_aliases" href="https://slurm.schedmd.com/scontrol.html#OPT_aliases"></a></dt><dd>Returns all <i>NodeName</i> values associated with a given <i>NodeHostname</i>
+(useful to get the list of virtual nodes associated with a
+real node in a configuration where multiple slurmd daemons execute on a single
+compute node).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>assoc_mgr</b><a class="slurm_link" id="OPT_assoc_mgr" href="https://slurm.schedmd.com/scontrol.html#OPT_assoc_mgr"></a></dt><dd>Displays the current contents of the slurmctld's internal cache
+for users, associations and/or qos. The output can be filtered by different
+record types:
+</dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>users</b>=&lt;<i>user1</i>&gt;[...,&lt;<i>userN</i>&gt;]<a class="slurm_link" id="OPT_users" href="https://slurm.schedmd.com/scontrol.html#OPT_users"></a></dt><dd>Limit the User Records displayed to those with the specified user name(s).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>accounts</b>=&lt;<i>acct1</i>&gt;[...,&lt;<i>acctN</i>&gt;]<a class="slurm_link" id="OPT_accounts" href="https://slurm.schedmd.com/scontrol.html#OPT_accounts"></a></dt><dd>Limit the Association Records displayed to those with the specified account
+name(s).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>qos</b>=&lt;<i>qos1</i>&gt;[...,&lt;<i>qosN</i>&gt;]<a class="slurm_link" id="OPT_qos" href="https://slurm.schedmd.com/scontrol.html#OPT_qos"></a></dt><dd>Limit the QOS Records displayed to those with the specified QOS name(s).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>flags</b>={users|assoc|qos}<a class="slurm_link" id="OPT_flags" href="https://slurm.schedmd.com/scontrol.html#OPT_flags"></a></dt><dd>Specify the desired record type to be displayed. If no flags are specified,
+all record types are displayed.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>bbstat</b><a class="slurm_link" id="OPT_bbstat" href="https://slurm.schedmd.com/scontrol.html#OPT_bbstat"></a></dt><dd>Displays output from the current burst buffer plugin's status tool
+(slurm_bb_get_status for lua or dwstat for datawarp). Options following
+<b>bbstat</b> are passed directly to the status tool by the slurmctld daemon
+and the response returned to the user. Equivalent to <b>dwstat</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>burstbuffer</b><a class="slurm_link" id="OPT_burstbuffer" href="https://slurm.schedmd.com/scontrol.html#OPT_burstbuffer"></a></dt><dd>Displays the current status of the BurstBuffer plugin.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>config</b><a class="slurm_link" id="OPT_config" href="https://slurm.schedmd.com/scontrol.html#OPT_config"></a></dt><dd>Displays parameter names from the configuration files in mixed
+case (e.g. SlurmdPort=7003) while derived parameters names are in upper case
+only (e.g. SLURM_VERSION).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>daemons</b><a class="slurm_link" id="OPT_daemons" href="https://slurm.schedmd.com/scontrol.html#OPT_daemons"></a></dt><dd>Reports which daemons should be running on this node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>dwstat</b><a class="slurm_link" id="OPT_dwstat" href="https://slurm.schedmd.com/scontrol.html#OPT_dwstat"></a></dt><dd>Displays output from the current burst buffer plugin's status tool
+(slurm_bb_get_status for lua or dwstat for datawarp). Options following
+<b>dwstat</b> are passed directly to the status tool by the slurmctld daemon
+and the response returned to the user. Equivalent to <b>bbstat</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>federation</b><a class="slurm_link" id="OPT_federation_1" href="https://slurm.schedmd.com/scontrol.html#OPT_federation_1"></a></dt><dd>The federation name that the controller is part of and the
+sibling clusters part of the federation will be listed.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>frontend</b><a class="slurm_link" id="OPT_frontend" href="https://slurm.schedmd.com/scontrol.html#OPT_frontend"></a></dt><dd>Shows configured frontend nodes.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>hostlist</b><a class="slurm_link" id="OPT_hostlist" href="https://slurm.schedmd.com/scontrol.html#OPT_hostlist"></a></dt><dd>Takes a list of host names and prints the hostlist expression for them (the
+inverse of <b>hostnames</b>). <b>hostlist</b> can also take the absolute pathname
+of a file (beginning with the character '/') containing a list of hostnames,
+or a single '-' to have it read from stdin directly.
+Multiple node names may be specified using simple node range expressions (e.g.
+"lx[10-20]"). By default <b>hostlist</b> does not sort the node list or make it
+unique (e.g. tux2,tux1,tux2 = tux[2,1-2]). If you wanted a sorted list use
+<b>hostlistsorted</b> (e.g. tux2,tux1,tux2 = tux[1-2,2]).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>hostlistsorted</b><a class="slurm_link" id="OPT_hostlistsorted" href="https://slurm.schedmd.com/scontrol.html#OPT_hostlistsorted"></a></dt><dd>Takes a list of host names and prints a sorted (but not unique) hostlist
+expression for them. See <b>hostlist</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>hostnames</b><a class="slurm_link" id="OPT_hostnames" href="https://slurm.schedmd.com/scontrol.html#OPT_hostnames"></a></dt><dd>Takes an optional hostlist expression as input and
+writes a list of individual host names to standard output (one per
+line). If no hostlist expression is supplied, the contents of the
+SLURM_JOB_NODELIST environment variable is used. For example "tux[1-3]"
+is mapped to "tux1","tux2" and "tux3" (one hostname per line).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>job</b><a class="slurm_link" id="OPT_job" href="https://slurm.schedmd.com/scontrol.html#OPT_job"></a></dt><dd>Displays statistics about all jobs by default. If an optional jobid is
+specified, details for just that job will be displayed.
+If the job does not specify socket-per-node, cores-per-socket or
+threads-per-core then it will display '*' in the ReqS:C:T=*:*:* field.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>licenses</b><a class="slurm_link" id="OPT_licenses" href="https://slurm.schedmd.com/scontrol.html#OPT_licenses"></a></dt><dd>Displays statistics about all configured licenses (local and remote) by
+default. If an optional license name is specified, details for just that
+license will be displayed.
+<p>
+</p></dd><dt><b>node</b><a class="slurm_link" id="OPT_node" href="https://slurm.schedmd.com/scontrol.html#OPT_node"></a></dt><dd>Displays statistics about all nodes by default. If an optional nodename is
+specified, details for just that node will be displayed.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>partition</b><a class="slurm_link" id="OPT_partition" href="https://slurm.schedmd.com/scontrol.html#OPT_partition"></a></dt><dd>Displays statistics about all partitions by default. If an optional partition
+name is specified, details for just that partition will be displayed.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>reservation</b><a class="slurm_link" id="OPT_reservation" href="https://slurm.schedmd.com/scontrol.html#OPT_reservation"></a></dt><dd>Displays statistics about all reservations by default. If an optional
+reservation name is specified, details for just that reservation will be
+displayed.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>slurmd</b><a class="slurm_link" id="OPT_slurmd" href="https://slurm.schedmd.com/scontrol.html#OPT_slurmd"></a></dt><dd>Displays statistics for the slurmd running on the current node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>step</b><a class="slurm_link" id="OPT_step" href="https://slurm.schedmd.com/scontrol.html#OPT_step"></a></dt><dd>Displays statistics about all job steps by default. If an optional jobid
+is specified, details about steps for just that job will be displayed.
+If a jobid.stepid is specified, details for just that step will be displayed.
+If a container-id=&lt;<i>id</i>&gt; is specified, then the first matching step with
+the given container-id will be displayed.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>topology</b><a class="slurm_link" id="OPT_topology" href="https://slurm.schedmd.com/scontrol.html#OPT_topology"></a></dt><dd>Displays information about the defined topology layout. If a switch is
+specified, information about that switch will be shown.
+If one node name is specified, all switches connected to that node (and
+their parent switches) will be shown.
+If more than one node name is specified, only switches that connect to all
+named nodes will be shown.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>shutdown</b> &lt;<i>OPTION</i>&gt;<a class="slurm_link" id="OPT_shutdown" href="https://slurm.schedmd.com/scontrol.html#OPT_shutdown"></a></dt><dd>Instruct Slurm daemons to save current state and terminate.
+By default, the Slurm controller (slurmctld) forwards the request all
+other daemons (slurmd daemon on each compute node).
+An <i>OPTION</i> of <i>slurmctld</i> or <i>controller</i> results in
+only the slurmctld daemon being shutdown and the slurmd daemons
+remaining active.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>suspend</b> &lt;<i>job_list</i>&gt;<a class="slurm_link" id="OPT_suspend" href="https://slurm.schedmd.com/scontrol.html#OPT_suspend"></a></dt><dd>Suspend a running job.
+The job_list argument is a comma separated list of job IDs.
+Use the <i>resume</i> command to resume its execution.
+User processes must stop on receipt of SIGSTOP signal and resume
+upon receipt of SIGCONT for this operation to be effective.
+Not all architectures and configurations support job suspension.
+If a suspended job is requeued, it will be placed in a held state.
+The time a job is suspended will not count against a job's time limit.
+Only an account coordinator, operator, administrator, SlurmUser, or root can
+suspend jobs.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>takeover</b> [&lt;<i>INDEX</i>&gt;]<a class="slurm_link" id="OPT_takeover" href="https://slurm.schedmd.com/scontrol.html#OPT_takeover"></a></dt><dd>Instruct one of Slurm's backup controllers (slurmctld) to take over system
+control. By default the first backup controller (INDEX=1) requests control
+from the primary and waits for its termination. After that, it switches from
+backup mode to controller mode. If primary controller can not be contacted, it
+directly switches to controller mode. This can be used to speed up the Slurm
+controller fail-over mechanism when the primary node is down.
+This can be used to minimize disruption if the computer executing the
+primary Slurm controller is scheduled down.
+(Note: Slurm's primary controller will take the control back at startup.)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>top</b> &lt;<i>job_list</i>&gt;<a class="slurm_link" id="OPT_top" href="https://slurm.schedmd.com/scontrol.html#OPT_top"></a></dt><dd>Move the specified job IDs to the top of the queue of jobs belonging to the
+identical user ID, partition name, account, and QOS.
+The job_list argument is a comma separated ordered list of job IDs.
+Any job not matching <b>all</b> of those fields will not be effected.
+Only jobs submitted to a single partition will be effected.
+This operation changes the order of jobs by adjusting job nice values.
+The net effect on that user's throughput will be negligible to slightly negative.
+This operation is disabled by default for non-privileged (non-operator, admin,
+SlurmUser, or root) users. This operation may be enabled for non-privileged
+users by the system administrator by including the option "enable_user_top" in
+the SchedulerParameters configuration parameter.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>token</b> [lifespan=&lt;<i>lifespan</i>&gt;] [username=&lt;<i>username</i>&gt;]<a class="slurm_link" id="OPT_token" href="https://slurm.schedmd.com/scontrol.html#OPT_token"></a></dt><dd>Return an auth token which can be used to support JWT authentication if
+<i>AuthAltTypes=auth/jwt</i> has been enabled on the system.
+Supports two optional arguments. <b>lifespan=</b> may be used to specify the
+token's lifespan in seconds. <b>username</b> (only available to SlurmUser/root)
+may be used to request a token for a different username. Lifespan can be set to
+"infinite" to have a token that will not expire. Sites are suggested to use the
+smallest lifespan required and generate tokens more often instead of using
+longer lived tokens.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>uhold</b> &lt;<i>job_list</i>&gt;<a class="slurm_link" id="OPT_uhold" href="https://slurm.schedmd.com/scontrol.html#OPT_uhold"></a></dt><dd>Prevent a pending job from being started (sets its priority to 0).
+The job_list argument is a space separated list of job IDs or job names.
+Use the <i>release</i> command to permit the job to be scheduled.
+This command is designed for a system administrator to hold a job so that
+the job owner may release it rather than requiring the intervention of a
+system administrator (also see the <b>hold</b> command).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>update</b> &lt;<i>SPECIFICATION</i>&gt;<a class="slurm_link" id="OPT_update" href="https://slurm.schedmd.com/scontrol.html#OPT_update"></a></dt><dd>Update job, step, node, partition, or reservation configuration per
+the supplied specification. <i>SPECIFICATION</i> is in the same format as the
+Slurm configuration file and the output of the <i>show</i> command described 
+above. It may be desirable to execute the <i>show</i> command (described above)
+on the specific entity you want to update, then use cut-and-paste tools to
+enter updated configuration values to the <i>update</i>. Note that while most
+configuration values can be changed using this command, not all can be changed
+using this mechanism. In particular, the hardware configuration of a node or
+the physical addition or removal of nodes from the cluster may only be
+accomplished through editing the Slurm configuration file and executing
+the <i>reconfigure</i> command (described above).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>update</b> &lt;SuspendExc*&gt;[=|+=|-=]&lt;<i>LIST</i>&gt;<a class="slurm_link" id="OPT_update_1" href="https://slurm.schedmd.com/scontrol.html#OPT_update_1"></a></dt><dd>Update <i>SuspendExcNodes</i>, <i>SuspendExcParts</i>, or <i>SuspendExcStates</i>.
+&lt;<i>LIST</i>&gt; is either a NodeList, list of partitions, or list of node states
+respectively. Use +=/-= to add/remove nodes, partitions, or states to/from the
+currently configured list. Use = to replace the current list.
+SuspendExcNodes does not support "+="/"-=" when the ":" option is used,
+however, direct assignment "=" is always supported.
+Consider using "scontrol show config | grep SuspendExc" to see current state of
+these settings.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>version</b><a class="slurm_link" id="OPT_version_1" href="https://slurm.schedmd.com/scontrol.html#OPT_version_1"></a></dt><dd>Display the version number of scontrol being executed.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>wait_job</b> &lt;<i>job_id</i>&gt;<a class="slurm_link" id="OPT_wait_job" href="https://slurm.schedmd.com/scontrol.html#OPT_wait_job"></a></dt><dd>Wait until a job and all of its nodes are ready for use or the job has entered
+some termination state. This option is particularly useful in the Slurm Prolog
+or in the batch script itself if nodes are powered down and restarted
+automatically as needed.
+<p>
+<b>NOTE</b>: Don't use scontrol wait_job in PrologSlurmctld or Prolog with
+PrologFlags=Alloc as this will result in a deadlock.
+</p></dd><dt></dt><dd>
+<p>
+<b>NOTE</b>: When using <b>wait_job</b> for an array job, use the
+<b>SLURM_JOB_ID</b> environment variable to reference the job rather than the
+<b>SLURM_ARRAY_JOB_ID</b> variable.
+</p><p>
+</p></dd><dt><b>write batch_script</b> &lt;<i>job_id</i>&gt; [&lt;<i>optional_filename</i>&gt;]<a class="slurm_link" id="OPT_write-batch_script" href="https://slurm.schedmd.com/scontrol.html#OPT_write-batch_script"></a></dt><dd>Write the batch script for a given job_id to a file or to stdout. The file will
+default to <i>slurm-&lt;job_id&gt;.sh</i> if the optional filename argument is not
+given. The script will be written to stdout if - is given instead of a filename.
+The batch script can only be retrieved by an admin or operator, or by the
+owner of the job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>write config</b> &lt;<i>optional_filename</i>&gt;<a class="slurm_link" id="OPT_write-config" href="https://slurm.schedmd.com/scontrol.html#OPT_write-config"></a></dt><dd>Write the current configuration to a file with the naming convention of
+"slurm.conf.&lt;datetime&gt;" in the same directory as the original slurm.conf
+file. If a filename is given that file location with a .&lt;datetime&gt; suffix is
+created.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAG">&nbsp;</a>
+<h2>INTERACTIVE COMMANDS<a class="slurm_link" id="SECTION_INTERACTIVE-COMMANDS" href="https://slurm.schedmd.com/scontrol.html#SECTION_INTERACTIVE-COMMANDS"></a></h2>
+<b>NOTE</b>:
+All commands listed below can be used in the interactive mode, but <i>NOT</i>
+on the initial command line.
+<p>
+</p><dl compact="">
+<dt><b>all</b><a class="slurm_link" id="OPT_all_1" href="https://slurm.schedmd.com/scontrol.html#OPT_all_1"></a></dt><dd>Show all partitions, their jobs and jobs steps. This causes information to be
+displayed about partitions that are configured as hidden and partitions that
+are unavailable to user's group.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>cluster</b> &lt;<i>CLUSTER_NAME</i>&gt;<a class="slurm_link" id="OPT_cluster" href="https://slurm.schedmd.com/scontrol.html#OPT_cluster"></a></dt><dd>The cluster to issue commands to. Only one cluster name may be specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>details</b><a class="slurm_link" id="OPT_details_1" href="https://slurm.schedmd.com/scontrol.html#OPT_details_1"></a></dt><dd>Causes the <i>show</i> command to provide additional details where available.
+Job information will include CPUs and NUMA memory allocated on each node.
+Note that on computers with hyperthreading enabled and Slurm configured to
+allocate cores, each listed CPU represents one physical core.
+Each hyperthread on that core can be allocated a separate task, so a job's
+CPU count and task count may differ.
+See the <b>--cpu-bind</b> and <b>--mem-bind</b> option descriptions in
+srun man pages for more information.
+The <b>details</b> option is currently only supported for the <i>show job</i>
+command.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>exit</b><a class="slurm_link" id="OPT_exit" href="https://slurm.schedmd.com/scontrol.html#OPT_exit"></a></dt><dd>Terminate scontrol interactive session.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>hide</b><a class="slurm_link" id="OPT_hide_1" href="https://slurm.schedmd.com/scontrol.html#OPT_hide_1"></a></dt><dd>Do not display partition, job or jobs step information for partitions that are
+configured as hidden or partitions that are unavailable to the user's group.
+This is the default behavior.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>oneliner</b><a class="slurm_link" id="OPT_oneliner_1" href="https://slurm.schedmd.com/scontrol.html#OPT_oneliner_1"></a></dt><dd>Print information one line per record.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>quiet</b><a class="slurm_link" id="OPT_quiet_1" href="https://slurm.schedmd.com/scontrol.html#OPT_quiet_1"></a></dt><dd>Print no warning or informational messages, only fatal error messages.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>quit</b><a class="slurm_link" id="OPT_quit" href="https://slurm.schedmd.com/scontrol.html#OPT_quit"></a></dt><dd>Terminate the execution of scontrol.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>verbose</b><a class="slurm_link" id="OPT_verbose_1" href="https://slurm.schedmd.com/scontrol.html#OPT_verbose_1"></a></dt><dd>Print detailed event logging.
+This includes time-stamps on data structures, record counts, etc.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>!!</b><a class="slurm_link" id="OPT_!!" href="https://slurm.schedmd.com/scontrol.html#OPT_!!"></a></dt><dd>Repeat the last command executed.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAH">&nbsp;</a>
+<h2>JOBS - SPECIFICATIONS FOR UPDATE COMMAND<a class="slurm_link" id="SECTION_JOBS---SPECIFICATIONS-FOR-UPDATE-COMMAND" href="https://slurm.schedmd.com/scontrol.html#SECTION_JOBS---SPECIFICATIONS-FOR-UPDATE-COMMAND"></a></h2>
+Note that update requests done by either root, SlurmUser or Administrators are
+not subject to certain restrictions. For instance, if an Administrator changes
+the QOS on a pending job, certain limits such as the TimeLimit will not be
+changed automatically as changes made by the Administrators are allowed to
+violate these restrictions.
+<p>
+</p><dl compact="">
+<dt><b>Account</b>=&lt;<i>account</i>&gt;<a class="slurm_link" id="OPT_Account" href="https://slurm.schedmd.com/scontrol.html#OPT_Account"></a></dt><dd>Account name to be changed for this job's resource use.
+Value may be cleared with blank data value, "Account=".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>AdminComment</b>=&lt;<i>spec</i>&gt;<a class="slurm_link" id="OPT_AdminComment" href="https://slurm.schedmd.com/scontrol.html#OPT_AdminComment"></a></dt><dd>Arbitrary descriptive string. Can only be set by a Slurm administrator.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ArrayTaskThrottle</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_ArrayTaskThrottle" href="https://slurm.schedmd.com/scontrol.html#OPT_ArrayTaskThrottle"></a></dt><dd>Specify the maximum number of tasks in a job array that can execute at
+the same time.
+Set the count to zero in order to eliminate any limit.
+The task throttle count for a job array is reported as part of its ArrayTaskId
+field, preceded with a percent sign.
+For example "ArrayTaskId=1-10%2" indicates the maximum number of running tasks
+is limited to 2.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>BurstBuffer</b>=&lt;<i>spec</i>&gt;<a class="slurm_link" id="OPT_BurstBuffer" href="https://slurm.schedmd.com/scontrol.html#OPT_BurstBuffer"></a></dt><dd>Burst buffer specification to be changed for this job's resource use.
+Value may be cleared with blank data value, "BurstBuffer=".
+Format is burst buffer plugin specific.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Clusters</b>=&lt;<i>spec</i>&gt;<a class="slurm_link" id="OPT_Clusters" href="https://slurm.schedmd.com/scontrol.html#OPT_Clusters"></a></dt><dd>Specifies the clusters that the federated job can run on.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ClusterFeatures</b>=&lt;<i>spec</i>&gt;<a class="slurm_link" id="OPT_ClusterFeatures" href="https://slurm.schedmd.com/scontrol.html#OPT_ClusterFeatures"></a></dt><dd>Specifies features that a federated cluster must have to have a sibling job
+submitted to it. Slurm will attempt to submit a sibling job to a cluster if it
+has at least one of the specified features.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Comment</b>=&lt;<i>spec</i>&gt;<a class="slurm_link" id="OPT_Comment" href="https://slurm.schedmd.com/scontrol.html#OPT_Comment"></a></dt><dd>Arbitrary descriptive string.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Contiguous</b>={yes|no}<a class="slurm_link" id="OPT_Contiguous" href="https://slurm.schedmd.com/scontrol.html#OPT_Contiguous"></a></dt><dd>Set the job's requirement for contiguous (consecutive) nodes to be allocated.
+Possible values are "YES" and "NO".
+Only the Slurm administrator or root can change this parameter.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>CoreSpec</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_CoreSpec" href="https://slurm.schedmd.com/scontrol.html#OPT_CoreSpec"></a></dt><dd>Number of cores to reserve per node for system use.
+The job will be charged for these cores, but be unable to use them.
+Will be reported as "*" if not constrained.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>CPUsPerTask</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_CPUsPerTask" href="https://slurm.schedmd.com/scontrol.html#OPT_CPUsPerTask"></a></dt><dd>Change the CPUsPerTask job's value.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Deadline</b>=&lt;<i>time_spec</i>&gt;<a class="slurm_link" id="OPT_Deadline" href="https://slurm.schedmd.com/scontrol.html#OPT_Deadline"></a></dt><dd>It accepts times of the form <i>HH:MM:SS</i> to specify a deadline to a job at
+a specific time of day (seconds are optional).
+You may also specify <i>midnight</i>, <i>noon</i>, <i>elevenses</i> (11 AM),
+<i>fika</i> (3 PM) or <i>teatime</i> (4 PM) and you can have a time-of-day
+suffixed with <i>AM</i> or <i>PM</i> for a deadline in the morning or the evening.
+You can specify a deadline for the job with
+a date of the form <i>MMDDYY</i> or <i>MM/DD/YY</i> or <i>MM.DD.YY</i>,
+or a date and time as <i>YYYY-MM-DD[THH:MM[:SS]]</i>. You can also
+give times like <i>now + count time-units</i>, where the time-units
+can be <i>seconds</i> (default), <i>minutes</i>, <i>hours</i>, <i>days</i>,
+or <i>weeks</i> and you can tell Slurm to put a deadline for tomorrow with
+the keyword <i>tomorrow</i>.
+The specified deadline must be later than the current time.
+Only pending jobs can have the deadline updated.
+Only the Slurm administrator or root can change this parameter.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DelayBoot</b>=&lt;<i>time_spec</i>&gt;<a class="slurm_link" id="OPT_DelayBoot" href="https://slurm.schedmd.com/scontrol.html#OPT_DelayBoot"></a></dt><dd>Change the time to decide whether to reboot nodes in order to satisfy job's
+feature specification if the job has been eligible to run for less than this
+time period. See salloc/sbatch man pages option --delay-boot.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Dependency</b>=&lt;<i>dependency_list</i>&gt;<a class="slurm_link" id="OPT_Dependency" href="https://slurm.schedmd.com/scontrol.html#OPT_Dependency"></a></dt><dd>Defer job's initiation until specified job dependency specification
+is satisfied. Once a dependency is satisfied, it is removed from the job.
+Cancel dependency with an empty dependency_list (e.g. "Dependency=").
+&lt;<i>dependency_list</i>&gt; is of the form
+&lt;<i>type:job_id[:job_id][,type:job_id[:job_id]]</i>&gt;.
+Many jobs can share the same dependency and these jobs may even belong to
+different  users.
+</dd><dt></dt><dd>
+
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>after:job_id[:jobid...]</b><a class="slurm_link" id="OPT_after:job_id[:jobid...]" href="https://slurm.schedmd.com/scontrol.html#OPT_after:job_id[:jobid...]"></a></dt><dd>This job can begin execution after the specified jobs have begun
+execution or been canceled.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>afterany:job_id[:jobid...]</b><a class="slurm_link" id="OPT_afterany:job_id[:jobid...]" href="https://slurm.schedmd.com/scontrol.html#OPT_afterany:job_id[:jobid...]"></a></dt><dd>This job can begin execution after the specified jobs have terminated.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>afternotok:job_id[:jobid...]</b><a class="slurm_link" id="OPT_afternotok:job_id[:jobid...]" href="https://slurm.schedmd.com/scontrol.html#OPT_afternotok:job_id[:jobid...]"></a></dt><dd>This job can begin execution after the specified jobs have terminated
+in some failed state (non-zero exit code, node failure, timed out, etc).
+This dependency must be added while the specified job is still active or
+within <b>MinJobAge</b> seconds after the specified job has ended.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>afterok:job_id[:jobid...]</b><a class="slurm_link" id="OPT_afterok:job_id[:jobid...]" href="https://slurm.schedmd.com/scontrol.html#OPT_afterok:job_id[:jobid...]"></a></dt><dd>This job can begin execution after the specified jobs have successfully
+executed (ran to completion with an exit code of zero).
+This dependency must be added while the specified job is still active or
+within <b>MinJobAge</b> seconds after the specified job has ended.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>singleton</b><a class="slurm_link" id="OPT_singleton" href="https://slurm.schedmd.com/scontrol.html#OPT_singleton"></a></dt><dd>This job can begin execution after any previously launched jobs
+sharing the same job name and user have terminated.
+In other words, only one job by that name and owned by that user can be running
+or suspended at any point in time.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>EligibleTime</b>=&lt;<i>time_spec</i>&gt;<a class="slurm_link" id="OPT_EligibleTime" href="https://slurm.schedmd.com/scontrol.html#OPT_EligibleTime"></a></dt><dd>See <i>StartTime</i>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>EndTime</b><a class="slurm_link" id="OPT_EndTime" href="https://slurm.schedmd.com/scontrol.html#OPT_EndTime"></a></dt><dd>The time the job is expected to terminate based on the job's time
+limit. When the job ends sooner, this field will be updated with the
+actual end time.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ExcNodeList</b>=&lt;<i>nodes</i>&gt;<a class="slurm_link" id="OPT_ExcNodeList" href="https://slurm.schedmd.com/scontrol.html#OPT_ExcNodeList"></a></dt><dd>Set the job's list of excluded node. Multiple node names may be
+specified using simple node range expressions (e.g. "lx[10-20]").
+Value may be cleared with blank data value, "ExcNodeList=".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Extra</b>=&lt;<i>spec</i>&gt;<a class="slurm_link" id="OPT_Extra" href="https://slurm.schedmd.com/scontrol.html#OPT_Extra"></a></dt><dd>An arbitrary string enclosed in single or double quotes if using spaces or some
+special characters. See &lt;<a href="https://slurm.schedmd.com/extra_constraints.html">https://slurm.schedmd.com/extra_constraints.html</a>&gt; for
+more details.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Features</b>=&lt;<i>features</i>&gt;<a class="slurm_link" id="OPT_Features" href="https://slurm.schedmd.com/scontrol.html#OPT_Features"></a></dt><dd>Set the job's required node features.
+The list of features may include multiple feature names separated
+by ampersand (AND) and/or vertical bar (OR) operators.
+For example: <b>Features="opteron&amp;video"</b> or <b>Features="fast|faster"</b>.
+In the first example, only nodes having both the feature "opteron" AND
+the feature "video" will be used.
+There is no mechanism to specify that you want one node with feature
+"opteron" and another node with feature "video" in case no
+node has both features.
+If only one of a set of possible options should be used for all allocated
+nodes, then use the OR operator and enclose the options within square brackets.
+For example: "<b>Features=[rack1|rack2|rack3|rack4]"</b> might
+be used to specify that all nodes must be allocated on a single rack of
+the cluster, but any of those four racks can be used.
+A request can also specify the number of nodes needed with some feature
+by appending an asterisk and count after the feature name.
+For example "<b>Features=graphics*4"</b>
+indicates that at least four allocated nodes must have the feature "graphics."
+Parenthesis are also supported for features to be ANDed together.
+For example "<b>Features=[(knl&amp;a2a&amp;flat)*4&amp;haswell*2]"</b> indicates the
+resource allocation should include 4 nodes with ALL of the features "knl",
+"a2a", and "flat" plus 2 nodes with the feature "haswell".
+Constraints with node counts may only be combined with AND operators.
+Value may be cleared with blank data value, for example "Features=".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Gres</b>=&lt;<i>list</i>&gt;<a class="slurm_link" id="OPT_Gres" href="https://slurm.schedmd.com/scontrol.html#OPT_Gres"></a></dt><dd>Specifies a comma-delimited list of generic consumable resources.
+The format of each entry on the list is "name[:count[*cpu]]".
+The name is that of the consumable resource.
+The count is the number of those resources with a default value of 1.
+The specified resources will be allocated to the job on each node
+allocated unless "*cpu" is appended, in which case the resources
+will be allocated on a per cpu basis.
+The available generic consumable resources is configurable by the system
+administrator.
+A list of available generic consumable resources will be printed and the
+command will exit if the option argument is "help".
+Examples of use include "Gres=gpus:2*cpu,disk=40G" and "Gres=help".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>JobId</b>=&lt;<i>job_list</i>&gt;<a class="slurm_link" id="OPT_JobId" href="https://slurm.schedmd.com/scontrol.html#OPT_JobId"></a></dt><dd>Identify the job(s) to be updated.
+The job_list may be a comma separated list of job IDs.
+Either <i>JobId</i> or <i>JobName</i> is required.
+If the <i>JobId</i> is equal to the <i>ArrayJobID</i> then the update will affect
+all of the individual jobs of the array. In that case, to update the specific
+individual job, the form &lt;<i>ArrayJobID</i>&gt;_&lt;<i>ArrayTaskId</i>&gt; must be used.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Licenses</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_Licenses" href="https://slurm.schedmd.com/scontrol.html#OPT_Licenses"></a></dt><dd>Specification of licenses (or other resources available on all nodes
+of the cluster) as described in salloc/sbatch/srun man pages.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MailType</b>=&lt;<i>types</i>&gt;<a class="slurm_link" id="OPT_MailType" href="https://slurm.schedmd.com/scontrol.html#OPT_MailType"></a></dt><dd>Set the mail event types. Valid type values are NONE, BEGIN, END, FAIL,
+REQUEUE, ALL (equivalent to BEGIN, END, FAIL, REQUEUE, and STAGE_OUT),
+STAGE_OUT (burst buffer stage out and teardown completed), TIME_LIMIT,
+TIME_LIMIT_90 (reached 90 percent of time limit), TIME_LIMIT_80 (reached 80
+percent of time limit), TIME_LIMIT_50 (reached 50 percent of time limit) and
+ARRAY_TASKS (send emails for each array task). Multiple type values may be
+specified in a comma separated list. Unless the ARRAY_TASKS option is
+specified, mail notifications on job BEGIN, END and FAIL apply to a job array
+as a whole rather than generating individual email messages for each task in
+the job array.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MailUser</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_MailUser" href="https://slurm.schedmd.com/scontrol.html#OPT_MailUser"></a></dt><dd>Set the user to receive email notification of state changes. A blank string
+will set the mail user to the default which is the submitting user.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MinCPUsNode</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_MinCPUsNode" href="https://slurm.schedmd.com/scontrol.html#OPT_MinCPUsNode"></a></dt><dd>Set the job's minimum number of CPUs per node to the specified value.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MinMemoryCPU</b>=&lt;<i>megabytes</i>&gt;<a class="slurm_link" id="OPT_MinMemoryCPU" href="https://slurm.schedmd.com/scontrol.html#OPT_MinMemoryCPU"></a></dt><dd>Set the job's minimum real memory required per allocated CPU to the specified
+value. Either <i>MinMemoryCPU</i> or <i>MinMemoryNode</i> may be set, but not both.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MinMemoryNode</b>=&lt;<i>megabytes</i>&gt;<a class="slurm_link" id="OPT_MinMemoryNode" href="https://slurm.schedmd.com/scontrol.html#OPT_MinMemoryNode"></a></dt><dd>Set the job's minimum real memory required per node to the specified value.
+Either <i>MinMemoryCPU</i> or <i>MinMemoryNode</i> may be set, but not both.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MinTmpDiskNode</b>=&lt;<i>megabytes</i>&gt;<a class="slurm_link" id="OPT_MinTmpDiskNode" href="https://slurm.schedmd.com/scontrol.html#OPT_MinTmpDiskNode"></a></dt><dd>Set the job's minimum temporary disk space required per node to the specified value.
+Only the Slurm administrator or root can change this parameter.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>TimeMin</b>=&lt;<i>timespec</i>&gt;<a class="slurm_link" id="OPT_TimeMin" href="https://slurm.schedmd.com/scontrol.html#OPT_TimeMin"></a></dt><dd>Change TimeMin value which specifies the minimum time limit minutes of the job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>JobName</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_JobName" href="https://slurm.schedmd.com/scontrol.html#OPT_JobName"></a></dt><dd>Identify the name of jobs to be modified or set the job's name to the
+specified value.
+When used to identify jobs to be modified, all jobs belonging to all users
+are modified unless the <i>UserID</i> option is used to identify a specific user.
+Either <i>JobId</i> or <i>JobName</i> is required.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Name</b>[=&lt;<i>name</i>&gt;]<a class="slurm_link" id="OPT_Name" href="https://slurm.schedmd.com/scontrol.html#OPT_Name"></a></dt><dd>See JobName.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Nice</b>[=&lt;<i>adjustment</i>&gt;]<a class="slurm_link" id="OPT_Nice" href="https://slurm.schedmd.com/scontrol.html#OPT_Nice"></a></dt><dd>Update the job with an adjusted scheduling priority within Slurm. With no
+adjustment value the scheduling priority is decreased by 100. A negative nice
+value increases the priority, otherwise decreases it. The adjustment range is
++/- 2147483645. Only privileged users can specify a negative adjustment.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NodeList</b>=&lt;<i>nodes</i>&gt;<a class="slurm_link" id="OPT_NodeList" href="https://slurm.schedmd.com/scontrol.html#OPT_NodeList"></a></dt><dd>Change the nodes allocated to a running job to shrink its size.
+The specified list of nodes must be a subset of the nodes currently
+allocated to the job. Multiple node names may be specified using
+simple node range expressions (e.g. "lx[10-20]"). After a job's allocation
+is reduced, subsequent <b>srun</b> commands must explicitly specify node and
+task counts which are valid for the new allocation.
+<p>
+<b>NOTE</b>: The allocated nodes of jobs with arbitrary distribution can not be
+updated.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NumCPUs</b>=&lt;<i>min_count</i>&gt;[-&lt;<i>max_count</i>&gt;]<a class="slurm_link" id="OPT_NumCPUs" href="https://slurm.schedmd.com/scontrol.html#OPT_NumCPUs"></a></dt><dd>Set the job's minimum and optionally maximum count of CPUs to be allocated.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NumNodes</b>=&lt;<i>min_count</i>&gt;[-&lt;<i>max_count</i>&gt;]<a class="slurm_link" id="OPT_NumNodes" href="https://slurm.schedmd.com/scontrol.html#OPT_NumNodes"></a></dt><dd>Set the job's minimum and optionally maximum count of nodes to be allocated.
+If the job is already running, use this to specify a node count less than
+currently allocated and resources previously allocated to the job will be
+relinquished. After a job's allocation is reduced, subsequent <b>srun</b>
+commands must explicitly specify node and task counts which are valid for the
+new allocation. Also see the <i>NodeList</i> parameter above. This is the same
+as ReqNodes.
+<p>
+<b>NOTE</b>: The node count of jobs with arbitrary distribution can not be
+updated.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NumTasks</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_NumTasks" href="https://slurm.schedmd.com/scontrol.html#OPT_NumTasks"></a></dt><dd>Set the job's count of requested tasks to the specified value.
+The number of tasks started in a specific step inside the allocation may differ
+from this value, for instance when a different number of tasks is requested on
+step creation. This is the same as ReqProcs.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>OverSubscribe</b>={yes|no}<a class="slurm_link" id="OPT_OverSubscribe" href="https://slurm.schedmd.com/scontrol.html#OPT_OverSubscribe"></a></dt><dd>Set the job's ability to share compute resources (i.e. individual CPUs)
+with other jobs. Possible values are "YES" and "NO".
+This option can only be changed for pending jobs.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Partition</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_Partition" href="https://slurm.schedmd.com/scontrol.html#OPT_Partition"></a></dt><dd>Set the job's partition to the specified value.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Prefer</b>=&lt;<i>features</i>&gt;<a class="slurm_link" id="OPT_Prefer" href="https://slurm.schedmd.com/scontrol.html#OPT_Prefer"></a></dt><dd>Set the job's preferred node features. This list is only preferred, not required
+like <i>Features</i> is. This list will override what is requested in Features.
+See <i>Features</i> option above.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Priority</b>=&lt;<i>number</i>&gt;<a class="slurm_link" id="OPT_Priority" href="https://slurm.schedmd.com/scontrol.html#OPT_Priority"></a></dt><dd>Set the job's priority to the specified value.
+Note that a job priority of zero prevents the job from ever being scheduled.
+By setting a job's priority to zero it is held.
+Set the priority to a non-zero value to permit it to run.
+Explicitly setting a job's priority clears any previously set nice value and
+removes the priority/multifactor plugin's ability to manage a job's priority.
+In order to restore the priority/multifactor plugin's ability to manage a
+job's priority, hold and then release the job.
+Only the Slurm administrator or root can increase job's priority.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>QOS</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_QOS" href="https://slurm.schedmd.com/scontrol.html#OPT_QOS"></a></dt><dd>Set the job's QOS (Quality Of Service) to the specified value,
+or comma separated list of QOS.
+If requesting a list it will be ordered based on the priority of the QOS given
+with the first being the highest priority.
+Value may be cleared with blank data value, "QOS=".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Reboot</b>={yes|no}<a class="slurm_link" id="OPT_Reboot" href="https://slurm.schedmd.com/scontrol.html#OPT_Reboot"></a></dt><dd>Set the job's flag that specifies whether to force the allocated nodes to reboot
+before starting the job. This is only supported with some system configurations
+and therefore it could be silently ignored.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ReqCores</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_ReqCores" href="https://slurm.schedmd.com/scontrol.html#OPT_ReqCores"></a></dt><dd>Change the job's requested Cores count.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ReqNodeList</b>=&lt;<i>nodes</i>&gt;<a class="slurm_link" id="OPT_ReqNodeList" href="https://slurm.schedmd.com/scontrol.html#OPT_ReqNodeList"></a></dt><dd>Set the job's list of required node. Multiple node names may be specified using
+simple node range expressions (e.g. "lx[10-20]").
+Value may be cleared with blank data value, "ReqNodeList=".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ReqNodes</b>=&lt;<i>min_count</i>&gt;[-&lt;<i>max_count</i>&gt;]<a class="slurm_link" id="OPT_ReqNodes" href="https://slurm.schedmd.com/scontrol.html#OPT_ReqNodes"></a></dt><dd>See NumNodes.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ReqProcs</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_ReqProcs" href="https://slurm.schedmd.com/scontrol.html#OPT_ReqProcs"></a></dt><dd>See NumTasks.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ReqSockets</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_ReqSockets" href="https://slurm.schedmd.com/scontrol.html#OPT_ReqSockets"></a></dt><dd>Change the job's requested socket count.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ReqThreads</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_ReqThreads" href="https://slurm.schedmd.com/scontrol.html#OPT_ReqThreads"></a></dt><dd>Change the job's requested threads count.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Requeue</b>={0|1}<a class="slurm_link" id="OPT_Requeue" href="https://slurm.schedmd.com/scontrol.html#OPT_Requeue"></a></dt><dd>Stipulates whether a job should be requeued after a node failure: 0
+for no, 1 for yes.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ReservationName</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_ReservationName" href="https://slurm.schedmd.com/scontrol.html#OPT_ReservationName"></a></dt><dd>Set the job's reservation to the specified value.
+Value may be cleared with blank data value, "ReservationName=".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ResetAccrueTime</b><a class="slurm_link" id="OPT_ResetAccrueTime" href="https://slurm.schedmd.com/scontrol.html#OPT_ResetAccrueTime"></a></dt><dd>Set the job's accrue time value to 'now' meaning it will lose any time
+previously accrued for priority. Helpful if you have a large queue of jobs
+already in the queue and want to start limiting how many jobs can accrue time
+without waiting for the queue to flush out.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SiteFactor</b>=&lt;<i>account</i>&gt;<a class="slurm_link" id="OPT_SiteFactor" href="https://slurm.schedmd.com/scontrol.html#OPT_SiteFactor"></a></dt><dd>Specify the job's admin priority factor in the range of +/-2147483645.
+Only privileged users can modify the value.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>StdErr</b>=&lt;<i>filepath</i>&gt;<a class="slurm_link" id="OPT_StdErr" href="https://slurm.schedmd.com/scontrol.html#OPT_StdErr"></a></dt><dd>Set the batch job's stderr file path.
+Value may be reset to job default with blank data value, "StdErr=".
+<p>
+<b>NOTE</b>: By default, StdErr will be merged into StdOut.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>StdIn</b>=&lt;<i>filepath</i>&gt;<a class="slurm_link" id="OPT_StdIn" href="https://slurm.schedmd.com/scontrol.html#OPT_StdIn"></a></dt><dd>Set the batch job's stdin file path.
+Value may be reset to job default with blank data value, "StdIn=".
+<p>
+<b>NOTE</b>: By default, StdIn will be '/dev/null'.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>StdOut</b>=&lt;<i>filepath</i>&gt;<a class="slurm_link" id="OPT_StdOut" href="https://slurm.schedmd.com/scontrol.html#OPT_StdOut"></a></dt><dd>Set the batch job's stdout file path.
+Value may be reset to job default with blank data value, "StdOut=".
+<p>
+<b>NOTE</b>: By default, StdOut will be based on the <i>JobId</i>.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Shared</b>={yes|no}<a class="slurm_link" id="OPT_Shared" href="https://slurm.schedmd.com/scontrol.html#OPT_Shared"></a></dt><dd>See <i>OverSubscribe</i> option above.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>StartTime</b>=&lt;<i>time_spec</i>&gt;<a class="slurm_link" id="OPT_StartTime" href="https://slurm.schedmd.com/scontrol.html#OPT_StartTime"></a></dt><dd>Set the job's earliest initiation time.
+It accepts times of the form <i>HH:MM:SS</i> to run a job at
+a specific time of day (seconds are optional).
+(If that time is already past, the next day is assumed.)
+You may also specify <i>midnight</i>, <i>noon</i>, <i>elevenses</i> (11 AM),
+<i>fika</i> (3 PM) or <i>teatime</i> (4 PM) and you can have a time-of-day
+suffixed with <i>AM</i> or <i>PM</i> for running in the morning or the evening.
+You can also say what day the job will be run, by specifying
+a date of the form <i>MMDDYY</i> or <i>MM/DD/YY</i> or <i>MM.DD.YY</i>,
+or a date and time as <i>YYYY-MM-DD[THH:MM[:SS]]</i>. You can also
+give times like <i>now + count time-units</i>, where the time-units
+can be <i>seconds</i> (default), <i>minutes</i>, <i>hours</i>, <i>days</i>,
+or <i>weeks</i> and you can tell Slurm to run the job today with the keyword
+<i>today</i> and to run the job tomorrow with the keyword
+<i>tomorrow</i>.
+</dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<p>
+
+Notes on date/time specifications:
+<br>&nbsp;-&nbsp;although&nbsp;the&nbsp;'seconds'&nbsp;field&nbsp;of&nbsp;the&nbsp;HH:MM:SS&nbsp;time&nbsp;specification&nbsp;is
+allowed by the code, note that the poll time of the Slurm scheduler
+is not precise enough to guarantee dispatch of the job on the exact
+second. The job will be eligible to start on the next poll
+following the specified time. The exact poll interval depends on the
+Slurm scheduler (e.g., 60 seconds with the default sched/builtin).
+<br>&nbsp;-&nbsp;if&nbsp;no&nbsp;time&nbsp;(HH:MM:SS)&nbsp;is&nbsp;specified,&nbsp;the&nbsp;default&nbsp;is&nbsp;(00:00:00).
+<br>&nbsp;-&nbsp;if&nbsp;a&nbsp;date&nbsp;is&nbsp;specified&nbsp;without&nbsp;a&nbsp;year&nbsp;(e.g.,&nbsp;MM/DD)&nbsp;then&nbsp;the&nbsp;current
+year is assumed, unless the combination of MM/DD and HH:MM:SS has
+already passed for that year, in which case the next year is used.
+</p></dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Switches</b>=&lt;<i>count</i>&gt;[@&lt;<i>max-time-to-wait</i>&gt;]<a class="slurm_link" id="OPT_Switches" href="https://slurm.schedmd.com/scontrol.html#OPT_Switches"></a></dt><dd>When a tree topology is used, this defines the maximum count of switches
+desired for the job allocation. If Slurm finds an allocation containing more
+switches than the count specified, the job remain pending until it either finds
+an allocation with desired switch count or the time limit expires. By default
+there is no switch count limit and no time limit delay. Set the count
+to zero in order to clean any previously set count (disabling the limit).
+The job's maximum time delay may be limited by the system administrator using
+the <b>SchedulerParameters</b> configuration parameter with the
+<b>max_switch_wait</b> parameter option.
+Also see <i>wait-for-switch</i>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>wait-for-switch</b>=&lt;<i>seconds</i>&gt;<a class="slurm_link" id="OPT_wait-for-switch" href="https://slurm.schedmd.com/scontrol.html#OPT_wait-for-switch"></a></dt><dd>Change max time to wait for a switch &lt;seconds&gt; secs.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>TasksPerNode</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_TasksPerNode" href="https://slurm.schedmd.com/scontrol.html#OPT_TasksPerNode"></a></dt><dd>Change the job's requested TasksPerNode.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ThreadSpec</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_ThreadSpec" href="https://slurm.schedmd.com/scontrol.html#OPT_ThreadSpec"></a></dt><dd>Number of threads to reserve per node for system use.
+The job will be charged for these threads, but be unable to use them.
+Will be reported as "*" if not constrained.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>TimeLimit</b>=&lt;<i>time</i>&gt;<a class="slurm_link" id="OPT_TimeLimit" href="https://slurm.schedmd.com/scontrol.html#OPT_TimeLimit"></a></dt><dd>The job's time limit.
+Output format is [days-]hours:minutes:seconds or "UNLIMITED".
+Input format (for <b>update</b> command) set is minutes, minutes:seconds,
+hours:minutes:seconds, days-hours, days-hours:minutes or
+days-hours:minutes:seconds.
+Time resolution is one minute and second values are rounded up to
+the next minute.
+If changing the time limit of a job, either specify a new time limit value or
+precede the time and equal sign with a "+" or "-" to increment or decrement the
+current time limit (e.g. "TimeLimit+=30"). In order to increment or decrement
+the current time limit, the <i>JobId</i> specification must precede the
+<i>TimeLimit</i> specification.
+Note that incrementing or decrementing the time limit for a job array is only
+allowed before the job array has been split into more than one job record.
+Only the Slurm administrator or root can increase job's TimeLimit.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>UserID</b>=&lt;<i>UID</i> or <i>name</i>&gt;<a class="slurm_link" id="OPT_UserID" href="https://slurm.schedmd.com/scontrol.html#OPT_UserID"></a></dt><dd>Used with the <i>JobName</i> option to identify jobs to be modified.
+Either a user name or numeric ID (UID), may be specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>WCKey</b>=&lt;<i>key</i>&gt;<a class="slurm_link" id="OPT_WCKey" href="https://slurm.schedmd.com/scontrol.html#OPT_WCKey"></a></dt><dd>Set the job's workload characterization key to the specified value.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>WorkDir</b>=&lt;<i>directory_name</i>&gt;<a class="slurm_link" id="OPT_WorkDir" href="https://slurm.schedmd.com/scontrol.html#OPT_WorkDir"></a></dt><dd>Set the job's working directory to the specified value. Note that this may
+only be set for jobs in the PENDING state, and that jobs may fail to launch
+if they rely on relative paths to the originally submitted WorkDir.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAI">&nbsp;</a>
+<h2>JOBS - SPECIFICATIONS FOR SHOW COMMAND<a class="slurm_link" id="SECTION_JOBS---SPECIFICATIONS-FOR-SHOW-COMMAND" href="https://slurm.schedmd.com/scontrol.html#SECTION_JOBS---SPECIFICATIONS-FOR-SHOW-COMMAND"></a></h2>
+The "show" command, when used with the "job" or "job &lt;jobid&gt;"
+entity displays detailed information about a job or jobs. Much of
+this information may be modified using the "update job" command as
+described above. However, the following fields displayed by the show
+job command are read-only and cannot be modified:
+<p>
+</p><dl compact="">
+<dt><b>AllocNode:Sid</b><a class="slurm_link" id="OPT_AllocNode:Sid" href="https://slurm.schedmd.com/scontrol.html#OPT_AllocNode:Sid"></a></dt><dd>Local node and system id making the resource allocation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>BatchFlag</b><a class="slurm_link" id="OPT_BatchFlag" href="https://slurm.schedmd.com/scontrol.html#OPT_BatchFlag"></a></dt><dd>Jobs submitted using the sbatch command have BatchFlag set to 1. The BatchFlag
+will be incremented past 1 if the job is requeued due to a failure. Jobs
+submitted using other commands have BatchFlag set to 0 and will not be
+incremented.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ExitCode</b>=&lt;<i>exit</i>&gt;:&lt;<i>sig</i>&gt;<a class="slurm_link" id="OPT_ExitCode" href="https://slurm.schedmd.com/scontrol.html#OPT_ExitCode"></a></dt><dd>Exit status reported for the job by the wait() function.
+The first number is the exit code, typically as set by the exit() function.
+The second number of the signal that caused the process to terminate if
+it was terminated by a signal.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>GroupId</b><a class="slurm_link" id="OPT_GroupId" href="https://slurm.schedmd.com/scontrol.html#OPT_GroupId"></a></dt><dd>The group under which the job was submitted.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>JobState</b><a class="slurm_link" id="OPT_JobState" href="https://slurm.schedmd.com/scontrol.html#OPT_JobState"></a></dt><dd>The current state of the job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NodeListIndices</b><a class="slurm_link" id="OPT_NodeListIndices" href="https://slurm.schedmd.com/scontrol.html#OPT_NodeListIndices"></a></dt><dd>The NodeIndices expose the internal indices into the node table
+associated with the node(s) allocated to the job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NtasksPerN:B:S:C</b>=&lt;<i>tasks_per_node</i>&gt;:&lt;<i>tasks_per_baseboard</i>&gt;:&lt;<i>tasks_per_socket</i>&gt;:&lt;<i>tasks_per_core</i>&gt;<a class="slurm_link" id="OPT_NtasksPerN:B:S:C" href="https://slurm.schedmd.com/scontrol.html#OPT_NtasksPerN:B:S:C"></a></dt><dd>Specifies the number of tasks to be started per hardware component (node,
+baseboard, socket and core).
+Unconstrained values may be shown as "0" or "*".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PreemptEligibleTime</b><a class="slurm_link" id="OPT_PreemptEligibleTime" href="https://slurm.schedmd.com/scontrol.html#OPT_PreemptEligibleTime"></a></dt><dd>Time the job becomes eligible for preemption. Modified by PreemptExemptTime,
+either from the global option in slurm.conf or the job QOS. This is hidden if
+the job has not started or if PreemptMode=OFF.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PreemptTime</b><a class="slurm_link" id="OPT_PreemptTime" href="https://slurm.schedmd.com/scontrol.html#OPT_PreemptTime"></a></dt><dd>Time at which job was signaled that it was selected for preemption.
+This value is only meaningful for <i>PreemptMode=CANCEL</i> and
+<i>PreemptMode=REQUEUE</i> and for jobs in a partition or QOS that has a
+GraceTime value designated. This is hidden if the job has not started or
+if <i>PreemptMode=OFF</i>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PreSusTime</b><a class="slurm_link" id="OPT_PreSusTime" href="https://slurm.schedmd.com/scontrol.html#OPT_PreSusTime"></a></dt><dd>Time the job ran prior to last suspend.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Reason</b><a class="slurm_link" id="OPT_Reason" href="https://slurm.schedmd.com/scontrol.html#OPT_Reason"></a></dt><dd>The reason a job has not been started by the scheduler: e.g., waiting for
+"Resources". Details of job reason codes are found on this page:
+&lt;<a href="https://slurm.schedmd.com/job_reason_codes.html">https://slurm.schedmd.com/job_reason_codes.html</a>&gt;
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ReqB:S:C:T</b>=&lt;<i>baseboard_count</i>&gt;:&lt;<i>socket_per_baseboard_count</i>&gt;:&lt;<i>core_per_socket_count</i>&gt;:&lt;<i>thread_per_core_count</i>&gt;<a class="slurm_link" id="OPT_ReqB:S:C:T" href="https://slurm.schedmd.com/scontrol.html#OPT_ReqB:S:C:T"></a></dt><dd>Specifies the count of various hardware components requested by the job.
+Unconstrained values may be shown as "0" or "*".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SecsPreSuspend</b>=&lt;<i>seconds</i>&gt;<a class="slurm_link" id="OPT_SecsPreSuspend" href="https://slurm.schedmd.com/scontrol.html#OPT_SecsPreSuspend"></a></dt><dd>If the job is suspended, this is the run time accumulated by the job
+(in seconds) prior to being suspended.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Socks/Node</b>=&lt;count&gt;<a class="slurm_link" id="OPT_Socks/Node" href="https://slurm.schedmd.com/scontrol.html#OPT_Socks/Node"></a></dt><dd>Count of desired sockets per node
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SubmitTime</b><a class="slurm_link" id="OPT_SubmitTime" href="https://slurm.schedmd.com/scontrol.html#OPT_SubmitTime"></a></dt><dd>The time  and  date stamp (in localtime) the job was submitted.
+The format of the output is identical to that of the EndTime field.
+<p>
+<b>NOTE</b>: If a job is requeued, the submit time is reset.
+To obtain the original submit time it is necessary
+to use the "sacct -j &lt;job_id[.&lt;step_id&gt;]" command also
+designating the -D or --duplicate option to display all
+duplicate entries for a job.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SuspendTime</b><a class="slurm_link" id="OPT_SuspendTime" href="https://slurm.schedmd.com/scontrol.html#OPT_SuspendTime"></a></dt><dd>Time the job was last suspended or resumed.
+<p>
+NOTE on information displayed for various job states:
+When you submit a request for the "show job" function the scontrol
+process makes an RPC request call to slurmctld with a REQUEST_JOB_INFO
+message type. If the state of the job is PENDING, then it returns
+some detail information such as: min_nodes, min_procs, cpus_per_task,
+etc. If the state is other than PENDING the code assumes that it is in
+a further state such as RUNNING, COMPLETE, etc. In these cases the
+code explicitly returns zero for these values. These values are
+meaningless once the job resources have been allocated and the job has
+started.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAJ">&nbsp;</a>
+<h2>STEPS - SPECIFICATIONS FOR UPDATE COMMAND<a class="slurm_link" id="SECTION_STEPS---SPECIFICATIONS-FOR-UPDATE-COMMAND" href="https://slurm.schedmd.com/scontrol.html#SECTION_STEPS---SPECIFICATIONS-FOR-UPDATE-COMMAND"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>StepId</b>=&lt;<i>job_id</i>&gt;[.&lt;<i>step_id</i>&gt;]<a class="slurm_link" id="OPT_StepId" href="https://slurm.schedmd.com/scontrol.html#OPT_StepId"></a></dt><dd>Identify the step to be updated.
+If the job_id is given, but no step_id is specified then all steps of
+the identified job will be modified.
+This specification is required.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>TimeLimit</b>=&lt;<i>time</i>&gt;<a class="slurm_link" id="OPT_TimeLimit_1" href="https://slurm.schedmd.com/scontrol.html#OPT_TimeLimit_1"></a></dt><dd>The job's time limit.
+Output format is [days-]hours:minutes:seconds or "UNLIMITED".
+Input format (for <b>update</b> command) set is minutes, minutes:seconds,
+hours:minutes:seconds, days-hours, days-hours:minutes or
+days-hours:minutes:seconds.
+Time resolution is one minute and second values are rounded up to
+the next minute.
+If changing the time limit of a step, either specify a new time limit value or
+precede the time with a "+" or "-" to increment or decrement the current
+time limit (e.g. "TimeLimit=+30"). In order to increment or decrement the
+current time limit, the <i>StepId</i> specification must precede the
+<i>TimeLimit</i> specification.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAK">&nbsp;</a>
+<h2>NODES - SPECIFICATIONS FOR CREATE COMMAND<a class="slurm_link" id="SECTION_NODES---SPECIFICATIONS-FOR-CREATE-COMMAND" href="https://slurm.schedmd.com/scontrol.html#SECTION_NODES---SPECIFICATIONS-FOR-CREATE-COMMAND"></a></h2>
+<p>
+Provide the same NodeName configuration as found in the slurm.conf. See
+slurm.conf man page for details. Only State=CLOUD and State=FUTURE nodes are
+allowed.
+</p><p>
+<a name="lbAL">&nbsp;</a>
+</p><h2>NODES - SPECIFICATIONS FOR UPDATE COMMAND<a class="slurm_link" id="SECTION_NODES---SPECIFICATIONS-FOR-UPDATE-COMMAND" href="https://slurm.schedmd.com/scontrol.html#SECTION_NODES---SPECIFICATIONS-FOR-UPDATE-COMMAND"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>NodeName</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_NodeName" href="https://slurm.schedmd.com/scontrol.html#OPT_NodeName"></a></dt><dd>Identify the node(s) to be updated. Multiple node names may be specified using
+simple node range expressions (e.g. "lx[10-20]"). Nodesets can also be
+specified by themselves or mixed with node range expressions, using a comma as
+a list separator. If the keyword "ALL" is specified alone, then the update
+will be attempted against all the nodes in the local cluster. This specification
+is required.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ActiveFeatures</b>=&lt;<i>features</i>&gt;<a class="slurm_link" id="OPT_ActiveFeatures" href="https://slurm.schedmd.com/scontrol.html#OPT_ActiveFeatures"></a></dt><dd>Identify the feature(s) currently active on the specified node.
+Any previously active feature specification will be overwritten with the new
+value.
+Also see <i>AvailableFeatures</i>.
+Typically <i>ActiveFeatures</i> will be identical to <i>AvailableFeatures</i>;
+however <i>ActiveFeatures</i> may be configured as a subset of the
+<i>AvailableFeatures</i>. For example, a node may be booted in multiple
+configurations. In that case, all possible configurations may be identified as
+<i>AvailableFeatures</i>, while <i>ActiveFeatures</i> would identify the current
+node configuration.
+When updating the ActiveFeatures with scontrol, the change is only made in
+slurmctld. When using a node_features plugin the state/features of the node
+must be updated on the node such that a new node start will report the updated
+state/features.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>AvailableFeatures</b>=&lt;<i>features</i>&gt;<a class="slurm_link" id="OPT_AvailableFeatures" href="https://slurm.schedmd.com/scontrol.html#OPT_AvailableFeatures"></a></dt><dd>Identify the feature(s) available on the specified node.
+Any previously defined available feature specification will be overwritten with
+the new value.
+AvailableFeatures assigned via <b>scontrol</b> will only persist across the
+restart of the slurmctld daemon with the <i>-R</i> option and state files
+preserved or slurmctld's receipt of a SIGHUP.
+Update slurm.conf with any changes meant to be persistent across normal
+restarts of slurmctld or the execution of <b>scontrol reconfig</b>.
+<p>
+<b>NOTE</b>: Available features being removed via <b>scontrol</b> must not be
+active (i.e. remove them from <i>ActiveFeatures</i> first).
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Comment</b>=&lt;<i>comment</i>&gt;<a class="slurm_link" id="OPT_Comment_1" href="https://slurm.schedmd.com/scontrol.html#OPT_Comment_1"></a></dt><dd>Arbitrary descriptive string.
+Use quotes to enclose a comment having more than one word
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>CpuBind</b>=&lt;<i>node</i>&gt;<a class="slurm_link" id="OPT_CpuBind" href="https://slurm.schedmd.com/scontrol.html#OPT_CpuBind"></a></dt><dd>Specify the task binding mode to be used by default for this node.
+Supported options include: "none", "socket", "ldom" (NUMA), "core",
+"thread" and "off" (remove previous binding mode).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Extra</b>=&lt;<i>comment</i>&gt;<a class="slurm_link" id="OPT_Extra_1" href="https://slurm.schedmd.com/scontrol.html#OPT_Extra_1"></a></dt><dd>Arbitrary string on the node. Use quotes to enclose a string having more than
+one word. See &lt;<a href="https://slurm.schedmd.com/extra_constraints.html">https://slurm.schedmd.com/extra_constraints.html</a>&gt; for more
+details.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Gres</b>=&lt;<i>gres</i>&gt;<a class="slurm_link" id="OPT_Gres_1" href="https://slurm.schedmd.com/scontrol.html#OPT_Gres_1"></a></dt><dd>Identify generic resources to be associated with the specified node. Any
+previously defined generic resources will be overwritten with the new value.
+Specifications for multiple generic resources should be comma separated.
+Each resource specification consists of a name followed by an optional
+colon with a numeric value (default value is one) (e.g. "Gres=bandwidth:10000").
+Modification of GRES count associated with specific files (e.g. GPUs) is not
+allowed other than to set their count on a node to zero.
+In order to change the GRES count to another value, modify your slurm.conf and
+gres.conf files and restart daemons.
+If GRES are associated with specific sockets, that information will be reported
+For example if all 4 GPUs on a node are all associated with socket zero, then
+"Gres=gpu:4(S:0)". If associated with sockets 0 and 1 then "Gres=gpu:4(S:0-1)".
+The information of which specific GPUs are associated with specific GPUs is not
+reported, but only available by parsing the gres.conf file.
+Generic resources assigned via <b>scontrol</b> will only persist across the
+restart of the slurmctld daemon with the <i>-R</i> option and state files
+preserved or slurmctld's receipt of a SIGHUP.
+Update slurm.conf with any changes meant to be persistent across normal
+restarts of slurmctld or the execution of <b>scontrol reconfig</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>InstanceId</b>=&lt;<i>instance_id</i>&gt;<a class="slurm_link" id="OPT_InstanceId" href="https://slurm.schedmd.com/scontrol.html#OPT_InstanceId"></a></dt><dd>Cloud instance ID.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>InstanceType</b>=&lt;<i>instance_type</i>&gt;<a class="slurm_link" id="OPT_InstanceType" href="https://slurm.schedmd.com/scontrol.html#OPT_InstanceType"></a></dt><dd>Cloud instance type.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NodeAddr</b>=&lt;<i>node address</i>&gt;<a class="slurm_link" id="OPT_NodeAddr" href="https://slurm.schedmd.com/scontrol.html#OPT_NodeAddr"></a></dt><dd>Name that a node should be referred to in establishing a communications path.
+This name will be used as an argument to the getaddrinfo() function for
+identification. If a node range expression is used to designate multiple nodes,
+they must exactly match the entries in the <i>NodeName</i>
+(e.g. "NodeName=lx[0-7] NodeAddr=elx[0-7]"). <i>NodeAddr</i> may also contain
+IP addresses.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NodeHostname</b>=&lt;<i>node hostname</i>&gt;<a class="slurm_link" id="OPT_NodeHostname" href="https://slurm.schedmd.com/scontrol.html#OPT_NodeHostname"></a></dt><dd>Typically this would be the string that "/bin/hostname -s" returns.
+It may also be the fully qualified domain name as returned by
+"/bin/hostname -f" (e.g. "foo1.bar.com"), or any valid domain name associated
+with the host through the host database (/etc/hosts) or DNS, depending on the
+resolver settings. Note that if the short form of the hostname is not used, it
+may prevent use of hostlist expressions (the numeric portion in brackets must be
+at the end of the string). A node range expression can be used to specify a set
+of nodes. If an expression is used, the number of nodes identified by
+<i>NodeHostname</i> must be identical to the number of nodes identified by
+<i>NodeName</i>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Reason</b>=&lt;<i>reason</i>&gt;<a class="slurm_link" id="OPT_Reason_1" href="https://slurm.schedmd.com/scontrol.html#OPT_Reason_1"></a></dt><dd>Identify the reason the node is in a "DOWN", "DRAINED", "DRAINING",
+"FAILING" or "FAIL" state.
+Use quotes to enclose a reason having more than one word.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ResumeAfter</b>=&lt;<i>seconds</i>&gt;<a class="slurm_link" id="OPT_ResumeAfter" href="https://slurm.schedmd.com/scontrol.html#OPT_ResumeAfter"></a></dt><dd>Schedule a node state resume after this amount of seconds, when its state is
+updated to "DOWN" or "DRAIN".
+Upon state resume, the node's state will be changed from <b>DRAIN</b>,
+<b>DRAINING</b>, <b>DOWN</b> or <b>REBOOT</b> to <b>IDLE</b> and <b>NoResp</b>.
+slurmctld will then attempt to contact slurmd to request that the node
+register itself.
+<p>
+<b>NOTE</b>: A value of -1 will unschedule the node state resume.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>State</b>=&lt;<i>state</i>&gt;<a class="slurm_link" id="OPT_State_1" href="https://slurm.schedmd.com/scontrol.html#OPT_State_1"></a></dt><dd>Assign one of the following states/actions to the node(s) specified by the
+update command.
+</dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>CANCEL_REBOOT</b><a class="slurm_link" id="OPT_CANCEL_REBOOT" href="https://slurm.schedmd.com/scontrol.html#OPT_CANCEL_REBOOT"></a></dt><dd>Cancels a pending reboot on the node (same as <i>scontrol
+cancel_reboot &lt;node&gt;</i>).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DOWN</b><a class="slurm_link" id="OPT_DOWN" href="https://slurm.schedmd.com/scontrol.html#OPT_DOWN"></a></dt><dd>Stop all running and suspended jobs and make the node unavailable for
+new jobs.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DRAIN</b><a class="slurm_link" id="OPT_DRAIN" href="https://slurm.schedmd.com/scontrol.html#OPT_DRAIN"></a></dt><dd>Indicates that no new jobs may be started on this node. Existing jobs are
+allowed to run to completion, leaving the node in a <b>DRAINED</b> state once
+all the jobs have completed.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>FAIL</b><a class="slurm_link" id="OPT_FAIL" href="https://slurm.schedmd.com/scontrol.html#OPT_FAIL"></a></dt><dd>Similar to <b>DRAIN</b> except that some applications will seek to relinquish
+those nodes before the job completes.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>FUTURE</b><a class="slurm_link" id="OPT_FUTURE" href="https://slurm.schedmd.com/scontrol.html#OPT_FUTURE"></a></dt><dd>Indicates the node is not fully configured, but is expected to be available
+at some point in the future.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>IDLE</b><a class="slurm_link" id="OPT_IDLE" href="https://slurm.schedmd.com/scontrol.html#OPT_IDLE"></a></dt><dd>Will clear <b>DOWN</b>, <b>DRAIN</b> and <b>FAIL</b> states.
+Will set the state to <b>IDLE</b> and <b>NoResp</b>. slurmctld will then
+attempt to contact slurmd to request that the node register itself.
+Once registered, the node state will then remove the <b>NoResp</b> flag and
+will resume normal operations.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NoResp</b><a class="slurm_link" id="OPT_NoResp" href="https://slurm.schedmd.com/scontrol.html#OPT_NoResp"></a></dt><dd>This will set the "Not Responding" flag for a node without changing its
+underlying state.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>RESUME</b><a class="slurm_link" id="OPT_RESUME" href="https://slurm.schedmd.com/scontrol.html#OPT_RESUME"></a></dt><dd>Not an actual node state, but will change a node state from <b>DRAIN</b>,
+<b>DRAINING</b>, <b>DOWN</b> or <b>REBOOT</b> to <b>IDLE</b> and <b>NoResp</b>.
+slurmctld will then attempt to contact slurmd to request that the node
+register itself. Once registered, the node state will then remove the
+<b>NoResp</b> flag and will resume normal operations. It will also clear the
+<b>POWERING_DOWN</b> state of a node and make it eligible to be allocated.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>UNDRAIN</b><a class="slurm_link" id="OPT_UNDRAIN" href="https://slurm.schedmd.com/scontrol.html#OPT_UNDRAIN"></a></dt><dd>Clears the node from being drained (like <b>RESUME</b>), but will
+not change the node's base state (e.g. <b>DOWN</b>). <b>UNDRAIN</b> requires a
+valid node registration before new jobs can be scheduled on the node.
+Setting a node <b>DOWN</b> will cause all running and suspended jobs on that
+node to be terminated.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+While all of the above states are valid, some of them are not valid new
+node states given their prior state.
+</p><p>
+<b>NOTE</b>: The scontrol command should not be used to change node state on
+Cray systems. Use Cray tools such as <i>xtprocadmin</i> instead.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Weight</b>=&lt;<i>weight</i>&gt;<a class="slurm_link" id="OPT_Weight" href="https://slurm.schedmd.com/scontrol.html#OPT_Weight"></a></dt><dd>Identify weight to be associated with specified nodes. This allows
+dynamic changes to weight associated with nodes, which will be used
+for the subsequent node allocation decisions.
+Weight assigned via <b>scontrol</b> will only persist across the restart
+of the slurmctld daemon with the <i>-R</i> option and state files
+preserved or slurmctld's receipt of a SIGHUP.
+Update slurm.conf with any changes meant to be persistent across normal
+restarts of slurmctld or the execution of <b>scontrol reconfig</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAM">&nbsp;</a>
+<h2>NODES - SPECIFICATIONS FOR DELETE COMMAND<a class="slurm_link" id="SECTION_NODES---SPECIFICATIONS-FOR-DELETE-COMMAND" href="https://slurm.schedmd.com/scontrol.html#SECTION_NODES---SPECIFICATIONS-FOR-DELETE-COMMAND"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>NodeName</b>=&lt;<i>nodes</i>&gt;<a class="slurm_link" id="OPT_NodeName_1" href="https://slurm.schedmd.com/scontrol.html#OPT_NodeName_1"></a></dt><dd>Identify the node(s) to be deleted. Multiple node names may be specified using
+simple node range expressions (e.g. "lx[10-20]"). Nodesets can also be
+specified by themselves or mixed with node range expressions, using a comma as
+a list separator. If the keyword "ALL" is specified alone, then the update
+will be attempted against all the nodes in the local cluster. This specification
+is required.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAN">&nbsp;</a>
+<h2>NODES - SPECIFICATIONS FOR SHOW COMMAND<a class="slurm_link" id="SECTION_NODES---SPECIFICATIONS-FOR-SHOW-COMMAND" href="https://slurm.schedmd.com/scontrol.html#SECTION_NODES---SPECIFICATIONS-FOR-SHOW-COMMAND"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>AllocMem</b><a class="slurm_link" id="OPT_AllocMem" href="https://slurm.schedmd.com/scontrol.html#OPT_AllocMem"></a></dt><dd>The total memory, in MB, currently allocated by jobs on the node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>CPULoad</b><a class="slurm_link" id="OPT_CPULoad" href="https://slurm.schedmd.com/scontrol.html#OPT_CPULoad"></a></dt><dd>CPU load of a node as reported by the OS.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>CPUSpecList</b><a class="slurm_link" id="OPT_CPUSpecList" href="https://slurm.schedmd.com/scontrol.html#OPT_CPUSpecList"></a></dt><dd>The list of Slurm abstract CPU IDs on this node reserved for
+exclusive use by the Slurm compute node daemons (slurmd, slurmstepd).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>FreeMem</b><a class="slurm_link" id="OPT_FreeMem" href="https://slurm.schedmd.com/scontrol.html#OPT_FreeMem"></a></dt><dd>The total memory, in MB, currently free on the node as reported by the OS.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>LastBusyTime</b><a class="slurm_link" id="OPT_LastBusyTime" href="https://slurm.schedmd.com/scontrol.html#OPT_LastBusyTime"></a></dt><dd>The last time the node was busy (i.e. last time the node had jobs on it). This
+time is used in PowerSave to determine when to suspend nodes (e.g. now -
+LastBusy &gt; SuspendTime).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MemSpecLimit</b><a class="slurm_link" id="OPT_MemSpecLimit" href="https://slurm.schedmd.com/scontrol.html#OPT_MemSpecLimit"></a></dt><dd>The combined memory limit, in megabytes, on this node for the Slurm compute
+node daemons (slurmd, slurmstepd).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>RealMemory</b><a class="slurm_link" id="OPT_RealMemory" href="https://slurm.schedmd.com/scontrol.html#OPT_RealMemory"></a></dt><dd>The total memory, in MB, on the node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>State</b><a class="slurm_link" id="OPT_State_2" href="https://slurm.schedmd.com/scontrol.html#OPT_State_2"></a></dt><dd>Identify the state(s) assigned to the node with '+' delimited state flags.
+<p>
+States:
+</p></dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>ALLOCATED</b><a class="slurm_link" id="OPT_ALLOCATED" href="https://slurm.schedmd.com/scontrol.html#OPT_ALLOCATED"></a></dt><dd>Indicates that the node has all CPUs allocated to job(s) running on the node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DOWN</b><a class="slurm_link" id="OPT_DOWN_1" href="https://slurm.schedmd.com/scontrol.html#OPT_DOWN_1"></a></dt><dd>The node does not have any running jobs and is unavailable for new work.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ERROR</b><a class="slurm_link" id="OPT_ERROR" href="https://slurm.schedmd.com/scontrol.html#OPT_ERROR"></a></dt><dd>The node is in an error state. Consult the logs for more information about
+what caused this state.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>FUTURE</b><a class="slurm_link" id="OPT_FUTURE_1" href="https://slurm.schedmd.com/scontrol.html#OPT_FUTURE_1"></a></dt><dd>The node is currently not fully configured, but expected to be available at
+some point in the indefinite future for use.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>IDLE</b><a class="slurm_link" id="OPT_IDLE_1" href="https://slurm.schedmd.com/scontrol.html#OPT_IDLE_1"></a></dt><dd>Indicates that the node is available for work but does not currently have
+any jobs assigned to it.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MIXED</b><a class="slurm_link" id="OPT_MIXED" href="https://slurm.schedmd.com/scontrol.html#OPT_MIXED"></a></dt><dd>Indicates that the node is in multiple states. For instance if only part
+of the node is <b>ALLOCATED</b> and the rest of the node is <b>IDLE</b> the
+state will be <b>MIXED</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>UNKNOWN</b><a class="slurm_link" id="OPT_UNKNOWN" href="https://slurm.schedmd.com/scontrol.html#OPT_UNKNOWN"></a></dt><dd>The node has not yet registered with the controller and its state is not known.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+Flags:
+</p></dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>CLOUD</b><a class="slurm_link" id="OPT_CLOUD" href="https://slurm.schedmd.com/scontrol.html#OPT_CLOUD"></a></dt><dd>Indicates that the node is configured as a cloud node, to be brought up
+on demand, but not currently running.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>COMPLETING</b><a class="slurm_link" id="OPT_COMPLETING" href="https://slurm.schedmd.com/scontrol.html#OPT_COMPLETING"></a></dt><dd>Indicates that the only job on the node or that all jobs on the node are in
+the process of completing.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DRAIN</b><a class="slurm_link" id="OPT_DRAIN_1" href="https://slurm.schedmd.com/scontrol.html#OPT_DRAIN_1"></a></dt><dd>The node is not accepting any new jobs and any currently running jobs will
+complete.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DYNAMIC</b><a class="slurm_link" id="OPT_DYNAMIC" href="https://slurm.schedmd.com/scontrol.html#OPT_DYNAMIC"></a></dt><dd>Slurm allows you to define multiple types of nodes in a FUTURE state.
+When starting <b>slurmd</b> on a node you can specify the <b>-F</b> flag to have
+the node match and use an existing definition in your slurm.conf file. The
+DYNAMIC state indicates that the node was started as a Dynamic Future node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>INVALID_REG</b><a class="slurm_link" id="OPT_INVALID_REG" href="https://slurm.schedmd.com/scontrol.html#OPT_INVALID_REG"></a></dt><dd>The node did not register correctly with the controller. This happens when
+a node registers with less resources than configured in the slurm.conf file.
+The node will clear from this state with a valid registration (i.e. a slurmd
+restart is required).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MAINTENANCE</b><a class="slurm_link" id="OPT_MAINTENANCE" href="https://slurm.schedmd.com/scontrol.html#OPT_MAINTENANCE"></a></dt><dd>The node is currently in a reservation that includes the <i>maintenance</i>
+flag.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NOT_RESPONDING</b><a class="slurm_link" id="OPT_NOT_RESPONDING" href="https://slurm.schedmd.com/scontrol.html#OPT_NOT_RESPONDING"></a></dt><dd>Node is not responding.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PERFCTRS</b><a class="slurm_link" id="OPT_PERFCTRS" href="https://slurm.schedmd.com/scontrol.html#OPT_PERFCTRS"></a></dt><dd>Indicates that Network Performance Counters associated with this node are in
+use, rendering this node as not usable for any other jobs.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>POWER_DOWN</b><a class="slurm_link" id="OPT_POWER_DOWN" href="https://slurm.schedmd.com/scontrol.html#OPT_POWER_DOWN"></a></dt><dd>Node is pending power down.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>POWERED_DOWN</b><a class="slurm_link" id="OPT_POWERED_DOWN" href="https://slurm.schedmd.com/scontrol.html#OPT_POWERED_DOWN"></a></dt><dd>Node is currently powered down and not capable of running any jobs.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>POWERING_DOWN</b><a class="slurm_link" id="OPT_POWERING_DOWN" href="https://slurm.schedmd.com/scontrol.html#OPT_POWERING_DOWN"></a></dt><dd>Node is in the process of powering down.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>POWERING_UP</b><a class="slurm_link" id="OPT_POWERING_UP" href="https://slurm.schedmd.com/scontrol.html#OPT_POWERING_UP"></a></dt><dd>Node is in the process of powering up.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PLANNED</b><a class="slurm_link" id="OPT_PLANNED" href="https://slurm.schedmd.com/scontrol.html#OPT_PLANNED"></a></dt><dd>The node is earmarked for a job that will start in the future.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>REBOOT_ISSUED</b><a class="slurm_link" id="OPT_REBOOT_ISSUED" href="https://slurm.schedmd.com/scontrol.html#OPT_REBOOT_ISSUED"></a></dt><dd>A reboot request has been sent to the agent configured to handle this request.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>REBOOT_REQUESTED</b><a class="slurm_link" id="OPT_REBOOT_REQUESTED" href="https://slurm.schedmd.com/scontrol.html#OPT_REBOOT_REQUESTED"></a></dt><dd>A request to reboot this node has been made, but hasn't been handled yet.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>RESERVED</b><a class="slurm_link" id="OPT_RESERVED" href="https://slurm.schedmd.com/scontrol.html#OPT_RESERVED"></a></dt><dd>Indicates the node is in an advanced reservation and not generally available.
+</dd><dt></dt><dd>
+</dd></dl>
+</dd></dl>
+
+<p>
+</p></dd><dt>The meaning of the energy information is as follows:</dt><dd>
+</dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>CurrentWatts</b><a class="slurm_link" id="OPT_CurrentWatts" href="https://slurm.schedmd.com/scontrol.html#OPT_CurrentWatts"></a></dt><dd>The instantaneous power consumption of the node at the time of the last node
+energy accounting sample, in watts.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>LowestJoules</b><a class="slurm_link" id="OPT_LowestJoules" href="https://slurm.schedmd.com/scontrol.html#OPT_LowestJoules"></a></dt><dd>The energy consumed by the node between the last time it was powered on and
+the last time it was registered by slurmd, in joules.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ConsumedJoules</b><a class="slurm_link" id="OPT_ConsumedJoules" href="https://slurm.schedmd.com/scontrol.html#OPT_ConsumedJoules"></a></dt><dd>The energy consumed by the node between the last time it was registered by
+the slurmd daemon and the last node energy accounting sample, in joules.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<p>
+
+If the reported value is "n/s" (not supported), the node does not support the
+configured <b>AcctGatherEnergyType</b> plugin. If the reported value is zero, energy
+accounting for nodes is disabled.
+</p></dd></dl>
+
+<p>
+</p></dd></dl>
+<a name="lbAO">&nbsp;</a>
+<h2>FRONTEND - SPECIFICATIONS FOR UPDATE COMMAND<a class="slurm_link" id="SECTION_FRONTEND---SPECIFICATIONS-FOR-UPDATE-COMMAND" href="https://slurm.schedmd.com/scontrol.html#SECTION_FRONTEND---SPECIFICATIONS-FOR-UPDATE-COMMAND"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>FrontendName</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_FrontendName" href="https://slurm.schedmd.com/scontrol.html#OPT_FrontendName"></a></dt><dd>Identify the front end node to be updated. This specification is required.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Reason</b>=&lt;<i>reason</i>&gt;<a class="slurm_link" id="OPT_Reason_2" href="https://slurm.schedmd.com/scontrol.html#OPT_Reason_2"></a></dt><dd>Identify the reason the node is in a "DOWN" or "DRAIN" state.
+Use quotes to enclose a reason having more than one word.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>State</b>=&lt;<i>state</i>&gt;<a class="slurm_link" id="OPT_State_3" href="https://slurm.schedmd.com/scontrol.html#OPT_State_3"></a></dt><dd>Identify the state to be assigned to the front end node. Possible values are
+"DOWN", "DRAIN" or "RESUME".
+If you want to remove a front end node from service, you typically want to set
+its state to "DRAIN".
+"RESUME" is not an actual node state, but will return a "DRAINED", "DRAINING",
+or "DOWN" front end node to service, either "IDLE" or "ALLOCATED" state as
+appropriate.
+Setting a front end node "DOWN" will cause all running and suspended jobs on
+that node to be terminated.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAP">&nbsp;</a>
+<h2>PARTITIONS - SPECIFICATIONS FOR CREATE, UPDATE, AND DELETE COMMANDS<a class="slurm_link" id="SECTION_PARTITIONS---SPECIFICATIONS-FOR-CREATE,-UPDATE,-AND-DELETE-COMMANDS" href="https://slurm.schedmd.com/scontrol.html#SECTION_PARTITIONS---SPECIFICATIONS-FOR-CREATE,-UPDATE,-AND-DELETE-COMMANDS"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>AllocNodes</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_AllocNodes" href="https://slurm.schedmd.com/scontrol.html#OPT_AllocNodes"></a></dt><dd>Comma separated list of nodes from which users can execute jobs in the
+partition.
+Node names may be specified using the node range expression syntax
+described above.
+The default value is "ALL".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>AllowAccounts</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_AllowAccounts" href="https://slurm.schedmd.com/scontrol.html#OPT_AllowAccounts"></a></dt><dd>Comma-separated list of accounts which may execute jobs in the partition.
+The default value is "ALL". This list is hierarchical, meaning subaccounts
+are included automatically.
+<b>NOTE</b>: If AllowAccounts is used then DenyAccounts will not be enforced.
+Also refer to DenyAccounts.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>AllowGroups</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_AllowGroups" href="https://slurm.schedmd.com/scontrol.html#OPT_AllowGroups"></a></dt><dd>Identify the user groups which may use this partition.
+Multiple groups may be specified in a comma separated list.
+To permit all groups to use the partition specify "AllowGroups=ALL".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>AllowQOS</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_AllowQOS" href="https://slurm.schedmd.com/scontrol.html#OPT_AllowQOS"></a></dt><dd>Identify the QOSs which may use this partition.
+Multiple QOSs may be specified in a comma separated list.
+To permit all QOSs to use the partition specify "AllowQOS=ALL".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Alternate</b>=&lt;<i>partition name</i>&gt;<a class="slurm_link" id="OPT_Alternate" href="https://slurm.schedmd.com/scontrol.html#OPT_Alternate"></a></dt><dd>Alternate partition to be used if the state of this partition is "DRAIN" or
+"INACTIVE."  The value "NONE" will clear a previously set alternate partition.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>CpuBind</b>=&lt;<i>node</i>&gt;<a class="slurm_link" id="OPT_CpuBind_1" href="https://slurm.schedmd.com/scontrol.html#OPT_CpuBind_1"></a></dt><dd>Specify the task binding mode to be used by default for this partition.
+Supported options include: "none", "socket", "ldom" (NUMA), "core",
+"thread" and "off" (remove previous binding mode).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Default</b>={yes|no}<a class="slurm_link" id="OPT_Default" href="https://slurm.schedmd.com/scontrol.html#OPT_Default"></a></dt><dd>Specify if this partition is to be used by jobs which do not explicitly
+identify a partition to use.
+Possible output values are "YES" and "NO".
+In order to change the default partition of a running system,
+use the scontrol update command and set Default=yes for the partition
+that you want to become the new default.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DefaultTime</b>=&lt;<i>time</i>&gt;<a class="slurm_link" id="OPT_DefaultTime" href="https://slurm.schedmd.com/scontrol.html#OPT_DefaultTime"></a></dt><dd>Run time limit used for jobs that don't specify a value. If not set
+then MaxTime will be used.
+Format is the same as for MaxTime.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DefMemPerCPU</b>=&lt;<i>MB</i>&gt;<a class="slurm_link" id="OPT_DefMemPerCPU" href="https://slurm.schedmd.com/scontrol.html#OPT_DefMemPerCPU"></a></dt><dd>Set the default memory to be allocated per CPU for jobs in this partition.
+The memory size is specified in megabytes.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DefMemPerNode</b>=&lt;<i>MB</i>&gt;<a class="slurm_link" id="OPT_DefMemPerNode" href="https://slurm.schedmd.com/scontrol.html#OPT_DefMemPerNode"></a></dt><dd>Set the default memory to be allocated per node for jobs in this partition.
+The memory size is specified in megabytes.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DenyAccounts</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_DenyAccounts" href="https://slurm.schedmd.com/scontrol.html#OPT_DenyAccounts"></a></dt><dd>Comma-separated list of accounts which may not execute jobs in the partition.
+By default, no accounts are denied access. This list is hierarchical,
+meaning subaccounts are included automatically.
+<b>NOTE</b>: If AllowAccounts is used then DenyAccounts will not be enforced.
+Also refer to AllowAccounts.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DenyQOS</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_DenyQOS" href="https://slurm.schedmd.com/scontrol.html#OPT_DenyQOS"></a></dt><dd>Identify the QOSs which should be denied access to this partition.
+Multiple QOSs may be specified in a comma separated list.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DisableRootJobs</b>={yes|no}<a class="slurm_link" id="OPT_DisableRootJobs" href="https://slurm.schedmd.com/scontrol.html#OPT_DisableRootJobs"></a></dt><dd>Specify if jobs can be executed as user root.
+Possible values are "YES" and "NO".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ExclusiveUser</b>={yes|no}<a class="slurm_link" id="OPT_ExclusiveUser" href="https://slurm.schedmd.com/scontrol.html#OPT_ExclusiveUser"></a></dt><dd>When enabled nodes will be exclusively allocated to users. Multiple jobs can
+be run simultaneously, but those jobs must be from a single user.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>GraceTime</b>=&lt;<i>seconds</i>&gt;<a class="slurm_link" id="OPT_GraceTime" href="https://slurm.schedmd.com/scontrol.html#OPT_GraceTime"></a></dt><dd>Specifies, in units of seconds, the preemption grace time
+to be extended to a job which has been selected for preemption.
+The default value is zero, no preemption grace time is allowed on
+this partition or qos.
+(Meaningful only for <i>PreemptMode=CANCEL</i> and <i>PreemptMode=REQUEUE</i>)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Hidden</b>={yes|no}<a class="slurm_link" id="OPT_Hidden" href="https://slurm.schedmd.com/scontrol.html#OPT_Hidden"></a></dt><dd>Specify if the partition and its jobs should be hidden from view.
+Hidden partitions will by default not be reported by Slurm APIs
+or commands.
+Possible values are "YES" and "NO".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>JobDefaults</b>=&lt;<i>specs</i>&gt;<a class="slurm_link" id="OPT_JobDefaults" href="https://slurm.schedmd.com/scontrol.html#OPT_JobDefaults"></a></dt><dd>Specify job default values using a comma-delimited list of "key=value" pairs.
+Supported keys include
+</dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>DefCpuPerGPU</b><a class="slurm_link" id="OPT_DefCpuPerGPU" href="https://slurm.schedmd.com/scontrol.html#OPT_DefCpuPerGPU"></a></dt><dd>Default number of CPUs per allocated GPU.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DefMemPerGPU</b><a class="slurm_link" id="OPT_DefMemPerGPU" href="https://slurm.schedmd.com/scontrol.html#OPT_DefMemPerGPU"></a></dt><dd>Default memory limit (in megabytes) per allocated GPU.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MaxCPUsPerNode</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_MaxCPUsPerNode" href="https://slurm.schedmd.com/scontrol.html#OPT_MaxCPUsPerNode"></a></dt><dd>Set the maximum number of CPUs that can be allocated per node to all jobs
+in this partition.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>LLN</b>={yes|no}<a class="slurm_link" id="OPT_LLN" href="https://slurm.schedmd.com/scontrol.html#OPT_LLN"></a></dt><dd>Schedule jobs on the least loaded nodes (based on the number of idle CPUs).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MaxMemPerCPU</b>=&lt;<i>MB</i>&gt;<a class="slurm_link" id="OPT_MaxMemPerCPU" href="https://slurm.schedmd.com/scontrol.html#OPT_MaxMemPerCPU"></a></dt><dd>Set the maximum memory to be allocated per CPU for jobs in this partition.
+The memory size is specified in megabytes.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MaxMemPerNode</b>=&lt;<i>MB</i>&gt;<a class="slurm_link" id="OPT_MaxMemPerNode" href="https://slurm.schedmd.com/scontrol.html#OPT_MaxMemPerNode"></a></dt><dd>Set the maximum memory to be allocated per node for jobs in this partition.
+The memory size is specified in megabytes.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MaxNodes</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_MaxNodes" href="https://slurm.schedmd.com/scontrol.html#OPT_MaxNodes"></a></dt><dd>Set the maximum number of nodes which will be allocated to any single job
+in the partition. Specify a number, "INFINITE" or "UNLIMITED".
+Changing the <i>MaxNodes</i> of a partition has no effect upon jobs that
+have already begun execution.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MaxTime</b>=&lt;<i>time</i>&gt;<a class="slurm_link" id="OPT_MaxTime" href="https://slurm.schedmd.com/scontrol.html#OPT_MaxTime"></a></dt><dd>The maximum run time for jobs.
+Output format is [days-]hours:minutes:seconds or "UNLIMITED".
+Input format (for <b>update</b> command) is minutes, minutes:seconds,
+hours:minutes:seconds, days-hours, days-hours:minutes or
+days-hours:minutes:seconds.
+Time resolution is one minute and second values are rounded up to
+the next minute.
+Changing the <i>MaxTime</i> of a partition has no effect upon jobs that
+have already begun execution.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MinNodes</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_MinNodes" href="https://slurm.schedmd.com/scontrol.html#OPT_MinNodes"></a></dt><dd>Set the minimum number of nodes which will be allocated to any single job
+in the partition.
+Changing the <i>MinNodes</i> of a partition has no effect upon jobs that
+have already begun execution. Increasing this value may prevent pending jobs
+from starting, even if they were submitted without -N/--nodes specification.
+If you do get in that situation, updating the <i>MinNodes</i> value of a
+pending job using the scontrol command will allow that job to be scheduled.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MaxCPUsPerSocket</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_MaxCPUsPerSocket" href="https://slurm.schedmd.com/scontrol.html#OPT_MaxCPUsPerSocket"></a></dt><dd>Set the maximum number of CPUs that can be allocated per socket to all jobs
+in this partition.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Nodes</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_Nodes" href="https://slurm.schedmd.com/scontrol.html#OPT_Nodes"></a></dt><dd>Identify the node(s) to be associated with this partition. Multiple node names
+may be specified using simple node range expressions (e.g. "lx[10-20]").
+A specification of "ALL" will associate all nodes.
+You can add or remove nodes by adding a '+' or '-' sign before the '=' sign.
+It also works to do nodes=+lx0,-lx[2-4] if you want to remove lx[2-4] and add
+lx0 at the same time.
+Note that jobs may only be associated with one partition at any time.
+Specify a blank data value to remove all nodes from a partition: "Nodes=".
+Changing the <i>Nodes</i> in a partition has no effect upon jobs that
+have already begun execution.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>OverSubscribe</b>={yes|no|exclusive|force}[:&lt;<i>job_count</i>&gt;]<a class="slurm_link" id="OPT_OverSubscribe_1" href="https://slurm.schedmd.com/scontrol.html#OPT_OverSubscribe_1"></a></dt><dd>Specify if compute resources (i.e. individual CPUs) in this partition can be
+shared by multiple jobs.
+Possible values are "YES", "NO", "EXCLUSIVE" and "FORCE".
+An optional job count specifies how many jobs can be allocated to use
+each resource.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>OverTimeLimit</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_OverTimeLimit" href="https://slurm.schedmd.com/scontrol.html#OPT_OverTimeLimit"></a></dt><dd>Number of minutes by which a job can exceed its time limit before
+being canceled.
+The configured job time limit is treated as a <i>soft</i> limit.
+Adding <b>OverTimeLimit</b> to the <i>soft</i> limit provides a <i>hard</i>
+limit, at which point the job is canceled.
+This is particularly useful for backfill scheduling, which bases upon
+each job's soft time limit.
+A partition-specific <i>OverTimeLimit</i> will override any global
+<i>OverTimeLimit</i> value.
+If not specified, the global <i>OverTimeLimit</i> value will take precedence.
+May not exceed 65533 minutes.
+An input value of "UNLIMITED" will clear any previously configured
+partition-specific <i>OverTimeLimit</i> value.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PartitionName</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_PartitionName" href="https://slurm.schedmd.com/scontrol.html#OPT_PartitionName"></a></dt><dd>Identify the partition to be updated. This specification is required.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PowerDownOnIdle</b><a class="slurm_link" id="OPT_PowerDownOnIdle" href="https://slurm.schedmd.com/scontrol.html#OPT_PowerDownOnIdle"></a></dt><dd>If set to "YES", then nodes allocated from this partition will immediately be
+requested to power down upon becoming IDLE. A power down request prevents
+further scheduling to the node until it has been put into power save mode by
+<b>SuspendProgram</b>.
+<p>
+Also see <b>SuspendTime</b>.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PreemptMode</b>=&lt;<i>mode</i>&gt;<a class="slurm_link" id="OPT_PreemptMode" href="https://slurm.schedmd.com/scontrol.html#OPT_PreemptMode"></a></dt><dd>Reset the mechanism used to preempt jobs in this partition if <i>PreemptType</i>
+is configured to <i>preempt/partition_prio</i>. The default preemption mechanism
+is specified by the cluster-wide <i>PreemptMode</i> configuration parameter.
+Possible values are "OFF", "CANCEL", "REQUEUE" and "SUSPEND".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PriorityJobFactor</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_PriorityJobFactor" href="https://slurm.schedmd.com/scontrol.html#OPT_PriorityJobFactor"></a></dt><dd>Partition factor used by priority/multifactor plugin in calculating
+job priority. The value may not exceed 65533. Also see PriorityTier.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PriorityTier</b>=&lt;<i>count</i>&gt;<a class="slurm_link" id="OPT_PriorityTier" href="https://slurm.schedmd.com/scontrol.html#OPT_PriorityTier"></a></dt><dd>Jobs submitted to a partition with a higher priority tier value will
+be dispatched before pending jobs in partition with lower priority tier
+value and,  if  possible,  they  will  preempt  running jobs from
+partitions with lower priority tier values. Note that a partition's
+priority tier takes precedence over a job's priority. The value may
+not exceed 65533. Also see PriorityJobFactor.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>QOS</b>=&lt;<i>QOSname</i>|<i>blank to remove</i>&gt;<a class="slurm_link" id="OPT_QOS_1" href="https://slurm.schedmd.com/scontrol.html#OPT_QOS_1"></a></dt><dd>Set the partition QOS with a QOS name or to remove the Partition QOS
+leave the option blank.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ReqResv</b>={yes|no}<a class="slurm_link" id="OPT_ReqResv" href="https://slurm.schedmd.com/scontrol.html#OPT_ReqResv"></a></dt><dd>Specify if only allocation requests designating a reservation will be
+satisfied. This is used to restrict partition usage to be allowed only
+within a reservation.
+Possible values are "YES" and "NO".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>RootOnly</b>={yes|no}<a class="slurm_link" id="OPT_RootOnly" href="https://slurm.schedmd.com/scontrol.html#OPT_RootOnly"></a></dt><dd>Specify if only allocation requests initiated by user root will be satisfied.
+This can be used to restrict control of the partition to some meta-scheduler.
+Possible values are "YES" and "NO".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Shared</b>={yes|no|exclusive|force}[:&lt;<i>job_count</i>&gt;]<a class="slurm_link" id="OPT_Shared_1" href="https://slurm.schedmd.com/scontrol.html#OPT_Shared_1"></a></dt><dd>Renamed to <i>OverSubscribe</i>, see option descriptions above.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>State</b>={up|down|drain|inactive}<a class="slurm_link" id="OPT_State_4" href="https://slurm.schedmd.com/scontrol.html#OPT_State_4"></a></dt><dd>Specify if jobs can be allocated nodes or queued in this partition.
+Possible values are "UP", "DOWN", "DRAIN" and "INACTIVE".
+</dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>UP</b><a class="slurm_link" id="OPT_UP" href="https://slurm.schedmd.com/scontrol.html#OPT_UP"></a></dt><dd>Designates that new jobs may queued on the partition, and that
+jobs may be allocated nodes and run from the partition.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DOWN</b><a class="slurm_link" id="OPT_DOWN_2" href="https://slurm.schedmd.com/scontrol.html#OPT_DOWN_2"></a></dt><dd>Designates that new jobs may be queued on the partition, but
+queued jobs may not be allocated nodes and run from the partition. Jobs
+already running on the partition continue to run. The jobs
+must be explicitly canceled to force their termination.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DRAIN</b><a class="slurm_link" id="OPT_DRAIN_2" href="https://slurm.schedmd.com/scontrol.html#OPT_DRAIN_2"></a></dt><dd>Designates that no new jobs may be queued on the partition (job
+submission requests will be denied with an error message), but jobs
+already queued on the partition may be allocated nodes and run.
+See also the "Alternate" partition specification.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>INACTIVE</b><a class="slurm_link" id="OPT_INACTIVE" href="https://slurm.schedmd.com/scontrol.html#OPT_INACTIVE"></a></dt><dd>Designates that no new jobs may be queued on the partition,
+and jobs already queued may not be allocated nodes and run.
+See also the "Alternate" partition specification.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>TRESBillingWeights</b>=&lt;<i>TRES Billing Weights</i>&gt;<a class="slurm_link" id="OPT_TRESBillingWeights" href="https://slurm.schedmd.com/scontrol.html#OPT_TRESBillingWeights"></a></dt><dd>TRESBillingWeights is used to define the billing weights of each TRES type that
+will be used in calculating the usage of a job. The calculated usage is used
+when calculating fairshare and when enforcing the TRES billing limit on jobs.
+Updates affect new jobs and not existing jobs.
+See the slurm.conf man page for more information.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAQ">&nbsp;</a>
+<h2>RESERVATIONS - SPECIFICATIONS FOR CREATE, UPDATE, AND DELETE COMMANDS<a class="slurm_link" id="SECTION_RESERVATIONS---SPECIFICATIONS-FOR-CREATE,-UPDATE,-AND-DELETE-COMMANDS" href="https://slurm.schedmd.com/scontrol.html#SECTION_RESERVATIONS---SPECIFICATIONS-FOR-CREATE,-UPDATE,-AND-DELETE-COMMANDS"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>ReservationName</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_ReservationName_1" href="https://slurm.schedmd.com/scontrol.html#OPT_ReservationName_1"></a></dt><dd>Identify the name of the reservation to be created, updated, or deleted.
+This parameter is required for update and is the only parameter for delete.
+For create, if you do not want to give a reservation name, use
+"scontrol create reservation ..." and a name will be created automatically.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Accounts</b>=&lt;<i>account list</i>&gt;<a class="slurm_link" id="OPT_Accounts" href="https://slurm.schedmd.com/scontrol.html#OPT_Accounts"></a></dt><dd>List of accounts permitted to use the reserved nodes, for example
+"Accounts=physcode1,physcode2".
+A user in any of the specified accounts or subaccounts may use the reserved
+nodes. A new reservation must specify Users or Groups and/or Accounts.
+If both Users/Groups and Accounts are specified, a job must match both in order
+to use the reservation.
+Accounts can also be denied access to reservations by preceding all of the
+account names with '-'. Alternately precede the equal sign with '-'.
+For example, "Accounts=-physcode1,-physcode2" or "Accounts-=physcode1,physcode2"
+will permit any account except physcode1 and physcode2 to use the reservation.
+You can add or remove individual accounts from an existing reservation by
+using the update command and adding a '+' or '-' sign before the '=' sign.
+If accounts are denied access to a reservation (account name preceded by a '-'),
+then all other accounts are implicitly allowed to use the reservation and it is
+not possible to also explicitly specify allowed accounts.
+Root and the SlurmUser are given access to all reservations, regardless of the
+accounts set here.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>BurstBuffer</b>=&lt;<i>buffer_spec</i>&gt;[,&lt;<i>buffer_spec</i>&gt;,...]<a class="slurm_link" id="OPT_BurstBuffer_1" href="https://slurm.schedmd.com/scontrol.html#OPT_BurstBuffer_1"></a></dt><dd>Specification of burst buffer resources which are to be reserved.
+"buffer_spec" consists of four elements:
+[plugin:][type:]#[units]
+"plugin" is the burst buffer plugin name, currently either "datawarp" or
+"generic".
+If no plugin is specified, the reservation applies to all configured burst
+buffer plugins.
+"type" specifies a Cray generic burst buffer resource, for example "nodes".
+if "type" is not specified, the number is a measure of storage space.
+The "units" may be "N" (nodes), "K|KiB", "M|MiB", "G|GiB", "T|TiB", "P|PiB"
+(for powers of 1024) and "KB", "MB", "GB", "TB", "PB" (for powers of 1000).
+The default units are bytes for reservations of storage space.
+For example "BurstBuffer=datawarp:2TB" (reserve 2TB of storage plus
+3 nodes from the Cray plugin) or
+"BurstBuffer=100GB" (reserve 100 GB of storage from all configured burst buffer
+plugins).
+Jobs using this reservation are not restricted to these burst buffer resources,
+but may use these reserved resources plus any which are generally available.
+<b>NOTE</b>: Usually Slurm interprets KB, MB, GB, TB, PB units as powers of 1024,
+but for Burst Buffers size specifications Slurm supports both IEC/SI formats.
+This is because the CRAY API for managing DataWarps supports both formats.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>CoreCnt</b>=&lt;<i>num</i>&gt;<a class="slurm_link" id="OPT_CoreCnt" href="https://slurm.schedmd.com/scontrol.html#OPT_CoreCnt"></a></dt><dd>This option is only supported when
+<i>select/cons_tres</i> is used. Identify number of cores to be reserved.
+If NodeCnt or Nodelist is used this is the total number of cores to reserve
+where cores per node is CoreCnt/NodeCnt.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Licenses</b>=&lt;<i>license</i>&gt;<a class="slurm_link" id="OPT_Licenses_1" href="https://slurm.schedmd.com/scontrol.html#OPT_Licenses_1"></a></dt><dd>Specification of licenses (or other resources available on all
+nodes of the cluster) which are to be reserved.
+License names can be followed by a colon and count
+(the default count is one).
+Multiple license names should be comma separated (e.g. "Licenses=foo:4,bar").
+A new reservation must specify one or more resource to be included: NodeCnt,
+Nodes and/or Licenses.
+If a reservation includes Licenses, but no NodeCnt or Nodes, then the option
+<i>Flags=LICENSE_ONLY</i> must also be specified.
+Jobs using this reservation are not restricted to these licenses, but may
+use these reserved licenses plus any which are generally available.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MaxStartDelay</b>[=&lt;<i>timespec</i>&gt;]<a class="slurm_link" id="OPT_MaxStartDelay" href="https://slurm.schedmd.com/scontrol.html#OPT_MaxStartDelay"></a></dt><dd>Change MaxStartDelay value which specifies the maximum time an eligible job not
+requesting this reservation can delay a job requesting it. Default is none.
+Valid formats are minutes, minutes:seconds,
+hours:minutes:seconds, days-hours, days-hours:minutes,
+days-hours:minutes:seconds. Time resolution is one minute and
+second values are rounded up to the next minute. Output format is always
+[days-]hours:minutes:seconds.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NodeCnt</b>=&lt;<i>num</i>&gt;[,&lt;<i>num</i>&gt;,...]<a class="slurm_link" id="OPT_NodeCnt" href="https://slurm.schedmd.com/scontrol.html#OPT_NodeCnt"></a></dt><dd>Identify number of nodes to be reserved. The number can include a suffix of
+"k" or "K", in which case the number specified is multiplied by 1024.
+A new reservation must specify one or more resource to be included: NodeCnt,
+Nodes and/or Licenses.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Nodes</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_Nodes_1" href="https://slurm.schedmd.com/scontrol.html#OPT_Nodes_1"></a></dt><dd>Identify the node(s) to be reserved. Multiple node names
+may be specified using simple node range expressions (e.g. "Nodes=lx[10-20]").
+When using <b>Nodes</b> to specify more or fewer nodes, <b>NodeCnt</b> will be
+updated to honor the new number of nodes. However, when setting an empty
+list ("Nodes="), the nodelist will be filled with random nodes to
+fulfill the previous nodecnt and the <i>SPEC_NODES</i> flag will be removed.
+A new reservation must specify one or more resource to be included: NodeCnt,
+Nodes and/or Licenses. A specification of "ALL" will reserve all nodes. Set
+<i>Flags=PART_NODES</i> and <i>PartitionName=</i> in order for changes in the
+nodes associated with a partition to also be reflected in the nodes associated
+with a reservation. You can add or remove nodes from an existing reservation by
+adding a '+' or '-' sign before the '=' sign. It also works to do
+nodes=+lx0,-lx[2-4] if you want to remove lx[2-4] and add lx0 at the same
+time.
+<p>
+<b>NOTE</b>: When updating a reservation, if Nodes and Nodecnt are set
+simultaneously, nodecnt will always be honored. The reservation will get a
+subset of nodes if nodes &gt; nodecnt, or it will add extra nodes to the list
+when nodes &lt; nodecnt.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>StartTime</b>=&lt;<i>time_spec</i>&gt;<a class="slurm_link" id="OPT_StartTime_1" href="https://slurm.schedmd.com/scontrol.html#OPT_StartTime_1"></a></dt><dd>The start time for the reservation. A new reservation must specify a start
+time. It accepts times of the form <i>HH:MM:SS</i> for
+a specific time of day (seconds are optional).
+(If that time is already past, the next day is assumed.)
+You may also specify <i>midnight</i>, <i>noon</i>, <i>elevenses</i> (11 AM),
+<i>fika</i> (3 PM) or <i>teatime</i> (4 PM) and you can have a time-of-day
+suffixed with <i>AM</i> or <i>PM</i> for running in the morning or the evening.
+You can also say what day the job will be run, by specifying
+a date of the form <i>MMDDYY</i> or <i>MM/DD/YY</i> or <i>MM.DD.YY</i>,
+or a date and time as <i>YYYY-MM-DD[THH:MM[:SS]]</i>. You can also
+give times like <i>now + count time-units</i>, where the time-units
+can be <i>seconds</i> (default), <i>minutes</i>, <i>hours</i>, <i>days</i>,
+or <i>weeks</i> and you can tell Slurm to run the job today with the keyword
+<i>today</i> and to run the job tomorrow with the keyword
+<i>tomorrow</i>. You cannot update the <i>StartTime</i> of a reservation
+in <i>ACTIVE</i> state.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>EndTime</b>=&lt;<i>time_spec</i>&gt;<a class="slurm_link" id="OPT_EndTime_1" href="https://slurm.schedmd.com/scontrol.html#OPT_EndTime_1"></a></dt><dd>The end time for the reservation. A new reservation must specify an end
+time or a duration. Valid formats are the same as for StartTime.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Duration</b>=&lt;<i>time</i>&gt;<a class="slurm_link" id="OPT_Duration" href="https://slurm.schedmd.com/scontrol.html#OPT_Duration"></a></dt><dd>The length of a reservation. A new reservation must specify an end
+time or a duration. Valid formats are minutes, minutes:seconds,
+hours:minutes:seconds, days-hours, days-hours:minutes,
+days-hours:minutes:seconds, or UNLIMITED. Time resolution is one minute and
+second values are rounded up to the next minute. Output format is always
+[days-]hours:minutes:seconds.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PartitionName</b>=&lt;<i>name</i>&gt;<a class="slurm_link" id="OPT_PartitionName_1" href="https://slurm.schedmd.com/scontrol.html#OPT_PartitionName_1"></a></dt><dd>Partition used to reserve nodes from. This will attempt to allocate all
+nodes in the specified partition unless you request fewer resources than
+are available with <i>CoreCnt</i>, <i>NodeCnt</i> or <i>TRES</i>. If no partition
+is specified at submit time, this partition will override the job's default
+partition. Jobs explicitly requesting a different partition will still be
+allowed to use this reservation as long as there are enough overlapping nodes
+between both partitions to allocate the job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Flags</b>=&lt;<i>flags</i>&gt;<a class="slurm_link" id="OPT_Flags" href="https://slurm.schedmd.com/scontrol.html#OPT_Flags"></a></dt><dd>Flags associated with the reservation.
+You can add or remove individual flags from an existing reservation by
+adding a '+' or '-' sign before the '=' sign. For example:
+Flags-=DAILY (<b>NOTE</b>: This shortcut is not supported for all flags).
+Currently supported flags include:
+</dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>ANY_NODES</b><a class="slurm_link" id="OPT_ANY_NODES" href="https://slurm.schedmd.com/scontrol.html#OPT_ANY_NODES"></a></dt><dd>This is a reservation for burst buffers and/or licenses only and not compute
+nodes.
+If this flag is set, a job using this reservation may use the associated
+burst buffers and/or licenses plus any compute nodes.
+If this flag is not set, a job using this reservation may use only the nodes
+and licenses associated with the reservation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DAILY</b><a class="slurm_link" id="OPT_DAILY" href="https://slurm.schedmd.com/scontrol.html#OPT_DAILY"></a></dt><dd>Repeat the reservation at the same time every day.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>FLEX</b><a class="slurm_link" id="OPT_FLEX" href="https://slurm.schedmd.com/scontrol.html#OPT_FLEX"></a></dt><dd>Permit jobs requesting the reservation to begin prior to the reservation's
+start time, end after the reservation's end time, and use any resources inside
+and/or outside of the reservation regardless of any constraints possibly set in
+the reservation. A typical use case is to prevent jobs not explicitly
+requesting the reservation from using those reserved resources rather than
+forcing jobs requesting the reservation to use those resources in the time
+frame reserved. Another use case could be to always have a particular number of
+nodes with a specific feature reserved for a specific account so users in this
+account may use this nodes plus possibly other nodes without this feature.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>IGNORE_JOBS</b><a class="slurm_link" id="OPT_IGNORE_JOBS" href="https://slurm.schedmd.com/scontrol.html#OPT_IGNORE_JOBS"></a></dt><dd>Ignore currently running jobs when creating the reservation.
+This can be especially useful when reserving all nodes in the system
+for maintenance.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>HOURLY</b><a class="slurm_link" id="OPT_HOURLY" href="https://slurm.schedmd.com/scontrol.html#OPT_HOURLY"></a></dt><dd>Repeat the reservation at the same time every hour.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>LICENSE_ONLY</b><a class="slurm_link" id="OPT_LICENSE_ONLY" href="https://slurm.schedmd.com/scontrol.html#OPT_LICENSE_ONLY"></a></dt><dd>See <i>ANY_NODES</i>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MAINT</b><a class="slurm_link" id="OPT_MAINT" href="https://slurm.schedmd.com/scontrol.html#OPT_MAINT"></a></dt><dd>Maintenance mode, receives special accounting treatment.
+This reservation is permitted to use resources that are already in another
+reservation. The MAINT flag behaves similar to STATIC_ALLOC (see below) in
+that it will not replace nodes once they are set.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MAGNETIC</b><a class="slurm_link" id="OPT_MAGNETIC" href="https://slurm.schedmd.com/scontrol.html#OPT_MAGNETIC"></a></dt><dd>This flag allows jobs to be considered for this reservation even if they didn't
+request it.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NO_HOLD_JOBS_AFTER</b><a class="slurm_link" id="OPT_NO_HOLD_JOBS_AFTER" href="https://slurm.schedmd.com/scontrol.html#OPT_NO_HOLD_JOBS_AFTER"></a></dt><dd>By default, when a reservation ends the reservation request will be removed from
+any pending jobs submitted to the reservation and will be put into a held state.
+Use this flag to let jobs run outside of the reservation after the reservation
+is gone. Flag removal with '-=' is not supported.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>OVERLAP</b><a class="slurm_link" id="OPT_OVERLAP" href="https://slurm.schedmd.com/scontrol.html#OPT_OVERLAP"></a></dt><dd>This reservation can be allocated resources that are already in another
+reservation. Flag removal with '-=' is not supported.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PART_NODES</b><a class="slurm_link" id="OPT_PART_NODES" href="https://slurm.schedmd.com/scontrol.html#OPT_PART_NODES"></a></dt><dd>This flag can be used to reserve all nodes within the specified
+partition. PartitionName and Nodes=ALL must be specified with this flag.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PURGE_COMP</b>[=&lt;<i>timespec</i>&gt;]<a class="slurm_link" id="OPT_PURGE_COMP" href="https://slurm.schedmd.com/scontrol.html#OPT_PURGE_COMP"></a></dt><dd>Purge the reservation if it is ever idle for timespec (no jobs associated with
+it). If timespec isn't given then 5 minutes is the default.
+Valid timespec formats are minutes, minutes:seconds,
+hours:minutes:seconds, days-hours, days-hours:minutes,
+days-hours:minutes:seconds. Time resolution is one minute and
+second values are rounded up to the next minute. Output format is always
+[days-]hours:minutes:seconds.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>REPLACE</b><a class="slurm_link" id="OPT_REPLACE" href="https://slurm.schedmd.com/scontrol.html#OPT_REPLACE"></a></dt><dd>Nodes which are DOWN, DRAINED, or allocated to jobs are automatically
+replenished using idle resources.
+This option can be used to maintain a constant number of idle resources
+available for pending jobs (subject to availability of idle resources).
+This should be used with the <i>NodeCnt</i> reservation option; do not identify
+specific nodes to be included in the reservation. Flag removal with '-=' is
+not supported.
+<p>
+<b>NOTE</b>: Removing a node from the cluster while in a reservation with the
+<i>REPLACE</i> flag will not cause it to be replaced.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>REPLACE_DOWN</b><a class="slurm_link" id="OPT_REPLACE_DOWN" href="https://slurm.schedmd.com/scontrol.html#OPT_REPLACE_DOWN"></a></dt><dd>Nodes which are DOWN or DRAINED are automatically replenished using idle
+resources. This is the default behavior.
+This option can be used to maintain a constant sized pool of resources
+available for pending jobs (subject to availability of idle resources).
+This should be used with the <i>NodeCnt</i> reservation option; do not identify
+specific nodes to be included in the reservation. Flag removal with '-=' is
+not supported.
+<p>
+<b>NOTE</b>: Removing a node from the cluster while in a reservation with the
+<i>REPLACE_DOWN</i> flag will not cause it to be replaced.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SPEC_NODES</b><a class="slurm_link" id="OPT_SPEC_NODES" href="https://slurm.schedmd.com/scontrol.html#OPT_SPEC_NODES"></a></dt><dd>Reservation is for specific nodes (output only).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>STATIC_ALLOC</b><a class="slurm_link" id="OPT_STATIC_ALLOC" href="https://slurm.schedmd.com/scontrol.html#OPT_STATIC_ALLOC"></a></dt><dd>Make it so after the nodes are selected for a reservation they don't
+change. Without this option when nodes are selected for a reservation
+and one goes down the reservation will select a new node to fill the spot.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>TIME_FLOAT</b><a class="slurm_link" id="OPT_TIME_FLOAT" href="https://slurm.schedmd.com/scontrol.html#OPT_TIME_FLOAT"></a></dt><dd>The reservation start time is relative to the current time and moves forward
+through time (e.g. a StartTime=now+10minutes will always be 10 minutes in the
+future). Repeating (e.g. DAILY) floating reservations are not supported. Flag
+cannot be added to or removed from an existing reservation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>USER_DELETE</b><a class="slurm_link" id="OPT_USER_DELETE" href="https://slurm.schedmd.com/scontrol.html#OPT_USER_DELETE"></a></dt><dd>Allow any user able to run in the reservation to delete it.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>WEEKDAY</b><a class="slurm_link" id="OPT_WEEKDAY" href="https://slurm.schedmd.com/scontrol.html#OPT_WEEKDAY"></a></dt><dd>Repeat the reservation at the same time on every weekday (Monday, Tuesday,
+Wednesday, Thursday and Friday).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>WEEKEND</b><a class="slurm_link" id="OPT_WEEKEND" href="https://slurm.schedmd.com/scontrol.html#OPT_WEEKEND"></a></dt><dd>Repeat the reservation at the same time on every weekend day (Saturday and
+Sunday).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>WEEKLY</b><a class="slurm_link" id="OPT_WEEKLY" href="https://slurm.schedmd.com/scontrol.html#OPT_WEEKLY"></a></dt><dd>Repeat the reservation at the same time every week.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Features</b>=&lt;<i>features</i>&gt;<a class="slurm_link" id="OPT_Features_1" href="https://slurm.schedmd.com/scontrol.html#OPT_Features_1"></a></dt><dd>Set the reservation's required node features. Multiple values
+may be "&amp;" separated if all features are required (AND operation) or
+separated by "|" if any of the specified features are required (OR operation).
+Parenthesis are also supported for features to be ANDed together with counts
+of nodes having the specified features.
+For example "<b>Features=[(knl&amp;a2a&amp;flat)*4&amp;haswell*2]"</b> indicates the
+advanced reservation should include 4 nodes with ALL of the features "knl",
+"a2a", and "flat" plus 2 nodes with the feature "haswell".
+<p>
+Value may be cleared with blank data value, "Features=".
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Groups</b>=&lt;<i>group list</i>&gt;<a class="slurm_link" id="OPT_Groups" href="https://slurm.schedmd.com/scontrol.html#OPT_Groups"></a></dt><dd>List of groups permitted to use the reserved nodes, for example
+"Group=bio,chem".
+A new reservation must specify Users or Groups and/or Accounts.
+If both Users/Groups and Accounts are specified, a job must match both in order
+to use the reservation.
+Unlike users groups do not allow denied access to reservations.
+You can add or remove individual groups from an existing reservation by
+using the update command and adding a '+' or '-' sign before the '=' sign.
+Root and the SlurmUser are given access to all reservations, regardless of the
+groups set here.
+<b>NOTE</b>: Groups and Users are mutually exclusive in reservations, if you
+want to switch between the 2 you must update the reservation with a group=''
+or user='' and fill in the opposite with the appropriate setting.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Skip</b><a class="slurm_link" id="OPT_Skip" href="https://slurm.schedmd.com/scontrol.html#OPT_Skip"></a></dt><dd>Used on a reoccurring reservation, skip to the next reservation iteration.
+<b>NOTE</b>: Only available for update.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Users</b>=&lt;<i>user list</i>&gt;<a class="slurm_link" id="OPT_Users" href="https://slurm.schedmd.com/scontrol.html#OPT_Users"></a></dt><dd>List of users permitted to use the reserved nodes, for example
+"User=jones1,smith2".
+A new reservation must specify Users or Groups and/or Accounts.
+If both Users/Groups and Accounts are specified, a job must match both in order
+to use the reservation.
+Users can also be denied access to reservations by preceding all of the
+user names with '-'. Alternately precede the equal sign with '-'.
+For example, "User=-jones1,-smith2" or "User-=jones1,smith2"
+will permit any user except jones1 and smith2 to use the reservation.
+You can add or remove individual users from an existing reservation by
+using the update command and adding a '+' or '-' sign before the '=' sign.
+If users are denied access to a reservation (user name preceded by a '-'),
+then all other users are implicitly allowed to use the reservation and it is
+not possible to also explicitly specify allowed users.
+Root and the SlurmUser are given access to all reservations, regardless of the
+users set here.
+<b>NOTE</b>: Groups and Users are mutually exclusive in reservations, if you
+want to switch between the 2 you must update the reservation with a group=''
+or user='' and fill in the opposite with the appropriate setting.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>TRES</b>=&lt;<i>tres_spec</i>&gt;<a class="slurm_link" id="OPT_TRES" href="https://slurm.schedmd.com/scontrol.html#OPT_TRES"></a></dt><dd>Comma-separated list of TRES required for the reservation. Current supported
+TRES types with reservations are: CPU, GRES, Node, License and BB. CPU and Node
+follow the same format as CoreCnt and NodeCnt parameters respectively.
+License names can be followed by an equal '=' and a count:
+<p>
+License/&lt;name1&gt;=&lt;count1&gt;[,License/&lt;name2&gt;=&lt;count2&gt;,...]
+</p><p>
+BurstBuffer can be specified in a similar way as BurstBuffer parameter. The
+only difference is that colon symbol ':' should be replaced by an equal '='
+in order to follow the TRES format.
+</p><p>
+Some examples of TRES valid specifications:
+</p><p>
+TRES=cpu=5,bb/cray=4,license/iop1=1,license/iop2=3
+</p><p>
+TRES=node=5k,license/iop1=2
+</p><p>
+TRES=gres/gpu:a100=2
+</p><p>
+Please note that CPU, Node, License and BB can override CoreCnt, NodeCnt,
+Licenses and BurstBuffer parameters respectively. Also CPU represents
+CoreCnt, in a reservation and will be adjusted if you have threads per
+core on your nodes.
+</p><p>
+Note that a reservation that contains nodes or cores is associated with
+one partition, and can't span resources over multiple partitions.
+The only exception from this is when
+the reservation is created with explicitly requested nodes.
+</p><p>
+Note that if GRES is requested those GRES must be TRES listed in
+AccountingStorageTRES to be valid.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>TRESPerNode</b>=&lt;<i>tres_spec</i>&gt;<a class="slurm_link" id="OPT_TRESPerNode" href="https://slurm.schedmd.com/scontrol.html#OPT_TRESPerNode"></a></dt><dd>Comma-separated list of TRES required per node for the reservation. See
+<b>TRES</b> above for supported types.
+<p>
+TRESPerNode=gres/gpu:a100=2
+</p><p>
+Above will allocate 2 gpu:a100 per node as specified in nodecnt.
+</p><p>
+</p></dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAR">&nbsp;</a>
+<h2>PERFORMANCE<a class="slurm_link" id="SECTION_PERFORMANCE" href="https://slurm.schedmd.com/scontrol.html#SECTION_PERFORMANCE"></a></h2>
+<p>
+
+Executing <b>scontrol</b> sends a remote procedure call to <b>slurmctld</b>. If
+enough calls from <b>scontrol</b> or other Slurm client commands that send remote
+procedure calls to the <b>slurmctld</b> daemon come in at once, it can result in
+a degradation of performance of the <b>slurmctld</b> daemon, possibly resulting
+in a denial of service.
+</p><p>
+
+Do not run <b>scontrol</b> or other Slurm client commands that send remote
+procedure calls to <b>slurmctld</b> from loops in shell scripts or other
+programs. Ensure that programs limit calls to <b>scontrol</b> to the minimum
+necessary for the information you are trying to gather.
+</p><p>
+<a name="lbAS">&nbsp;</a>
+</p><h2>ENVIRONMENT VARIABLES<a class="slurm_link" id="SECTION_ENVIRONMENT-VARIABLES" href="https://slurm.schedmd.com/scontrol.html#SECTION_ENVIRONMENT-VARIABLES"></a></h2>
+<p>
+
+Some <b>scontrol</b> options may
+be set via environment variables. These environment variables,
+along with their corresponding options, are listed below. (Note:
+Command line options will always override these settings.)
+</p><p>
+</p><dl compact="">
+<dt><b>SCONTROL_ALL</b><a class="slurm_link" id="OPT_SCONTROL_ALL" href="https://slurm.schedmd.com/scontrol.html#OPT_SCONTROL_ALL"></a></dt><dd><b>-a, --all</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCONTROL_FEDERATION</b><a class="slurm_link" id="OPT_SCONTROL_FEDERATION" href="https://slurm.schedmd.com/scontrol.html#OPT_SCONTROL_FEDERATION"></a></dt><dd><b>--federation</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCONTROL_FUTURE</b><a class="slurm_link" id="OPT_SCONTROL_FUTURE" href="https://slurm.schedmd.com/scontrol.html#OPT_SCONTROL_FUTURE"></a></dt><dd><b>-F, --future</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCONTROL_LOCAL</b><a class="slurm_link" id="OPT_SCONTROL_LOCAL" href="https://slurm.schedmd.com/scontrol.html#OPT_SCONTROL_LOCAL"></a></dt><dd><b>--local</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCONTROL_SIBLING</b><a class="slurm_link" id="OPT_SCONTROL_SIBLING" href="https://slurm.schedmd.com/scontrol.html#OPT_SCONTROL_SIBLING"></a></dt><dd><b>--sibling</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_BITSTR_LEN</b><a class="slurm_link" id="OPT_SLURM_BITSTR_LEN" href="https://slurm.schedmd.com/scontrol.html#OPT_SLURM_BITSTR_LEN"></a></dt><dd>Specifies the string length to be used for holding a job array's task ID
+expression.
+The default value is 64 bytes.
+A value of 0 will print the full expression with any length required.
+Larger values may adversely impact the application performance.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CLUSTERS</b><a class="slurm_link" id="OPT_SLURM_CLUSTERS" href="https://slurm.schedmd.com/scontrol.html#OPT_SLURM_CLUSTERS"></a></dt><dd>Same as <b>--clusters</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CONF</b><a class="slurm_link" id="OPT_SLURM_CONF" href="https://slurm.schedmd.com/scontrol.html#OPT_SLURM_CONF"></a></dt><dd>The location of the Slurm configuration file.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CONF_OUT</b><a class="slurm_link" id="OPT_SLURM_CONF_OUT" href="https://slurm.schedmd.com/scontrol.html#OPT_SLURM_CONF_OUT"></a></dt><dd>When running 'write config', the location of the Slurm configuration file to be
+written.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_DEBUG_FLAGS</b><a class="slurm_link" id="OPT_SLURM_DEBUG_FLAGS" href="https://slurm.schedmd.com/scontrol.html#OPT_SLURM_DEBUG_FLAGS"></a></dt><dd>Specify debug flags for scontrol to use. See DebugFlags in the
+<b><a href="https://slurm.schedmd.com/slurm.conf.html">slurm.conf</a></b>(5) man page for a full list of flags. The environment
+variable takes precedence over the setting in the slurm.conf.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_TIME_FORMAT</b><a class="slurm_link" id="OPT_SLURM_TIME_FORMAT" href="https://slurm.schedmd.com/scontrol.html#OPT_SLURM_TIME_FORMAT"></a></dt><dd>Specify the format used to report time stamps. A value of <i>standard</i>, the
+default value, generates output in the form "year-month-dateThour:minute:second".
+A value of <i>relative</i> returns only "hour:minute:second" if the current day.
+For other dates in the current year it prints the "hour:minute" preceded by
+"Tomorr" (tomorrow), "Ystday" (yesterday), the name of the day for the coming
+week (e.g. "Mon", "Tue", etc.), otherwise the date (e.g. "25 Apr").
+For other years it returns a date month and year without a time (e.g.
+"6 Jun 2012"). All of the time stamps use a 24 hour format.
+<p>
+A valid strftime() format can also be specified. For example, a value of
+"%a %T" will report the day of the week and a time stamp (e.g. "Mon 12:34:56").
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_TOPO_LEN</b><a class="slurm_link" id="OPT_SLURM_TOPO_LEN" href="https://slurm.schedmd.com/scontrol.html#OPT_SLURM_TOPO_LEN"></a></dt><dd>Specify the maximum size of the line when printing Topology. If not set, the
+default value is unlimited.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAT">&nbsp;</a>
+<h2>AUTHORIZATION<a class="slurm_link" id="SECTION_AUTHORIZATION" href="https://slurm.schedmd.com/scontrol.html#SECTION_AUTHORIZATION"></a></h2>
+<p>
+When using SlurmDBD, users who have an AdminLevel defined (Operator
+or Admin) and users who are account coordinators are given the
+authority to view and modify jobs, reservations, nodes, etc., as
+defined in the following table - regardless of whether a PrivateData
+restriction has been defined in the slurm.conf file.
+</p><p>
+<br>
+
+<b>scontrol show job(s):       </b> Admin, Operator, Coordinator
+<br>
+
+<b>scontrol update job:        </b> Admin, Operator, Coordinator
+<br>
+
+<b>scontrol requeue:           </b> Admin, Operator, Coordinator
+<br>
+
+<b>scontrol show step(s):      </b> Admin, Operator, Coordinator
+<br>
+
+<b>scontrol update step:       </b> Admin, Operator, Coordinator
+<br>
+
+</p><p>
+<b>scontrol show node:         </b> Admin, Operator
+<br>
+
+<b>scontrol update node:       </b> Admin
+<br>
+
+</p><p>
+<b>scontrol create partition:  </b> Admin
+<br>
+
+<b>scontrol show partition:    </b> Admin, Operator
+<br>
+
+<b>scontrol update partition:  </b> Admin
+<br>
+
+<b>scontrol delete partition:  </b> Admin
+<br>
+
+</p><p>
+<b>scontrol create reservation:</b> Admin, Operator
+<br>
+
+<b>scontrol show reservation:  </b> Admin, Operator
+<br>
+
+<b>scontrol update reservation:</b> Admin, Operator
+<br>
+
+<b>scontrol delete reservation:</b> Admin, Operator
+<br>
+
+</p><p>
+<b>scontrol reconfig:          </b> Admin
+<br>
+
+<b>scontrol shutdown:          </b> Admin
+<br>
+
+<b>scontrol takeover:          </b> Admin
+<br>
+
+</p><p>
+<a name="lbAU">&nbsp;</a>
+</p><h2>EXAMPLES<a class="slurm_link" id="SECTION_EXAMPLES" href="https://slurm.schedmd.com/scontrol.html#SECTION_EXAMPLES"></a></h2>
+<pre>$ scontrol
+scontrol: show part debug
+PartitionName=debug
+   AllowGroups=ALL AllowAccounts=ALL AllowQos=ALL
+   AllocNodes=ALL Default=YES QoS=N/A
+   DefaultTime=NONE DisableRootJobs=NO ExclusiveUser=NO ExclusiveTopo=NO GraceTime=0 Hidden=NO
+   MaxNodes=UNLIMITED MaxTime=UNLIMITED MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED MaxCPUsPerSocket=UNLIMITED
+   NodeSets=ALL
+   Nodes=snowflake[0-48]
+   PriorityJobFactor=100 PriorityTier=100 RootOnly=NO ReqResv=NO OverSubscribe=NO
+   OverTimeLimit=NONE PreemptMode=REQUEUE
+   State=UP TotalCPUs=588 TotalNodes=49 SelectTypeParameters=NONE
+   JobDefaults=(null)
+   DefMemPerNode=UNLIMITED MaxMemPerNode=UNLIMITED
+   TRES=cpu=588,mem=1204224M,node=49,billing=49
+scontrol: update PartitionName=debug MaxTime=60:00 MaxNodes=4
+scontrol: show job 71701
+JobId=71701 Name=hostname
+   UserId=da(1000) GroupId=da(1000)
+   Priority=66264 Account=none QOS=normal WCKey=*123
+   JobState=COMPLETED Reason=None Dependency=(null)
+   TimeLimit=UNLIMITED Requeue=1 Restarts=0 BatchFlag=0 ExitCode=0:0
+   SubmitTime=2010-01-05T10:58:40 EligibleTime=2010-01-05T10:58:40
+   StartTime=2010-01-05T10:58:40 EndTime=2010-01-05T10:58:40
+   SuspendTime=None SecsPreSuspend=0
+   Partition=debug AllocNode:Sid=snowflake:4702
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=snowflake0
+   NumNodes=1 NumCPUs=10 CPUs/Task=2 ReqS:C:T=1:1:1
+   MinCPUsNode=2 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=(null) Reservation=(null)
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+scontrol: update JobId=71701 TimeLimit=30:00 Priority=500
+scontrol: show hostnames tux[1-3]
+tux1
+tux2
+tux3
+scontrol: create res StartTime=2009-04-01T08:00:00 Duration=5:00:00 Users=dbremer NodeCnt=10
+Reservation created: dbremer_1
+scontrol: update Reservation=dbremer_1 Flags=Maint NodeCnt=20
+scontrol: delete Reservation=dbremer_1
+scontrol: quit
+</pre>
+
+<p>
+<a name="lbAV">&nbsp;</a>
+</p><h2>COPYING<a class="slurm_link" id="SECTION_COPYING" href="https://slurm.schedmd.com/scontrol.html#SECTION_COPYING"></a></h2>
+Copyright (C) 2002-2007 The Regents of the University of California.
+Produced at Lawrence Livermore National Laboratory (cf, DISCLAIMER).
+<br>
+
+Copyright (C) 2008-2010 Lawrence Livermore National Security.
+<br>
+
+Copyright (C) 2010-2022 SchedMD LLC.
+<p>
+
+This file is part of Slurm, a resource management program.
+For details, see &lt;<a href="https://slurm.schedmd.com/">https://slurm.schedmd.com/</a>&gt;.
+</p><p>
+
+Slurm is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free
+Software Foundation; either version 2 of the License, or (at your option)
+any later version.
+</p><p>
+
+Slurm is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+details.
+<a name="lbAW">&nbsp;</a>
+</p><h2>FILES<a class="slurm_link" id="SECTION_FILES" href="https://slurm.schedmd.com/scontrol.html#SECTION_FILES"></a></h2>
+<p>
+
+/etc/slurm.conf
+<a name="lbAX">&nbsp;</a>
+</p><h2>SEE ALSO<a class="slurm_link" id="SECTION_SEE-ALSO" href="https://slurm.schedmd.com/scontrol.html#SECTION_SEE-ALSO"></a></h2>
+<b><a href="https://slurm.schedmd.com/scancel.html">scancel</a></b>(1), <b><a href="https://slurm.schedmd.com/sinfo.html">sinfo</a></b>(1), <b><a href="https://slurm.schedmd.com/squeue.html">squeue</a></b>(1),
+<b>slurm_create_partition</b> (3),
+<b>slurm_delete_partition</b> (3),
+<b>slurm_load_ctl_conf</b> (3),
+<b>slurm_load_jobs</b> (3), <b>slurm_load_node</b> (3),
+<b>slurm_load_partitions</b> (3),
+<b>slurm_reconfigure</b> (3),  <b>slurm_requeue</b> (3),
+<b>slurm_resume</b> (3),
+<b>slurm_shutdown</b> (3), <b>slurm_suspend</b> (3),
+<b>slurm_takeover</b> (3),
+<b>slurm_update_job</b> (3), <b>slurm_update_node</b> (3),
+<b>slurm_update_partition</b> (3),
+<b><a href="https://slurm.schedmd.com/slurm.conf.html">slurm.conf</a></b>(5), <b><a href="https://slurm.schedmd.com/slurmctld.html">slurmctld</a></b>(8)
+<p>
+
+</p><hr>
+<a name="index">&nbsp;</a><h2>Index</h2>
+<dl>
+<dt><a href="https://slurm.schedmd.com/scontrol.html#lbAB">NAME</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAC">SYNOPSIS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAD">DESCRIPTION</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAE">OPTIONS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAF">COMMANDS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAG">INTERACTIVE COMMANDS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAH">JOBS - SPECIFICATIONS FOR UPDATE COMMAND</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAI">JOBS - SPECIFICATIONS FOR SHOW COMMAND</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAJ">STEPS - SPECIFICATIONS FOR UPDATE COMMAND</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAK">NODES - SPECIFICATIONS FOR CREATE COMMAND</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAL">NODES - SPECIFICATIONS FOR UPDATE COMMAND</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAM">NODES - SPECIFICATIONS FOR DELETE COMMAND</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAN">NODES - SPECIFICATIONS FOR SHOW COMMAND</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAO">FRONTEND - SPECIFICATIONS FOR UPDATE COMMAND</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAP">PARTITIONS - SPECIFICATIONS FOR CREATE, UPDATE, AND DELETE COMMANDS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAQ">RESERVATIONS - SPECIFICATIONS FOR CREATE, UPDATE, AND DELETE COMMANDS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAR">PERFORMANCE</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAS">ENVIRONMENT VARIABLES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAT">AUTHORIZATION</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAU">EXAMPLES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAV">COPYING</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAW">FILES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scontrol.html#lbAX">SEE ALSO</a></dt><dd>
+</dd></dl>
+<hr>
+This document was created by
+<i>man2html</i> using the manual pages.<br>
+Time: 20:54:38 GMT, February 25, 2025
+			</div> <!-- END .container -->
+		</div> <!-- END .section -->
+	</div> <!-- END .content -->
+</div> <!-- END .main -->
+
+
+
+<table cellspacing="0" cellpadding="0" role="presentation" class="gstl_50 gssb_c" style="width: 172px; display: none; top: 65px; left: 523px; position: absolute;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table><div data-lastpass-root="" style="position: absolute !important; top: 0px !important; left: 0px !important; height: 0px !important; width: 0px !important;"><template shadowrootmode="closed"><div style="position: absolute; height: 100vh; width: 100vw; z-index: 2147483647; border-radius: 4px; top: 0px; left: 0px; max-height: 0px; max-width: 280px; min-width: auto;"><iframe data-lastpass-infield="true" allow="clipboard-write" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/webclient-infield.html" style="border: none; height: 100%; width: 100%;"></iframe></div></template></div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

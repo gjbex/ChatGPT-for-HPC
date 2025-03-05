@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://slurm.schedmd.com/scrun.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+	<meta name="viewport" content="width=device-width">
+
+	<title>Slurm Workload Manager - scrun</title>
+	<link rel="canonical" href="https://slurm.schedmd.com/scrun.html">
+
+	<link rel="shortcut icon" href="https://slurm.schedmd.com/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - scrun_files/fonts.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - scrun_files/reset.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - scrun_files/style.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - scrun_files/slurm.css">
+
+	<script async="" src="./Slurm Workload Manager - scrun_files/async-ads.js.download"></script><script src="./Slurm Workload Manager - scrun_files/jquery.min.js.download"></script>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+		jQuery('.menu-trigger').bind('click touchstart', function() {
+			jQuery(this).find('.menu-trigger__lines').toggleClass('menu-trigger__lines--closed');
+			jQuery(this).parents('.site-header').find('.site-nav').toggleClass('site-nav--active');
+
+			return false;
+		});
+	});
+	</script>
+	<script async="" src="./Slurm Workload Manager - scrun_files/f.txt"></script>
+<script src="./Slurm Workload Manager - scrun_files/cse_element__en.js.download" type="text/javascript"></script><link type="text/css" href="./Slurm Workload Manager - scrun_files/default+en.css" rel="stylesheet"><link type="text/css" href="./Slurm Workload Manager - scrun_files/default.css" rel="stylesheet"><style type="text/css">.gsc-control-cse{font-family:arial, sans-serif}.gsc-control-cse .gsc-table-result{font-family:arial, sans-serif}.gsc-refinementsGradient{background:linear-gradient(to left,rgba(255,255,255,1),rgba(255,255,255,0))}.gsc-control-cse{border-color:#FFFFFF;background-color:#FFFFFF}input.gsc-input,.gsc-input-box,.gsc-input-box-hover,.gsc-input-box-focus{border-color:#D9D9D9}.gsc-search-button-v2,.gsc-search-button-v2:hover,.gsc-search-button-v2:focus{border-color:#666666;background-color:#1BAEE9;background-image:none;filter:none}.gsc-search-button-v2 svg{fill:#FFFFFF}.gsc-tabHeader.gsc-tabhActive,.gsc-refinementHeader.gsc-refinementhActive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-tabHeader.gsc-tabhInactive,.gsc-refinementHeader.gsc-refinementhInactive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-webResult.gsc-result,.gsc-results .gsc-imageResult{border-color:#FFFFFF;background-color:#FFFFFF}.gsc-webResult.gsc-result:hover{border-color:#FFFFFF;background-color:#FFFFFF}.gs-webResult.gs-result a.gs-title:link,.gs-webResult.gs-result a.gs-title:link b,.gs-imageResult a.gs-title:link,.gs-imageResult a.gs-title:link b{color:#0000CC}.gs-webResult.gs-result a.gs-title:visited,.gs-webResult.gs-result a.gs-title:visited b,.gs-imageResult a.gs-title:visited,.gs-imageResult a.gs-title:visited b{color:#0000CC}.gs-webResult.gs-result a.gs-title:hover,.gs-webResult.gs-result a.gs-title:hover b,.gs-imageResult a.gs-title:hover,.gs-imageResult a.gs-title:hover b{color:#0000CC}.gs-webResult.gs-result a.gs-title:active,.gs-webResult.gs-result a.gs-title:active b,.gs-imageResult a.gs-title:active,.gs-imageResult a.gs-title:active b{color:#0000CC}.gsc-cursor-page{color:#0000CC}a.gsc-trailing-more-results:link{color:#0000CC}.gs-webResult:not(.gs-no-results-result):not(.gs-error-result) .gs-snippet,.gs-fileFormatType{color:#000000}.gs-webResult div.gs-visibleUrl{color:#008000}.gs-webResult div.gs-visibleUrl-short{color:#008000}.gsc-cursor-box{border-color:#FFFFFF}.gsc-results .gsc-cursor-box .gsc-cursor-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-results .gsc-cursor-box .gsc-cursor-current-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-webResult.gsc-result.gsc-promotion{border-color:#336699;background-color:#FFFFFF}.gsc-completion-title{color:#0000CC}.gsc-completion-snippet{color:#000000}.gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link{color:#0000CC}.gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited{color:#0000CC}.gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover{color:#0000CC}.gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active{color:#0000CC}.gs-promotion .gs-snippet,.gs-promotion .gs-title .gs-promotion-title-right,.gs-promotion .gs-title .gs-promotion-title-right *{color:#000000}.gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short{color:#008000}.gcsc-find-more-on-google{color:#0000CC}.gcsc-find-more-on-google-magnifier{fill:#0000CC}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{vertical-align:middle;opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gssb_a{padding:0 9px}.gsib_a{padding:5px 9px 4px 9px}.gscb_a{line-height:27px}.gssb_e{border:0}.gssb_l{margin:5px 0}input.gsc-input::-webkit-input-placeholder{font-size:14px}input.gsc-input:-moz-placeholder{font-size:14px}input.gsc-input::-moz-placeholder{font-size:14px}input.gsc-input:-ms-input-placeholder{font-size:14px}input.gsc-input:focus::-webkit-input-placeholder{color:transparent}input.gsc-input:focus:-moz-placeholder{color:transparent}input.gsc-input:focus::-moz-placeholder{color:transparent}input.gsc-input:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
+
+<body data-new-gr-c-s-check-loaded="14.1224.0" data-gr-ext-installed="">
+
+<div class="container container--main">
+
+	<header class="site-header" role="banner">
+
+		<div class="site-masthead">
+			<h1 class="site-masthead__title site-masthead__title--slurm">
+				<a href="https://slurm.schedmd.com/" rel="home">
+					<span class="slurm-logo">Slurm Workload Manager</span>
+				</a>
+			</h1>
+			<div class="site-masthead__title">
+				<a href="https://www.schedmd.com/" rel="home">
+					<span class="site-logo">SchedMD</span>
+				</a>
+			</div>
+
+			<button class="site-masthead__trigger menu-trigger" type="button" role="button" aria-label="Toggle Navigation"><span class="menu-trigger__lines"></span></button>
+		</div>
+
+
+		<nav class="site-nav" role="navigation">
+			<h2 class="site-nav__title">Navigation</h2>
+
+			<div class="slurm-title">
+				<div class="slurm-logo"><a href="https://slurm.schedmd.com/">Slurm Workload Manager</a></div>
+				<div class="slurm-title__version">Version 24.11</div>
+			</div>
+
+			<ul class="site-nav__menu site-menu menu">
+				<li class="site-menu__item">
+				        <div>About</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/overview.html">Overview</a></li>
+						<li><a href="https://slurm.schedmd.com/release_notes.html">Release Notes</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Using</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/documentation.html">Documentation</a></li>
+						<li><a href="https://slurm.schedmd.com/faq.html">FAQ</a></li>
+						<li><a href="https://www.schedmd.com/publications/">Publications</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Installing</div>
+					<ul>
+						<li><a href="https://www.schedmd.com/download-slurm/">Download</a></li>
+						<li><a href="https://slurm.schedmd.com/related_software.html">Related Software</a></li>
+						<li><a href="https://slurm.schedmd.com/quickstart_admin.html">Installation Guide</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Getting Help</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/mail.html">Mailing Lists</a></li>
+						<li><a href="https://www.schedmd.com/slurm-support/our-services/">Support and Training</a></li>
+						<li><a href="https://slurm.schedmd.com/troubleshoot.html">Troubleshooting</a></li>
+					</ul>
+				</li>
+			</ul>
+
+		</nav>
+
+	</header>
+
+	<div class="content" role="main">
+		<section class="slurm-search">
+			<div class="container" id="cse">
+				<div id="___gcse_0"><div class="gsc-control-cse gsc-control-cse-en"><div class="gsc-control-wrapper-cse" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" role="presentation" id="gs_id50" class="gstl_50 gsc-input" style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" aria-label="search" id="gsc-i-id1" dir="ltr" spellcheck="false" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; background: url(&quot;https://www.google.com/cse/static/images/1x/en/branding.png&quot;) left center no-repeat rgb(255, 255, 255); outline: none;"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" title="Clear search box" role="button" style="display: none;"><span class="gscb_a" id="gs_cb50" aria-hidden="true">×</span></a></div></td></tr></tbody></table></div></td><td class="gsc-search-button"><button class="gsc-search-button gsc-search-button-v2"><svg width="13" height="13" viewBox="0 0 13 13"><title>search</title><path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path></svg></button></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table></form><div class="gsc-results-wrapper-nooverlay"><div class="gsc-positioningWrapper"><div class="gsc-tabsAreaInvisible"><div aria-label="refinement" role="tab" class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Custom Search</div><span class="gs-spacer"> </span></div></div><div class="gsc-positioningWrapper"><div class="gsc-refinementsAreaInvisible"></div></div><div class="gsc-above-wrapper-area-invisible"><div class="gsc-above-wrapper-area-backfill-container"></div><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-above-wrapper-area-container"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td><td class="gsc-orderby-container"><div class="gsc-orderby-invisible"><div class="gsc-orderby-label gsc-inline-block">Sort by:</div><div class="gsc-option-menu-container gsc-inline-block"><div class="gsc-selected-option-container gsc-inline-block"><div class="gsc-selected-option">Relevance</div><div class="gsc-option-selector"></div></div><div class="gsc-option-menu-invisible"><div class="gsc-option-menu-item gsc-option-menu-item-highlighted"><div class="gsc-option">Relevance</div></div><div class="gsc-option-menu-item"><div class="gsc-option">Date</div></div></div></div></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><div><div class="gsc-expansionArea"></div></div></div></div></div></div></div></div></div>
+			</div>
+		</section>
+
+		<div class="section">
+			<div class="container">
+
+<h1>scrun</h1>
+Section: Slurm Commands (1)<br>Updated: Slurm Commands<br><a href="https://slurm.schedmd.com/scrun.html#index">Index</a>
+
+<p>
+<a name="lbAB">&nbsp;</a>
+</p><h2>NAME<a class="slurm_link" id="SECTION_NAME" href="https://slurm.schedmd.com/scrun.html#SECTION_NAME"></a></h2>
+<b>scrun</b> - an OCI runtime proxy for Slurm.
+<p>
+<a name="lbAC">&nbsp;</a>
+</p><h2>SYNOPSIS<a class="slurm_link" id="SECTION_SYNOPSIS" href="https://slurm.schedmd.com/scrun.html#SECTION_SYNOPSIS"></a></h2>
+<p>
+</p><dl compact="">
+<dt></dt></dl>
+<a name="lbAD">&nbsp;</a>
+<h2>Create Operation<a class="slurm_link" id="SECTION_Create-Operation" href="https://slurm.schedmd.com/scrun.html#SECTION_Create-Operation"></a></h2>
+<dd>
+<b>scrun</b> [<i>GLOBAL OPTIONS</i>...] <i>create</i> [<i>CREATE OPTIONS</i>] &lt;<i>container-id</i>&gt;
+<dl compact="">
+<dt></dt><dd>
+Prepares a new container with container-id in current working directory.
+
+<p>
+</p></dd><dt></dt></dl>
+<a name="lbAE">&nbsp;</a>
+<h2>Start Operation<a class="slurm_link" id="SECTION_Start-Operation" href="https://slurm.schedmd.com/scrun.html#SECTION_Start-Operation"></a></h2>
+</dd><dd>
+<b>scrun</b> [<i>GLOBAL OPTIONS</i>...] <i>start</i> &lt;<i>container-id</i>&gt;
+<dl compact="">
+<dt></dt><dd>
+Request to start and run container in job.
+
+<p>
+</p></dd><dt></dt></dl>
+<a name="lbAF">&nbsp;</a>
+<h2>Query State Operation<a class="slurm_link" id="SECTION_Query-State-Operation" href="https://slurm.schedmd.com/scrun.html#SECTION_Query-State-Operation"></a></h2>
+</dd><dd>
+<b>scrun</b> [<i>GLOBAL OPTIONS</i>...] <i>state</i> &lt;<i>container-id</i>&gt;
+<dl compact="">
+<dt></dt><dd>
+Output OCI defined JSON state of container.
+
+<p>
+</p></dd><dt></dt></dl>
+<a name="lbAG">&nbsp;</a>
+<h2>Kill Operation<a class="slurm_link" id="SECTION_Kill-Operation" href="https://slurm.schedmd.com/scrun.html#SECTION_Kill-Operation"></a></h2>
+</dd><dd>
+<b>scrun</b> [<i>GLOBAL OPTIONS</i>...] <i>kill</i> &lt;<i>container-id</i>&gt; [<i>signal</i>]
+<dl compact="">
+<dt></dt><dd>
+Send signal (default: SIGTERM) to container.
+
+<p>
+</p></dd><dt></dt></dl>
+<a name="lbAH">&nbsp;</a>
+<h2>Delete Operation<a class="slurm_link" id="SECTION_Delete-Operation" href="https://slurm.schedmd.com/scrun.html#SECTION_Delete-Operation"></a></h2>
+</dd><dd>
+<b>scrun</b> [<i>GLOBAL OPTIONS</i>...] <i>delete</i> [<i>DELETE OPTIONS</i>] &lt;<i>container-id</i>&gt;
+<dl compact="">
+<dt></dt><dd>
+Release any resources held by container locally and remotely.
+
+<p>
+Perform OCI runtime operations against <i>container-id</i> per:
+<br>
+
+<a href="https://github.com/opencontainers/runtime-spec/blob/main/runtime.md">https://github.com/opencontainers/runtime-spec/blob/main/runtime.md</a>
+</p><p>
+<b>scrun</b> attempts to mimic the commandline behavior as closely as possible
+to <b>crun</b> and <b>runc</b> in order to maintain in place replacement
+compatibility with <b>DOCKER</b> and <b>podman</b>. All commandline
+arguments for <b>crun</b> and <b>runc</b> will be accepted for compatibility
+but may be ignored depending on their applicability.
+</p><p>
+</p></dd></dl>
+<a name="lbAI">&nbsp;</a>
+<h2>DESCRIPTION<a class="slurm_link" id="SECTION_DESCRIPTION" href="https://slurm.schedmd.com/scrun.html#SECTION_DESCRIPTION"></a></h2>
+<b>scrun</b> is an OCI runtime proxy for Slurm. It acts as a common interface to
+<b>DOCKER</b> or <b>podman</b> to allow container operations to be executed
+under Slurm as jobs. <b>scrun</b> will accept all commands as an OCI compliant
+runtime but will proxy the container and all STDIO to Slurm for scheduling and
+execution. The containers will be executed remotely on Slurm compute nodes
+according to settings in
+<b><a href="https://slurm.schedmd.com/oci.conf.html">oci.conf</a></b>(5).
+<p>
+<b>scrun</b> requires all containers to be OCI image compliant per:
+<br>
+
+<a href="https://github.com/opencontainers/image-spec/blob/main/spec.md">https://github.com/opencontainers/image-spec/blob/main/spec.md</a>
+</p><p>
+<a name="lbAJ">&nbsp;</a>
+</p><h2>RETURN VALUE<a class="slurm_link" id="SECTION_RETURN-VALUE" href="https://slurm.schedmd.com/scrun.html#SECTION_RETURN-VALUE"></a></h2>
+On successful operation, <b>scrun</b> will return 0. For any other condition
+<b>scrun</b> will return any non-zero number to denote a error.
+<p>
+<a name="lbAK">&nbsp;</a>
+</p><h2>GLOBAL OPTIONS<a class="slurm_link" id="SECTION_GLOBAL-OPTIONS" href="https://slurm.schedmd.com/scrun.html#SECTION_GLOBAL-OPTIONS"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>--cgroup-manager</b><a class="slurm_link" id="OPT_cgroup-manager" href="https://slurm.schedmd.com/scrun.html#OPT_cgroup-manager"></a></dt><dd>Ignored.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--debug</b><a class="slurm_link" id="OPT_debug" href="https://slurm.schedmd.com/scrun.html#OPT_debug"></a></dt><dd>Activate debug level logging.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-f</b> &lt;<i>slurm_conf_path</i>&gt;<a class="slurm_link" id="OPT_-f" href="https://slurm.schedmd.com/scrun.html#OPT_-f"></a></dt><dd>Use specified slurm.conf for configuration.
+<br>
+
+Default: sysconfdir from <b>configure</b> during compilation
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--usage</b><a class="slurm_link" id="OPT_usage" href="https://slurm.schedmd.com/scrun.html#OPT_usage"></a></dt><dd>Show quick help on how to call <b>scrun</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--log-format</b>=&lt;<i>json|text</i>&gt;<a class="slurm_link" id="OPT_log-format" href="https://slurm.schedmd.com/scrun.html#OPT_log-format"></a></dt><dd>Optional select format for logging. May be "json" or "text".
+<br>
+
+Default: text
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--root</b>=&lt;<i>root_path</i>&gt;<a class="slurm_link" id="OPT_root" href="https://slurm.schedmd.com/scrun.html#OPT_root"></a></dt><dd>Path to spool directory to communication sockets and temporary directories and
+files. This should be a tmpfs and should be cleared on reboot.
+<br>
+
+Default: /run/user/<i>{user_id}</i>/scrun/
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--rootless</b><a class="slurm_link" id="OPT_rootless" href="https://slurm.schedmd.com/scrun.html#OPT_rootless"></a></dt><dd>Ignored. All <b>scrun</b> commands are always rootless.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--systemd-cgroup</b><a class="slurm_link" id="OPT_systemd-cgroup" href="https://slurm.schedmd.com/scrun.html#OPT_systemd-cgroup"></a></dt><dd>Ignored.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-v</b><a class="slurm_link" id="OPT_-v" href="https://slurm.schedmd.com/scrun.html#OPT_-v"></a></dt><dd>Increase logging verbosity. Multiple -v's increase verbosity.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-V</b>, <b>--version</b><a class="slurm_link" id="OPT_version" href="https://slurm.schedmd.com/scrun.html#OPT_version"></a></dt><dd>Print version information and exit.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAL">&nbsp;</a>
+<h2>CREATE OPTIONS<a class="slurm_link" id="SECTION_CREATE-OPTIONS" href="https://slurm.schedmd.com/scrun.html#SECTION_CREATE-OPTIONS"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>-b</b> &lt;<i>bundle_path</i>&gt;, <b>--bundle</b>=&lt;<i>bundle_path</i>&gt;<a class="slurm_link" id="OPT_bundle" href="https://slurm.schedmd.com/scrun.html#OPT_bundle"></a></dt><dd>Path to the root of the bundle directory.
+<br>
+
+Default: caller's working directory
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--console-socket</b>=&lt;<i>console_socket_path</i>&gt;<a class="slurm_link" id="OPT_console-socket" href="https://slurm.schedmd.com/scrun.html#OPT_console-socket"></a></dt><dd>Optional path to an AF_UNIX socket which will receive a file descriptor
+referencing the master end of the console's pseudoterminal.
+<br>
+
+Default: <i>ignored</i>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--no-pivot</b><a class="slurm_link" id="OPT_no-pivot" href="https://slurm.schedmd.com/scrun.html#OPT_no-pivot"></a></dt><dd>Ignored.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--no-new-keyring</b><a class="slurm_link" id="OPT_no-new-keyring" href="https://slurm.schedmd.com/scrun.html#OPT_no-new-keyring"></a></dt><dd>Ignored.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--pid-file</b>=&lt;<i>pid_file_path</i>&gt;<a class="slurm_link" id="OPT_pid-file" href="https://slurm.schedmd.com/scrun.html#OPT_pid-file"></a></dt><dd>Specify the file to lock and populate with process ID.
+<br>
+
+Default: <i>ignored</i>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--preserve-fds</b><a class="slurm_link" id="OPT_preserve-fds" href="https://slurm.schedmd.com/scrun.html#OPT_preserve-fds"></a></dt><dd>Ignored.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAM">&nbsp;</a>
+<h2>DELETE OPTIONS<a class="slurm_link" id="SECTION_DELETE-OPTIONS" href="https://slurm.schedmd.com/scrun.html#SECTION_DELETE-OPTIONS"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>--force</b><a class="slurm_link" id="OPT_force" href="https://slurm.schedmd.com/scrun.html#OPT_force"></a></dt><dd>Ignored. All delete requests are forced and will kill any running jobs.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAN">&nbsp;</a>
+<h2>INPUT ENVIRONMENT VARIABLES<a class="slurm_link" id="SECTION_INPUT-ENVIRONMENT-VARIABLES" href="https://slurm.schedmd.com/scrun.html#SECTION_INPUT-ENVIRONMENT-VARIABLES"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>SCRUN_DEBUG</b>=&lt;quiet|fatal|error|info|verbose|debug|debug2|debug3|debug4|debug5&gt;<a class="slurm_link" id="OPT_SCRUN_DEBUG" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_DEBUG"></a></dt><dd>Set logging level.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_STDERR_DEBUG</b>=&lt;quiet|fatal|error|info|verbose|debug|debug2|debug3|debug4|debug5&gt;<a class="slurm_link" id="OPT_SCRUN_STDERR_DEBUG" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_STDERR_DEBUG"></a></dt><dd>Set logging level for standard error output only.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_SYSLOG_DEBUG</b>=&lt;quiet|fatal|error|info|verbose|debug|debug2|debug3|debug4|debug5&gt;<a class="slurm_link" id="OPT_SCRUN_SYSLOG_DEBUG" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_SYSLOG_DEBUG"></a></dt><dd>Set logging level for syslogging only.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_FILE_DEBUG</b>=&lt;quiet|fatal|error|info|verbose|debug|debug2|debug3|debug4|debug5&gt;<a class="slurm_link" id="OPT_SCRUN_FILE_DEBUG" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_FILE_DEBUG"></a></dt><dd>Set logging level for log file only.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAO">&nbsp;</a>
+<h2>JOB INPUT ENVIRONMENT VARIABLES<a class="slurm_link" id="SECTION_JOB-INPUT-ENVIRONMENT-VARIABLES" href="https://slurm.schedmd.com/scrun.html#SECTION_JOB-INPUT-ENVIRONMENT-VARIABLES"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>SCRUN_ACCOUNT</b><a class="slurm_link" id="OPT_SCRUN_ACCOUNT" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_ACCOUNT"></a></dt><dd>See <b>SLURM_ACCOUNT</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_ACCTG_FREQ</b><a class="slurm_link" id="OPT_SCRUN_ACCTG_FREQ" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_ACCTG_FREQ"></a></dt><dd>See <b>SLURM_ACCTG_FREQ</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_BURST_BUFFER</b><a class="slurm_link" id="OPT_SCRUN_BURST_BUFFER" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_BURST_BUFFER"></a></dt><dd>See <b>SLURM_BURST_BUFFER</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_CLUSTER_CONSTRAINT</b><a class="slurm_link" id="OPT_SCRUN_CLUSTER_CONSTRAINT" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_CLUSTER_CONSTRAINT"></a></dt><dd>See <b>SLURM_CLUSTER_CONSTRAINT</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_CLUSTERS</b><a class="slurm_link" id="OPT_SCRUN_CLUSTERS" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_CLUSTERS"></a></dt><dd>See <b>SLURM_CLUSTERS</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_CONSTRAINT</b><a class="slurm_link" id="OPT_SCRUN_CONSTRAINT" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_CONSTRAINT"></a></dt><dd>See <b>SLURM_CONSTRAINT</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CORE_SPEC</b><a class="slurm_link" id="OPT_SLURM_CORE_SPEC" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_CORE_SPEC"></a></dt><dd>See <b>SLURM_ACCOUNT</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_CPU_BIND</b><a class="slurm_link" id="OPT_SCRUN_CPU_BIND" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_CPU_BIND"></a></dt><dd>See <b>SLURM_CPU_BIND</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_CPU_FREQ_REQ</b><a class="slurm_link" id="OPT_SCRUN_CPU_FREQ_REQ" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_CPU_FREQ_REQ"></a></dt><dd>See <b>SLURM_CPU_FREQ_REQ</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_CPUS_PER_GPU</b><a class="slurm_link" id="OPT_SCRUN_CPUS_PER_GPU" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_CPUS_PER_GPU"></a></dt><dd>See <b>SLURM_CPUS_PER_GPU</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_CPUS_PER_TASK</b><a class="slurm_link" id="OPT_SCRUN_CPUS_PER_TASK" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_CPUS_PER_TASK"></a></dt><dd>See <b>SRUN_CPUS_PER_TASK</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_DELAY_BOOT</b><a class="slurm_link" id="OPT_SCRUN_DELAY_BOOT" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_DELAY_BOOT"></a></dt><dd>See <b>SLURM_DELAY_BOOT</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_DEPENDENCY</b><a class="slurm_link" id="OPT_SCRUN_DEPENDENCY" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_DEPENDENCY"></a></dt><dd>See <b>SLURM_DEPENDENCY</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_DISTRIBUTION</b><a class="slurm_link" id="OPT_SCRUN_DISTRIBUTION" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_DISTRIBUTION"></a></dt><dd>See <b>SLURM_DISTRIBUTION</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_EPILOG</b><a class="slurm_link" id="OPT_SCRUN_EPILOG" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_EPILOG"></a></dt><dd>See <b>SLURM_EPILOG</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_EXACT</b><a class="slurm_link" id="OPT_SCRUN_EXACT" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_EXACT"></a></dt><dd>See <b>SLURM_EXACT</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_EXCLUSIVE</b><a class="slurm_link" id="OPT_SCRUN_EXCLUSIVE" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_EXCLUSIVE"></a></dt><dd>See <b>SLURM_EXCLUSIVE</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_GPU_BIND</b><a class="slurm_link" id="OPT_SCRUN_GPU_BIND" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_GPU_BIND"></a></dt><dd>See <b>SLURM_GPU_BIND</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_GPU_FREQ</b><a class="slurm_link" id="OPT_SCRUN_GPU_FREQ" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_GPU_FREQ"></a></dt><dd>See <b>SLURM_GPU_FREQ</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_GPUS</b><a class="slurm_link" id="OPT_SCRUN_GPUS" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_GPUS"></a></dt><dd>See <b>SLURM_GPUS</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_GPUS_PER_NODE</b><a class="slurm_link" id="OPT_SCRUN_GPUS_PER_NODE" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_GPUS_PER_NODE"></a></dt><dd>See <b>SLURM_GPUS_PER_NODE</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_GPUS_PER_SOCKET</b><a class="slurm_link" id="OPT_SCRUN_GPUS_PER_SOCKET" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_GPUS_PER_SOCKET"></a></dt><dd>See <b>SLURM_GPUS_PER_SOCKET</b> from <b><a href="https://slurm.schedmd.com/salloc.html">salloc</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_GPUS_PER_TASK</b><a class="slurm_link" id="OPT_SCRUN_GPUS_PER_TASK" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_GPUS_PER_TASK"></a></dt><dd>See <b>SLURM_GPUS_PER_TASK</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_GRES_FLAGS</b><a class="slurm_link" id="OPT_SCRUN_GRES_FLAGS" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_GRES_FLAGS"></a></dt><dd>See <b>SLURM_GRES_FLAGS</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_GRES</b><a class="slurm_link" id="OPT_SCRUN_GRES" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_GRES"></a></dt><dd>See <b>SLURM_GRES</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_HINT</b><a class="slurm_link" id="OPT_SCRUN_HINT" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_HINT"></a></dt><dd>See <b>SLURM_HIST</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_JOB_NAME</b><a class="slurm_link" id="OPT_SCRUN_JOB_NAME" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_JOB_NAME"></a></dt><dd>See <b>SLURM_JOB_NAME</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_JOB_NODELIST</b><a class="slurm_link" id="OPT_SCRUN_JOB_NODELIST" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_JOB_NODELIST"></a></dt><dd>See <b>SLURM_JOB_NODELIST</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_JOB_NUM_NODES</b><a class="slurm_link" id="OPT_SCRUN_JOB_NUM_NODES" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_JOB_NUM_NODES"></a></dt><dd>See <b>SLURM_JOB_NUM_NODES</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_LABELIO</b><a class="slurm_link" id="OPT_SCRUN_LABELIO" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_LABELIO"></a></dt><dd>See <b>SLURM_LABELIO</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_MEM_BIND</b><a class="slurm_link" id="OPT_SCRUN_MEM_BIND" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_MEM_BIND"></a></dt><dd>See <b>SLURM_MEM_BIND</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_MEM_PER_CPU</b><a class="slurm_link" id="OPT_SCRUN_MEM_PER_CPU" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_MEM_PER_CPU"></a></dt><dd>See <b>SLURM_MEM_PER_CPU</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_MEM_PER_GPU</b><a class="slurm_link" id="OPT_SCRUN_MEM_PER_GPU" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_MEM_PER_GPU"></a></dt><dd>See <b>SLURM_MEM_PER_GPU</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_MEM_PER_NODE</b><a class="slurm_link" id="OPT_SCRUN_MEM_PER_NODE" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_MEM_PER_NODE"></a></dt><dd>See <b>SLURM_MEM_PER_NODE</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_MPI_TYPE</b><a class="slurm_link" id="OPT_SCRUN_MPI_TYPE" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_MPI_TYPE"></a></dt><dd>See <b>SLURM_MPI_TYPE</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_NCORES_PER_SOCKET</b><a class="slurm_link" id="OPT_SCRUN_NCORES_PER_SOCKET" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_NCORES_PER_SOCKET"></a></dt><dd>See <b>SLURM_NCORES_PER_SOCKET</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_NETWORK</b><a class="slurm_link" id="OPT_SCRUN_NETWORK" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_NETWORK"></a></dt><dd>See <b>SLURM_NETWORK</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_NSOCKETS_PER_NODE</b><a class="slurm_link" id="OPT_SCRUN_NSOCKETS_PER_NODE" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_NSOCKETS_PER_NODE"></a></dt><dd>See <b>SLURM_NSOCKETS_PER_NODE</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_NTASKS</b><a class="slurm_link" id="OPT_SCRUN_NTASKS" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_NTASKS"></a></dt><dd>See <b>SLURM_NTASKS</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_NTASKS_PER_CORE</b><a class="slurm_link" id="OPT_SCRUN_NTASKS_PER_CORE" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_NTASKS_PER_CORE"></a></dt><dd>See <b>SLURM_NTASKS_PER_CORE</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_NTASKS_PER_GPU</b><a class="slurm_link" id="OPT_SCRUN_NTASKS_PER_GPU" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_NTASKS_PER_GPU"></a></dt><dd>See <b>SLURM_NTASKS_PER_GPU</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_NTASKS_PER_NODE</b><a class="slurm_link" id="OPT_SCRUN_NTASKS_PER_NODE" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_NTASKS_PER_NODE"></a></dt><dd>See <b>SLURM_NTASKS_PER_NODE</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_NTASKS_PER_TRES</b><a class="slurm_link" id="OPT_SCRUN_NTASKS_PER_TRES" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_NTASKS_PER_TRES"></a></dt><dd>See <b>SLURM_NTASKS_PER_TRES</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_OPEN_MODE</b><a class="slurm_link" id="OPT_SCRUN_OPEN_MODE" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_OPEN_MODE"></a></dt><dd>See <b>SLURM_MODE</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_OVERCOMMIT</b><a class="slurm_link" id="OPT_SCRUN_OVERCOMMIT" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_OVERCOMMIT"></a></dt><dd>See <b>SLURM_OVERCOMMIT</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_OVERLAP</b><a class="slurm_link" id="OPT_SCRUN_OVERLAP" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_OVERLAP"></a></dt><dd>See <b>SLURM_OVERLAP</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_PARTITION</b><a class="slurm_link" id="OPT_SCRUN_PARTITION" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_PARTITION"></a></dt><dd>See <b>SLURM_PARTITION</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_POWER</b><a class="slurm_link" id="OPT_SCRUN_POWER" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_POWER"></a></dt><dd>See <b>SLURM_POWER</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_PROFILE</b><a class="slurm_link" id="OPT_SCRUN_PROFILE" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_PROFILE"></a></dt><dd>See <b>SLURM_PROFILE</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_PROLOG</b><a class="slurm_link" id="OPT_SCRUN_PROLOG" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_PROLOG"></a></dt><dd>See <b>SLURM_PROLOG</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_QOS</b><a class="slurm_link" id="OPT_SCRUN_QOS" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_QOS"></a></dt><dd>See <b>SLURM_QOS</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_REMOTE_CWD</b><a class="slurm_link" id="OPT_SCRUN_REMOTE_CWD" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_REMOTE_CWD"></a></dt><dd>See <b>SLURM_REMOTE_CWD</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_REQ_SWITCH</b><a class="slurm_link" id="OPT_SCRUN_REQ_SWITCH" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_REQ_SWITCH"></a></dt><dd>See <b>SLURM_REQ_SWITCH</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_RESERVATION</b><a class="slurm_link" id="OPT_SCRUN_RESERVATION" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_RESERVATION"></a></dt><dd>See <b>SLURM_RESERVATION</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_SIGNAL</b><a class="slurm_link" id="OPT_SCRUN_SIGNAL" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_SIGNAL"></a></dt><dd>See <b>SLURM_SIGNAL</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_SLURMD_DEBUG</b><a class="slurm_link" id="OPT_SCRUN_SLURMD_DEBUG" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_SLURMD_DEBUG"></a></dt><dd>See <b>SLURMD_DEBUG</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_SPREAD_JOB</b><a class="slurm_link" id="OPT_SCRUN_SPREAD_JOB" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_SPREAD_JOB"></a></dt><dd>See <b>SLURM_SPREAD_JOB</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_TASK_EPILOG</b><a class="slurm_link" id="OPT_SCRUN_TASK_EPILOG" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_TASK_EPILOG"></a></dt><dd>See <b>SLURM_TASK_EPILOG</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_TASK_PROLOG</b><a class="slurm_link" id="OPT_SCRUN_TASK_PROLOG" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_TASK_PROLOG"></a></dt><dd>See <b>SLURM_TASK_PROLOG</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_THREAD_SPEC</b><a class="slurm_link" id="OPT_SCRUN_THREAD_SPEC" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_THREAD_SPEC"></a></dt><dd>See <b>SLURM_THREAD_SPEC</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_THREADS_PER_CORE</b><a class="slurm_link" id="OPT_SCRUN_THREADS_PER_CORE" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_THREADS_PER_CORE"></a></dt><dd>See <b>SLURM_THREADS_PER_CORE</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_THREADS</b><a class="slurm_link" id="OPT_SCRUN_THREADS" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_THREADS"></a></dt><dd>See <b>SLURM_THREADS</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_TIMELIMIT</b><a class="slurm_link" id="OPT_SCRUN_TIMELIMIT" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_TIMELIMIT"></a></dt><dd>See <b>SLURM_TIMELIMIT</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_TRES_BIND</b><a class="slurm_link" id="OPT_SCRUN_TRES_BIND" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_TRES_BIND"></a></dt><dd>Same as <b>--tres-bind</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_TRES_PER_TASK</b><a class="slurm_link" id="OPT_SCRUN_TRES_PER_TASK" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_TRES_PER_TASK"></a></dt><dd>See <b>SLURM_TRES_PER_TASK</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_UNBUFFEREDIO</b><a class="slurm_link" id="OPT_SCRUN_UNBUFFEREDIO" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_UNBUFFEREDIO"></a></dt><dd>See <b>SLURM_UNBUFFEREDIO</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_USE_MIN_NODES</b><a class="slurm_link" id="OPT_SCRUN_USE_MIN_NODES" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_USE_MIN_NODES"></a></dt><dd>See <b>SLURM_USE_MIN_NODES</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_WAIT4SWITCH</b><a class="slurm_link" id="OPT_SCRUN_WAIT4SWITCH" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_WAIT4SWITCH"></a></dt><dd>See <b>SLURM_WAIT4SWITCH</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_WCKEY</b><a class="slurm_link" id="OPT_SCRUN_WCKEY" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_WCKEY"></a></dt><dd>See <b>SLURM_WCKEY</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_WORKING_DIR</b><a class="slurm_link" id="OPT_SCRUN_WORKING_DIR" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_WORKING_DIR"></a></dt><dd>See <b>SLURM_WORKING_DIR</b> from <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1).
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAP">&nbsp;</a>
+<h2>OUTPUT ENVIRONMENT VARIABLES<a class="slurm_link" id="SECTION_OUTPUT-ENVIRONMENT-VARIABLES" href="https://slurm.schedmd.com/scrun.html#SECTION_OUTPUT-ENVIRONMENT-VARIABLES"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>SCRUN_OCI_VERSION</b><a class="slurm_link" id="OPT_SCRUN_OCI_VERSION" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_OCI_VERSION"></a></dt><dd>Advertised version of OCI compliance of container.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_CONTAINER_ID</b><a class="slurm_link" id="OPT_SCRUN_CONTAINER_ID" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_CONTAINER_ID"></a></dt><dd>Value based as <i>container_id</i> during create operation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_PID</b><a class="slurm_link" id="OPT_SCRUN_PID" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_PID"></a></dt><dd>PID of process used to monitor and control container on allocation node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_BUNDLE</b><a class="slurm_link" id="OPT_SCRUN_BUNDLE" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_BUNDLE"></a></dt><dd>Path to container bundle directory.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_SUBMISSION_BUNDLE</b><a class="slurm_link" id="OPT_SCRUN_SUBMISSION_BUNDLE" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_SUBMISSION_BUNDLE"></a></dt><dd>Path to container bundle directory before modification by Lua script.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_ANNOTATION_*</b><a class="slurm_link" id="OPT_SCRUN_ANNOTATION_*" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_ANNOTATION_*"></a></dt><dd>List of annotations from container's config.json.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_PID_FILE</b><a class="slurm_link" id="OPT_SCRUN_PID_FILE" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_PID_FILE"></a></dt><dd>Path to pid file that is locked and populated with PID of scrun.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_SOCKET</b><a class="slurm_link" id="OPT_SCRUN_SOCKET" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_SOCKET"></a></dt><dd>Path to control socket for scrun.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_SPOOL_DIR</b><a class="slurm_link" id="OPT_SCRUN_SPOOL_DIR" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_SPOOL_DIR"></a></dt><dd>Path to workspace for all temporary files for current container. Purged by
+deletion operation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_SUBMISSION_CONFIG_FILE</b><a class="slurm_link" id="OPT_SCRUN_SUBMISSION_CONFIG_FILE" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_SUBMISSION_CONFIG_FILE"></a></dt><dd>Path to container's config.json file at time of submission.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_USER</b><a class="slurm_link" id="OPT_SCRUN_USER" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_USER"></a></dt><dd>Name of user that called create operation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_USER_ID</b><a class="slurm_link" id="OPT_SCRUN_USER_ID" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_USER_ID"></a></dt><dd>Numeric ID of user that called create operation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_GROUP</b><a class="slurm_link" id="OPT_SCRUN_GROUP" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_GROUP"></a></dt><dd>Name of user's primary group that called create operation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_GROUP_ID</b><a class="slurm_link" id="OPT_SCRUN_GROUP_ID" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_GROUP_ID"></a></dt><dd>Numeric ID of user primary group that called create operation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_ROOT</b><a class="slurm_link" id="OPT_SCRUN_ROOT" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_ROOT"></a></dt><dd>See <b>--root</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_ROOTFS_PATH</b><a class="slurm_link" id="OPT_SCRUN_ROOTFS_PATH" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_ROOTFS_PATH"></a></dt><dd>Path to container's root directory.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_SUBMISSION_ROOTFS_PATH</b><a class="slurm_link" id="OPT_SCRUN_SUBMISSION_ROOTFS_PATH" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_SUBMISSION_ROOTFS_PATH"></a></dt><dd>Path to container's root directory at submission time.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_LOG_FILE</b><a class="slurm_link" id="OPT_SCRUN_LOG_FILE" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_LOG_FILE"></a></dt><dd>Path to scrun's log file during create operation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCRUN_LOG_FORMAT</b><a class="slurm_link" id="OPT_SCRUN_LOG_FORMAT" href="https://slurm.schedmd.com/scrun.html#OPT_SCRUN_LOG_FORMAT"></a></dt><dd>Log format type during create operation.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAQ">&nbsp;</a>
+<h2>JOB OUTPUT ENVIRONMENT VARIABLES<a class="slurm_link" id="SECTION_JOB-OUTPUT-ENVIRONMENT-VARIABLES" href="https://slurm.schedmd.com/scrun.html#SECTION_JOB-OUTPUT-ENVIRONMENT-VARIABLES"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>SLURM_*_HET_GROUP_#</b><a class="slurm_link" id="OPT_SLURM_*_HET_GROUP_#" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_*_HET_GROUP_#"></a></dt><dd>For a heterogeneous job allocation, the environment variables are set separately
+for each component.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CLUSTER_NAME</b><a class="slurm_link" id="OPT_SLURM_CLUSTER_NAME" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_CLUSTER_NAME"></a></dt><dd>Name of the cluster on which the job is executing.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CONTAINER</b><a class="slurm_link" id="OPT_SLURM_CONTAINER" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_CONTAINER"></a></dt><dd>OCI Bundle for job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CONTAINER_ID</b><a class="slurm_link" id="OPT_SLURM_CONTAINER_ID" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_CONTAINER_ID"></a></dt><dd>OCI id for job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CPUS_PER_GPU</b><a class="slurm_link" id="OPT_SLURM_CPUS_PER_GPU" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_CPUS_PER_GPU"></a></dt><dd>Number of CPUs requested per allocated GPU.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CPUS_PER_TASK</b><a class="slurm_link" id="OPT_SLURM_CPUS_PER_TASK" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_CPUS_PER_TASK"></a></dt><dd>Number of CPUs requested per task.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_DIST_PLANESIZE</b><a class="slurm_link" id="OPT_SLURM_DIST_PLANESIZE" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_DIST_PLANESIZE"></a></dt><dd>Plane distribution size. Only set for plane distributions.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_DISTRIBUTION</b><a class="slurm_link" id="OPT_SLURM_DISTRIBUTION" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_DISTRIBUTION"></a></dt><dd>Distribution type for the allocated jobs.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_GPU_BIND</b><a class="slurm_link" id="OPT_SLURM_GPU_BIND" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_GPU_BIND"></a></dt><dd>Requested binding of tasks to GPU.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_GPU_FREQ</b><a class="slurm_link" id="OPT_SLURM_GPU_FREQ" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_GPU_FREQ"></a></dt><dd>Requested GPU frequency.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_GPUS</b><a class="slurm_link" id="OPT_SLURM_GPUS" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_GPUS"></a></dt><dd>Number of GPUs requested.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_GPUS_PER_NODE</b><a class="slurm_link" id="OPT_SLURM_GPUS_PER_NODE" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_GPUS_PER_NODE"></a></dt><dd>Requested GPU count per allocated node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_GPUS_PER_SOCKET</b><a class="slurm_link" id="OPT_SLURM_GPUS_PER_SOCKET" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_GPUS_PER_SOCKET"></a></dt><dd>Requested GPU count per allocated socket.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_GPUS_PER_TASK</b><a class="slurm_link" id="OPT_SLURM_GPUS_PER_TASK" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_GPUS_PER_TASK"></a></dt><dd>Requested GPU count per allocated task.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_HET_SIZE</b><a class="slurm_link" id="OPT_SLURM_HET_SIZE" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_HET_SIZE"></a></dt><dd>Set to count of components in heterogeneous job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_ACCOUNT</b><a class="slurm_link" id="OPT_SLURM_JOB_ACCOUNT" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_JOB_ACCOUNT"></a></dt><dd>Account name associated of the job allocation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_CPUS_PER_NODE</b><a class="slurm_link" id="OPT_SLURM_JOB_CPUS_PER_NODE" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_JOB_CPUS_PER_NODE"></a></dt><dd>Count of CPUs available to the job on the nodes in the allocation, using the
+format <i>CPU_count</i>[(x<i>number_of_nodes</i>)][,<i>CPU_count</i>
+[(x<i>number_of_nodes</i>)] ...].
+For example: SLURM_JOB_CPUS_PER_NODE='72(x2),36' indicates that on the
+first and second nodes (as listed by SLURM_JOB_NODELIST) the allocation
+has 72 CPUs, while the third node has 36 CPUs.
+<b>NOTE</b>: The <b>select/linear</b> plugin allocates entire nodes to jobs, so
+the value indicates the total count of CPUs on allocated nodes. The
+<b>select/cons_tres</b> plugin allocates individual
+CPUs to jobs, so this number indicates the number of CPUs allocated to the job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_END_TIME</b><a class="slurm_link" id="OPT_SLURM_JOB_END_TIME" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_JOB_END_TIME"></a></dt><dd>The UNIX timestamp for a job's projected end time.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_GPUS</b><a class="slurm_link" id="OPT_SLURM_JOB_GPUS" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_JOB_GPUS"></a></dt><dd>The global GPU IDs of the GPUs allocated to this job. The GPU IDs are not
+relative to any device cgroup, even if devices are constrained with task/cgroup.
+Only set in batch and interactive jobs.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_ID</b><a class="slurm_link" id="OPT_SLURM_JOB_ID" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_JOB_ID"></a></dt><dd>The ID of the job allocation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_NODELIST</b><a class="slurm_link" id="OPT_SLURM_JOB_NODELIST" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_JOB_NODELIST"></a></dt><dd>List of nodes allocated to the job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_NUM_NODES</b><a class="slurm_link" id="OPT_SLURM_JOB_NUM_NODES" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_JOB_NUM_NODES"></a></dt><dd>Total number of nodes in the job allocation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_PARTITION</b><a class="slurm_link" id="OPT_SLURM_JOB_PARTITION" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_JOB_PARTITION"></a></dt><dd>Name of the partition in which the job is running.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_QOS</b><a class="slurm_link" id="OPT_SLURM_JOB_QOS" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_JOB_QOS"></a></dt><dd>Quality Of Service (QOS) of the job allocation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_RESERVATION</b><a class="slurm_link" id="OPT_SLURM_JOB_RESERVATION" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_JOB_RESERVATION"></a></dt><dd>Advanced reservation containing the job allocation, if any.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_JOB_START_TIME</b><a class="slurm_link" id="OPT_SLURM_JOB_START_TIME" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_JOB_START_TIME"></a></dt><dd>UNIX timestamp for a job's start time.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_BIND</b><a class="slurm_link" id="OPT_SLURM_MEM_BIND" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_MEM_BIND"></a></dt><dd>Bind tasks to memory.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_BIND_LIST</b><a class="slurm_link" id="OPT_SLURM_MEM_BIND_LIST" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_MEM_BIND_LIST"></a></dt><dd>Set to bit mask used for memory binding.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_BIND_PREFER</b><a class="slurm_link" id="OPT_SLURM_MEM_BIND_PREFER" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_MEM_BIND_PREFER"></a></dt><dd>Set to "prefer" if the <b>SLURM_MEM_BIND</b> option includes the prefer option.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_BIND_SORT</b><a class="slurm_link" id="OPT_SLURM_MEM_BIND_SORT" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_MEM_BIND_SORT"></a></dt><dd>Sort free cache pages (run zonesort on Intel KNL nodes)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_BIND_TYPE</b><a class="slurm_link" id="OPT_SLURM_MEM_BIND_TYPE" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_MEM_BIND_TYPE"></a></dt><dd>Set to the memory binding type specified with the <b>SLURM_MEM_BIND</b> option.
+Possible values are "none", "rank", "map_map", "mask_mem" and "local".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_BIND_VERBOSE</b><a class="slurm_link" id="OPT_SLURM_MEM_BIND_VERBOSE" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_MEM_BIND_VERBOSE"></a></dt><dd>Set to "verbose" if the <b>SLURM_MEM_BIND</b> option includes the verbose option.
+Set to "quiet" otherwise.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_PER_CPU</b><a class="slurm_link" id="OPT_SLURM_MEM_PER_CPU" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_MEM_PER_CPU"></a></dt><dd>Minimum memory required per usable allocated CPU.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_PER_GPU</b><a class="slurm_link" id="OPT_SLURM_MEM_PER_GPU" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_MEM_PER_GPU"></a></dt><dd>Requested memory per allocated GPU.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_MEM_PER_NODE</b><a class="slurm_link" id="OPT_SLURM_MEM_PER_NODE" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_MEM_PER_NODE"></a></dt><dd>Specify the real memory required per node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_NTASKS</b><a class="slurm_link" id="OPT_SLURM_NTASKS" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_NTASKS"></a></dt><dd>Specify the number of tasks to run.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_NTASKS_PER_CORE</b><a class="slurm_link" id="OPT_SLURM_NTASKS_PER_CORE" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_NTASKS_PER_CORE"></a></dt><dd>Request the maximum <i>ntasks</i> be invoked on each core.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_NTASKS_PER_GPU</b><a class="slurm_link" id="OPT_SLURM_NTASKS_PER_GPU" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_NTASKS_PER_GPU"></a></dt><dd>Request that there are <i>ntasks</i> tasks invoked for every GPU.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_NTASKS_PER_NODE</b><a class="slurm_link" id="OPT_SLURM_NTASKS_PER_NODE" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_NTASKS_PER_NODE"></a></dt><dd>Request that <i>ntasks</i> be invoked on each node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_NTASKS_PER_SOCKET</b><a class="slurm_link" id="OPT_SLURM_NTASKS_PER_SOCKET" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_NTASKS_PER_SOCKET"></a></dt><dd>Request the maximum <i>ntasks</i> be invoked on each socket.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_OVERCOMMIT</b><a class="slurm_link" id="OPT_SLURM_OVERCOMMIT" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_OVERCOMMIT"></a></dt><dd>Overcommit resources.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_PROFILE</b><a class="slurm_link" id="OPT_SLURM_PROFILE" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_PROFILE"></a></dt><dd>Enables detailed data collection by the acct_gather_profile plugin.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_SHARDS_ON_NODE</b><a class="slurm_link" id="OPT_SLURM_SHARDS_ON_NODE" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_SHARDS_ON_NODE"></a></dt><dd>Number of GPU Shards available to the step on this node.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_SUBMIT_HOST</b><a class="slurm_link" id="OPT_SLURM_SUBMIT_HOST" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_SUBMIT_HOST"></a></dt><dd>The hostname of the computer from which <b>scrun</b> was invoked.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_TASKS_PER_NODE</b><a class="slurm_link" id="OPT_SLURM_TASKS_PER_NODE" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_TASKS_PER_NODE"></a></dt><dd>Number of tasks to be initiated on each node. Values are
+comma separated and in the same order as SLURM_JOB_NODELIST.
+If two or more consecutive nodes are to have the same task
+count, that count is followed by "(x#)" where "#" is the
+repetition count. For example, "SLURM_TASKS_PER_NODE=2(x3),1"
+indicates that the first three nodes will each execute two
+tasks and the fourth node will execute one task.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_THREADS_PER_CORE</b><a class="slurm_link" id="OPT_SLURM_THREADS_PER_CORE" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_THREADS_PER_CORE"></a></dt><dd>This is only set if <b>--threads-per-core</b> or
+<b>SCRUN_THREADS_PER_CORE</b> were specified. The value will be set to the
+value specified by <b>--threads-per-core</b> or
+<b>SCRUN_THREADS_PER_CORE</b>. This is used by subsequent srun calls within the
+job allocation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_TRES_PER_TASK</b><a class="slurm_link" id="OPT_SLURM_TRES_PER_TASK" href="https://slurm.schedmd.com/scrun.html#OPT_SLURM_TRES_PER_TASK"></a></dt><dd>Set to the value of <b>--tres-per-task</b>. If <b>--cpus-per-task</b> or
+<b>--gpus-per-task</b> is specified, it is also set in
+<b>SLURM_TRES_PER_TASK</b> as if it were specified in <b>--tres-per-task</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAR">&nbsp;</a>
+<h2>SCRUN.LUA<a class="slurm_link" id="SECTION_SCRUN.LUA" href="https://slurm.schedmd.com/scrun.html#SECTION_SCRUN.LUA"></a></h2>
+<p>
+
+/etc/slurm/<b>scrun.lua</b> must be present on any node
+where <b>scrun</b> will be invoked. <b>scrun.lua</b> must be a compliant
+<b>lua</b> script.
+</p><p>
+<a name="lbAS">&nbsp;</a>
+</p><h3>Required functions<a class="slurm_link" id="SECTION_Required-functions" href="https://slurm.schedmd.com/scrun.html#SECTION_Required-functions"></a></h3>
+The following functions must be defined.
+<p>
+</p><dl compact="">
+<dt>• function <b>slurm_scrun_stage_in</b>(<b>id</b>, <b>bundle</b>, <b>spool_dir</b>, <b>config_file</b>, <b>job_id</b>, <b>user_id</b>, <b>group_id</b>, <b>job_env</b>)</dt><dd>
+Called right after job allocation to stage container into job node(s). Must
+return <i>SLURM.success</i> or job will be cancelled. It is required that
+function will prepare the container for execution on job node(s) as required to
+run as configured in <b><a href="https://slurm.schedmd.com/oci.conf.html">oci.conf</a></b>(1). The function may block as long as
+required until container has been fully prepared (up to the job's max wall
+time).
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>id</b><a class="slurm_link" id="OPT_id" href="https://slurm.schedmd.com/scrun.html#OPT_id"></a></dt><dd>Container ID
+</dd><dt><b>bundle</b><a class="slurm_link" id="OPT_bundle_1" href="https://slurm.schedmd.com/scrun.html#OPT_bundle_1"></a></dt><dd>OCI bundle path
+</dd><dt><b>spool_dir</b><a class="slurm_link" id="OPT_spool_dir" href="https://slurm.schedmd.com/scrun.html#OPT_spool_dir"></a></dt><dd>Temporary working directory for container
+</dd><dt><b>config_file</b><a class="slurm_link" id="OPT_config_file" href="https://slurm.schedmd.com/scrun.html#OPT_config_file"></a></dt><dd>Path to config.json for container
+</dd><dt><b>job_id</b><a class="slurm_link" id="OPT_job_id" href="https://slurm.schedmd.com/scrun.html#OPT_job_id"></a></dt><dd><i>jobid</i> of job allocation
+</dd><dt><b>user_id</b><a class="slurm_link" id="OPT_user_id" href="https://slurm.schedmd.com/scrun.html#OPT_user_id"></a></dt><dd>Resolved numeric user id of job allocation. It is generally expected that the
+lua script will be executed inside of a user namespace running under the
+<i>root(0)</i> user.
+</dd><dt><b>group_id</b><a class="slurm_link" id="OPT_group_id" href="https://slurm.schedmd.com/scrun.html#OPT_group_id"></a></dt><dd>Resolved numeric group id of job allocation. It is generally expected that the
+lua script will be executed inside of a user namespace running under the
+<i>root(0)</i> group.
+</dd><dt><b>job_env</b><a class="slurm_link" id="OPT_job_env" href="https://slurm.schedmd.com/scrun.html#OPT_job_env"></a></dt><dd>Table with each entry of Key=Value or Value of each environment variable of the
+job.
+</dd><dt></dt><dd>
+</dd></dl>
+</dd></dl>
+
+<p>
+</p></dd><dt>• function <b>slurm_scrun_stage_out</b>(<b>id</b>, <b>bundle</b>, <b>orig_bundle</b>, <b>root_path</b>, <b>orig_root_path</b>, <b>spool_dir</b>, <b>config_file</b>, <b>jobid</b>, <b>user_id</b>, <b>group_id</b>)</dt><dd>
+Called right after container step completes to stage out files from job nodes.
+Must return <i>SLURM.success</i> or job will be cancelled. It is required that
+function will pull back any changes and cleanup the container on job node(s).
+The function may block as long as required until container has been fully
+prepared (up to the job's max wall time).
+<p>
+</p><dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>id</b><a class="slurm_link" id="OPT_id_1" href="https://slurm.schedmd.com/scrun.html#OPT_id_1"></a></dt><dd>Container ID
+</dd><dt><b>bundle</b><a class="slurm_link" id="OPT_bundle_2" href="https://slurm.schedmd.com/scrun.html#OPT_bundle_2"></a></dt><dd>OCI bundle path
+</dd><dt><b>orig_bundle</b><a class="slurm_link" id="OPT_orig_bundle" href="https://slurm.schedmd.com/scrun.html#OPT_orig_bundle"></a></dt><dd>Originally submitted OCI bundle path before modification by
+<b>set_bundle_path</b>().
+</dd><dt><b>root_path</b><a class="slurm_link" id="OPT_root_path" href="https://slurm.schedmd.com/scrun.html#OPT_root_path"></a></dt><dd>Path to directory root of container contents.
+</dd><dt><b>orig_root_path</b><a class="slurm_link" id="OPT_orig_root_path" href="https://slurm.schedmd.com/scrun.html#OPT_orig_root_path"></a></dt><dd>Original path to directory root of container contents before modification by
+<b>set_root_path</b>().
+</dd><dt><b>spool_dir</b><a class="slurm_link" id="OPT_spool_dir_1" href="https://slurm.schedmd.com/scrun.html#OPT_spool_dir_1"></a></dt><dd>Temporary working directory for container
+</dd><dt><b>config_file</b><a class="slurm_link" id="OPT_config_file_1" href="https://slurm.schedmd.com/scrun.html#OPT_config_file_1"></a></dt><dd>Path to config.json for container
+</dd><dt><b>job_id</b><a class="slurm_link" id="OPT_job_id_1" href="https://slurm.schedmd.com/scrun.html#OPT_job_id_1"></a></dt><dd><i>jobid</i> of job allocation
+</dd><dt><b>user_id</b><a class="slurm_link" id="OPT_user_id_1" href="https://slurm.schedmd.com/scrun.html#OPT_user_id_1"></a></dt><dd>Resolved numeric user id of job allocation. It is generally expected that the
+lua script will be executed inside of a user namespace running under the
+<i>root(0)</i> user.
+</dd><dt><b>group_id</b><a class="slurm_link" id="OPT_group_id_1" href="https://slurm.schedmd.com/scrun.html#OPT_group_id_1"></a></dt><dd>Resolved numeric group id of job allocation. It is generally expected that the
+lua script will be executed inside of a user namespace running under the
+<i>root(0)</i> group.
+</dd></dl>
+</dd></dl>
+
+<p>
+</p></dd></dl>
+<a name="lbAT">&nbsp;</a>
+<h3>Provided functions<a class="slurm_link" id="SECTION_Provided-functions" href="https://slurm.schedmd.com/scrun.html#SECTION_Provided-functions"></a></h3>
+The following functions are provided for any Lua function to call as needed.
+<p>
+</p><dl compact="">
+<dt>• <b>slurm.set_bundle_path</b>(<i>PATH</i>)</dt><dd>
+Called to notify <b>scrun</b> to use <i>PATH</i> as new OCI container bundle
+path. Depending on the filesystem layout, cloning the container bundle may be
+required to allow execution on job nodes.
+<p>
+</p></dd><dt>• <b>slurm.set_root_path</b>(<i>PATH</i>)</dt><dd>
+Called to notify <b>scrun</b> to use <i>PATH</i> as new container root filesystem
+path. Depending on the filesystem layout, cloning the container bundle may be
+required to allow execution on job nodes. Script must also update #/root/path
+in config.json when changing root path.
+<p>
+</p></dd><dt>• <i>STATUS</i>,<i>OUTPUT</i> = <b>slurm.remote_command</b>(<i>SCRIPT</i>)</dt><dd>
+Run <i>SCRIPT</i> in new job step on all job nodes. Returns numeric job status
+as <i>STATUS</i> and job stdio as <i>OUTPUT</i>. Blocks until <i>SCRIPT</i> exits.
+<p>
+</p></dd><dt>• <i>STATUS</i>,<i>OUTPUT</i> = <b>slurm.allocator_command</b>(<i>SCRIPT</i>)</dt><dd>
+Run <i>SCRIPT</i> as forked child process of <b>scrun</b>. Returns numeric job status
+as <i>STATUS</i> and job stdio as <i>OUTPUT</i>. Blocks until <i>SCRIPT</i> exits.
+<p>
+</p></dd><dt>• <b>slurm.log</b>(<i>MSG</i>, <i>LEVEL</i>)</dt><dd>
+Log <i>MSG</i> at log <i>LEVEL</i>. Valid range of values for <i>LEVEL</i> is [0,
+4].
+<p>
+</p></dd><dt>• <b>slurm.error</b>(<i>MSG</i>)</dt><dd>
+Log error <i>MSG</i>.
+<p>
+</p></dd><dt>• <b>slurm.log_error</b>(<i>MSG</i>)</dt><dd>
+Log error <i>MSG</i>.
+<p>
+</p></dd><dt>• <b>slurm.log_info</b>(<i>MSG</i>)</dt><dd>
+Log <i>MSG</i> at log level INFO.
+<p>
+</p></dd><dt>• <b>slurm.log_verbose</b>(<i>MSG</i>)</dt><dd>
+Log <i>MSG</i> at log level VERBOSE.
+<p>
+</p></dd><dt>• <b>slurm.log_verbose</b>(<i>MSG</i>)</dt><dd>
+Log <i>MSG</i> at log level VERBOSE.
+<p>
+</p></dd><dt>• <b>slurm.log_debug</b>(<i>MSG</i>)</dt><dd>
+Log <i>MSG</i> at log level DEBUG.
+<p>
+</p></dd><dt>• <b>slurm.log_debug2</b>(<i>MSG</i>)</dt><dd>
+Log <i>MSG</i> at log level DEBUG2.
+<p>
+</p></dd><dt>• <b>slurm.log_debug3</b>(<i>MSG</i>)</dt><dd>
+Log <i>MSG</i> at log level DEBUG3.
+<p>
+</p></dd><dt>• <b>slurm.log_debug4</b>(<i>MSG</i>)</dt><dd>
+Log <i>MSG</i> at log level DEBUG4.
+<p>
+</p></dd><dt>• <i>MINUTES</i> = <b>slurm.time_str2mins</b>(<i>TIME_STRING</i>)</dt><dd>
+Parse <i>TIME_STRING</i> into number of minutes as <i>MINUTES</i>. Valid formats:
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt>• days-[hours[:minutes[:seconds]]]</dt><dd>
+</dd><dt>• hours:minutes:seconds</dt><dd>
+</dd><dt>• minutes[:seconds]</dt><dd>
+</dd><dt>• -1</dt><dd>
+</dd><dt>• INFINITE</dt><dd>
+</dd><dt>• UNLIMITED</dt><dd>
+</dd></dl>
+</dd></dl>
+
+<p>
+</p></dd></dl>
+<a name="lbAU">&nbsp;</a>
+<h3>Example <b>scrun.lua</b> scripts<a class="slurm_link" id="SECTION_Example-&lt;B&gt;scrun.lua&lt;/B&gt;-scripts" href="https://slurm.schedmd.com/scrun.html#SECTION_Example-%3CB%3Escrun.lua%3C/B%3E-scripts"></a></h3>
+<p>
+</p><dl compact="">
+<dt>Full Container staging example using rsync:</dt><dd>
+This full example will stage a container as given by <b>docker</b> or
+<b>podman</b>. The container's config.json is modified to remove unwanted
+functions that may cause the container run to under <b>crun</b> or
+<b>runc</b>.
+The script uses <b>rsync</b> to move the container to a shared filesystem
+under the <i>scratch_path</i> variable.
+<p>
+<b>NOTE</b>: Support for JSON in liblua must generally be installed before Slurm
+is compiled. scrun.lua's syntax and ability to load JSON support should be
+tested by directly calling the script using <b>lua</b> outside of Slurm.
+</p><p>
+</p><pre>local json = require 'json'
+local open = io.open
+local scratch_path = "/run/user/"
+
+local function read_file(path)
+        local file = open(path, "rb")
+        if not file then return nil end
+        local content = file:read "*all"
+        file:close()
+        return content
+end
+
+local function write_file(path, contents)
+        local file = open(path, "wb")
+        if not file then return nil end
+        file:write(contents)
+        file:close()
+        return
+end
+
+function slurm_scrun_stage_in(id, bundle, spool_dir, config_file, job_id, user_id, group_id, job_env)
+        slurm.log_debug(string.format("stage_in(%s, %s, %s, %s, %d, %d, %d)",
+                       id, bundle, spool_dir, config_file, job_id, user_id, group_id))
+
+        local status, output, user, rc
+        local config = json.decode(read_file(config_file))
+        local src_rootfs = config["root"]["path"]
+        rc, user = slurm.allocator_command(string.format("id -un %d", user_id))
+        user = string.gsub(user, "%s+", "")
+        local root = scratch_path..math.floor(user_id).."/slurm/scrun/"
+        local dst_bundle = root.."/"..id.."/"
+        local dst_config = root.."/"..id.."/config.json"
+        local dst_rootfs = root.."/"..id.."/rootfs/"
+
+        if string.sub(src_rootfs, 1, 1) ~= "/"
+        then
+                -- always use absolute path
+                src_rootfs = string.format("%s/%s", bundle, src_rootfs)
+        end
+
+        status, output = slurm.allocator_command("mkdir -p "..dst_rootfs)
+        if (status ~= 0)
+        then
+                slurm.log_info(string.format("mkdir(%s) failed %u: %s",
+                               dst_rootfs, status, output))
+                return slurm.ERROR
+        end
+
+        status, output = slurm.allocator_command(string.format("/usr/bin/env rsync --exclude sys --exclude proc --numeric-ids --delete-after --ignore-errors --stats -a -- %s/ %s/", src_rootfs, dst_rootfs))
+        if (status ~= 0)
+        then
+                -- rsync can fail due to permissions which may not matter
+                slurm.log_info(string.format("WARNING: rsync failed: %s", output))
+        end
+
+        slurm.set_bundle_path(dst_bundle)
+        slurm.set_root_path(dst_rootfs)
+
+        config["root"]["path"] = dst_rootfs
+
+        -- Always force user namespace support in container or runc will reject
+        local process_user_id = 0
+        local process_group_id = 0
+
+        if ((config["process"] ~= nil) and (config["process"]["user"] ~= nil))
+        then
+                -- resolve out user in the container
+                if (config["process"]["user"]["uid"] ~= nil)
+                then
+                        process_user_id=config["process"]["user"]["uid"]
+                else
+                        process_user_id=0
+                end
+
+                -- resolve out group in the container
+                if (config["process"]["user"]["gid"] ~= nil)
+                then
+                        process_group_id=config["process"]["user"]["gid"]
+                else
+                        process_group_id=0
+                end
+
+                -- purge additionalGids as they are not supported in rootless
+                if (config["process"]["user"]["additionalGids"] ~= nil)
+                then
+                        config["process"]["user"]["additionalGids"] = nil
+                end
+        end
+
+        if (config["linux"] ~= nil)
+        then
+                -- force user namespace to always be defined for rootless mode
+                local found = false
+                if (config["linux"]["namespaces"] == nil)
+                then
+                        config["linux"]["namespaces"] = {}
+                else
+                        for _, namespace in ipairs(config["linux"]["namespaces"]) do
+                                if (namespace["type"] == "user")
+                                then
+                                        found=true
+                                        break
+                                end
+                        end
+                end
+                if (found == false)
+                then
+                        table.insert(config["linux"]["namespaces"], {type= "user"})
+                end
+
+                -- Provide default user map as root if one not provided
+                if (true or config["linux"]["uidMappings"] == nil)
+                then
+                        config["linux"]["uidMappings"] =
+                                {{containerID=process_user_id, hostID=math.floor(user_id), size=1}}
+                end
+
+                -- Provide default group map as root if one not provided
+                -- mappings fail with build???
+                if (true or config["linux"]["gidMappings"] == nil)
+                then
+                        config["linux"]["gidMappings"] =
+                                {{containerID=process_group_id, hostID=math.floor(group_id), size=1}}
+                end
+
+                -- disable trying to use a specific cgroup
+                config["linux"]["cgroupsPath"] = nil
+        end
+
+        if (config["mounts"] ~= nil)
+        then
+                -- Find and remove any user/group settings in mounts
+                for _, mount in ipairs(config["mounts"]) do
+                        local opts = {}
+
+                        if (mount["options"] ~= nil)
+                        then
+                                for _, opt in ipairs(mount["options"]) do
+                                        if ((string.sub(opt, 1, 4) ~= "gid=") and (string.sub(opt, 1, 4) ~= "uid="))
+                                        then
+                                                table.insert(opts, opt)
+                                        end
+                                end
+                        end
+
+                        if (opts ~= nil and #opts &gt; 0)
+                        then
+                                mount["options"] = opts
+                        else
+                                mount["options"] = nil
+                        end
+                end
+
+                -- Remove all bind mounts by copying files into rootfs
+                local mounts = {}
+                for i, mount in ipairs(config["mounts"]) do
+                        if ((mount["type"] ~= nil) and (mount["type"] == "bind") and (string.sub(mount["source"], 1, 4) ~= "/sys") and (string.sub(mount["source"], 1, 5) ~= "/proc"))
+                        then
+                                status, output = slurm.allocator_command(string.format("/usr/bin/env rsync --numeric-ids --ignore-errors --stats -a -- %s %s", mount["source"], dst_rootfs..mount["destination"]))
+                                if (status ~= 0)
+                                then
+                                        -- rsync can fail due to permissions which may not matter
+                                        slurm.log_info("rsync failed")
+                                end
+                        else
+                                table.insert(mounts, mount)
+                        end
+                end
+                config["mounts"] = mounts
+        end
+
+        -- Force version to one compatible with older runc/crun at risk of new features silently failing
+        config["ociVersion"] = "1.0.0"
+
+        -- Merge in Job environment into container -- this is optional!
+        if (config["process"]["env"] == nil)
+        then
+                config["process"]["env"] = {}
+        end
+        for _, env in ipairs(job_env) do
+                table.insert(config["process"]["env"], env)
+        end
+
+        -- Remove all prestart hooks to squash any networking attempts
+        if ((config["hooks"] ~= nil) and (config["hooks"]["prestart"] ~= nil))
+        then
+                config["hooks"]["prestart"] = nil
+        end
+
+        -- Remove all rlimits
+        if ((config["process"] ~= nil) and (config["process"]["rlimits"] ~= nil))
+        then
+                config["process"]["rlimits"] = nil
+        end
+
+        write_file(dst_config, json.encode(config))
+        slurm.log_info("created: "..dst_config)
+
+        return slurm.SUCCESS
+end
+
+function slurm_scrun_stage_out(id, bundle, orig_bundle, root_path, orig_root_path, spool_dir, config_file, jobid, user_id, group_id)
+        if (root_path == nil)
+        then
+                root_path = ""
+        end
+
+        slurm.log_debug(string.format("stage_out(%s, %s, %s, %s, %s, %s, %s, %d, %d, %d)",
+                       id, bundle, orig_bundle, root_path, orig_root_path, spool_dir, config_file, jobid, user_id, group_id))
+
+        if (bundle == orig_bundle)
+        then
+                slurm.log_info(string.format("skipping stage_out as bundle=orig_bundle=%s", bundle))
+                return slurm.SUCCESS
+        end
+
+        status, output = slurm.allocator_command(string.format("/usr/bin/env rsync --numeric-ids --delete-after --ignore-errors --stats -a -- %s/ %s/", root_path, orig_root_path))
+        if (status ~= 0)
+        then
+                -- rsync can fail due to permissions which may not matter
+                slurm.log_info("rsync failed")
+        else
+                -- cleanup temporary after they have been synced backed to source
+                slurm.allocator_command(string.format("/usr/bin/rm --preserve-root=all --one-file-system -dr -- %s", bundle))
+        end
+
+        return slurm.SUCCESS
+end
+
+slurm.log_info("initialized scrun.lua")
+
+return slurm.SUCCESS
+</pre>
+
+<p>
+</p><p>
+</p></dd></dl>
+<a name="lbAV">&nbsp;</a>
+<h2>SIGNALS<a class="slurm_link" id="SECTION_SIGNALS" href="https://slurm.schedmd.com/scrun.html#SECTION_SIGNALS"></a></h2>
+<dl compact="">
+<dt><b>SIGINT</b><a class="slurm_link" id="OPT_SIGINT" href="https://slurm.schedmd.com/scrun.html#OPT_SIGINT"></a></dt><dd>Attempt to gracefully cancel any related jobs (if any) and cleanup.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SIGCHLD</b><a class="slurm_link" id="OPT_SIGCHLD" href="https://slurm.schedmd.com/scrun.html#OPT_SIGCHLD"></a></dt><dd>Wait for all children, cleanup anchor and gracefully shutdown.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAW">&nbsp;</a>
+<h2>COPYING<a class="slurm_link" id="SECTION_COPYING" href="https://slurm.schedmd.com/scrun.html#SECTION_COPYING"></a></h2>
+Copyright (C) 2023 SchedMD LLC.
+<p>
+
+This file is part of Slurm, a resource management program.
+For details, see &lt;<a href="https://slurm.schedmd.com/">https://slurm.schedmd.com/</a>&gt;.
+</p><p>
+
+Slurm is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free
+Software Foundation; either version 2 of the License, or (at your option)
+any later version.
+</p><p>
+
+Slurm is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+details.
+</p><p>
+<a name="lbAX">&nbsp;</a>
+</p><h2>SEE ALSO<a class="slurm_link" id="SECTION_SEE-ALSO" href="https://slurm.schedmd.com/scrun.html#SECTION_SEE-ALSO"></a></h2>
+<p>
+
+<b><a href="https://slurm.schedmd.com/slurm.html">slurm</a></b>(1), <b><a href="https://slurm.schedmd.com/oci.conf.html">oci.conf</a></b>(5), <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1), <b>crun</b>, <b>runc</b>,
+<b>DOCKER</b> and <b>podman</b>
+</p><p>
+
+</p><hr>
+<a name="index">&nbsp;</a><h2>Index</h2>
+<dl>
+<dt><a href="https://slurm.schedmd.com/scrun.html#lbAB">NAME</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAC">SYNOPSIS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAD">Create Operation</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAE">Start Operation</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAF">Query State Operation</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAG">Kill Operation</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAH">Delete Operation</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAI">DESCRIPTION</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAJ">RETURN VALUE</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAK">GLOBAL OPTIONS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAL">CREATE OPTIONS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAM">DELETE OPTIONS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAN">INPUT ENVIRONMENT VARIABLES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAO">JOB INPUT ENVIRONMENT VARIABLES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAP">OUTPUT ENVIRONMENT VARIABLES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAQ">JOB OUTPUT ENVIRONMENT VARIABLES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAR">SCRUN.LUA</a></dt><dd>
+<dl>
+<dt><a href="https://slurm.schedmd.com/scrun.html#lbAS">Required functions</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAT">Provided functions</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAU">Example <b>scrun.lua</b> scripts</a></dt><dd>
+</dd></dl>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAV">SIGNALS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAW">COPYING</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scrun.html#lbAX">SEE ALSO</a></dt><dd>
+</dd></dl>
+<hr>
+This document was created by
+<i>man2html</i> using the manual pages.<br>
+Time: 20:54:38 GMT, February 25, 2025
+			</dd></div> <!-- END .container -->
+		</div> <!-- END .section -->
+	</div> <!-- END .content -->
+</div> <!-- END .main -->
+
+
+
+<table cellspacing="0" cellpadding="0" role="presentation" class="gstl_50 gssb_c" style="width: 172px; display: none; top: 65px; left: 523px; position: absolute;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

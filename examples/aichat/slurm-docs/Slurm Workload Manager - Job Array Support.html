@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://slurm.schedmd.com/job_array.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+	<meta name="viewport" content="width=device-width">
+
+	<title>Slurm Workload Manager - Job Array Support</title>
+	<link rel="canonical" href="https://slurm.schedmd.com/job_array.html">
+
+	<link rel="shortcut icon" href="https://slurm.schedmd.com/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - Job Array Support_files/fonts.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - Job Array Support_files/reset.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - Job Array Support_files/style.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - Job Array Support_files/slurm.css">
+
+	<script async="" src="./Slurm Workload Manager - Job Array Support_files/async-ads.js.download"></script><script src="./Slurm Workload Manager - Job Array Support_files/jquery.min.js.download"></script>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+		jQuery('.menu-trigger').bind('click touchstart', function() {
+			jQuery(this).find('.menu-trigger__lines').toggleClass('menu-trigger__lines--closed');
+			jQuery(this).parents('.site-header').find('.site-nav').toggleClass('site-nav--active');
+
+			return false;
+		});
+	});
+	</script>
+	<script async="" src="./Slurm Workload Manager - Job Array Support_files/f.txt"></script>
+<script src="./Slurm Workload Manager - Job Array Support_files/cse_element__en.js.download" type="text/javascript"></script><link type="text/css" href="./Slurm Workload Manager - Job Array Support_files/default+en.css" rel="stylesheet"><link type="text/css" href="./Slurm Workload Manager - Job Array Support_files/default.css" rel="stylesheet"><style type="text/css">.gsc-control-cse{font-family:arial, sans-serif}.gsc-control-cse .gsc-table-result{font-family:arial, sans-serif}.gsc-refinementsGradient{background:linear-gradient(to left,rgba(255,255,255,1),rgba(255,255,255,0))}.gsc-control-cse{border-color:#FFFFFF;background-color:#FFFFFF}input.gsc-input,.gsc-input-box,.gsc-input-box-hover,.gsc-input-box-focus{border-color:#D9D9D9}.gsc-search-button-v2,.gsc-search-button-v2:hover,.gsc-search-button-v2:focus{border-color:#666666;background-color:#1BAEE9;background-image:none;filter:none}.gsc-search-button-v2 svg{fill:#FFFFFF}.gsc-tabHeader.gsc-tabhActive,.gsc-refinementHeader.gsc-refinementhActive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-tabHeader.gsc-tabhInactive,.gsc-refinementHeader.gsc-refinementhInactive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-webResult.gsc-result,.gsc-results .gsc-imageResult{border-color:#FFFFFF;background-color:#FFFFFF}.gsc-webResult.gsc-result:hover{border-color:#FFFFFF;background-color:#FFFFFF}.gs-webResult.gs-result a.gs-title:link,.gs-webResult.gs-result a.gs-title:link b,.gs-imageResult a.gs-title:link,.gs-imageResult a.gs-title:link b{color:#0000CC}.gs-webResult.gs-result a.gs-title:visited,.gs-webResult.gs-result a.gs-title:visited b,.gs-imageResult a.gs-title:visited,.gs-imageResult a.gs-title:visited b{color:#0000CC}.gs-webResult.gs-result a.gs-title:hover,.gs-webResult.gs-result a.gs-title:hover b,.gs-imageResult a.gs-title:hover,.gs-imageResult a.gs-title:hover b{color:#0000CC}.gs-webResult.gs-result a.gs-title:active,.gs-webResult.gs-result a.gs-title:active b,.gs-imageResult a.gs-title:active,.gs-imageResult a.gs-title:active b{color:#0000CC}.gsc-cursor-page{color:#0000CC}a.gsc-trailing-more-results:link{color:#0000CC}.gs-webResult:not(.gs-no-results-result):not(.gs-error-result) .gs-snippet,.gs-fileFormatType{color:#000000}.gs-webResult div.gs-visibleUrl{color:#008000}.gs-webResult div.gs-visibleUrl-short{color:#008000}.gsc-cursor-box{border-color:#FFFFFF}.gsc-results .gsc-cursor-box .gsc-cursor-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-results .gsc-cursor-box .gsc-cursor-current-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-webResult.gsc-result.gsc-promotion{border-color:#336699;background-color:#FFFFFF}.gsc-completion-title{color:#0000CC}.gsc-completion-snippet{color:#000000}.gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link{color:#0000CC}.gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited{color:#0000CC}.gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover{color:#0000CC}.gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active{color:#0000CC}.gs-promotion .gs-snippet,.gs-promotion .gs-title .gs-promotion-title-right,.gs-promotion .gs-title .gs-promotion-title-right *{color:#000000}.gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short{color:#008000}.gcsc-find-more-on-google{color:#0000CC}.gcsc-find-more-on-google-magnifier{fill:#0000CC}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{vertical-align:middle;opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gssb_a{padding:0 9px}.gsib_a{padding:5px 9px 4px 9px}.gscb_a{line-height:27px}.gssb_e{border:0}.gssb_l{margin:5px 0}input.gsc-input::-webkit-input-placeholder{font-size:14px}input.gsc-input:-moz-placeholder{font-size:14px}input.gsc-input::-moz-placeholder{font-size:14px}input.gsc-input:-ms-input-placeholder{font-size:14px}input.gsc-input:focus::-webkit-input-placeholder{color:transparent}input.gsc-input:focus:-moz-placeholder{color:transparent}input.gsc-input:focus::-moz-placeholder{color:transparent}input.gsc-input:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
+
+<body data-new-gr-c-s-check-loaded="14.1224.0" data-gr-ext-installed="">
+
+<div class="container container--main">
+
+	<header class="site-header" role="banner">
+
+		<div class="site-masthead">
+			<h1 class="site-masthead__title site-masthead__title--slurm">
+				<a href="https://slurm.schedmd.com/" rel="home">
+					<span class="slurm-logo">Slurm Workload Manager</span>
+				</a>
+			</h1>
+			<div class="site-masthead__title">
+				<a href="https://www.schedmd.com/" rel="home">
+					<span class="site-logo">SchedMD</span>
+				</a>
+			</div>
+
+			<button class="site-masthead__trigger menu-trigger" type="button" role="button" aria-label="Toggle Navigation"><span class="menu-trigger__lines"></span></button>
+		</div>
+
+
+		<nav class="site-nav" role="navigation">
+			<h2 class="site-nav__title">Navigation</h2>
+
+			<div class="slurm-title">
+				<div class="slurm-logo"><a href="https://slurm.schedmd.com/">Slurm Workload Manager</a></div>
+				<div class="slurm-title__version">Version 24.11</div>
+			</div>
+
+			<ul class="site-nav__menu site-menu menu">
+				<li class="site-menu__item">
+				        <div>About</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/overview.html">Overview</a></li>
+						<li><a href="https://slurm.schedmd.com/release_notes.html">Release Notes</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Using</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/documentation.html">Documentation</a></li>
+						<li><a href="https://slurm.schedmd.com/faq.html">FAQ</a></li>
+						<li><a href="https://www.schedmd.com/publications/">Publications</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Installing</div>
+					<ul>
+						<li><a href="https://www.schedmd.com/download-slurm/">Download</a></li>
+						<li><a href="https://slurm.schedmd.com/related_software.html">Related Software</a></li>
+						<li><a href="https://slurm.schedmd.com/quickstart_admin.html">Installation Guide</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Getting Help</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/mail.html">Mailing Lists</a></li>
+						<li><a href="https://www.schedmd.com/slurm-support/our-services/">Support and Training</a></li>
+						<li><a href="https://slurm.schedmd.com/troubleshoot.html">Troubleshooting</a></li>
+					</ul>
+				</li>
+			</ul>
+
+		</nav>
+
+	</header>
+
+	<div class="content" role="main">
+		<section class="slurm-search">
+			<div class="container" id="cse">
+				<div id="___gcse_0"><div class="gsc-control-cse gsc-control-cse-en"><div class="gsc-control-wrapper-cse" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" role="presentation" id="gs_id50" class="gstl_50 gsc-input" style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" aria-label="search" id="gsc-i-id1" dir="ltr" spellcheck="false" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; background: url(&quot;https://www.google.com/cse/static/images/1x/en/branding.png&quot;) left center no-repeat rgb(255, 255, 255); outline: none;"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" title="Clear search box" role="button" style="display: none;"><span class="gscb_a" id="gs_cb50" aria-hidden="true">×</span></a></div></td></tr></tbody></table></div></td><td class="gsc-search-button"><button class="gsc-search-button gsc-search-button-v2"><svg width="13" height="13" viewBox="0 0 13 13"><title>search</title><path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path></svg></button></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table></form><div class="gsc-results-wrapper-nooverlay"><div class="gsc-positioningWrapper"><div class="gsc-tabsAreaInvisible"><div aria-label="refinement" role="tab" class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Custom Search</div><span class="gs-spacer"> </span></div></div><div class="gsc-positioningWrapper"><div class="gsc-refinementsAreaInvisible"></div></div><div class="gsc-above-wrapper-area-invisible"><div class="gsc-above-wrapper-area-backfill-container"></div><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-above-wrapper-area-container"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td><td class="gsc-orderby-container"><div class="gsc-orderby-invisible"><div class="gsc-orderby-label gsc-inline-block">Sort by:</div><div class="gsc-option-menu-container gsc-inline-block"><div class="gsc-selected-option-container gsc-inline-block"><div class="gsc-selected-option">Relevance</div><div class="gsc-option-selector"></div></div><div class="gsc-option-menu-invisible"><div class="gsc-option-menu-item gsc-option-menu-item-highlighted"><div class="gsc-option">Relevance</div></div><div class="gsc-option-menu-item"><div class="gsc-option">Date</div></div></div></div></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><div><div class="gsc-expansionArea"></div></div></div></div></div></div></div></div></div>
+			</div>
+		</section>
+
+		<div class="section">
+			<div class="container">
+
+
+<h1>Job Array Support</h1>
+
+<h2 id="overview">Overview<a class="slurm_link" href="https://slurm.schedmd.com/job_array.html#overview"></a></h2>
+
+<p>Job arrays offer a mechanism for submitting and managing collections of
+similar jobs quickly and easily; job arrays with millions of tasks can be
+submitted in milliseconds (subject to configured size limits).
+All jobs must have the same initial options (e.g. size, time limit, etc.),
+however it is possible to change some of these options after the job has begun
+execution using the scontrol command specifying the <i>JobID</i> of the array or individual
+<i>ArrayJobID</i>.</p>
+
+<pre>$ scontrol update job=101 ...
+$ scontrol update job=101_1 ...
+</pre>
+
+<p>Job arrays are only supported for batch jobs and the array index values are
+specified using the <i>--array</i> or <i>-a</i> option of the <i>sbatch</i>
+command. The option argument can be specific array index values, a range of
+index values, and an optional step size as shown in the examples below.
+Note that the minimum index value is zero and the maximum value is a Slurm
+configuration parameter (<i>MaxArraySize</i> minus one).
+Jobs which are part of a job array will have the environment variable
+<i>SLURM_ARRAY_TASK_ID</i> set to its array index value.</p>
+
+<pre># Submit a job array with index values between 0 and 31
+$ sbatch --array=0-31    -N1 tmp
+
+# Submit a job array with index values of 1, 3, 5 and 7
+$ sbatch --array=1,3,5,7 -N1 tmp
+
+# Submit a job array with index values between 1 and 7
+# with a step size of 2 (i.e. 1, 3, 5 and 7)
+$ sbatch --array=1-7:2   -N1 tmp
+</pre>
+
+<p>A maximum number of simultaneously running tasks from the job array may be
+specified using a "%" separator.
+For example "--array=0-15%4" will limit the number of simultaneously
+running tasks from this job array to 4.</p>
+
+<h2 id="env_vars">Job ID and Environment Variables
+<a class="slurm_link" href="https://slurm.schedmd.com/job_array.html#env_vars"></a>
+</h2>
+
+<p>Job arrays will have additional environment variables set.<br>
+<b>SLURM_ARRAY_JOB_ID</b> will be set to the first job ID of the array.<br>
+<b>SLURM_ARRAY_TASK_ID</b> will be set to the job array index value.<br>
+<b>SLURM_ARRAY_TASK_COUNT</b> will be set to the number of tasks in the job
+array.<br>
+<b>SLURM_ARRAY_TASK_MAX</b> will be set to the highest job array index
+value.<br>
+<b>SLURM_ARRAY_TASK_MIN</b> will be set to the lowest job array index value.</p>
+
+<p>Under normal circumstances, array jobs will have the first task of the array
+be a place holder for the rest of the array, causing it to be the last to run.
+As a result, the task with the lowest <i>SLURM_JOB_ID</i> will have the highest
+<i>SLURM_ARRAY_TASK_ID</i>.
+For example a job submission of this sort:<br>
+<code>sbatch --array=1-3 -N1 tmp</code><br>
+will generate a job array containing three jobs. If the sbatch command
+responds with:<br>
+<code>Submitted batch job 36</code><br>
+then the environment variables will be set as follows:</p>
+<pre>SLURM_JOB_ID=36
+SLURM_ARRAY_JOB_ID=36
+SLURM_ARRAY_TASK_ID=3
+SLURM_ARRAY_TASK_COUNT=3
+SLURM_ARRAY_TASK_MAX=3
+SLURM_ARRAY_TASK_MIN=1
+
+SLURM_JOB_ID=37
+SLURM_ARRAY_JOB_ID=36
+SLURM_ARRAY_TASK_ID=1
+SLURM_ARRAY_TASK_COUNT=3
+SLURM_ARRAY_TASK_MAX=3
+SLURM_ARRAY_TASK_MIN=1
+
+SLURM_JOB_ID=38
+SLURM_ARRAY_JOB_ID=36
+SLURM_ARRAY_TASK_ID=2
+SLURM_ARRAY_TASK_COUNT=3
+SLURM_ARRAY_TASK_MAX=3
+SLURM_ARRAY_TASK_MIN=1
+</pre>
+
+<p>Ordering of the tasks as shown above is not guaranteed. For example, there
+can be cases where individual tasks are created out of order when tasks are
+requeued. The task with the lowest JOB_ID may not have the highest TASK_ID if
+the tasks are not created sequentially due to the tasks being updated/modified
+before they start. Other edge cases may cause similar behavior.</p>
+
+<p>All Slurm commands and APIs recognize the SLURM_JOB_ID value.
+Most commands also recognize the SLURM_ARRAY_JOB_ID plus SLURM_ARRAY_TASK_ID
+values separated by an underscore as identifying an element of a job array.
+Using the example above, "37" or "36_1" would be equivalent ways to identify
+the second array element of job 36.
+A set of APIs has been developed to operate on an entire job array or select
+tasks of a job array in a single function call.
+The function response consists of an array identifying the various error codes
+for various tasks of a job ID.
+For example the <i>job_resume2()</i> function might return an array of error
+codes indicating that tasks 1 and 2 have already completed; tasks 3 through 5
+are resumed successfully, and tasks 6 through 99 have not yet started.</p>
+
+<h2 id="file_names">File Names<a class="slurm_link" href="https://slurm.schedmd.com/job_array.html#file_names"></a></h2>
+
+<p>Two additional options are available to specify a job's stdin, stdout, and
+stderr file names:
+<b>%A</b> will be replaced by the value of SLURM_ARRAY_JOB_ID (as defined above)
+and
+<b>%a</b> will be replaced by the value of SLURM_ARRAY_TASK_ID (as defined above).
+The default output file format for a job array is "slurm-%A_%a.out".
+An example of explicit use of the formatting is:<br>
+<i>sbatch -o slurm-%A_%a.out --array=1-3 -N1 tmp</i><br>
+which would generate output files names of this sort
+"slurm-36_1.out", "slurm-36_2.out" and "slurm-36_3.out".
+If these file name options are used without being part of a job array then
+"%A" will be replaced by the current job ID and "%a" will be replaced by
+4,294,967,294 (equivalent to 0xfffffffe or NO_VAL).</p>
+
+<h2 id="scancel">Scancel Command Use
+<a class="slurm_link" href="https://slurm.schedmd.com/job_array.html#scancel"></a>
+</h2>
+
+<p>If the job ID of a job array is specified as input to the scancel command
+then all elements of that job array will be cancelled.
+Alternately an array ID, optionally using regular expressions, may be specified
+for job cancellation.</p>
+
+<pre># Cancel array ID 1 to 3 from job array 20
+$ scancel 20_[1-3]
+
+# Cancel array ID 4 and 5 from job array 20
+$ scancel 20_4 20_5
+
+# Cancel all elements from job array 20
+$ scancel 20
+
+# Cancel the current job or job array element (if job array)
+if [[-z $SLURM_ARRAY_JOB_ID]]; then
+  scancel $SLURM_JOB_ID
+else
+  scancel ${SLURM_ARRAY_JOB_ID}_${SLURM_ARRAY_TASK_ID}
+fi
+</pre>
+
+<h2 id="squeue">Squeue Command Use<a class="slurm_link" href="https://slurm.schedmd.com/job_array.html#squeue"></a></h2>
+
+<p>When a job array is submitted to Slurm, only one job record is created.
+Additional job records will only be created when the state of a task in the
+job array changes, typically when a task is allocated resources or its state
+is modified using the scontrol command.
+By default, the squeue command will report all of the tasks associated with
+a single job record on one line and use a regular expression to indicate the
+"array_task_id" values as shown below.</p>
+
+<pre>$ squeue
+ JOBID     PARTITION  NAME  USER  ST  TIME  NODES NODELIST(REASON)
+1080_[5-1024]  debug   tmp   mac  PD  0:00      1 (Resources)
+1080_1         debug   tmp   mac   R  0:17      1 tux0
+1080_2         debug   tmp   mac   R  0:16      1 tux1
+1080_3         debug   tmp   mac   R  0:03      1 tux2
+1080_4         debug   tmp   mac   R  0:03      1 tux3
+</pre>
+
+<p>An option of "--array" or "-r" has also been added to the squeue command
+to print one job array element per line as shown below.
+The environment variable "SQUEUE_ARRAY" is equivalent to including the "--array"
+option on the squeue command line.</p>
+
+<pre>$ squeue -r
+ JOBID PARTITION  NAME  USER  ST  TIME  NODES NODELIST(REASON)
+1082_3     debug   tmp   mac  PD  0:00      1 (Resources)
+1082_4     debug   tmp   mac  PD  0:00      1 (Priority)
+  1080     debug   tmp   mac   R  0:17      1 tux0
+  1081     debug   tmp   mac   R  0:16      1 tux1
+1082_1     debug   tmp   mac   R  0:03      1 tux2
+1082_2     debug   tmp   mac   R  0:03      1 tux3
+</pre>
+
+<p>The squeue --step/-s and --job/-j options can accept job or step
+specifications of the same format.</p>
+
+<pre>$ squeue -j 1234_2,1234_3
+...
+$ squeue -s 1234_2.0,1234_3.0
+...
+</pre>
+
+<p>Two additional job output format field options have been added to squeue:<br>
+<b>%F</b> prints the array_job_id value<br>
+<b>%K</b> prints the array_task_id value<br>
+(all of the obvious letters to use were already assigned to other job fields).</p>
+
+<h2 id="scontrol">Scontrol Command Use
+<a class="slurm_link" href="https://slurm.schedmd.com/job_array.html#scontrol"></a>
+</h2>
+
+<p>Use of the <i>scontrol show job</i> option shows two new fields related to
+job array support.
+The <i>JobID</i> is a unique identifier for the job.
+The <i>ArrayJobID</i> is the <i>JobID</i> of the first element of the job
+array.
+The <i>ArrayTaskID</i> is the array index of this particular entry, either a
+single number of an expression identifying the entries represented by this
+job record (e.g. "5-1024").
+Neither field is displayed if the job is not part of a job array.
+The optional job ID specified with the <i>scontrol show job</i> or
+<i>scontrol show step</i> commands can identify job array elements by
+specifying <i>ArrayJobId</i> and <i>ArrayTaskId</i> with an underscore between
+them (e.g. &lt;ArrayJobID&gt;_&lt;ArrayTaskId&gt;). 
+
+</p><p>The scontrol command will operate on all elements of a job array if the
+job ID specified is <i>ArrayJobID</i>.
+Individual job array tasks can be modified using the
+<i>ArrayJobID</i>_<i>ArrayTaskID</i> as shown below.</p>
+
+<pre>$ sbatch --array=1-4 -J array ./sleepme 86400
+Submitted batch job 21845
+
+$ squeue
+ JOBID   PARTITION     NAME     USER  ST  TIME NODES NODELIST
+ 21845_1    canopo    array    david  R  0:13  1     dario
+ 21845_2    canopo    array    david  R  0:13  1     dario
+ 21845_3    canopo    array    david  R  0:13  1     dario
+ 21845_4    canopo    array    david  R  0:13  1     dario
+
+$ scontrol update JobID=21845_2 name=arturo
+$ squeue
+ JOBID   PARTITION     NAME     USER  ST   TIME  NODES NODELIST
+ 21845_1    canopo    array    david  R   17:03   1    dario
+ 21845_2    canopo   arturo    david  R   17:03   1    dario
+ 21845_3    canopo    array    david  R   17:03   1    dario
+ 21845_4    canopo    array    david  R   17:03   1    dario
+
+</pre>
+
+<p>
+The scontrol hold, holdu, release, requeue, requeuehold, suspend and resume
+commands can also either operate on all elements of a job array or individual
+elements as shown below.
+</p>
+<pre>$ scontrol suspend 21845
+$ squeue
+ JOBID PARTITION      NAME     USER  ST TIME  NODES NODELIST
+21845_1    canopo    array    david  S 25:12  1     dario
+21845_2    canopo   arturo    david  S 25:12  1     dario
+21845_3    canopo    array    david  S 25:12  1     dario
+21845_4    canopo    array    david  S 25:12  1     dario
+$ scontrol resume 21845
+$ squeue
+ JOBID PARTITION      NAME     USER  ST TIME  NODES NODELIST
+21845_1    canopo    array    david  R 25:14  1     dario
+21845_2    canopo   arturo    david  R 25:14  1     dario
+21845_3    canopo    array    david  R 25:14  1     dario
+21845_4    canopo    array    david  R 25:14  1     dario
+
+scontrol suspend 21845_3
+$ squeue
+ JOBID PARTITION      NAME     USER  ST TIME  NODES NODELIST
+21845_1    canopo    array    david  R 25:14  1     dario
+21845_2    canopo   arturo    david  R 25:14  1     dario
+21845_3    canopo    array    david  S 25:14  1     dario
+21845_4    canopo    array    david  R 25:14  1     dario
+scontrol resume 21845_3
+$ squeue
+ JOBID PARTITION      NAME     USER  ST TIME  NODES NODELIST
+21845_1    canopo    array    david  R 25:14  1     dario
+21845_2    canopo   arturo    david  R 25:14  1     dario
+21845_3    canopo    array    david  R 25:14  1     dario
+21845_4    canopo    array    david  R 25:14  1     dario
+
+</pre>
+
+<h2 id="dependencies">Job Dependencies
+<a class="slurm_link" href="https://slurm.schedmd.com/job_array.html#dependencies"></a>
+</h2>
+
+<p>A job which is to be dependent upon an entire job array should specify
+itself dependent upon the ArrayJobID.
+Since each array element can have a different exit code, the interpretation of
+the <i>afterok</i> and <i>afternotok</i> clauses will be based upon the highest
+exit code from any task in the job array.</p>
+
+<p>When a job dependency specifies the job ID of a job array:<br>
+The <i>after</i> clause is satisfied after all tasks in the job array start.<br>
+The <i>afterany</i> clause is satisfied after all tasks in the job array
+complete.<br>
+The <i>aftercorr</i> clause is satisfied after the corresponding task ID in the
+specified job has completed successfully (ran to completion with an exit code of
+zero).<br>
+The <i>afterok</i> clause is satisfied after all tasks in the job array
+complete successfully.<br>
+The <i>afternotok</i> clause is satisfied after all tasks in the job array
+complete with at least one tasks not completing successfully.</p>
+
+<p>Examples of use are shown below:</p>
+<pre># Wait for specific job array elements
+sbatch --depend=after:123_4 my.job
+sbatch --depend=afterok:123_4:123_8 my.job2
+
+# Wait for entire job array to complete
+sbatch --depend=afterany:123 my.job
+
+# Wait for corresponding job array elements
+sbatch --depend=aftercorr:123 my.job
+
+# Wait for entire job array to complete successfully
+sbatch --depend=afterok:123 my.job
+
+# Wait for entire job array to complete and at least one task fails
+sbatch --depend=afternotok:123 my.job
+</pre>
+
+<h2 id="other_commands">Other Command Use
+<a class="slurm_link" href="https://slurm.schedmd.com/job_array.html#other_commands"></a>
+</h2>
+
+<p>The following Slurm commands do not currently recognize job arrays and their
+use requires the use of Slurm job IDs, which are unique for each array element:
+sbcast, sprio, sreport, sshare and sstat.
+The sacct, sattach and strigger commands have been modified to permit
+specification of either job IDs or job array elements.
+The sview command has been modified to permit display of a job's ArrayJobId
+and ArrayTaskId fields. Both fields are displayed with a value of "N/A" if
+the job is not part of a job array.</p>
+
+<h2 id="administration">System Administration
+<a class="slurm_link" href="https://slurm.schedmd.com/job_array.html#administration"></a>
+</h2>
+
+<p>A new configuration parameter has been added to control the maximum
+job array size: <b>MaxArraySize</b>. The smallest index that can be specified
+by a user is zero and the maximum index is MaxArraySize minus one.
+The default value of MaxArraySize is 1001.
+The maximum MaxArraySize supported in Slurm is 4000001.
+ Be mindful about the value of MaxArraySize as job arrays offer an easy way
+for users to submit large numbers of jobs very quickly.</p>
+
+<p>The sched/backfill plugin has been modified to improve performance with
+job arrays. Once one element of a job array is discovered to not be runnable
+or impact the scheduling of pending jobs, the remaining elements of that job
+array will be quickly skipped.</p>
+
+<p>Slurm creates a single job record when a job array is submitted.
+Additional job records are only created as needed, typically when a task
+of a job array is started, which provides a very scalable mechanism to
+manage large job counts.
+Each task of the job array will share the same ArrayJobId but will have their
+own unique ArrayTaskId. In addition to the ArrayJobId, each job will have a
+unique JobId that gets assigned as the tasks are started.</p>
+
+<p style="text-align:center;">Last modified 01 January 2024</p>
+
+			</div> <!-- END .container -->
+		</div> <!-- END .section -->
+	</div> <!-- END .content -->
+</div> <!-- END .main -->
+
+
+
+
+<table cellspacing="0" cellpadding="0" role="presentation" class="gstl_50 gssb_c" style="width: 172px; display: none; top: 65px; left: 523px; position: absolute;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

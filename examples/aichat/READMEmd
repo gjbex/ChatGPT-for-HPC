@@ -9,3 +9,5 @@ scenarios.
 1. `grammar.md`: description of a role as a grammar and spelling corrector.
 1. `bad_text.txt`: an example of a badly written text with many grammar and
    spelling errors.
+1. `slurm-docs`: documentation on how to use the SLURM job scheduler, used to
+   illustrate Retrieval-Augmented Generation (RAG) capabilities.

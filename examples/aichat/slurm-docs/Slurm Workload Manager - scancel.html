@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://slurm.schedmd.com/scancel.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+	<meta name="viewport" content="width=device-width">
+
+	<title>Slurm Workload Manager - scancel</title>
+	<link rel="canonical" href="https://slurm.schedmd.com/scancel.html">
+
+	<link rel="shortcut icon" href="https://slurm.schedmd.com/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - scancel_files/fonts.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - scancel_files/reset.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - scancel_files/style.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - scancel_files/slurm.css">
+
+	<script async="" src="./Slurm Workload Manager - scancel_files/async-ads.js.download"></script><script src="./Slurm Workload Manager - scancel_files/jquery.min.js.download"></script>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+		jQuery('.menu-trigger').bind('click touchstart', function() {
+			jQuery(this).find('.menu-trigger__lines').toggleClass('menu-trigger__lines--closed');
+			jQuery(this).parents('.site-header').find('.site-nav').toggleClass('site-nav--active');
+
+			return false;
+		});
+	});
+	</script>
+	<script async="" src="./Slurm Workload Manager - scancel_files/f.txt"></script>
+<script src="./Slurm Workload Manager - scancel_files/cse_element__en.js.download" type="text/javascript"></script><link type="text/css" href="./Slurm Workload Manager - scancel_files/default+en.css" rel="stylesheet"><link type="text/css" href="./Slurm Workload Manager - scancel_files/default.css" rel="stylesheet"><style type="text/css">.gsc-control-cse{font-family:arial, sans-serif}.gsc-control-cse .gsc-table-result{font-family:arial, sans-serif}.gsc-refinementsGradient{background:linear-gradient(to left,rgba(255,255,255,1),rgba(255,255,255,0))}.gsc-control-cse{border-color:#FFFFFF;background-color:#FFFFFF}input.gsc-input,.gsc-input-box,.gsc-input-box-hover,.gsc-input-box-focus{border-color:#D9D9D9}.gsc-search-button-v2,.gsc-search-button-v2:hover,.gsc-search-button-v2:focus{border-color:#666666;background-color:#1BAEE9;background-image:none;filter:none}.gsc-search-button-v2 svg{fill:#FFFFFF}.gsc-tabHeader.gsc-tabhActive,.gsc-refinementHeader.gsc-refinementhActive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-tabHeader.gsc-tabhInactive,.gsc-refinementHeader.gsc-refinementhInactive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-webResult.gsc-result,.gsc-results .gsc-imageResult{border-color:#FFFFFF;background-color:#FFFFFF}.gsc-webResult.gsc-result:hover{border-color:#FFFFFF;background-color:#FFFFFF}.gs-webResult.gs-result a.gs-title:link,.gs-webResult.gs-result a.gs-title:link b,.gs-imageResult a.gs-title:link,.gs-imageResult a.gs-title:link b{color:#0000CC}.gs-webResult.gs-result a.gs-title:visited,.gs-webResult.gs-result a.gs-title:visited b,.gs-imageResult a.gs-title:visited,.gs-imageResult a.gs-title:visited b{color:#0000CC}.gs-webResult.gs-result a.gs-title:hover,.gs-webResult.gs-result a.gs-title:hover b,.gs-imageResult a.gs-title:hover,.gs-imageResult a.gs-title:hover b{color:#0000CC}.gs-webResult.gs-result a.gs-title:active,.gs-webResult.gs-result a.gs-title:active b,.gs-imageResult a.gs-title:active,.gs-imageResult a.gs-title:active b{color:#0000CC}.gsc-cursor-page{color:#0000CC}a.gsc-trailing-more-results:link{color:#0000CC}.gs-webResult:not(.gs-no-results-result):not(.gs-error-result) .gs-snippet,.gs-fileFormatType{color:#000000}.gs-webResult div.gs-visibleUrl{color:#008000}.gs-webResult div.gs-visibleUrl-short{color:#008000}.gsc-cursor-box{border-color:#FFFFFF}.gsc-results .gsc-cursor-box .gsc-cursor-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-results .gsc-cursor-box .gsc-cursor-current-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-webResult.gsc-result.gsc-promotion{border-color:#336699;background-color:#FFFFFF}.gsc-completion-title{color:#0000CC}.gsc-completion-snippet{color:#000000}.gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link{color:#0000CC}.gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited{color:#0000CC}.gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover{color:#0000CC}.gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active{color:#0000CC}.gs-promotion .gs-snippet,.gs-promotion .gs-title .gs-promotion-title-right,.gs-promotion .gs-title .gs-promotion-title-right *{color:#000000}.gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short{color:#008000}.gcsc-find-more-on-google{color:#0000CC}.gcsc-find-more-on-google-magnifier{fill:#0000CC}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{vertical-align:middle;opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gssb_a{padding:0 9px}.gsib_a{padding:5px 9px 4px 9px}.gscb_a{line-height:27px}.gssb_e{border:0}.gssb_l{margin:5px 0}input.gsc-input::-webkit-input-placeholder{font-size:14px}input.gsc-input:-moz-placeholder{font-size:14px}input.gsc-input::-moz-placeholder{font-size:14px}input.gsc-input:-ms-input-placeholder{font-size:14px}input.gsc-input:focus::-webkit-input-placeholder{color:transparent}input.gsc-input:focus:-moz-placeholder{color:transparent}input.gsc-input:focus::-moz-placeholder{color:transparent}input.gsc-input:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
+
+<body data-new-gr-c-s-check-loaded="14.1224.0" data-gr-ext-installed="">
+
+<div class="container container--main">
+
+	<header class="site-header" role="banner">
+
+		<div class="site-masthead">
+			<h1 class="site-masthead__title site-masthead__title--slurm">
+				<a href="https://slurm.schedmd.com/" rel="home">
+					<span class="slurm-logo">Slurm Workload Manager</span>
+				</a>
+			</h1>
+			<div class="site-masthead__title">
+				<a href="https://www.schedmd.com/" rel="home">
+					<span class="site-logo">SchedMD</span>
+				</a>
+			</div>
+
+			<button class="site-masthead__trigger menu-trigger" type="button" role="button" aria-label="Toggle Navigation"><span class="menu-trigger__lines"></span></button>
+		</div>
+
+
+		<nav class="site-nav" role="navigation">
+			<h2 class="site-nav__title">Navigation</h2>
+
+			<div class="slurm-title">
+				<div class="slurm-logo"><a href="https://slurm.schedmd.com/">Slurm Workload Manager</a></div>
+				<div class="slurm-title__version">Version 24.11</div>
+			</div>
+
+			<ul class="site-nav__menu site-menu menu">
+				<li class="site-menu__item">
+				        <div>About</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/overview.html">Overview</a></li>
+						<li><a href="https://slurm.schedmd.com/release_notes.html">Release Notes</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Using</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/documentation.html">Documentation</a></li>
+						<li><a href="https://slurm.schedmd.com/faq.html">FAQ</a></li>
+						<li><a href="https://www.schedmd.com/publications/">Publications</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Installing</div>
+					<ul>
+						<li><a href="https://www.schedmd.com/download-slurm/">Download</a></li>
+						<li><a href="https://slurm.schedmd.com/related_software.html">Related Software</a></li>
+						<li><a href="https://slurm.schedmd.com/quickstart_admin.html">Installation Guide</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Getting Help</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/mail.html">Mailing Lists</a></li>
+						<li><a href="https://www.schedmd.com/slurm-support/our-services/">Support and Training</a></li>
+						<li><a href="https://slurm.schedmd.com/troubleshoot.html">Troubleshooting</a></li>
+					</ul>
+				</li>
+			</ul>
+
+		</nav>
+
+	</header>
+
+	<div class="content" role="main">
+		<section class="slurm-search">
+			<div class="container" id="cse">
+				<div id="___gcse_0"><div class="gsc-control-cse gsc-control-cse-en"><div class="gsc-control-wrapper-cse" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" role="presentation" id="gs_id50" class="gstl_50 gsc-input" style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" aria-label="search" id="gsc-i-id1" dir="ltr" spellcheck="false" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; background: url(&quot;https://www.google.com/cse/static/images/1x/en/branding.png&quot;) left center no-repeat rgb(255, 255, 255); outline: none;"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" title="Clear search box" role="button" style="display: none;"><span class="gscb_a" id="gs_cb50" aria-hidden="true">×</span></a></div></td></tr></tbody></table></div></td><td class="gsc-search-button"><button class="gsc-search-button gsc-search-button-v2"><svg width="13" height="13" viewBox="0 0 13 13"><title>search</title><path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path></svg></button></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table></form><div class="gsc-results-wrapper-nooverlay"><div class="gsc-positioningWrapper"><div class="gsc-tabsAreaInvisible"><div aria-label="refinement" role="tab" class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Custom Search</div><span class="gs-spacer"> </span></div></div><div class="gsc-positioningWrapper"><div class="gsc-refinementsAreaInvisible"></div></div><div class="gsc-above-wrapper-area-invisible"><div class="gsc-above-wrapper-area-backfill-container"></div><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-above-wrapper-area-container"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td><td class="gsc-orderby-container"><div class="gsc-orderby-invisible"><div class="gsc-orderby-label gsc-inline-block">Sort by:</div><div class="gsc-option-menu-container gsc-inline-block"><div class="gsc-selected-option-container gsc-inline-block"><div class="gsc-selected-option">Relevance</div><div class="gsc-option-selector"></div></div><div class="gsc-option-menu-invisible"><div class="gsc-option-menu-item gsc-option-menu-item-highlighted"><div class="gsc-option">Relevance</div></div><div class="gsc-option-menu-item"><div class="gsc-option">Date</div></div></div></div></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><div><div class="gsc-expansionArea"></div></div></div></div></div></div></div></div></div>
+			</div>
+		</section>
+
+		<div class="section">
+			<div class="container">
+
+<h1>scancel</h1>
+Section: Slurm Commands (1)<br>Updated: Slurm Commands<br><a href="https://slurm.schedmd.com/scancel.html#index">Index</a>
+
+<p>
+<a name="lbAB">&nbsp;</a>
+</p><h2>NAME<a class="slurm_link" id="SECTION_NAME" href="https://slurm.schedmd.com/scancel.html#SECTION_NAME"></a></h2>
+scancel - Used to signal jobs or job steps that are under the control of Slurm.
+<p>
+<a name="lbAC">&nbsp;</a>
+</p><h2>SYNOPSIS<a class="slurm_link" id="SECTION_SYNOPSIS" href="https://slurm.schedmd.com/scancel.html#SECTION_SYNOPSIS"></a></h2>
+<b>scancel</b> [<i>OPTIONS</i>...] [<i>job_id</i>[_<i>array_id</i>][.<i>step_id</i>]] [<i>job_id</i>[_<i>array_id</i>][.<i>step_id</i>]...]
+<p>
+<a name="lbAD">&nbsp;</a>
+</p><h2>DESCRIPTION<a class="slurm_link" id="SECTION_DESCRIPTION" href="https://slurm.schedmd.com/scancel.html#SECTION_DESCRIPTION"></a></h2>
+<b>scancel</b> is used to signal or cancel jobs, job arrays or job steps.
+An arbitrary number of jobs or job steps may be signaled using job
+specification filters or a space separated list of specific job and/or
+job step IDs.
+If the job ID of a job array is specified with an array ID value and the job
+associated with the array ID value has been split from the array, then only that
+job array element will be cancelled.
+If the job ID of a job array is specified without an array ID value or the
+array ID value corresponds to a job that has not been split from the array,
+then all job array elements will be cancelled.
+While a heterogeneous job is in a PENDING state, only the entire job can be
+cancelled rather than its individual components.
+A request to cancel an individual component of a heterogeneous job while in
+a PENDING state will return an error.
+After the job has begun execution, an individual component can be cancelled
+except for component zero. If component zero is cancelled, the whole het job is
+cancelled.
+A job or job step can only be signaled by the owner of that job or user root.
+If an attempt is made by an unauthorized user to signal a job or job step, an
+error message will be printed and the job will not be signaled.
+<p>
+<a name="lbAE">&nbsp;</a>
+</p><h2>OPTIONS<a class="slurm_link" id="SECTION_OPTIONS" href="https://slurm.schedmd.com/scancel.html#SECTION_OPTIONS"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>-A</b>, <b>--account</b>=<i>account</i><a class="slurm_link" id="OPT_account" href="https://slurm.schedmd.com/scancel.html#OPT_account"></a></dt><dd>Restrict the scancel operation to jobs under this charge account.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-b</b>, <b>--batch</b><a class="slurm_link" id="OPT_batch" href="https://slurm.schedmd.com/scancel.html#OPT_batch"></a></dt><dd>By default, signals other than SIGKILL are not sent to the batch step (the shell
+script). With this option <b>scancel</b> signals only the batch step, but not
+any other steps.
+This is useful when the shell script has to trap the signal and take some
+application defined action.
+Most shells cannot handle signals while a command is running (i.e. is a child
+process of the batch step), so the shell needs to wait until the command ends to
+then handle the signal.
+Children of the batch step are not signaled with this option. If this is
+desired, use <b>-f</b>, <b>--full</b> instead.
+<b>NOTE</b>: If used with <b>-f</b>, <b>--full</b>, this option is ignored.
+<b>NOTE</b>: This option is not applicable if <i>step_id</i> is specified.
+<b>NOTE</b>: The shell itself may exit upon receipt of many signals.
+You may avoid this by explicitly trap signals within the shell
+script (e.g. "trap &lt;arg&gt; &lt;signals&gt;"). See the shell documentation
+for details.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-M</b>, <b>--clusters</b>=&lt;<i>string</i>&gt;<a class="slurm_link" id="OPT_clusters" href="https://slurm.schedmd.com/scancel.html#OPT_clusters"></a></dt><dd>Cluster to issue commands to. Implies <b>--ctld</b>.
+Note that the <b>slurmdbd</b> must be up for this option to work properly, unless
+running in a federation with <b>FederationParameters=fed_display</b> configured.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--ctld</b><a class="slurm_link" id="OPT_ctld" href="https://slurm.schedmd.com/scancel.html#OPT_ctld"></a></dt><dd>If this option is not used with <b>--interactive</b>,
+<b>--sibling</b>, or specific step ids, then this issues a single request
+to the slurmctld to signal all jobs matching the specified filters. This
+greatly improves the performance of slurmctld and scancel. Otherwise, this
+option causes scancel to send each job signal request to the slurmctld daemon
+rather than directly to the slurmd daemons, which increases overhead, but
+offers better fault tolerance. <b>--ctld</b> is the default behavior on
+architectures using front end nodes, or when the <b>--clusters</b> option is
+used.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-c</b>, <b>--cron</b><a class="slurm_link" id="OPT_cron" href="https://slurm.schedmd.com/scancel.html#OPT_cron"></a></dt><dd>Confirm request to cancel a job submitted by scrontab. This option only has
+effect with the "explicit_scancel" option is set in <b>ScronParameters</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-f</b>, <b>--full</b><a class="slurm_link" id="OPT_full" href="https://slurm.schedmd.com/scancel.html#OPT_full"></a></dt><dd>By default, signals other than SIGKILL are not sent to the batch step (the shell
+script). With this option <b>scancel</b> also signals the batch script and its
+children processes.
+Most shells cannot handle signals while a command is running (i.e. is a child
+process of the batch step), so the shell needs to wait until the command ends to
+then handle the signal.
+Unlike <b>-b</b>, <b>--batch</b>, children of the batch step
+are also signaled with this option.
+<b>NOTE</b>: srun steps are also children of the batch step, so steps are also
+signaled with this option.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--help</b><a class="slurm_link" id="OPT_help" href="https://slurm.schedmd.com/scancel.html#OPT_help"></a></dt><dd>Print a help message describing all <b>scancel</b> options.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-H</b>, <b>--hurry</b><a class="slurm_link" id="OPT_hurry" href="https://slurm.schedmd.com/scancel.html#OPT_hurry"></a></dt><dd>Do not stage out any burst buffer data.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-i</b>, <b>--interactive</b><a class="slurm_link" id="OPT_interactive" href="https://slurm.schedmd.com/scancel.html#OPT_interactive"></a></dt><dd>Interactive mode. Confirm each job_id.step_id before performing the cancel operation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-n</b>, <b>--jobname</b>=<i>job_name</i>, <b>--name</b>=<i>job_name</i><a class="slurm_link" id="OPT_jobname" href="https://slurm.schedmd.com/scancel.html#OPT_jobname"></a></dt><dd>Restrict the scancel operation to jobs with this job name.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--me</b><a class="slurm_link" id="OPT_me" href="https://slurm.schedmd.com/scancel.html#OPT_me"></a></dt><dd>Restrict the scancel operation to jobs owned by the current user.
+<p>
+</p></dd><dt><b>-w</b>, <b>--nodelist=</b><i>host1,host2,...</i><a class="slurm_link" id="OPT_nodelist=" href="https://slurm.schedmd.com/scancel.html#OPT_nodelist="></a></dt><dd>Cancel any jobs using any of the given hosts. The list may be specified as
+a comma-separated list of hosts, a range of hosts (host[1-5,7,...] for
+example), or a filename. The host list will be assumed to be a filename only
+if it contains a "/" character.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-p</b>, <b>--partition</b>=<i>partition_name</i><a class="slurm_link" id="OPT_partition" href="https://slurm.schedmd.com/scancel.html#OPT_partition"></a></dt><dd>Restrict the scancel operation to jobs in this partition.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-q</b>, <b>--qos</b>=<i>qos</i><a class="slurm_link" id="OPT_qos" href="https://slurm.schedmd.com/scancel.html#OPT_qos"></a></dt><dd>Restrict the scancel operation to jobs with this quality of service.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-Q</b>, <b>--quiet</b><a class="slurm_link" id="OPT_quiet" href="https://slurm.schedmd.com/scancel.html#OPT_quiet"></a></dt><dd>Do not report an error if the specified job is already completed.
+This option is incompatible with the <b>--verbose</b> option.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-R</b>, <b>--reservation</b>=<i>reservation_name</i><a class="slurm_link" id="OPT_reservation" href="https://slurm.schedmd.com/scancel.html#OPT_reservation"></a></dt><dd>Restrict the scancel operation to jobs with this reservation name.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--sibling</b>=<i>cluster_name</i><a class="slurm_link" id="OPT_sibling" href="https://slurm.schedmd.com/scancel.html#OPT_sibling"></a></dt><dd>Remove an active sibling job from a federated job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-s</b>, <b>--signal</b>=<i>signal_name</i><a class="slurm_link" id="OPT_signal" href="https://slurm.schedmd.com/scancel.html#OPT_signal"></a></dt><dd>The name or number of the signal to send. If this option is not used
+the specified job or step will be terminated.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-t</b>, <b>--state</b>=<i>job_state_name</i><a class="slurm_link" id="OPT_state" href="https://slurm.schedmd.com/scancel.html#OPT_state"></a></dt><dd>Restrict the scancel operation to jobs in this
+state. <i>job_state_name</i> may have a value of either "PENDING",
+"RUNNING" or "SUSPENDED".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--usage</b><a class="slurm_link" id="OPT_usage" href="https://slurm.schedmd.com/scancel.html#OPT_usage"></a></dt><dd>Print a brief help message listing the <b>scancel</b> options.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-u</b>, <b>--user</b>=<i>user_name</i><a class="slurm_link" id="OPT_user" href="https://slurm.schedmd.com/scancel.html#OPT_user"></a></dt><dd>Restrict the scancel operation to jobs owned by the given user.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-v</b>, <b>--verbose</b><a class="slurm_link" id="OPT_verbose" href="https://slurm.schedmd.com/scancel.html#OPT_verbose"></a></dt><dd>Print additional logging. Multiple v's increase logging detail.
+This option is incompatible with the <b>--quiet</b> option.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-V</b>, <b>--version</b><a class="slurm_link" id="OPT_version" href="https://slurm.schedmd.com/scancel.html#OPT_version"></a></dt><dd>Print the version number of the scancel command.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--wckey</b>=<i>wckey</i><a class="slurm_link" id="OPT_wckey" href="https://slurm.schedmd.com/scancel.html#OPT_wckey"></a></dt><dd>Restrict the scancel operation to jobs using this workload
+characterization key.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAF">&nbsp;</a>
+<h2>ARGUMENTS<a class="slurm_link" id="SECTION_ARGUMENTS" href="https://slurm.schedmd.com/scancel.html#SECTION_ARGUMENTS"></a></h2>
+<p>
+</p><dl compact="">
+<dt><i>job_id</i><a class="slurm_link" id="OPT_job_id" href="https://slurm.schedmd.com/scancel.html#OPT_job_id"></a></dt><dd>The Slurm job ID to be signaled.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><i>step_id</i><a class="slurm_link" id="OPT_step_id" href="https://slurm.schedmd.com/scancel.html#OPT_step_id"></a></dt><dd>The step ID of the job step to be signaled.
+If not specified, the operation is performed at the level of a job.
+<p>
+If neither <b>--batch</b> nor <b>--signal</b> are used,
+the entire job will be terminated.
+</p><p>
+When <b>--batch</b> is used, the batch shell processes will be signaled.
+The child processes of the shell will not be signaled by Slurm, but
+the shell may forward the signal.
+</p><p>
+When <b>--batch</b> is not used but <b>--signal</b> is used,
+then all job steps will be signaled, but the batch script itself
+will not be signaled.
+</p></dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAG">&nbsp;</a>
+<h2>PERFORMANCE<a class="slurm_link" id="SECTION_PERFORMANCE" href="https://slurm.schedmd.com/scancel.html#SECTION_PERFORMANCE"></a></h2>
+<p>
+
+When executing <b>scancel</b> without the <b>--ctld</b> option; or with the
+<b>--ctld</b> option and <b>--interactive</b>, <b>--sibling</b>, or specific
+step ids; a remote procedure call is sent to <b>slurmctld</b> to get all the
+jobs. <b>scancel</b> then sends a signal job remote procedure call for each job
+that matches the requested filters.
+</p><p>
+When executing <b>scancel</b> with the <b>--ctld</b> option and without
+<b>--interactive</b>, <b>--sibling</b>, or specific step ids, a single
+remote procedure call is sent to <b>slurmctld</b> to signal all jobs matching
+the requested filters. It is therefore recommended to use the <b>--ctld</b>
+option in order to reduce the number of remote procedure calls sent to the
+<b>slurmctld</b>.
+</p><p>
+</p><p>
+
+If enough calls from <b>scancel</b> or other Slurm client commands that send
+remote procedure calls to the <b>slurmctld</b> daemon come in at once, it can
+result in a degradation of performance of the <b>slurmctld</b> daemon, possibly
+resulting in a denial of service.
+</p><p>
+</p><p>
+
+Do not run <b>scancel</b> or other Slurm client commands that send remote
+procedure calls to <b>slurmctld</b> from loops in shell scripts or other
+programs. Ensure that programs limit calls to <b>scancel</b> to the minimum
+necessary for the information you are trying to gather.
+</p><p>
+<a name="lbAH">&nbsp;</a>
+</p><h2>ENVIRONMENT VARIABLES<a class="slurm_link" id="SECTION_ENVIRONMENT-VARIABLES" href="https://slurm.schedmd.com/scancel.html#SECTION_ENVIRONMENT-VARIABLES"></a></h2>
+<p>
+
+Some <b>scancel</b> options may be set via environment variables. These
+environment variables, along with their corresponding options, are listed below.
+(Note: Command line options will always override these settings.)
+</p><p>
+</p><dl compact="">
+<dt><b>SCANCEL_ACCOUNT</b><a class="slurm_link" id="OPT_SCANCEL_ACCOUNT" href="https://slurm.schedmd.com/scancel.html#OPT_SCANCEL_ACCOUNT"></a></dt><dd><b>-A</b>, <b>--account</b>=<i>account</i>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCANCEL_BATCH</b><a class="slurm_link" id="OPT_SCANCEL_BATCH" href="https://slurm.schedmd.com/scancel.html#OPT_SCANCEL_BATCH"></a></dt><dd><b>-b, --batch</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCANCEL_CTLD</b><a class="slurm_link" id="OPT_SCANCEL_CTLD" href="https://slurm.schedmd.com/scancel.html#OPT_SCANCEL_CTLD"></a></dt><dd><b>--ctld</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCANCEL_CRON</b><a class="slurm_link" id="OPT_SCANCEL_CRON" href="https://slurm.schedmd.com/scancel.html#OPT_SCANCEL_CRON"></a></dt><dd><b>-c, --cron</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCANCEL_FULL</b><a class="slurm_link" id="OPT_SCANCEL_FULL" href="https://slurm.schedmd.com/scancel.html#OPT_SCANCEL_FULL"></a></dt><dd><b>-f, --full</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCANCEL_HURRY</b><a class="slurm_link" id="OPT_SCANCEL_HURRY" href="https://slurm.schedmd.com/scancel.html#OPT_SCANCEL_HURRY"></a></dt><dd><b>-H</b>, <b>--hurry</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCANCEL_INTERACTIVE</b><a class="slurm_link" id="OPT_SCANCEL_INTERACTIVE" href="https://slurm.schedmd.com/scancel.html#OPT_SCANCEL_INTERACTIVE"></a></dt><dd><b>-i</b>, <b>--interactive</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCANCEL_NAME</b><a class="slurm_link" id="OPT_SCANCEL_NAME" href="https://slurm.schedmd.com/scancel.html#OPT_SCANCEL_NAME"></a></dt><dd><b>-n</b>, <b>--name</b>=<i>job_name</i>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCANCEL_PARTITION</b><a class="slurm_link" id="OPT_SCANCEL_PARTITION" href="https://slurm.schedmd.com/scancel.html#OPT_SCANCEL_PARTITION"></a></dt><dd><b>-p</b>, <b>--partition</b>=<i>partition_name</i>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCANCEL_QOS</b><a class="slurm_link" id="OPT_SCANCEL_QOS" href="https://slurm.schedmd.com/scancel.html#OPT_SCANCEL_QOS"></a></dt><dd><b>-q</b>, <b>--qos</b>=<i>qos</i>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCANCEL_STATE</b><a class="slurm_link" id="OPT_SCANCEL_STATE" href="https://slurm.schedmd.com/scancel.html#OPT_SCANCEL_STATE"></a></dt><dd><b>-t</b>, <b>--state</b>=<i>job_state_name</i>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCANCEL_USER</b><a class="slurm_link" id="OPT_SCANCEL_USER" href="https://slurm.schedmd.com/scancel.html#OPT_SCANCEL_USER"></a></dt><dd><b>-u</b>, <b>--user</b>=<i>user_name</i>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCANCEL_VERBOSE</b><a class="slurm_link" id="OPT_SCANCEL_VERBOSE" href="https://slurm.schedmd.com/scancel.html#OPT_SCANCEL_VERBOSE"></a></dt><dd><b>-v</b>, <b>--verbose</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCANCEL_WCKEY</b><a class="slurm_link" id="OPT_SCANCEL_WCKEY" href="https://slurm.schedmd.com/scancel.html#OPT_SCANCEL_WCKEY"></a></dt><dd><b>--wckey</b>=<i>wckey</i>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CONF</b><a class="slurm_link" id="OPT_SLURM_CONF" href="https://slurm.schedmd.com/scancel.html#OPT_SLURM_CONF"></a></dt><dd>The location of the Slurm configuration file.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CLUSTERS</b><a class="slurm_link" id="OPT_SLURM_CLUSTERS" href="https://slurm.schedmd.com/scancel.html#OPT_SLURM_CLUSTERS"></a></dt><dd><b>-M</b>, <b>--clusters</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_DEBUG_FLAGS</b><a class="slurm_link" id="OPT_SLURM_DEBUG_FLAGS" href="https://slurm.schedmd.com/scancel.html#OPT_SLURM_DEBUG_FLAGS"></a></dt><dd>Specify debug flags for scancel to use. See DebugFlags in the
+<b><a href="https://slurm.schedmd.com/slurm.conf.html">slurm.conf</a></b>(5) man page for a full list of flags. The environment
+variable takes precedence over the setting in the slurm.conf.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAI">&nbsp;</a>
+<h2>NOTES<a class="slurm_link" id="SECTION_NOTES" href="https://slurm.schedmd.com/scancel.html#SECTION_NOTES"></a></h2>
+<p>
+
+If multiple filters are supplied (e.g. <b>--partition</b> and <b>--name</b>)
+only the jobs satisfying all of the filtering options will be signaled.
+</p><p>
+
+Cancelling a job step will not result in the job being terminated.
+The job must be cancelled to release a resource allocation.
+</p><p>
+
+To cancel a job, invoke <b>scancel</b> without --signal option. This
+will send first a SIGCONT to all steps to eventually wake them up followed by
+a SIGTERM, then wait the KillWait duration defined in the slurm.conf file
+and finally if they have not terminated send a SIGKILL. This gives
+time for the running job/step(s) to clean up.
+</p><p>
+
+If a signal value of "KILL" is sent to an entire job, this will cancel
+the active job steps but not cancel the job itself.
+</p><p>
+<a name="lbAJ">&nbsp;</a>
+</p><h2>AUTHORIZATION<a class="slurm_link" id="SECTION_AUTHORIZATION" href="https://slurm.schedmd.com/scancel.html#SECTION_AUTHORIZATION"></a></h2>
+<p>
+When using SlurmDBD, users who have an AdminLevel defined (Operator
+or Admin) and users who are account coordinators are given the
+authority to invoke scancel on other users jobs.
+</p><p>
+<a name="lbAK">&nbsp;</a>
+</p><h2>EXAMPLES<a class="slurm_link" id="SECTION_EXAMPLES" href="https://slurm.schedmd.com/scancel.html#SECTION_EXAMPLES"></a></h2>
+<dl compact="">
+<dt></dt><dd>
+<p>
+</p></dd><dt>Send SIGTERM to steps 1 and 3 of job 1234:</dt><dd>
+</dd><dt></dt><dd>
+<pre>$ scancel --signal=TERM 1234.1 1234.3
+</pre>
+
+<p>
+</p></dd><dt>Cancel job 1234 along with all of its steps:</dt><dd>
+</dd><dt></dt><dd>
+<pre>$ scancel 1234
+</pre>
+
+<p>
+</p></dd><dt>Send SIGKILL to all steps of job 1235, but do not cancel the job itself:</dt><dd>
+</dd><dt></dt><dd>
+<pre>$ scancel --signal=KILL 1235
+</pre>
+
+<p>
+</p></dd><dt>Send SIGUSR1 to the batch shell processes of job 1236:</dt><dd>
+</dd><dt></dt><dd>
+<pre>$ scancel --signal=USR1 --batch 1236
+</pre>
+
+<p>
+</p></dd><dt>Cancel all pending jobs belonging to user "bob" in partition "debug":</dt><dd>
+</dd><dt></dt><dd>
+<pre>$ scancel --state=PENDING --user=bob --partition=debug
+</pre>
+
+<p>
+</p></dd><dt>Cancel only array ID 4 of job array 1237</dt><dd>
+</dd><dt></dt><dd>
+<pre>$ scancel 1237_4
+</pre>
+
+<p>
+</p></dd></dl>
+<a name="lbAL">&nbsp;</a>
+<h2>COPYING<a class="slurm_link" id="SECTION_COPYING" href="https://slurm.schedmd.com/scancel.html#SECTION_COPYING"></a></h2>
+Copyright (C) 2002-2007 The Regents of the University of California.
+Produced at Lawrence Livermore National Laboratory (cf, DISCLAIMER).
+<br>
+
+Copyright (C) 2008-2011 Lawrence Livermore National Security.
+<br>
+
+Copyright (C) 2010-2022 SchedMD LLC.
+<p>
+
+This file is part of Slurm, a resource management program.
+For details, see &lt;<a href="https://slurm.schedmd.com/">https://slurm.schedmd.com/</a>&gt;.
+</p><p>
+
+Slurm is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free
+Software Foundation; either version 2 of the License, or (at your option)
+any later version.
+</p><p>
+
+Slurm is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+details.
+</p><p>
+<a name="lbAM">&nbsp;</a>
+</p><h2>SEE ALSO<a class="slurm_link" id="SECTION_SEE-ALSO" href="https://slurm.schedmd.com/scancel.html#SECTION_SEE-ALSO"></a></h2>
+<b>slurm_kill_job</b> (3), <b>slurm_kill_job_step</b> (3)
+<p>
+
+</p><hr>
+<a name="index">&nbsp;</a><h2>Index</h2>
+<dl>
+<dt><a href="https://slurm.schedmd.com/scancel.html#lbAB">NAME</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scancel.html#lbAC">SYNOPSIS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scancel.html#lbAD">DESCRIPTION</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scancel.html#lbAE">OPTIONS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scancel.html#lbAF">ARGUMENTS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scancel.html#lbAG">PERFORMANCE</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scancel.html#lbAH">ENVIRONMENT VARIABLES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scancel.html#lbAI">NOTES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scancel.html#lbAJ">AUTHORIZATION</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scancel.html#lbAK">EXAMPLES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scancel.html#lbAL">COPYING</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/scancel.html#lbAM">SEE ALSO</a></dt><dd>
+</dd></dl>
+<hr>
+This document was created by
+<i>man2html</i> using the manual pages.<br>
+Time: 20:54:38 GMT, February 25, 2025
+			</div> <!-- END .container -->
+		</div> <!-- END .section -->
+	</div> <!-- END .content -->
+</div> <!-- END .main -->
+
+
+
+<table cellspacing="0" cellpadding="0" role="presentation" class="gstl_50 gssb_c" style="width: 172px; display: none; top: 65px; left: 523px; position: absolute;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table><div data-lastpass-root="" style="position: absolute !important; top: 0px !important; left: 0px !important; height: 0px !important; width: 0px !important;"><template shadowrootmode="closed"><div style="position: absolute; height: 100vh; width: 100vw; z-index: 2147483647; border-radius: 4px; top: 0px; left: 0px; max-height: 0px; max-width: 280px; min-width: auto;"><iframe data-lastpass-infield="true" allow="clipboard-write" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/webclient-infield.html" style="border: none; height: 100%; width: 100%;"></iframe></div></template></div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

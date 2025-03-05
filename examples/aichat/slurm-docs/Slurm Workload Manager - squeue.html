@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://slurm.schedmd.com/squeue.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+	<meta name="viewport" content="width=device-width">
+
+	<title>Slurm Workload Manager - squeue</title>
+	<link rel="canonical" href="https://slurm.schedmd.com/squeue.html">
+
+	<link rel="shortcut icon" href="https://slurm.schedmd.com/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - squeue_files/fonts.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - squeue_files/reset.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - squeue_files/style.css">
+	<link rel="stylesheet" type="text/css" href="./Slurm Workload Manager - squeue_files/slurm.css">
+
+	<script async="" src="./Slurm Workload Manager - squeue_files/async-ads.js.download"></script><script src="./Slurm Workload Manager - squeue_files/jquery.min.js.download"></script>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+		jQuery('.menu-trigger').bind('click touchstart', function() {
+			jQuery(this).find('.menu-trigger__lines').toggleClass('menu-trigger__lines--closed');
+			jQuery(this).parents('.site-header').find('.site-nav').toggleClass('site-nav--active');
+
+			return false;
+		});
+	});
+	</script>
+	<script async="" src="./Slurm Workload Manager - squeue_files/f.txt"></script>
+<script src="./Slurm Workload Manager - squeue_files/cse_element__en.js.download" type="text/javascript"></script><link type="text/css" href="./Slurm Workload Manager - squeue_files/default+en.css" rel="stylesheet"><link type="text/css" href="./Slurm Workload Manager - squeue_files/default.css" rel="stylesheet"><style type="text/css">.gsc-control-cse{font-family:arial, sans-serif}.gsc-control-cse .gsc-table-result{font-family:arial, sans-serif}.gsc-refinementsGradient{background:linear-gradient(to left,rgba(255,255,255,1),rgba(255,255,255,0))}.gsc-control-cse{border-color:#FFFFFF;background-color:#FFFFFF}input.gsc-input,.gsc-input-box,.gsc-input-box-hover,.gsc-input-box-focus{border-color:#D9D9D9}.gsc-search-button-v2,.gsc-search-button-v2:hover,.gsc-search-button-v2:focus{border-color:#666666;background-color:#1BAEE9;background-image:none;filter:none}.gsc-search-button-v2 svg{fill:#FFFFFF}.gsc-tabHeader.gsc-tabhActive,.gsc-refinementHeader.gsc-refinementhActive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-tabHeader.gsc-tabhInactive,.gsc-refinementHeader.gsc-refinementhInactive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-webResult.gsc-result,.gsc-results .gsc-imageResult{border-color:#FFFFFF;background-color:#FFFFFF}.gsc-webResult.gsc-result:hover{border-color:#FFFFFF;background-color:#FFFFFF}.gs-webResult.gs-result a.gs-title:link,.gs-webResult.gs-result a.gs-title:link b,.gs-imageResult a.gs-title:link,.gs-imageResult a.gs-title:link b{color:#0000CC}.gs-webResult.gs-result a.gs-title:visited,.gs-webResult.gs-result a.gs-title:visited b,.gs-imageResult a.gs-title:visited,.gs-imageResult a.gs-title:visited b{color:#0000CC}.gs-webResult.gs-result a.gs-title:hover,.gs-webResult.gs-result a.gs-title:hover b,.gs-imageResult a.gs-title:hover,.gs-imageResult a.gs-title:hover b{color:#0000CC}.gs-webResult.gs-result a.gs-title:active,.gs-webResult.gs-result a.gs-title:active b,.gs-imageResult a.gs-title:active,.gs-imageResult a.gs-title:active b{color:#0000CC}.gsc-cursor-page{color:#0000CC}a.gsc-trailing-more-results:link{color:#0000CC}.gs-webResult:not(.gs-no-results-result):not(.gs-error-result) .gs-snippet,.gs-fileFormatType{color:#000000}.gs-webResult div.gs-visibleUrl{color:#008000}.gs-webResult div.gs-visibleUrl-short{color:#008000}.gsc-cursor-box{border-color:#FFFFFF}.gsc-results .gsc-cursor-box .gsc-cursor-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-results .gsc-cursor-box .gsc-cursor-current-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-webResult.gsc-result.gsc-promotion{border-color:#336699;background-color:#FFFFFF}.gsc-completion-title{color:#0000CC}.gsc-completion-snippet{color:#000000}.gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link{color:#0000CC}.gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited{color:#0000CC}.gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover{color:#0000CC}.gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active{color:#0000CC}.gs-promotion .gs-snippet,.gs-promotion .gs-title .gs-promotion-title-right,.gs-promotion .gs-title .gs-promotion-title-right *{color:#000000}.gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short{color:#008000}.gcsc-find-more-on-google{color:#0000CC}.gcsc-find-more-on-google-magnifier{fill:#0000CC}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{vertical-align:middle;opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gssb_a{padding:0 9px}.gsib_a{padding:5px 9px 4px 9px}.gscb_a{line-height:27px}.gssb_e{border:0}.gssb_l{margin:5px 0}input.gsc-input::-webkit-input-placeholder{font-size:14px}input.gsc-input:-moz-placeholder{font-size:14px}input.gsc-input::-moz-placeholder{font-size:14px}input.gsc-input:-ms-input-placeholder{font-size:14px}input.gsc-input:focus::-webkit-input-placeholder{color:transparent}input.gsc-input:focus:-moz-placeholder{color:transparent}input.gsc-input:focus::-moz-placeholder{color:transparent}input.gsc-input:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
+
+<body data-new-gr-c-s-check-loaded="14.1224.0" data-gr-ext-installed="">
+
+<div class="container container--main">
+
+	<header class="site-header" role="banner">
+
+		<div class="site-masthead">
+			<h1 class="site-masthead__title site-masthead__title--slurm">
+				<a href="https://slurm.schedmd.com/" rel="home">
+					<span class="slurm-logo">Slurm Workload Manager</span>
+				</a>
+			</h1>
+			<div class="site-masthead__title">
+				<a href="https://www.schedmd.com/" rel="home">
+					<span class="site-logo">SchedMD</span>
+				</a>
+			</div>
+
+			<button class="site-masthead__trigger menu-trigger" type="button" role="button" aria-label="Toggle Navigation"><span class="menu-trigger__lines"></span></button>
+		</div>
+
+
+		<nav class="site-nav" role="navigation">
+			<h2 class="site-nav__title">Navigation</h2>
+
+			<div class="slurm-title">
+				<div class="slurm-logo"><a href="https://slurm.schedmd.com/">Slurm Workload Manager</a></div>
+				<div class="slurm-title__version">Version 24.11</div>
+			</div>
+
+			<ul class="site-nav__menu site-menu menu">
+				<li class="site-menu__item">
+				        <div>About</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/overview.html">Overview</a></li>
+						<li><a href="https://slurm.schedmd.com/release_notes.html">Release Notes</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Using</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/documentation.html">Documentation</a></li>
+						<li><a href="https://slurm.schedmd.com/faq.html">FAQ</a></li>
+						<li><a href="https://www.schedmd.com/publications/">Publications</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Installing</div>
+					<ul>
+						<li><a href="https://www.schedmd.com/download-slurm/">Download</a></li>
+						<li><a href="https://slurm.schedmd.com/related_software.html">Related Software</a></li>
+						<li><a href="https://slurm.schedmd.com/quickstart_admin.html">Installation Guide</a></li>
+					</ul>
+				</li>
+				<li class="site-menu__item">
+					<div>Getting Help</div>
+					<ul>
+						<li><a href="https://slurm.schedmd.com/mail.html">Mailing Lists</a></li>
+						<li><a href="https://www.schedmd.com/slurm-support/our-services/">Support and Training</a></li>
+						<li><a href="https://slurm.schedmd.com/troubleshoot.html">Troubleshooting</a></li>
+					</ul>
+				</li>
+			</ul>
+
+		</nav>
+
+	</header>
+
+	<div class="content" role="main">
+		<section class="slurm-search">
+			<div class="container" id="cse">
+				<div id="___gcse_0"><div class="gsc-control-cse gsc-control-cse-en"><div class="gsc-control-wrapper-cse" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" role="presentation" id="gs_id50" class="gstl_50 gsc-input" style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" aria-label="search" id="gsc-i-id1" dir="ltr" spellcheck="false" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; background: url(&quot;https://www.google.com/cse/static/images/1x/en/branding.png&quot;) left center no-repeat rgb(255, 255, 255); outline: none;"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" title="Clear search box" role="button" style="display: none;"><span class="gscb_a" id="gs_cb50" aria-hidden="true">×</span></a></div></td></tr></tbody></table></div></td><td class="gsc-search-button"><button class="gsc-search-button gsc-search-button-v2"><svg width="13" height="13" viewBox="0 0 13 13"><title>search</title><path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path></svg></button></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table></form><div class="gsc-results-wrapper-nooverlay"><div class="gsc-positioningWrapper"><div class="gsc-tabsAreaInvisible"><div aria-label="refinement" role="tab" class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Custom Search</div><span class="gs-spacer"> </span></div></div><div class="gsc-positioningWrapper"><div class="gsc-refinementsAreaInvisible"></div></div><div class="gsc-above-wrapper-area-invisible"><div class="gsc-above-wrapper-area-backfill-container"></div><table cellspacing="0" cellpadding="0" role="presentation" class="gsc-above-wrapper-area-container"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td><td class="gsc-orderby-container"><div class="gsc-orderby-invisible"><div class="gsc-orderby-label gsc-inline-block">Sort by:</div><div class="gsc-option-menu-container gsc-inline-block"><div class="gsc-selected-option-container gsc-inline-block"><div class="gsc-selected-option">Relevance</div><div class="gsc-option-selector"></div></div><div class="gsc-option-menu-invisible"><div class="gsc-option-menu-item gsc-option-menu-item-highlighted"><div class="gsc-option">Relevance</div></div><div class="gsc-option-menu-item"><div class="gsc-option">Date</div></div></div></div></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><div><div class="gsc-expansionArea"></div></div></div></div></div></div></div></div></div>
+			</div>
+		</section>
+
+		<div class="section">
+			<div class="container">
+
+<h1>squeue</h1>
+Section: Slurm Commands (1)<br>Updated: Slurm Commands<br><a href="https://slurm.schedmd.com/squeue.html#index">Index</a>
+
+<p>
+<a name="lbAB">&nbsp;</a>
+</p><h2>NAME<a class="slurm_link" id="SECTION_NAME" href="https://slurm.schedmd.com/squeue.html#SECTION_NAME"></a></h2>
+squeue - view information about jobs located in the Slurm scheduling queue.
+<p>
+<a name="lbAC">&nbsp;</a>
+</p><h2>SYNOPSIS<a class="slurm_link" id="SECTION_SYNOPSIS" href="https://slurm.schedmd.com/squeue.html#SECTION_SYNOPSIS"></a></h2>
+<b>squeue</b> [<i>OPTIONS</i>...]
+<p>
+<a name="lbAD">&nbsp;</a>
+</p><h2>DESCRIPTION<a class="slurm_link" id="SECTION_DESCRIPTION" href="https://slurm.schedmd.com/squeue.html#SECTION_DESCRIPTION"></a></h2>
+<b>squeue</b> is used to view job and job step information for jobs managed by
+Slurm.
+<p>
+<a name="lbAE">&nbsp;</a>
+</p><h2>OPTIONS<a class="slurm_link" id="SECTION_OPTIONS" href="https://slurm.schedmd.com/squeue.html#SECTION_OPTIONS"></a></h2>
+<p>
+</p><dl compact="">
+<dt><b>-A</b>, <b>--account</b>=&lt;<i>account_list</i>&gt;<a class="slurm_link" id="OPT_account" href="https://slurm.schedmd.com/squeue.html#OPT_account"></a></dt><dd>Specify the accounts of the jobs to view. Accepts a comma separated
+list of account names. This has no effect when listing job steps.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-a</b>, <b>--all</b><a class="slurm_link" id="OPT_all" href="https://slurm.schedmd.com/squeue.html#OPT_all"></a></dt><dd>Display information about jobs and job steps in all partitions.
+This causes information to be displayed about partitions that are configured as
+hidden, partitions that are unavailable to a user's group, and federated jobs
+that are in a "revoked" state.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-r</b>, <b>--array</b><a class="slurm_link" id="OPT_array" href="https://slurm.schedmd.com/squeue.html#OPT_array"></a></dt><dd>Display one job array element per line.
+Without this option, the display will be optimized for use with job arrays
+(pending job array elements will be combined on one line of output with the
+array index values printed using a regular expression).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-M</b>, <b>--clusters</b>=&lt;<i>cluster_name</i>&gt;<a class="slurm_link" id="OPT_clusters" href="https://slurm.schedmd.com/squeue.html#OPT_clusters"></a></dt><dd>Clusters to issue commands to. Multiple cluster names may be comma separated.
+A value of '<i>all</i>' will query to run on all clusters.
+Note that the <b>slurmdbd</b> must be up for this option to work properly, unless
+running in a federation with either <b>FederationParameters=fed_display</b>
+configured or the <b>--federation</b> option set.
+This option implicitly sets the <b>--local</b> option.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--expand-patterns</b><a class="slurm_link" id="OPT_expand-patterns" href="https://slurm.schedmd.com/squeue.html#OPT_expand-patterns"></a></dt><dd>Expand any filename patterns from in <b>StdOut</b>, <b>StdErr</b> and <b>StdIn</b>.
+Fields that map to a range of values will use the first value of the range. For
+example "%t" for task id will be replaced by "0".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--federation</b><a class="slurm_link" id="OPT_federation" href="https://slurm.schedmd.com/squeue.html#OPT_federation"></a></dt><dd>Show jobs from the federation if a member of one.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-o</b>, <b>--format</b>=&lt;<i>output_format</i>&gt;<a class="slurm_link" id="OPT_format" href="https://slurm.schedmd.com/squeue.html#OPT_format"></a></dt><dd>Specify the information to be displayed, its size and position
+(right or left justified).
+Also see the <b>-O</b>, <b>--Format</b>=&lt;<i>output_format</i>&gt;
+option described below (which supports less flexibility in formatting, but
+supports access to all fields).
+If the command is executed in a federated cluster environment and information
+about more than one cluster is to be displayed and the <b>-h, --noheader</b>
+option is used, then the cluster name will be displayed before the default
+output formats shown below.
+<p>
+The default formats with various options are:
+</p></dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><i>default</i><a class="slurm_link" id="OPT_default" href="https://slurm.schedmd.com/squeue.html#OPT_default"></a></dt><dd>"%.18i %.9P %.8j %.8u %.2t %.10M %.6D %R"
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><i>-l, --long</i><a class="slurm_link" id="OPT_long" href="https://slurm.schedmd.com/squeue.html#OPT_long"></a></dt><dd>"%.18i %.9P %.8j %.8u %.8T %.10M %.9l %.6D %R"
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><i>-s, --steps</i><a class="slurm_link" id="OPT_steps" href="https://slurm.schedmd.com/squeue.html#OPT_steps"></a></dt><dd>"%.15i %.8j %.9P %.8u %.9M %N"
+</dd><dt></dt><dd>
+</dd></dl>
+</dd></dl>
+
+<p>
+The format of each field is "%[[.]size]type[suffix]"
+</p></dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><i>size</i><a class="slurm_link" id="OPT_size" href="https://slurm.schedmd.com/squeue.html#OPT_size"></a></dt><dd>Minimum field size. If no size is specified, whatever is needed to print the
+information will be used.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><i>.</i><a class="slurm_link" id="OPT_." href="https://slurm.schedmd.com/squeue.html#OPT_."></a></dt><dd>Indicates the output should be right justified and size must be specified.
+By default output is left justified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><i>suffix</i><a class="slurm_link" id="OPT_suffix" href="https://slurm.schedmd.com/squeue.html#OPT_suffix"></a></dt><dd>Arbitrary string to append to the end of the field.
+</dd><dt></dt><dd>
+</dd></dl>
+</dd></dl>
+
+<p>
+Note that many of these <i>type</i> specifications are valid
+only for jobs while others are valid only for job steps.
+Valid <i>type</i> specifications include:
+</p></dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>%all</b><a class="slurm_link" id="OPT_%all" href="https://slurm.schedmd.com/squeue.html#OPT_%all"></a></dt><dd>Print all fields available for this data type with a vertical bar separating
+each field.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%a</b><a class="slurm_link" id="OPT_%a" href="https://slurm.schedmd.com/squeue.html#OPT_%a"></a></dt><dd>Account associated with the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%A</b><a class="slurm_link" id="OPT_%A" href="https://slurm.schedmd.com/squeue.html#OPT_%A"></a></dt><dd>Number of tasks created by a job step.
+This reports the value of the <b>srun --ntasks</b> option.
+(Valid for job steps only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%A</b><a class="slurm_link" id="OPT_%A_1" href="https://slurm.schedmd.com/squeue.html#OPT_%A_1"></a></dt><dd>Job id.
+This will have a unique value for each element of job arrays.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%B</b><a class="slurm_link" id="OPT_%B" href="https://slurm.schedmd.com/squeue.html#OPT_%B"></a></dt><dd>Executing (batch) host. For an allocated session, this is the host on which
+the session is executing (i.e. the node from which the <b>srun</b> or the
+<b>salloc</b> command was executed). For a batch job, this is the node executing
+the batch script. In the case of a typical Linux cluster, this would be the
+compute node zero of the allocation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%c</b><a class="slurm_link" id="OPT_%c" href="https://slurm.schedmd.com/squeue.html#OPT_%c"></a></dt><dd>Minimum number of CPUs (processors) per node requested by the job.
+This reports the value of the <b>srun --mincpus</b> option with a
+default value of zero.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%C</b><a class="slurm_link" id="OPT_%C" href="https://slurm.schedmd.com/squeue.html#OPT_%C"></a></dt><dd>Number of CPUs (processors) requested by the job or allocated to
+it if already running. As a job is completing this number will
+reflect the current number of CPUs allocated.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%d</b><a class="slurm_link" id="OPT_%d" href="https://slurm.schedmd.com/squeue.html#OPT_%d"></a></dt><dd>Minimum size of temporary disk space (in MB) requested by the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%D</b><a class="slurm_link" id="OPT_%D" href="https://slurm.schedmd.com/squeue.html#OPT_%D"></a></dt><dd>Number of nodes allocated to the job or the minimum number of nodes
+required by a pending job. The actual number of nodes allocated to a pending
+job may exceed this number if the job specified a node range count (e.g.
+minimum and maximum node counts) or the job specifies a processor
+count instead of a node count. As a job is completing this number will reflect
+the current number of nodes allocated.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%e</b><a class="slurm_link" id="OPT_%e" href="https://slurm.schedmd.com/squeue.html#OPT_%e"></a></dt><dd>Time at which the job ended or is expected to end (based upon its time limit).
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%E</b><a class="slurm_link" id="OPT_%E" href="https://slurm.schedmd.com/squeue.html#OPT_%E"></a></dt><dd>Job dependencies remaining. This job will not begin execution until these
+dependent jobs complete. In the case of a job that can not run due to job
+dependencies never being satisfied, the full original job dependency
+specification will be reported. Once a dependency is satisfied, it is
+removed from the job. A value of NULL implies this job has no
+dependencies.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%f</b><a class="slurm_link" id="OPT_%f" href="https://slurm.schedmd.com/squeue.html#OPT_%f"></a></dt><dd>Features required by the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%F</b><a class="slurm_link" id="OPT_%F" href="https://slurm.schedmd.com/squeue.html#OPT_%F"></a></dt><dd>Job array's job ID. This is the base job ID.
+For non-array jobs, this is the job ID.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%g</b><a class="slurm_link" id="OPT_%g" href="https://slurm.schedmd.com/squeue.html#OPT_%g"></a></dt><dd>Group name of the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%G</b><a class="slurm_link" id="OPT_%G" href="https://slurm.schedmd.com/squeue.html#OPT_%G"></a></dt><dd>Group ID of the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%h</b><a class="slurm_link" id="OPT_%h" href="https://slurm.schedmd.com/squeue.html#OPT_%h"></a></dt><dd>Can the compute resources allocated to the job be over subscribed by other jobs.
+The resources to be over subscribed can be nodes, sockets, cores, or
+hyperthreads depending upon configuration.
+The value will be "YES" if the job was submitted with the oversubscribe option
+or the partition is configured with OverSubscribe=Force,
+"NO" if the job requires exclusive node access,
+"USER" if the allocated compute nodes are dedicated to a single user,
+"MCS" if the allocated compute nodes are dedicated to a single security class
+(See MCSPlugin and MCSParameters configuration parameters for more information),
+"OK" otherwise (typically allocated dedicated CPUs),
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%H</b><a class="slurm_link" id="OPT_%H" href="https://slurm.schedmd.com/squeue.html#OPT_%H"></a></dt><dd>Number of sockets per node requested by the job.
+This reports the value of the <b>srun --sockets-per-node</b> option.
+When --sockets-per-node has not been set, "*" is displayed.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%i</b><a class="slurm_link" id="OPT_%i" href="https://slurm.schedmd.com/squeue.html#OPT_%i"></a></dt><dd>Job or job step id.
+In the case of job arrays, the job ID format will be of the form
+"&lt;base_job_id&gt;_&lt;index&gt;".
+By default, the job array index field size will be limited to 64 bytes.
+Use the environment variable SLURM_BITSTR_LEN to specify larger field sizes.
+(Valid for jobs and job steps)
+In the case of heterogeneous job allocations, the job ID format will be of the
+form "#+#" where the first number is the "heterogeneous job leader" and the
+second number the zero origin offset for each component of the job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%I</b><a class="slurm_link" id="OPT_%I" href="https://slurm.schedmd.com/squeue.html#OPT_%I"></a></dt><dd>Number of cores per socket requested by the job.
+This reports the value of the <b>srun --cores-per-socket</b> option.
+When --cores-per-socket has not been set, "*" is displayed.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%j</b><a class="slurm_link" id="OPT_%j" href="https://slurm.schedmd.com/squeue.html#OPT_%j"></a></dt><dd>Job or job step name.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%J</b><a class="slurm_link" id="OPT_%J" href="https://slurm.schedmd.com/squeue.html#OPT_%J"></a></dt><dd>Number of threads per core requested by the job.
+This reports the value of the <b>srun --threads-per-core</b> option.
+When --threads-per-core has not been set, "*" is displayed.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%k</b><a class="slurm_link" id="OPT_%k" href="https://slurm.schedmd.com/squeue.html#OPT_%k"></a></dt><dd>Comment associated with the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%K</b><a class="slurm_link" id="OPT_%K" href="https://slurm.schedmd.com/squeue.html#OPT_%K"></a></dt><dd>Job array index.
+By default, this field size will be limited to 64 bytes.
+Use the environment variable SLURM_BITSTR_LEN to specify larger field sizes.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%l</b><a class="slurm_link" id="OPT_%l" href="https://slurm.schedmd.com/squeue.html#OPT_%l"></a></dt><dd>Time limit of the job or job step in days-hours:minutes:seconds.
+The value may be "NOT_SET" if not yet established or "UNLIMITED" for no limit.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%L</b><a class="slurm_link" id="OPT_%L" href="https://slurm.schedmd.com/squeue.html#OPT_%L"></a></dt><dd>Time left for the job to execute in days-hours:minutes:seconds.
+This value is calculated by subtracting the job's time used from its time
+limit.
+The value may be "NOT_SET" if not yet established or "UNLIMITED" for no limit.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%m</b><a class="slurm_link" id="OPT_%m" href="https://slurm.schedmd.com/squeue.html#OPT_%m"></a></dt><dd>Minimum size of memory (in MB) requested by the job.
+(Valid for jobs only)
+If memory was request per CPU, or per GPU the value is shown
+with the assumption that at least one CPU, GPU will be allocated
+respectively.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%M</b><a class="slurm_link" id="OPT_%M" href="https://slurm.schedmd.com/squeue.html#OPT_%M"></a></dt><dd>Time used by the job or job step in days-hours:minutes:seconds.
+The days and hours are printed only as needed.
+For job steps this field shows the elapsed time since execution began
+and thus will be inaccurate for job steps which have been suspended.
+Clock skew between nodes in the cluster will cause the time to be inaccurate.
+If the time is obviously wrong (e.g. negative), it displays as "INVALID".
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%n</b><a class="slurm_link" id="OPT_%n" href="https://slurm.schedmd.com/squeue.html#OPT_%n"></a></dt><dd>List of node names explicitly requested by the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%N</b><a class="slurm_link" id="OPT_%N" href="https://slurm.schedmd.com/squeue.html#OPT_%N"></a></dt><dd>List of nodes allocated to the job or job step. In the case of a
+<i>COMPLETING</i> job, the list of nodes will comprise only those
+nodes that have not yet been returned to service.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%o</b><a class="slurm_link" id="OPT_%o" href="https://slurm.schedmd.com/squeue.html#OPT_%o"></a></dt><dd>The command to be executed.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%O</b><a class="slurm_link" id="OPT_%O" href="https://slurm.schedmd.com/squeue.html#OPT_%O"></a></dt><dd>Are contiguous nodes requested by the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%p</b><a class="slurm_link" id="OPT_%p" href="https://slurm.schedmd.com/squeue.html#OPT_%p"></a></dt><dd>Priority of the job (converted to a floating point number between 0.0 and 1.0).
+Also see <b>%Q</b>.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%P</b><a class="slurm_link" id="OPT_%P" href="https://slurm.schedmd.com/squeue.html#OPT_%P"></a></dt><dd>Partition of the job or job step.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%q</b><a class="slurm_link" id="OPT_%q" href="https://slurm.schedmd.com/squeue.html#OPT_%q"></a></dt><dd>Quality of service associated with the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%Q</b><a class="slurm_link" id="OPT_%Q" href="https://slurm.schedmd.com/squeue.html#OPT_%Q"></a></dt><dd>Priority of the job (generally a very large unsigned integer).
+Also see <b>%p</b>.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%r</b><a class="slurm_link" id="OPT_%r" href="https://slurm.schedmd.com/squeue.html#OPT_%r"></a></dt><dd>The reason a job is in its current state.
+See the <b>JOB REASON CODES</b> section below for more information.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%R</b><a class="slurm_link" id="OPT_%R" href="https://slurm.schedmd.com/squeue.html#OPT_%R"></a></dt><dd>For pending jobs: the reason a job has not been started by the scheduler
+is printed within parenthesis.
+For terminated jobs with failure: an explanation as to why the
+job failed is printed within parenthesis.
+For all other job states: the list of allocate nodes.
+See the <b>JOB REASON CODES</b> section below for more information.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%S</b><a class="slurm_link" id="OPT_%S" href="https://slurm.schedmd.com/squeue.html#OPT_%S"></a></dt><dd>Actual or expected start time of the job or job step.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%t</b><a class="slurm_link" id="OPT_%t" href="https://slurm.schedmd.com/squeue.html#OPT_%t"></a></dt><dd>Job state in compact form.
+See the <b>JOB STATE CODES</b> section below for a list of possible states.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%T</b><a class="slurm_link" id="OPT_%T" href="https://slurm.schedmd.com/squeue.html#OPT_%T"></a></dt><dd>Job state in extended form.
+See the <b>JOB STATE CODES</b> section below for a list of possible states.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%u</b><a class="slurm_link" id="OPT_%u" href="https://slurm.schedmd.com/squeue.html#OPT_%u"></a></dt><dd>User name for a job or job step.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%U</b><a class="slurm_link" id="OPT_%U" href="https://slurm.schedmd.com/squeue.html#OPT_%U"></a></dt><dd>User ID for a job or job step.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%v</b><a class="slurm_link" id="OPT_%v" href="https://slurm.schedmd.com/squeue.html#OPT_%v"></a></dt><dd>Reservation for the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%V</b><a class="slurm_link" id="OPT_%V" href="https://slurm.schedmd.com/squeue.html#OPT_%V"></a></dt><dd>The job's submission time.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%w</b><a class="slurm_link" id="OPT_%w" href="https://slurm.schedmd.com/squeue.html#OPT_%w"></a></dt><dd>Workload Characterization Key (wckey).
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%W</b><a class="slurm_link" id="OPT_%W" href="https://slurm.schedmd.com/squeue.html#OPT_%W"></a></dt><dd>Licenses reserved for the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%x</b><a class="slurm_link" id="OPT_%x" href="https://slurm.schedmd.com/squeue.html#OPT_%x"></a></dt><dd>List of node names explicitly excluded by the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%X</b><a class="slurm_link" id="OPT_%X" href="https://slurm.schedmd.com/squeue.html#OPT_%X"></a></dt><dd>Count of cores reserved on each node for system use (core specialization).
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%y</b><a class="slurm_link" id="OPT_%y" href="https://slurm.schedmd.com/squeue.html#OPT_%y"></a></dt><dd>Nice value (adjustment to a job's scheduling priority).
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%Y</b><a class="slurm_link" id="OPT_%Y" href="https://slurm.schedmd.com/squeue.html#OPT_%Y"></a></dt><dd>For pending jobs, a list of the nodes expected to be used when the job is
+started.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%z</b><a class="slurm_link" id="OPT_%z" href="https://slurm.schedmd.com/squeue.html#OPT_%z"></a></dt><dd>Number of requested sockets, cores, and threads (S:C:T) per node for the job.
+When (S:C:T) has not been set, "*" is displayed.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>%Z</b><a class="slurm_link" id="OPT_%Z" href="https://slurm.schedmd.com/squeue.html#OPT_%Z"></a></dt><dd>The job's working directory.
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-O</b>, <b>--Format</b>=&lt;<i>output_format</i>&gt;<a class="slurm_link" id="OPT_Format" href="https://slurm.schedmd.com/squeue.html#OPT_Format"></a></dt><dd>Specify the information to be displayed.
+Also see the <b>-o</b>, <b>--format</b>=&lt;<i>output_format</i>&gt;
+option described above (which supports greater flexibility in formatting, but
+does not support access to all fields because we ran out of letters).
+Requests a comma separated list of job information to be displayed.
+<p>
+The format of each field is "type[:[.][size][suffix]]"
+</p></dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><i>size</i><a class="slurm_link" id="OPT_size_1" href="https://slurm.schedmd.com/squeue.html#OPT_size_1"></a></dt><dd>Minimum field size. If no size is specified, 20 characters will be allocated
+to print the information.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><i>.</i><a class="slurm_link" id="OPT_._1" href="https://slurm.schedmd.com/squeue.html#OPT_._1"></a></dt><dd>Indicates the output should be right justified and size must be specified.
+By default output is left justified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><i>suffix</i><a class="slurm_link" id="OPT_suffix_1" href="https://slurm.schedmd.com/squeue.html#OPT_suffix_1"></a></dt><dd>Arbitrary string to append to the end of the field.
+</dd><dt></dt><dd>
+</dd></dl>
+</dd></dl>
+
+<p>
+Note that many of these <i>type</i> specifications are valid
+only for jobs while others are valid only for job steps.
+Valid <i>type</i> specifications include:
+</p></dd><dt></dt><dd>
+<dl compact=""><dt></dt><dd>
+<dl compact="">
+<dt><b>Account</b><a class="slurm_link" id="OPT_Account" href="https://slurm.schedmd.com/squeue.html#OPT_Account"></a></dt><dd>Print the account associated with the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>AccrueTime</b><a class="slurm_link" id="OPT_AccrueTime" href="https://slurm.schedmd.com/squeue.html#OPT_AccrueTime"></a></dt><dd>Print the accrue time associated with the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>admin_comment</b><a class="slurm_link" id="OPT_admin_comment" href="https://slurm.schedmd.com/squeue.html#OPT_admin_comment"></a></dt><dd>Administrator comment associated with the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>AllocNodes</b><a class="slurm_link" id="OPT_AllocNodes" href="https://slurm.schedmd.com/squeue.html#OPT_AllocNodes"></a></dt><dd>Print the nodes allocated to the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>AllocSID</b><a class="slurm_link" id="OPT_AllocSID" href="https://slurm.schedmd.com/squeue.html#OPT_AllocSID"></a></dt><dd>Print the session ID used to submit the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ArrayJobID</b><a class="slurm_link" id="OPT_ArrayJobID" href="https://slurm.schedmd.com/squeue.html#OPT_ArrayJobID"></a></dt><dd>Prints the job ID of the job array.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ArrayTaskID</b><a class="slurm_link" id="OPT_ArrayTaskID" href="https://slurm.schedmd.com/squeue.html#OPT_ArrayTaskID"></a></dt><dd>Prints the task ID of the job array.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>AssocID</b><a class="slurm_link" id="OPT_AssocID" href="https://slurm.schedmd.com/squeue.html#OPT_AssocID"></a></dt><dd>Prints the ID of the job association.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>BatchFlag</b><a class="slurm_link" id="OPT_BatchFlag" href="https://slurm.schedmd.com/squeue.html#OPT_BatchFlag"></a></dt><dd>Prints whether the batch flag has been set.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>BatchHost</b><a class="slurm_link" id="OPT_BatchHost" href="https://slurm.schedmd.com/squeue.html#OPT_BatchHost"></a></dt><dd>Executing (batch) host. For an allocated session, this is the host on which
+the session is executing (i.e. the node from which the <b>srun</b> or the
+<b>salloc</b> command was executed). For a batch job, this is the node executing
+the batch script. In the case of a typical Linux cluster, this would be the
+compute node zero of the allocation.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>BoardsPerNode</b><a class="slurm_link" id="OPT_BoardsPerNode" href="https://slurm.schedmd.com/squeue.html#OPT_BoardsPerNode"></a></dt><dd>Prints the number of boards per node allocated to the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>BurstBuffer</b><a class="slurm_link" id="OPT_BurstBuffer" href="https://slurm.schedmd.com/squeue.html#OPT_BurstBuffer"></a></dt><dd>Burst Buffer specification
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>BurstBufferState</b><a class="slurm_link" id="OPT_BurstBufferState" href="https://slurm.schedmd.com/squeue.html#OPT_BurstBufferState"></a></dt><dd>Burst Buffer state
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Cluster</b><a class="slurm_link" id="OPT_Cluster" href="https://slurm.schedmd.com/squeue.html#OPT_Cluster"></a></dt><dd>Name of the cluster that is running the job or job step.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ClusterFeature</b><a class="slurm_link" id="OPT_ClusterFeature" href="https://slurm.schedmd.com/squeue.html#OPT_ClusterFeature"></a></dt><dd>Cluster features required by the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Command</b><a class="slurm_link" id="OPT_Command" href="https://slurm.schedmd.com/squeue.html#OPT_Command"></a></dt><dd>The command to be executed.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Comment</b><a class="slurm_link" id="OPT_Comment" href="https://slurm.schedmd.com/squeue.html#OPT_Comment"></a></dt><dd>Comment associated with the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Contiguous</b><a class="slurm_link" id="OPT_Contiguous" href="https://slurm.schedmd.com/squeue.html#OPT_Contiguous"></a></dt><dd>Are contiguous nodes requested by the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Container</b><a class="slurm_link" id="OPT_Container" href="https://slurm.schedmd.com/squeue.html#OPT_Container"></a></dt><dd>OCI container bundle path.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ContainerID</b><a class="slurm_link" id="OPT_ContainerID" href="https://slurm.schedmd.com/squeue.html#OPT_ContainerID"></a></dt><dd>OCI container assigned ID.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Cores</b><a class="slurm_link" id="OPT_Cores" href="https://slurm.schedmd.com/squeue.html#OPT_Cores"></a></dt><dd>Number of cores per socket requested by the job.
+This reports the value of the <b>srun --cores-per-socket</b> option.
+When <b>--cores-per-socket</b> has not been set, "*" is displayed.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>CoreSpec</b><a class="slurm_link" id="OPT_CoreSpec" href="https://slurm.schedmd.com/squeue.html#OPT_CoreSpec"></a></dt><dd>Count of cores reserved on each node for system use (core specialization).
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>CPUFreq</b><a class="slurm_link" id="OPT_CPUFreq" href="https://slurm.schedmd.com/squeue.html#OPT_CPUFreq"></a></dt><dd>Prints the frequency of the allocated CPUs.
+(Valid for job steps only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>cpus-per-task</b><a class="slurm_link" id="OPT_cpus-per-task" href="https://slurm.schedmd.com/squeue.html#OPT_cpus-per-task"></a></dt><dd>Prints the number of CPUs per tasks allocated to the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>cpus-per-tres</b><a class="slurm_link" id="OPT_cpus-per-tres" href="https://slurm.schedmd.com/squeue.html#OPT_cpus-per-tres"></a></dt><dd>Print the memory required per trackable resources allocated to the job or job step.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Deadline</b><a class="slurm_link" id="OPT_Deadline" href="https://slurm.schedmd.com/squeue.html#OPT_Deadline"></a></dt><dd>Prints the deadline affected to the job
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DelayBoot</b><a class="slurm_link" id="OPT_DelayBoot" href="https://slurm.schedmd.com/squeue.html#OPT_DelayBoot"></a></dt><dd>Delay boot time.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Dependency</b><a class="slurm_link" id="OPT_Dependency" href="https://slurm.schedmd.com/squeue.html#OPT_Dependency"></a></dt><dd>Job dependencies remaining. This job will not begin execution until these
+dependent jobs complete. In the case of a job that can not run due to job
+dependencies never being satisfied, the full original job dependency
+specification will be reported. Once a dependency is satisfied, it is
+removed from the job. A value of NULL implies this job has no
+dependencies.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DerivedEC</b><a class="slurm_link" id="OPT_DerivedEC" href="https://slurm.schedmd.com/squeue.html#OPT_DerivedEC"></a></dt><dd>The highest exit code returned by the job's job steps (srun invocations).
+Following the colon is the signal that caused the process to terminate if
+it was terminated by a signal.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>EligibleTime</b><a class="slurm_link" id="OPT_EligibleTime" href="https://slurm.schedmd.com/squeue.html#OPT_EligibleTime"></a></dt><dd>Time the job is eligible for running.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>EndTime</b><a class="slurm_link" id="OPT_EndTime" href="https://slurm.schedmd.com/squeue.html#OPT_EndTime"></a></dt><dd>The time of job termination, actual or expected.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ExcNodes</b><a class="slurm_link" id="OPT_ExcNodes" href="https://slurm.schedmd.com/squeue.html#OPT_ExcNodes"></a></dt><dd>The nodes requested to be excluded when allocating this job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>exit_code</b><a class="slurm_link" id="OPT_exit_code" href="https://slurm.schedmd.com/squeue.html#OPT_exit_code"></a></dt><dd>The exit code returned by the job, typically as set by the exit() function.
+Following the colon is the signal that caused the process to terminate if it was
+terminated by a signal.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Feature</b><a class="slurm_link" id="OPT_Feature" href="https://slurm.schedmd.com/squeue.html#OPT_Feature"></a></dt><dd>Features required by the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>GroupID</b><a class="slurm_link" id="OPT_GroupID" href="https://slurm.schedmd.com/squeue.html#OPT_GroupID"></a></dt><dd>Group ID of the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>GroupName</b><a class="slurm_link" id="OPT_GroupName" href="https://slurm.schedmd.com/squeue.html#OPT_GroupName"></a></dt><dd>Group name of the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>HetJobID</b><a class="slurm_link" id="OPT_HetJobID" href="https://slurm.schedmd.com/squeue.html#OPT_HetJobID"></a></dt><dd>Job ID of the heterogeneous job leader.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>HetJobIDSet</b><a class="slurm_link" id="OPT_HetJobIDSet" href="https://slurm.schedmd.com/squeue.html#OPT_HetJobIDSet"></a></dt><dd>Expression identifying all components job IDs within a heterogeneous job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>HetJobOffset</b><a class="slurm_link" id="OPT_HetJobOffset" href="https://slurm.schedmd.com/squeue.html#OPT_HetJobOffset"></a></dt><dd>Zero origin offset within a collection of heterogeneous job components.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>JobArrayID</b><a class="slurm_link" id="OPT_JobArrayID" href="https://slurm.schedmd.com/squeue.html#OPT_JobArrayID"></a></dt><dd>Job array's job ID. This is the base job ID.
+For non-array jobs, this is the job ID.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>JobID</b><a class="slurm_link" id="OPT_JobID" href="https://slurm.schedmd.com/squeue.html#OPT_JobID"></a></dt><dd>Job ID.
+This will have a unique value for each element of job arrays and each
+component of heterogeneous jobs.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>LastSchedEval</b><a class="slurm_link" id="OPT_LastSchedEval" href="https://slurm.schedmd.com/squeue.html#OPT_LastSchedEval"></a></dt><dd>Prints the last time the job was evaluated for scheduling.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Licenses</b><a class="slurm_link" id="OPT_Licenses" href="https://slurm.schedmd.com/squeue.html#OPT_Licenses"></a></dt><dd>Licenses reserved for the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MaxCPUs</b><a class="slurm_link" id="OPT_MaxCPUs" href="https://slurm.schedmd.com/squeue.html#OPT_MaxCPUs"></a></dt><dd>Prints the max number of CPUs allocated to the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MaxNodes</b><a class="slurm_link" id="OPT_MaxNodes" href="https://slurm.schedmd.com/squeue.html#OPT_MaxNodes"></a></dt><dd>Prints the max number of nodes allocated to the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MCSLabel</b><a class="slurm_link" id="OPT_MCSLabel" href="https://slurm.schedmd.com/squeue.html#OPT_MCSLabel"></a></dt><dd>Prints the MCS_label of the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>mem-per-tres</b><a class="slurm_link" id="OPT_mem-per-tres" href="https://slurm.schedmd.com/squeue.html#OPT_mem-per-tres"></a></dt><dd>Print the memory (in MB) required per trackable resources allocated to the job
+or job step.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MinCpus</b><a class="slurm_link" id="OPT_MinCpus" href="https://slurm.schedmd.com/squeue.html#OPT_MinCpus"></a></dt><dd>Minimum number of CPUs (processors) per node requested by the job.
+This reports the value of the <b>srun --mincpus</b> option with a
+default value of zero.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MinMemory</b><a class="slurm_link" id="OPT_MinMemory" href="https://slurm.schedmd.com/squeue.html#OPT_MinMemory"></a></dt><dd>Minimum size of memory (in MB) requested by the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MinTime</b><a class="slurm_link" id="OPT_MinTime" href="https://slurm.schedmd.com/squeue.html#OPT_MinTime"></a></dt><dd>Minimum time limit of the job
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>MinTmpDisk</b><a class="slurm_link" id="OPT_MinTmpDisk" href="https://slurm.schedmd.com/squeue.html#OPT_MinTmpDisk"></a></dt><dd>Minimum size of temporary disk space (in MB) requested by the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Name</b><a class="slurm_link" id="OPT_Name" href="https://slurm.schedmd.com/squeue.html#OPT_Name"></a></dt><dd>Job or job step name.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Network</b><a class="slurm_link" id="OPT_Network" href="https://slurm.schedmd.com/squeue.html#OPT_Network"></a></dt><dd>The network that the job is running on.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Nice</b><a class="slurm_link" id="OPT_Nice" href="https://slurm.schedmd.com/squeue.html#OPT_Nice"></a></dt><dd>Nice value (adjustment to a job's scheduling priority).
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NodeList</b><a class="slurm_link" id="OPT_NodeList" href="https://slurm.schedmd.com/squeue.html#OPT_NodeList"></a></dt><dd>List of nodes allocated to the job or job step. In the case of a
+<i>COMPLETING</i> job, the list of nodes will comprise only those
+nodes that have not yet been returned to service.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Nodes</b><a class="slurm_link" id="OPT_Nodes" href="https://slurm.schedmd.com/squeue.html#OPT_Nodes"></a></dt><dd>List of nodes allocated to the job or job step. In the case of a
+<i>COMPLETING</i> job, the list of nodes will comprise only those
+nodes that have not yet been returned to service.
+(Valid job steps only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NTPerBoard</b><a class="slurm_link" id="OPT_NTPerBoard" href="https://slurm.schedmd.com/squeue.html#OPT_NTPerBoard"></a></dt><dd>The number of tasks per board allocated to the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NTPerCore</b><a class="slurm_link" id="OPT_NTPerCore" href="https://slurm.schedmd.com/squeue.html#OPT_NTPerCore"></a></dt><dd>The number of tasks per core allocated to the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NTPerNode</b><a class="slurm_link" id="OPT_NTPerNode" href="https://slurm.schedmd.com/squeue.html#OPT_NTPerNode"></a></dt><dd>The number of tasks per node allocated to the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NTPerSocket</b><a class="slurm_link" id="OPT_NTPerSocket" href="https://slurm.schedmd.com/squeue.html#OPT_NTPerSocket"></a></dt><dd>The number of tasks per socket allocated to the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NumCPUs</b><a class="slurm_link" id="OPT_NumCPUs" href="https://slurm.schedmd.com/squeue.html#OPT_NumCPUs"></a></dt><dd>Number of CPUs (processors) requested by the job or allocated to
+it if already running. As a job is completing, this number will
+reflect the current number of CPUs allocated.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NumNodes</b><a class="slurm_link" id="OPT_NumNodes" href="https://slurm.schedmd.com/squeue.html#OPT_NumNodes"></a></dt><dd>Number of nodes allocated to the job or the minimum number of nodes
+required by a pending job. The actual number of nodes allocated to a pending
+job may exceed this number if the job specified a node range count (e.g.
+minimum and maximum node counts) or the job specifies a processor
+count instead of a node count. As a job is completing this number will reflect
+the current number of nodes allocated.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NumTasks</b><a class="slurm_link" id="OPT_NumTasks" href="https://slurm.schedmd.com/squeue.html#OPT_NumTasks"></a></dt><dd>Number of tasks requested by a job or job step.
+This reports the value of the <b>--ntasks</b> option.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Origin</b><a class="slurm_link" id="OPT_Origin" href="https://slurm.schedmd.com/squeue.html#OPT_Origin"></a></dt><dd>Cluster name where federated job originated from.
+(Valid for federated jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>OriginRaw</b><a class="slurm_link" id="OPT_OriginRaw" href="https://slurm.schedmd.com/squeue.html#OPT_OriginRaw"></a></dt><dd>Cluster ID where federated job originated from.
+(Valid for federated jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>OverSubscribe</b><a class="slurm_link" id="OPT_OverSubscribe" href="https://slurm.schedmd.com/squeue.html#OPT_OverSubscribe"></a></dt><dd>Can the compute resources allocated to the job be over subscribed by other jobs.
+The resources to be over subscribed can be nodes, sockets, cores, or
+hyperthreads depending upon configuration.
+The value will be "YES" if the job was submitted with the oversubscribe option
+or the partition is configured with OverSubscribe=Force,
+"NO" if the job requires exclusive node access,
+"USER" if the allocated compute nodes are dedicated to a single user,
+"MCS" if the allocated compute nodes are dedicated to a single security class
+(See MCSPlugin and MCSParameters configuration parameters for more information),
+"OK" otherwise (typically allocated dedicated CPUs),
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Partition</b><a class="slurm_link" id="OPT_Partition" href="https://slurm.schedmd.com/squeue.html#OPT_Partition"></a></dt><dd>Partition of the job or job step.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PendingTime</b><a class="slurm_link" id="OPT_PendingTime" href="https://slurm.schedmd.com/squeue.html#OPT_PendingTime"></a></dt><dd>The time (in seconds) between start time and submit time of the job.
+If the job has not started yet, then the time (in seconds) between
+now and the submit time of the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PreemptTime</b><a class="slurm_link" id="OPT_PreemptTime" href="https://slurm.schedmd.com/squeue.html#OPT_PreemptTime"></a></dt><dd>The preempt time for the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Prefer</b><a class="slurm_link" id="OPT_Prefer" href="https://slurm.schedmd.com/squeue.html#OPT_Prefer"></a></dt><dd>The preferred features of a pending job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Priority</b><a class="slurm_link" id="OPT_Priority" href="https://slurm.schedmd.com/squeue.html#OPT_Priority"></a></dt><dd>Priority of the job (converted to a floating point number between 0.0 and 1.0).
+Also see <b>prioritylong</b>.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PriorityLong</b><a class="slurm_link" id="OPT_PriorityLong" href="https://slurm.schedmd.com/squeue.html#OPT_PriorityLong"></a></dt><dd>Priority of the job (generally a very large unsigned integer).
+Also see <b>priority</b>.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Profile</b><a class="slurm_link" id="OPT_Profile" href="https://slurm.schedmd.com/squeue.html#OPT_Profile"></a></dt><dd>Profile of the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>QOS</b><a class="slurm_link" id="OPT_QOS" href="https://slurm.schedmd.com/squeue.html#OPT_QOS"></a></dt><dd>Quality of service associated with the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Reason</b><a class="slurm_link" id="OPT_Reason" href="https://slurm.schedmd.com/squeue.html#OPT_Reason"></a></dt><dd>The reason a job is in its current state.
+See the <b>JOB REASON CODES</b> section below for more information.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ReasonList</b><a class="slurm_link" id="OPT_ReasonList" href="https://slurm.schedmd.com/squeue.html#OPT_ReasonList"></a></dt><dd>For pending jobs: the reason a job is waiting for execution
+is printed within parenthesis.
+For terminated jobs with failure: an explanation as to why the
+job failed is printed within parenthesis.
+For all other job states: the list of allocate nodes.
+See the <b>JOB REASON CODES</b> section below for more information.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Reboot</b><a class="slurm_link" id="OPT_Reboot" href="https://slurm.schedmd.com/squeue.html#OPT_Reboot"></a></dt><dd>Indicates if the allocated nodes should be rebooted before starting the job.
+(Valid on jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ReqNodes</b><a class="slurm_link" id="OPT_ReqNodes" href="https://slurm.schedmd.com/squeue.html#OPT_ReqNodes"></a></dt><dd>List of node names explicitly requested by the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ReqSwitch</b><a class="slurm_link" id="OPT_ReqSwitch" href="https://slurm.schedmd.com/squeue.html#OPT_ReqSwitch"></a></dt><dd>The max number of requested switches by for the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Requeue</b><a class="slurm_link" id="OPT_Requeue" href="https://slurm.schedmd.com/squeue.html#OPT_Requeue"></a></dt><dd>Prints whether the job will be requeued on failure.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Reservation</b><a class="slurm_link" id="OPT_Reservation" href="https://slurm.schedmd.com/squeue.html#OPT_Reservation"></a></dt><dd>Reservation for the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ResizeTime</b><a class="slurm_link" id="OPT_ResizeTime" href="https://slurm.schedmd.com/squeue.html#OPT_ResizeTime"></a></dt><dd>The amount of time changed for the job to run.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>RestartCnt</b><a class="slurm_link" id="OPT_RestartCnt" href="https://slurm.schedmd.com/squeue.html#OPT_RestartCnt"></a></dt><dd>The number of restarts for the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ResvPort</b><a class="slurm_link" id="OPT_ResvPort" href="https://slurm.schedmd.com/squeue.html#OPT_ResvPort"></a></dt><dd>Reserved ports of the job.
+(Valid for job steps only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SchedNodes</b><a class="slurm_link" id="OPT_SchedNodes" href="https://slurm.schedmd.com/squeue.html#OPT_SchedNodes"></a></dt><dd>For pending jobs, a list of the nodes expected to be used when the job is
+started.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SCT</b><a class="slurm_link" id="OPT_SCT" href="https://slurm.schedmd.com/squeue.html#OPT_SCT"></a></dt><dd>Number of requested sockets, cores, and threads (S:C:T) per node for the job.
+When (S:C:T) has not been set, "*" is displayed.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SiblingsActive</b><a class="slurm_link" id="OPT_SiblingsActive" href="https://slurm.schedmd.com/squeue.html#OPT_SiblingsActive"></a></dt><dd>Cluster names of where federated sibling jobs exist.
+(Valid for federated jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SiblingsActiveRaw</b><a class="slurm_link" id="OPT_SiblingsActiveRaw" href="https://slurm.schedmd.com/squeue.html#OPT_SiblingsActiveRaw"></a></dt><dd>Cluster IDs of where federated sibling jobs exist.
+(Valid for federated jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SiblingsViable</b><a class="slurm_link" id="OPT_SiblingsViable" href="https://slurm.schedmd.com/squeue.html#OPT_SiblingsViable"></a></dt><dd>Cluster names of where federated sibling jobs are viable to run.
+(Valid for federated jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SiblingsViableRaw</b><a class="slurm_link" id="OPT_SiblingsViableRaw" href="https://slurm.schedmd.com/squeue.html#OPT_SiblingsViableRaw"></a></dt><dd>Cluster IDs of where federated sibling jobs viable to run.
+(Valid for federated jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Sockets</b><a class="slurm_link" id="OPT_Sockets" href="https://slurm.schedmd.com/squeue.html#OPT_Sockets"></a></dt><dd>Number of sockets per node requested by the job.
+This reports the value of the <b>srun --sockets-per-node</b> option.
+When <b>--sockets-per-node</b> has not been set, "*" is displayed.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SPerBoard</b><a class="slurm_link" id="OPT_SPerBoard" href="https://slurm.schedmd.com/squeue.html#OPT_SPerBoard"></a></dt><dd>Number of sockets per board allocated to the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>StartTime</b><a class="slurm_link" id="OPT_StartTime" href="https://slurm.schedmd.com/squeue.html#OPT_StartTime"></a></dt><dd>Actual or expected start time of the job or job step.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>State</b><a class="slurm_link" id="OPT_State" href="https://slurm.schedmd.com/squeue.html#OPT_State"></a></dt><dd>Job state in extended form.
+See the <b>JOB STATE CODES</b> section below for a list of possible states.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>StateCompact</b><a class="slurm_link" id="OPT_StateCompact" href="https://slurm.schedmd.com/squeue.html#OPT_StateCompact"></a></dt><dd>Job state in compact form.
+See the <b>JOB STATE CODES</b> section below for a list of possible states.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>STDERR</b><a class="slurm_link" id="OPT_STDERR" href="https://slurm.schedmd.com/squeue.html#OPT_STDERR"></a></dt><dd>The directory for standard error to output to.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>STDIN</b><a class="slurm_link" id="OPT_STDIN" href="https://slurm.schedmd.com/squeue.html#OPT_STDIN"></a></dt><dd>The directory for standard in.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>STDOUT</b><a class="slurm_link" id="OPT_STDOUT" href="https://slurm.schedmd.com/squeue.html#OPT_STDOUT"></a></dt><dd>The directory for standard out to output to.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>StepID</b><a class="slurm_link" id="OPT_StepID" href="https://slurm.schedmd.com/squeue.html#OPT_StepID"></a></dt><dd>Job or job step ID.
+In the case of job arrays, the job ID format will be of the form
+"&lt;base_job_id&gt;_&lt;index&gt;".
+(Valid for job steps only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>StepName</b><a class="slurm_link" id="OPT_StepName" href="https://slurm.schedmd.com/squeue.html#OPT_StepName"></a></dt><dd>Job step name.
+(Valid for job steps only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>StepState</b><a class="slurm_link" id="OPT_StepState" href="https://slurm.schedmd.com/squeue.html#OPT_StepState"></a></dt><dd>The state of the job step.
+(Valid for job steps only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SubmitTime</b><a class="slurm_link" id="OPT_SubmitTime" href="https://slurm.schedmd.com/squeue.html#OPT_SubmitTime"></a></dt><dd>The time that the job was submitted at.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>system_comment</b><a class="slurm_link" id="OPT_system_comment" href="https://slurm.schedmd.com/squeue.html#OPT_system_comment"></a></dt><dd>System comment associated with the job.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Threads</b><a class="slurm_link" id="OPT_Threads" href="https://slurm.schedmd.com/squeue.html#OPT_Threads"></a></dt><dd>Number of threads per core requested by the job.
+This reports the value of the <b>srun --threads-per-core</b> option.
+When <b>--threads-per-core</b> has not been set, "*" is displayed.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>TimeLeft</b><a class="slurm_link" id="OPT_TimeLeft" href="https://slurm.schedmd.com/squeue.html#OPT_TimeLeft"></a></dt><dd>Time left for the job to execute in days-hours:minutes:seconds.
+This value is calculated by subtracting the job's time used from its time
+limit.
+The value may be "NOT_SET" if not yet established or "UNLIMITED" for no limit.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>TimeLimit</b><a class="slurm_link" id="OPT_TimeLimit" href="https://slurm.schedmd.com/squeue.html#OPT_TimeLimit"></a></dt><dd>Timelimit for the job or job step.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>TimeUsed</b><a class="slurm_link" id="OPT_TimeUsed" href="https://slurm.schedmd.com/squeue.html#OPT_TimeUsed"></a></dt><dd>Time used by the job or job step in days-hours:minutes:seconds.
+The days and hours are printed only as needed.
+For job steps this field shows the elapsed time since execution began
+and thus will be inaccurate for job steps which have been suspended.
+Clock skew between nodes in the cluster will cause the time to be inaccurate.
+If the time is obviously wrong (e.g. negative), it displays as "INVALID".
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>tres-alloc</b><a class="slurm_link" id="OPT_tres-alloc" href="https://slurm.schedmd.com/squeue.html#OPT_tres-alloc"></a></dt><dd>Print the trackable resources allocated to the job if running.
+If not running, then print the trackable resources requested by the job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>tres-bind</b><a class="slurm_link" id="OPT_tres-bind" href="https://slurm.schedmd.com/squeue.html#OPT_tres-bind"></a></dt><dd>Print the trackable resources task binding requested by the job or job step.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>tres-freq</b><a class="slurm_link" id="OPT_tres-freq" href="https://slurm.schedmd.com/squeue.html#OPT_tres-freq"></a></dt><dd>Print the trackable resources frequencies requested by the job or job step.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>tres-per-job</b><a class="slurm_link" id="OPT_tres-per-job" href="https://slurm.schedmd.com/squeue.html#OPT_tres-per-job"></a></dt><dd>Print the trackable resources requested by the job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>tres-per-node</b><a class="slurm_link" id="OPT_tres-per-node" href="https://slurm.schedmd.com/squeue.html#OPT_tres-per-node"></a></dt><dd>Print the trackable resources per node requested by the job or job step.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>tres-per-socket</b><a class="slurm_link" id="OPT_tres-per-socket" href="https://slurm.schedmd.com/squeue.html#OPT_tres-per-socket"></a></dt><dd>Print the trackable resources per socket requested by the job or job step.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>tres-per-step</b><a class="slurm_link" id="OPT_tres-per-step" href="https://slurm.schedmd.com/squeue.html#OPT_tres-per-step"></a></dt><dd>Print the trackable resources requested by the job step.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>tres-per-task</b><a class="slurm_link" id="OPT_tres-per-task" href="https://slurm.schedmd.com/squeue.html#OPT_tres-per-task"></a></dt><dd>Print the trackable resources per task requested by the job or job step.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>UserID</b><a class="slurm_link" id="OPT_UserID" href="https://slurm.schedmd.com/squeue.html#OPT_UserID"></a></dt><dd>User ID for a job or job step.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>UserName</b><a class="slurm_link" id="OPT_UserName" href="https://slurm.schedmd.com/squeue.html#OPT_UserName"></a></dt><dd>User name for a job or job step.
+(Valid for jobs and job steps)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Wait4Switch</b><a class="slurm_link" id="OPT_Wait4Switch" href="https://slurm.schedmd.com/squeue.html#OPT_Wait4Switch"></a></dt><dd>The amount of time to wait for the desired number of switches.
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>WCKey</b><a class="slurm_link" id="OPT_WCKey" href="https://slurm.schedmd.com/squeue.html#OPT_WCKey"></a></dt><dd>Workload Characterization Key (wckey).
+(Valid for jobs only)
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>WorkDir</b><a class="slurm_link" id="OPT_WorkDir" href="https://slurm.schedmd.com/squeue.html#OPT_WorkDir"></a></dt><dd>The job's working directory.
+(Valid for jobs only)
+</dd></dl>
+</dd></dl>
+
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--help</b><a class="slurm_link" id="OPT_help" href="https://slurm.schedmd.com/squeue.html#OPT_help"></a></dt><dd>Print a help message describing all options <b>squeue</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--hide</b><a class="slurm_link" id="OPT_hide" href="https://slurm.schedmd.com/squeue.html#OPT_hide"></a></dt><dd>Do not display information about jobs and job steps in all partitions. By default,
+information about partitions that are configured as hidden or are not available
+to the user's group will not be displayed (i.e. this is the default behavior).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-i</b>, <b>--iterate</b>=&lt;<i>seconds</i>&gt;<a class="slurm_link" id="OPT_iterate" href="https://slurm.schedmd.com/squeue.html#OPT_iterate"></a></dt><dd>Repeatedly gather and report the requested information at the interval
+specified (in seconds).
+By default, prints a time stamp with the header.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-j</b>, <b>--jobs</b>[=&lt;<i>job_id_list</i>&gt;]<a class="slurm_link" id="OPT_jobs" href="https://slurm.schedmd.com/squeue.html#OPT_jobs"></a></dt><dd>Specify a comma separated list of job IDs to display. Defaults to all jobs.
+The <b>--jobs</b>=&lt;<i>job_id_list</i>&gt; option may be used in conjunction with
+the <b>--steps</b> option to print step information about specific jobs.
+Note: If a list of job IDs is provided, the jobs are displayed even if
+they are on hidden partitions. Since this option's argument is optional,
+for proper parsing the single letter option must be followed immediately
+with the value and not include a space between them. For example "-j1008"
+and not "-j 1008".
+The job ID format is "job_id[_array_id]".
+Performance of the command can be measurably improved for systems with large
+numbers of jobs when a single job ID is specified.
+By default, this field size will be limited to 64 bytes.
+Use the environment variable SLURM_BITSTR_LEN to specify larger field sizes.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--json</b>, <b>--json</b>=<i>list</i>, <b>--json</b>=&lt;<i>data_parser</i>&gt;<a class="slurm_link" id="OPT_json" href="https://slurm.schedmd.com/squeue.html#OPT_json"></a></dt><dd>Dump information as JSON using the default data_parser plugin or explicit
+data_parser with parameters. All information is dumped, even if it would
+normally not be. Sorting and formatting arguments passed to other options are
+ignored; however, most filtering arguments are still used.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-L</b>, <b>--licenses</b>=&lt;<i>license_list</i>&gt;<a class="slurm_link" id="OPT_licenses" href="https://slurm.schedmd.com/squeue.html#OPT_licenses"></a></dt><dd>Request jobs requesting or using one or more of the named licenses.
+The license list consists of a comma separated list of license names.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--local</b><a class="slurm_link" id="OPT_local" href="https://slurm.schedmd.com/squeue.html#OPT_local"></a></dt><dd>Show only jobs local to this cluster. Ignore other clusters in this federation
+(if any). Overrides --federation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-l</b>, <b>--long</b><a class="slurm_link" id="OPT_long_1" href="https://slurm.schedmd.com/squeue.html#OPT_long_1"></a></dt><dd>Report more of the available information for the selected jobs or job steps,
+subject to any constraints specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--me</b><a class="slurm_link" id="OPT_me" href="https://slurm.schedmd.com/squeue.html#OPT_me"></a></dt><dd>Equivalent to <b>--user=&lt;my username&gt;</b>.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-n</b>, <b>--name</b>=&lt;<i>name_list</i>&gt;<a class="slurm_link" id="OPT_name" href="https://slurm.schedmd.com/squeue.html#OPT_name"></a></dt><dd>Request jobs or job steps having one of the specified names. The
+list consists of a comma separated list of job names.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--noconvert</b><a class="slurm_link" id="OPT_noconvert" href="https://slurm.schedmd.com/squeue.html#OPT_noconvert"></a></dt><dd>Don't convert units from their original type (e.g. 2048M won't be converted to
+2G).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-w</b>, <b>--nodelist</b>=&lt;<i>hostlist</i>&gt;<a class="slurm_link" id="OPT_nodelist" href="https://slurm.schedmd.com/squeue.html#OPT_nodelist"></a></dt><dd>Report only on jobs allocated to the specified node or list of nodes.
+This may either be the <b>NodeName</b> or <b>NodeHostname</b>
+as defined in <b><a href="https://slurm.schedmd.com/slurm.conf.html">slurm.conf</a>(5)</b> in the event that they differ.
+A node_name of <b>localhost</b> is mapped to the current host name.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-h</b>, <b>--noheader</b><a class="slurm_link" id="OPT_noheader" href="https://slurm.schedmd.com/squeue.html#OPT_noheader"></a></dt><dd>Do not print a header on the output.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--notme</b><a class="slurm_link" id="OPT_notme" href="https://slurm.schedmd.com/squeue.html#OPT_notme"></a></dt><dd>Opposite of <b>--me</b>; only display jobs that are not from the invoking user.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--only-job-state</b><a class="slurm_link" id="OPT_only-job-state" href="https://slurm.schedmd.com/squeue.html#OPT_only-job-state"></a></dt><dd>Only query for the job state. Query utilizes RPC that only retains JobID
+and State information, reducing work required by slurmctld to respond.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-p</b>, <b>--partition</b>=&lt;<i>part_list</i>&gt;<a class="slurm_link" id="OPT_partition" href="https://slurm.schedmd.com/squeue.html#OPT_partition"></a></dt><dd>Specify the partitions of the jobs or steps to view. Accepts a comma separated
+list of partition names.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-P</b>, <b>--priority</b><a class="slurm_link" id="OPT_priority" href="https://slurm.schedmd.com/squeue.html#OPT_priority"></a></dt><dd>For pending jobs submitted to multiple partitions, list the job once per
+partition. In addition, if jobs are sorted by priority, consider both the
+partition and job priority. This option can be used to produce a list of
+pending jobs in the same order considered for scheduling by Slurm with
+appropriate additional options (e.g. "--sort=-p,i --states=PD").
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-q</b>, <b>--qos</b>=&lt;<i>qos_list</i>&gt;<a class="slurm_link" id="OPT_qos" href="https://slurm.schedmd.com/squeue.html#OPT_qos"></a></dt><dd>Specify the qos(s) of the jobs or steps to view. Accepts a comma
+separated list of qos's.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-R</b>, <b>--reservation</b>=&lt;<i>reservation_name</i>&gt;<a class="slurm_link" id="OPT_reservation" href="https://slurm.schedmd.com/squeue.html#OPT_reservation"></a></dt><dd>Specify the reservation of the jobs to view.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--sibling</b><a class="slurm_link" id="OPT_sibling" href="https://slurm.schedmd.com/squeue.html#OPT_sibling"></a></dt><dd>Show all sibling jobs on a federated cluster. Implies --federation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-S</b>, <b>--sort</b>=&lt;<i>sort_list</i>&gt;<a class="slurm_link" id="OPT_sort" href="https://slurm.schedmd.com/squeue.html#OPT_sort"></a></dt><dd>Specification of the order in which records should be reported.
+This uses the same field specification as the &lt;output_format&gt;.
+The long format option "cluster" can also be used to sort jobs or job steps by
+cluster name (e.g. federated jobs).
+Multiple sorts may be performed by listing multiple sort fields
+separated by commas.
+The field specifications may be preceded by "+" or "-" for
+ascending (default) and descending order respectively.
+For example, a sort value of "P,U" will sort the
+records by partition name then by user id.
+The default value of sort for jobs is "P,t,-p" (increasing partition
+name then within a given partition by increasing job state and then
+decreasing priority).
+The default value of sort for job steps is "P,i" (increasing partition
+name then within a given partition by increasing step id).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--start</b><a class="slurm_link" id="OPT_start" href="https://slurm.schedmd.com/squeue.html#OPT_start"></a></dt><dd>Report the expected start time and resources to be allocated for pending jobs
+in order of increasing start time.
+This is equivalent to the following options:
+<b>--format="%.18i %.9P %.8j %.8u %.2t  %.19S %.6D %20Y %R"</b>,
+<b>--sort=S</b> and <b>--states=PENDING</b>.
+Any of these options may be explicitly changed as desired by
+combining the <b>--start</b> option with other option values
+(e.g. to use a different output format).
+The expected start time of pending jobs is only available if the
+Slurm is configured to use the backfill scheduling plugin.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-t</b>, <b>--states</b>=&lt;<i>state_list</i>&gt;<a class="slurm_link" id="OPT_states" href="https://slurm.schedmd.com/squeue.html#OPT_states"></a></dt><dd>Specify the states of jobs to view. Accepts a comma separated list of
+state names or "all". If "all" is specified then jobs of all states will be
+reported. If no state is specified then pending, running, and completing
+jobs are reported. See the <b>JOB STATE CODES</b> section below for a list of
+valid states. Both extended and compact forms are valid.
+Note the <b>&lt;state_list&gt;</b> supplied is case insensitive ("pd" and "PD" are
+equivalent).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-s</b>, <b>--steps</b>[=&lt;<i>step_list</i>&gt;]<a class="slurm_link" id="OPT_steps_1" href="https://slurm.schedmd.com/squeue.html#OPT_steps_1"></a></dt><dd>Specify the job steps to view. This flag indicates that a comma separated list
+of job steps to view follows without an equal sign (see examples).
+The job step format is "job_id[_array_id].step_id". Defaults to all job
+steps. Since this option's argument is optional, for proper parsing
+the single letter option must be followed immediately with the value
+and not include a space between them. For example "-s1008.0" and not
+"-s 1008.0".
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--usage</b><a class="slurm_link" id="OPT_usage" href="https://slurm.schedmd.com/squeue.html#OPT_usage"></a></dt><dd>Print a brief help message listing the <b>squeue</b> options.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-u</b>, <b>--user</b>=&lt;<i>user_list</i>&gt;<a class="slurm_link" id="OPT_user" href="https://slurm.schedmd.com/squeue.html#OPT_user"></a></dt><dd>Request jobs or job steps from a comma separated list of users.
+The list can consist of user names or user id numbers.
+Performance of the command can be measurably improved for systems with large
+numbers of jobs when a single user is specified.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-v</b>, <b>--verbose</b><a class="slurm_link" id="OPT_verbose" href="https://slurm.schedmd.com/squeue.html#OPT_verbose"></a></dt><dd>Report details of squeues actions.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>-V</b> , <b>--version</b><a class="slurm_link" id="OPT_version" href="https://slurm.schedmd.com/squeue.html#OPT_version"></a></dt><dd>Print version information and exit.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>--yaml</b>, <b>--yaml</b>=<i>list</i>, <b>--yaml</b>=&lt;<i>data_parser</i>&gt;<a class="slurm_link" id="OPT_yaml" href="https://slurm.schedmd.com/squeue.html#OPT_yaml"></a></dt><dd>Dump information as YAML using the default data_parser plugin or explicit
+data_parser with parameters. All information is dumped, even if it would
+normally not be. Sorting and formatting arguments passed to other options are
+ignored; however, most filtering arguments are still used.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAF">&nbsp;</a>
+<h2>JOB REASON CODES<a class="slurm_link" id="SECTION_JOB-REASON-CODES" href="https://slurm.schedmd.com/squeue.html#SECTION_JOB-REASON-CODES"></a></h2>
+These codes identify the reason that a job has not been started by the scheduler.
+There may be multiple reasons why a job cannot start yet, in which case only the
+reason that was encountered by the attempted scheduling method will be displayed.
+<p>
+The Reasons listed below are some of the more common ones you might see.
+For a full list of Reason codes refer to this page:
+&lt;<a href="https://slurm.schedmd.com/job_reason_codes.html">https://slurm.schedmd.com/job_reason_codes.html</a>&gt;
+</p><p>
+</p><dl compact="">
+<dt><b>AssocGrp*Limit</b><a class="slurm_link" id="OPT_AssocGrp*Limit" href="https://slurm.schedmd.com/squeue.html#OPT_AssocGrp*Limit"></a></dt><dd>The job's association has reached an aggregate limit on some resource.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>AssociationJobLimit</b><a class="slurm_link" id="OPT_AssociationJobLimit" href="https://slurm.schedmd.com/squeue.html#OPT_AssociationJobLimit"></a></dt><dd>The job's association has reached its maximum job count.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>AssocMax*Limit</b><a class="slurm_link" id="OPT_AssocMax*Limit" href="https://slurm.schedmd.com/squeue.html#OPT_AssocMax*Limit"></a></dt><dd>The job requests a resource that violates a per-job limit on the requested
+association.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>AssociationResourceLimit</b><a class="slurm_link" id="OPT_AssociationResourceLimit" href="https://slurm.schedmd.com/squeue.html#OPT_AssociationResourceLimit"></a></dt><dd>The job's association has reached some resource limit.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>AssociationTimeLimit</b><a class="slurm_link" id="OPT_AssociationTimeLimit" href="https://slurm.schedmd.com/squeue.html#OPT_AssociationTimeLimit"></a></dt><dd>The job's association has reached its time limit.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>BadConstraints</b><a class="slurm_link" id="OPT_BadConstraints" href="https://slurm.schedmd.com/squeue.html#OPT_BadConstraints"></a></dt><dd>The job's constraints can not be satisfied.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>BeginTime</b><a class="slurm_link" id="OPT_BeginTime" href="https://slurm.schedmd.com/squeue.html#OPT_BeginTime"></a></dt><dd>The job's earliest start time has not yet been reached.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Cleaning</b><a class="slurm_link" id="OPT_Cleaning" href="https://slurm.schedmd.com/squeue.html#OPT_Cleaning"></a></dt><dd>The job is being requeued and still cleaning up from its previous execution.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Dependency</b><a class="slurm_link" id="OPT_Dependency_1" href="https://slurm.schedmd.com/squeue.html#OPT_Dependency_1"></a></dt><dd>This job has a dependency on another job that has not been satisfied.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DependencyNeverSatisfied</b><a class="slurm_link" id="OPT_DependencyNeverSatisfied" href="https://slurm.schedmd.com/squeue.html#OPT_DependencyNeverSatisfied"></a></dt><dd>This job has a dependency on another job that will never be satisfied.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>FrontEndDown</b><a class="slurm_link" id="OPT_FrontEndDown" href="https://slurm.schedmd.com/squeue.html#OPT_FrontEndDown"></a></dt><dd>No front end node is available to execute this job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>InactiveLimit</b><a class="slurm_link" id="OPT_InactiveLimit" href="https://slurm.schedmd.com/squeue.html#OPT_InactiveLimit"></a></dt><dd>The job reached the system InactiveLimit.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>InvalidAccount</b><a class="slurm_link" id="OPT_InvalidAccount" href="https://slurm.schedmd.com/squeue.html#OPT_InvalidAccount"></a></dt><dd>The job's account is invalid.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>InvalidQOS</b><a class="slurm_link" id="OPT_InvalidQOS" href="https://slurm.schedmd.com/squeue.html#OPT_InvalidQOS"></a></dt><dd>The job's QOS is invalid.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>JobHeldAdmin</b><a class="slurm_link" id="OPT_JobHeldAdmin" href="https://slurm.schedmd.com/squeue.html#OPT_JobHeldAdmin"></a></dt><dd>The job is held by a system administrator.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>JobHeldUser</b><a class="slurm_link" id="OPT_JobHeldUser" href="https://slurm.schedmd.com/squeue.html#OPT_JobHeldUser"></a></dt><dd>The job is held by the user.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>JobLaunchFailure</b><a class="slurm_link" id="OPT_JobLaunchFailure" href="https://slurm.schedmd.com/squeue.html#OPT_JobLaunchFailure"></a></dt><dd>The job could not be launched.
+This may be due to a file system problem, invalid program name, etc.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Licenses</b><a class="slurm_link" id="OPT_Licenses_1" href="https://slurm.schedmd.com/squeue.html#OPT_Licenses_1"></a></dt><dd>The job is waiting for a license.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NodeDown</b><a class="slurm_link" id="OPT_NodeDown" href="https://slurm.schedmd.com/squeue.html#OPT_NodeDown"></a></dt><dd>A node required by the job is down.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NonZeroExitCode</b><a class="slurm_link" id="OPT_NonZeroExitCode" href="https://slurm.schedmd.com/squeue.html#OPT_NonZeroExitCode"></a></dt><dd>The job terminated with a non-zero exit code.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PartitionDown</b><a class="slurm_link" id="OPT_PartitionDown" href="https://slurm.schedmd.com/squeue.html#OPT_PartitionDown"></a></dt><dd>The partition required by this job is in a DOWN state.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PartitionInactive</b><a class="slurm_link" id="OPT_PartitionInactive" href="https://slurm.schedmd.com/squeue.html#OPT_PartitionInactive"></a></dt><dd>The partition required by this job is in an Inactive state and not able to
+start jobs.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PartitionNodeLimit</b><a class="slurm_link" id="OPT_PartitionNodeLimit" href="https://slurm.schedmd.com/squeue.html#OPT_PartitionNodeLimit"></a></dt><dd>The number of nodes required by this job is outside of its partition's current
+limits.
+Can also indicate that required nodes are DOWN or DRAINED.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PartitionTimeLimit</b><a class="slurm_link" id="OPT_PartitionTimeLimit" href="https://slurm.schedmd.com/squeue.html#OPT_PartitionTimeLimit"></a></dt><dd>The job's time limit exceeds its partition's current time limit.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Priority</b><a class="slurm_link" id="OPT_Priority_1" href="https://slurm.schedmd.com/squeue.html#OPT_Priority_1"></a></dt><dd>One or more higher priority jobs exist for this partition or advanced reservation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Prolog</b><a class="slurm_link" id="OPT_Prolog" href="https://slurm.schedmd.com/squeue.html#OPT_Prolog"></a></dt><dd>Its Prolog program is still running.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>QOSGrp*Limit</b><a class="slurm_link" id="OPT_QOSGrp*Limit" href="https://slurm.schedmd.com/squeue.html#OPT_QOSGrp*Limit"></a></dt><dd>The job's QOS has reached an aggregate limit on some resource.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>QOSJobLimit</b><a class="slurm_link" id="OPT_QOSJobLimit" href="https://slurm.schedmd.com/squeue.html#OPT_QOSJobLimit"></a></dt><dd>The job's QOS has reached its maximum job count.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>QOSMax*Limit</b><a class="slurm_link" id="OPT_QOSMax*Limit" href="https://slurm.schedmd.com/squeue.html#OPT_QOSMax*Limit"></a></dt><dd>The job requests a resource that violates a per-job limit on the requested
+QOS.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>QOSResourceLimit</b><a class="slurm_link" id="OPT_QOSResourceLimit" href="https://slurm.schedmd.com/squeue.html#OPT_QOSResourceLimit"></a></dt><dd>The job's QOS has reached some resource limit.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>QOSTimeLimit</b><a class="slurm_link" id="OPT_QOSTimeLimit" href="https://slurm.schedmd.com/squeue.html#OPT_QOSTimeLimit"></a></dt><dd>The job's QOS has reached its time limit.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>QOSUsageThreshold</b><a class="slurm_link" id="OPT_QOSUsageThreshold" href="https://slurm.schedmd.com/squeue.html#OPT_QOSUsageThreshold"></a></dt><dd>Required QOS threshold has been breached.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ReqNodeNotAvail</b><a class="slurm_link" id="OPT_ReqNodeNotAvail" href="https://slurm.schedmd.com/squeue.html#OPT_ReqNodeNotAvail"></a></dt><dd>Some node specifically required by the job is not currently available.
+The node may currently be in use, reserved for another job, in an advanced
+reservation, DOWN, DRAINED, or not responding.
+Nodes which are DOWN, DRAINED, or not responding will be identified as part
+of the job's "reason" field as "UnavailableNodes". Such nodes will typically
+require the intervention of a system administrator to make available.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Reservation</b><a class="slurm_link" id="OPT_Reservation_1" href="https://slurm.schedmd.com/squeue.html#OPT_Reservation_1"></a></dt><dd>The job is waiting its advanced reservation to become available.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>Resources</b><a class="slurm_link" id="OPT_Resources" href="https://slurm.schedmd.com/squeue.html#OPT_Resources"></a></dt><dd>The job is waiting for resources to become available.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SystemFailure</b><a class="slurm_link" id="OPT_SystemFailure" href="https://slurm.schedmd.com/squeue.html#OPT_SystemFailure"></a></dt><dd>Failure of the Slurm system, a file system, the network, etc.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>TimeLimit</b><a class="slurm_link" id="OPT_TimeLimit_1" href="https://slurm.schedmd.com/squeue.html#OPT_TimeLimit_1"></a></dt><dd>The job exhausted its time limit.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>WaitingForScheduling</b><a class="slurm_link" id="OPT_WaitingForScheduling" href="https://slurm.schedmd.com/squeue.html#OPT_WaitingForScheduling"></a></dt><dd>No reason has been set for this job yet.
+Waiting for the scheduler to determine the appropriate reason.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAG">&nbsp;</a>
+<h2>JOB STATE CODES<a class="slurm_link" id="SECTION_JOB-STATE-CODES" href="https://slurm.schedmd.com/squeue.html#SECTION_JOB-STATE-CODES"></a></h2>
+Jobs typically pass through several states in the course of their
+execution.
+The typical states are PENDING, RUNNING, SUSPENDED, COMPLETING, and COMPLETED.
+The following states are recognized by squeue. A full list of possible states
+is available at &lt;<a href="https://slurm.schedmd.com/job_state_codes.html">https://slurm.schedmd.com/job_state_codes.html</a>&gt;.
+<p>
+</p><dl compact="">
+<dt><b>BF  BOOT_FAIL</b><a class="slurm_link" id="OPT_BF--BOOT_FAIL" href="https://slurm.schedmd.com/squeue.html#OPT_BF--BOOT_FAIL"></a></dt><dd>Job terminated due to launch failure, typically due to a hardware failure
+(e.g. unable to boot the node or block and the job can not be requeued).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>CA  CANCELLED</b><a class="slurm_link" id="OPT_CA--CANCELLED" href="https://slurm.schedmd.com/squeue.html#OPT_CA--CANCELLED"></a></dt><dd>Job was explicitly cancelled by the user or system administrator.
+The job may or may not have been initiated.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>CD  COMPLETED</b><a class="slurm_link" id="OPT_CD--COMPLETED" href="https://slurm.schedmd.com/squeue.html#OPT_CD--COMPLETED"></a></dt><dd>Job has terminated all processes on all nodes with an exit code of zero.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>CF  CONFIGURING</b><a class="slurm_link" id="OPT_CF--CONFIGURING" href="https://slurm.schedmd.com/squeue.html#OPT_CF--CONFIGURING"></a></dt><dd>Job has been allocated resources, but are waiting for them to become ready for use
+(e.g. booting).
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>CG  COMPLETING</b><a class="slurm_link" id="OPT_CG--COMPLETING" href="https://slurm.schedmd.com/squeue.html#OPT_CG--COMPLETING"></a></dt><dd>Job is in the process of completing. Some processes on some nodes may still be active.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>DL  DEADLINE</b><a class="slurm_link" id="OPT_DL--DEADLINE" href="https://slurm.schedmd.com/squeue.html#OPT_DL--DEADLINE"></a></dt><dd>Job terminated on deadline.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>F   FAILED</b><a class="slurm_link" id="OPT_F---FAILED" href="https://slurm.schedmd.com/squeue.html#OPT_F---FAILED"></a></dt><dd>Job terminated with non-zero exit code or other failure condition.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>NF  NODE_FAIL</b><a class="slurm_link" id="OPT_NF--NODE_FAIL" href="https://slurm.schedmd.com/squeue.html#OPT_NF--NODE_FAIL"></a></dt><dd>Job terminated due to failure of one or more allocated nodes.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>OOM OUT_OF_MEMORY</b><a class="slurm_link" id="OPT_OOM-OUT_OF_MEMORY" href="https://slurm.schedmd.com/squeue.html#OPT_OOM-OUT_OF_MEMORY"></a></dt><dd>Job experienced out of memory error.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PD  PENDING</b><a class="slurm_link" id="OPT_PD--PENDING" href="https://slurm.schedmd.com/squeue.html#OPT_PD--PENDING"></a></dt><dd>Job is awaiting resource allocation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>PR  PREEMPTED</b><a class="slurm_link" id="OPT_PR--PREEMPTED" href="https://slurm.schedmd.com/squeue.html#OPT_PR--PREEMPTED"></a></dt><dd>Job terminated due to preemption.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>R   RUNNING</b><a class="slurm_link" id="OPT_R---RUNNING" href="https://slurm.schedmd.com/squeue.html#OPT_R---RUNNING"></a></dt><dd>Job currently has an allocation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>RD  RESV_DEL_HOLD</b><a class="slurm_link" id="OPT_RD--RESV_DEL_HOLD" href="https://slurm.schedmd.com/squeue.html#OPT_RD--RESV_DEL_HOLD"></a></dt><dd>Job is being held after requested reservation was deleted.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>RF  REQUEUE_FED</b><a class="slurm_link" id="OPT_RF--REQUEUE_FED" href="https://slurm.schedmd.com/squeue.html#OPT_RF--REQUEUE_FED"></a></dt><dd>Job is being requeued by a federation.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>RH  REQUEUE_HOLD</b><a class="slurm_link" id="OPT_RH--REQUEUE_HOLD" href="https://slurm.schedmd.com/squeue.html#OPT_RH--REQUEUE_HOLD"></a></dt><dd>Held job is being requeued.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>RQ  REQUEUED</b><a class="slurm_link" id="OPT_RQ--REQUEUED" href="https://slurm.schedmd.com/squeue.html#OPT_RQ--REQUEUED"></a></dt><dd>Completing job is being requeued.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>RS  RESIZING</b><a class="slurm_link" id="OPT_RS--RESIZING" href="https://slurm.schedmd.com/squeue.html#OPT_RS--RESIZING"></a></dt><dd>Job is about to change size.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>RV  REVOKED</b><a class="slurm_link" id="OPT_RV--REVOKED" href="https://slurm.schedmd.com/squeue.html#OPT_RV--REVOKED"></a></dt><dd>Sibling was removed from cluster due to other cluster starting the job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SI  SIGNALING</b><a class="slurm_link" id="OPT_SI--SIGNALING" href="https://slurm.schedmd.com/squeue.html#OPT_SI--SIGNALING"></a></dt><dd>Job is being signaled.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SE  SPECIAL_EXIT</b><a class="slurm_link" id="OPT_SE--SPECIAL_EXIT" href="https://slurm.schedmd.com/squeue.html#OPT_SE--SPECIAL_EXIT"></a></dt><dd>The job was requeued in a special state. This state can be set by
+users, typically in EpilogSlurmctld, if the job has terminated with
+a particular exit value.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SO  STAGE_OUT</b><a class="slurm_link" id="OPT_SO--STAGE_OUT" href="https://slurm.schedmd.com/squeue.html#OPT_SO--STAGE_OUT"></a></dt><dd>Job is staging out files.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>ST  STOPPED</b><a class="slurm_link" id="OPT_ST--STOPPED" href="https://slurm.schedmd.com/squeue.html#OPT_ST--STOPPED"></a></dt><dd>Job has an allocation, but execution has been stopped with SIGSTOP signal.
+CPUS have been retained by this job.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>S   SUSPENDED</b><a class="slurm_link" id="OPT_S---SUSPENDED" href="https://slurm.schedmd.com/squeue.html#OPT_S---SUSPENDED"></a></dt><dd>Job has an allocation, but execution has been suspended and CPUs have been
+released for other jobs.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>TO  TIMEOUT</b><a class="slurm_link" id="OPT_TO--TIMEOUT" href="https://slurm.schedmd.com/squeue.html#OPT_TO--TIMEOUT"></a></dt><dd>Job terminated upon reaching its time limit.
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAH">&nbsp;</a>
+<h2>PERFORMANCE<a class="slurm_link" id="SECTION_PERFORMANCE" href="https://slurm.schedmd.com/squeue.html#SECTION_PERFORMANCE"></a></h2>
+<p>
+
+Executing <b>squeue</b> sends a remote procedure call to <b>slurmctld</b>. If
+enough calls from <b>squeue</b> or other Slurm client commands that send remote
+procedure calls to the <b>slurmctld</b> daemon come in at once, it can result in
+a degradation of performance of the <b>slurmctld</b> daemon, possibly resulting
+in a denial of service.
+</p><p>
+
+Do not run <b>squeue</b> or other Slurm client commands that send remote
+procedure calls to <b>slurmctld</b> from loops in shell scripts or other
+programs. Ensure that programs limit calls to <b>squeue</b> to the minimum
+necessary for the information you are trying to gather.
+</p><p>
+<a name="lbAI">&nbsp;</a>
+</p><h2>ENVIRONMENT VARIABLES<a class="slurm_link" id="SECTION_ENVIRONMENT-VARIABLES" href="https://slurm.schedmd.com/squeue.html#SECTION_ENVIRONMENT-VARIABLES"></a></h2>
+<p>
+
+Some <b>squeue</b> options may be set via environment variables. These
+environment variables, along with their corresponding options, are listed
+below. (Note: Command line options will always override these settings.)
+</p><p>
+</p><dl compact="">
+<dt><b>SLURM_BITSTR_LEN</b><a class="slurm_link" id="OPT_SLURM_BITSTR_LEN" href="https://slurm.schedmd.com/squeue.html#OPT_SLURM_BITSTR_LEN"></a></dt><dd>Specifies the string length to be used for holding a job array's task ID
+expression.
+The default value is 64 bytes.
+A value of 0 will print the full expression with any length required.
+Larger values may adversely impact the application performance.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CLUSTERS</b><a class="slurm_link" id="OPT_SLURM_CLUSTERS" href="https://slurm.schedmd.com/squeue.html#OPT_SLURM_CLUSTERS"></a></dt><dd>Same as <b>--clusters</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_CONF</b><a class="slurm_link" id="OPT_SLURM_CONF" href="https://slurm.schedmd.com/squeue.html#OPT_SLURM_CONF"></a></dt><dd>The location of the Slurm configuration file.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_DEBUG_FLAGS</b><a class="slurm_link" id="OPT_SLURM_DEBUG_FLAGS" href="https://slurm.schedmd.com/squeue.html#OPT_SLURM_DEBUG_FLAGS"></a></dt><dd>Specify debug flags for squeue to use. See DebugFlags in the
+<b><a href="https://slurm.schedmd.com/slurm.conf.html">slurm.conf</a></b>(5) man page for a full list of flags. The environment
+variable takes precedence over the setting in the slurm.conf.
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SLURM_TIME_FORMAT</b><a class="slurm_link" id="OPT_SLURM_TIME_FORMAT" href="https://slurm.schedmd.com/squeue.html#OPT_SLURM_TIME_FORMAT"></a></dt><dd>Specify the format used to report time stamps. A value of <i>standard</i>, the
+default value, generates output in the form "year-month-dateThour:minute:second".
+A value of <i>relative</i> returns only "hour:minute:second" if the current day.
+For other dates in the current year it prints the "hour:minute" preceded by
+"Tomorr" (tomorrow), "Ystday" (yesterday), the name of the day for the coming
+week (e.g. "Mon", "Tue", etc.), otherwise the date (e.g. "25 Apr").
+For other years it returns a date month and year without a time (e.g.
+"6 Jun 2012"). All of the time stamps use a 24 hour format.
+<p>
+A valid strftime() format can also be specified. For example, a value of
+"%a %T" will report the day of the week and a time stamp (e.g. "Mon 12:34:56").
+</p></dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SQUEUE_ACCOUNT</b><a class="slurm_link" id="OPT_SQUEUE_ACCOUNT" href="https://slurm.schedmd.com/squeue.html#OPT_SQUEUE_ACCOUNT"></a></dt><dd><b>-A &lt;account_list&gt;, --account=&lt;account_list&gt;</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SQUEUE_ALL</b><a class="slurm_link" id="OPT_SQUEUE_ALL" href="https://slurm.schedmd.com/squeue.html#OPT_SQUEUE_ALL"></a></dt><dd><b>-a, --all</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SQUEUE_ARRAY</b><a class="slurm_link" id="OPT_SQUEUE_ARRAY" href="https://slurm.schedmd.com/squeue.html#OPT_SQUEUE_ARRAY"></a></dt><dd><b>-r, --array</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SQUEUE_NAMES</b><a class="slurm_link" id="OPT_SQUEUE_NAMES" href="https://slurm.schedmd.com/squeue.html#OPT_SQUEUE_NAMES"></a></dt><dd><b>--name=&lt;name_list&gt;</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SQUEUE_FEDERATION</b><a class="slurm_link" id="OPT_SQUEUE_FEDERATION" href="https://slurm.schedmd.com/squeue.html#OPT_SQUEUE_FEDERATION"></a></dt><dd><b>--federation</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SQUEUE_FORMAT</b><a class="slurm_link" id="OPT_SQUEUE_FORMAT" href="https://slurm.schedmd.com/squeue.html#OPT_SQUEUE_FORMAT"></a></dt><dd><b>-o &lt;output_format&gt;, --format=&lt;output_format&gt;</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SQUEUE_FORMAT2</b><a class="slurm_link" id="OPT_SQUEUE_FORMAT2" href="https://slurm.schedmd.com/squeue.html#OPT_SQUEUE_FORMAT2"></a></dt><dd><b>-O &lt;output_format&gt;, --Format=&lt;output_format&gt;</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SQUEUE_LICENSES</b><a class="slurm_link" id="OPT_SQUEUE_LICENSES" href="https://slurm.schedmd.com/squeue.html#OPT_SQUEUE_LICENSES"></a></dt><dd><b>-p-l &lt;license_list&gt;, --license=&lt;license_list&gt;</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SQUEUE_LOCAL</b><a class="slurm_link" id="OPT_SQUEUE_LOCAL" href="https://slurm.schedmd.com/squeue.html#OPT_SQUEUE_LOCAL"></a></dt><dd><b>--local</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SQUEUE_PARTITION</b><a class="slurm_link" id="OPT_SQUEUE_PARTITION" href="https://slurm.schedmd.com/squeue.html#OPT_SQUEUE_PARTITION"></a></dt><dd><b>-p &lt;part_list&gt;, --partition=&lt;part_list&gt;</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SQUEUE_PRIORITY</b><a class="slurm_link" id="OPT_SQUEUE_PRIORITY" href="https://slurm.schedmd.com/squeue.html#OPT_SQUEUE_PRIORITY"></a></dt><dd><b>-P</b>, <b>--priority</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SQUEUE_QOS</b><a class="slurm_link" id="OPT_SQUEUE_QOS" href="https://slurm.schedmd.com/squeue.html#OPT_SQUEUE_QOS"></a></dt><dd><b>-p &lt;qos_list&gt;, --qos=&lt;qos_list&gt;</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SQUEUE_SIBLING</b><a class="slurm_link" id="OPT_SQUEUE_SIBLING" href="https://slurm.schedmd.com/squeue.html#OPT_SQUEUE_SIBLING"></a></dt><dd><b>--sibling</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SQUEUE_SORT</b><a class="slurm_link" id="OPT_SQUEUE_SORT" href="https://slurm.schedmd.com/squeue.html#OPT_SQUEUE_SORT"></a></dt><dd><b>-S &lt;sort_list&gt;, --sort=&lt;sort_list&gt;</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SQUEUE_STATES</b><a class="slurm_link" id="OPT_SQUEUE_STATES" href="https://slurm.schedmd.com/squeue.html#OPT_SQUEUE_STATES"></a></dt><dd><b>-t &lt;state_list&gt;, --states=&lt;state_list&gt;</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd><dt><b>SQUEUE_USERS</b><a class="slurm_link" id="OPT_SQUEUE_USERS" href="https://slurm.schedmd.com/squeue.html#OPT_SQUEUE_USERS"></a></dt><dd><b>-u &lt;user_list&gt;, --users=&lt;user_list&gt;</b>
+</dd><dt></dt><dd>
+<p>
+</p></dd></dl>
+<a name="lbAJ">&nbsp;</a>
+<h2>EXAMPLES<a class="slurm_link" id="SECTION_EXAMPLES" href="https://slurm.schedmd.com/squeue.html#SECTION_EXAMPLES"></a></h2>
+<p>
+</p><dl compact="">
+<dt>Print the jobs scheduled in the debug partition and in the COMPLETED state in the format with six right justified digits for the job id followed by the priority with an arbitrary fields size:</dt><dd>
+</dd><dt></dt><dd>
+<pre>$ squeue -p debug -t COMPLETED -o "%.6i %p"
+ JOBID PRIORITY
+ 65543 99993
+ 65544 99992
+ 65545 99991
+</pre>
+
+<p>
+</p></dd><dt>Print the job steps in the debug partition sorted by user:</dt><dd>
+</dd><dt></dt><dd>
+<pre>$ squeue -s -p debug -S u
+  STEPID        NAME PARTITION     USER      TIME NODELIST
+ 65552.1       test1     debug    alice      0:23 dev[1-4]
+ 65562.2     big_run     debug      bob      0:18 dev22
+ 65550.1      param1     debug  candice   1:43:21 dev[6-12]
+</pre>
+
+<p>
+</p></dd><dt>Print information only about jobs 12345, 12346 and 12348:</dt><dd>
+</dd><dt></dt><dd>
+<pre>$ squeue --jobs 12345,12346,12348
+ JOBID PARTITION NAME USER ST  TIME  NODES NODELIST(REASON)
+ 12345     debug job1 dave  R   0:21     4 dev[9-12]
+ 12346     debug job2 dave PD   0:00     8 (Resources)
+ 12348     debug job3 ed   PD   0:00     4 (Priority)
+</pre>
+
+<p>
+</p></dd><dt>Print information only about job step 65552.1:</dt><dd>
+</dd><dt></dt><dd>
+<pre>$ squeue --steps 65552.1
+  STEPID     NAME PARTITION    USER    TIME  NODELIST
+ 65552.1    test2     debug   alice   12:49  dev[1-4]
+</pre>
+
+<p>
+</p></dd></dl>
+<a name="lbAK">&nbsp;</a>
+<h2>COPYING<a class="slurm_link" id="SECTION_COPYING" href="https://slurm.schedmd.com/squeue.html#SECTION_COPYING"></a></h2>
+Copyright (C) 2002-2007 The Regents of the University of California.
+Produced at Lawrence Livermore National Laboratory (cf, DISCLAIMER).
+<br>
+
+Copyright (C) 2008-2010 Lawrence Livermore National Security.
+<br>
+
+Copyright (C) 2010-2022 SchedMD LLC.
+<p>
+
+This file is part of Slurm, a resource management program.
+For details, see &lt;<a href="https://slurm.schedmd.com/">https://slurm.schedmd.com/</a>&gt;.
+</p><p>
+
+Slurm is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free
+Software Foundation; either version 2 of the License, or (at your option)
+any later version.
+</p><p>
+
+Slurm is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+details.
+<a name="lbAL">&nbsp;</a>
+</p><h2>SEE ALSO<a class="slurm_link" id="SECTION_SEE-ALSO" href="https://slurm.schedmd.com/squeue.html#SECTION_SEE-ALSO"></a></h2>
+<b><a href="https://slurm.schedmd.com/scancel.html">scancel</a></b>(1), <b><a href="https://slurm.schedmd.com/scontrol.html">scontrol</a></b>(1), <b><a href="https://slurm.schedmd.com/sinfo.html">sinfo</a></b>(1), <b><a href="https://slurm.schedmd.com/srun.html">srun</a></b>(1),
+<b>slurm_load_ctl_conf</b> (3), <b>slurm_load_jobs</b> (3),
+<b>slurm_load_node</b> (3),
+<b>slurm_load_partitions</b> (3)
+<p>
+
+</p><hr>
+<a name="index">&nbsp;</a><h2>Index</h2>
+<dl>
+<dt><a href="https://slurm.schedmd.com/squeue.html#lbAB">NAME</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/squeue.html#lbAC">SYNOPSIS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/squeue.html#lbAD">DESCRIPTION</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/squeue.html#lbAE">OPTIONS</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/squeue.html#lbAF">JOB REASON CODES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/squeue.html#lbAG">JOB STATE CODES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/squeue.html#lbAH">PERFORMANCE</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/squeue.html#lbAI">ENVIRONMENT VARIABLES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/squeue.html#lbAJ">EXAMPLES</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/squeue.html#lbAK">COPYING</a></dt><dd>
+</dd><dt><a href="https://slurm.schedmd.com/squeue.html#lbAL">SEE ALSO</a></dt><dd>
+</dd></dl>
+<hr>
+This document was created by
+<i>man2html</i> using the manual pages.<br>
+Time: 20:54:38 GMT, February 25, 2025
+			</div> <!-- END .container -->
+		</div> <!-- END .section -->
+	</div> <!-- END .content -->
+</div> <!-- END .main -->
+
+
+
+<table cellspacing="0" cellpadding="0" role="presentation" class="gstl_50 gssb_c" style="width: 172px; display: none; top: 65px; left: 523px; position: absolute;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table><div data-lastpass-root="" style="position: absolute !important; top: 0px !important; left: 0px !important; height: 0px !important; width: 0px !important;"><template shadowrootmode="closed"><div style="position: absolute; height: 100vh; width: 100vw; z-index: 2147483647; border-radius: 4px; top: 0px; left: 0px; max-height: 0px; max-width: 280px; min-width: auto;"><iframe data-lastpass-infield="true" allow="clipboard-write" src="chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/webclient-infield.html" style="border: none; height: 100%; width: 100%;"></iframe></div></template></div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
