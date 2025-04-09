@@ -12,3 +12,5 @@ questions.
 1. `conversations/`: directory containing these conversation in MarkDown
    format.
 1. `src/`: directory containing source code for examples.
+1. `patients_chatgpt.docx`: A Word document containing a conversation with
+   ChatGPT about the use of ChatGPT to analyse data.
